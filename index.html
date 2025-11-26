@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Amplixy transforme l'IT des PME en accélérateur de croissance grâce à des sites premium, du contenu clé en main et l'automatisation métier."
+    />
+    <title>Amplixy — Accélérateur Digital Premium pour PME</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              midnight: "#0a1128",
+              abyss: "#172a3a",
+              mist: "#e0e1dd",
+              accent: "#4a7c99",
+              glow: "#9ae3ff",
+            },
+            fontFamily: {
+              display: ["Montserrat", "Poppins", "system-ui", "sans-serif"],
+              sans: ["Lato", "Open Sans", "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              glass: "0 25px 60px rgba(0,0,0,0.35)",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      body {
+        @apply bg-midnight text-mist font-sans;
+      }
+      @layer components {
+        .section-shell {
+          @apply py-16 sm:py-20 lg:py-24;
+        }
+        .card-shell {
+          @apply rounded-3xl border border-white/10 bg-white/5 p-6 shadow-glass;
+        }
+      }
+      @layer utilities {
+        .eyebrow {
+          @apply uppercase tracking-[0.4em] text-xs font-semibold text-mist/60;
+        }
+        .reveal {
+          @apply opacity-0 translate-y-8 transition duration-700 ease-out;
+        }
+        .reveal.visible {
+          @apply opacity-100 translate-y-0;
+        }
+      }
+    </style>
+  </head>
+  <body class="relative overflow-x-hidden">
+    <div
+      class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(74,124,153,0.25),_transparent_55%)]"
+    ></div>
+    <nav
+      class="fixed inset-x-0 top-4 z-40 mx-auto w-[calc(100%-2rem)] max-w-6xl rounded-full border border-white/10 bg-midnight/80 px-6 py-3 shadow-2xl backdrop-blur-xl"
+      aria-label="Navigation principale"
+    >
+      <div class="flex items-center justify-between">
+        <a
+          href="#home"
+          class="font-display text-sm uppercase tracking-[0.3em] text-white"
+        >
+          Amplixy
+        </a>
+        <div class="hidden items-center gap-6 md:flex">
+          <a class="text-sm font-semibold text-mist hover:text-white" href="#home"
+            >Accueil</a
+          >
+          <a class="text-sm font-semibold text-mist hover:text-white" href="#approche"
+            >Approche</a
+          >
+          <a class="text-sm font-semibold text-mist hover:text-white" href="#services"
+            >Services</a
+          >
+          <a class="text-sm font-semibold text-mist hover:text-white" href="#realisations"
+            >Réalisations</a
+          >
+          <a
+            class="text-sm font-semibold text-mist hover:text-white"
+            href="#faq"
+            >FAQ</a
+          >
+          <a
+            class="rounded-full border border-white/30 px-4 py-2 text-sm font-semibold text-white transition hover:border-glow hover:text-glow"
+            href="#contact"
+            >Audit offert</a
+          >
+        </div>
+        <button
+          class="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 md:hidden"
+          aria-label="Ouvrir le menu"
+          data-nav-toggle
+        >
+          <span class="sr-only">Menu</span>
+          <div class="flex w-6 flex-col gap-1.5">
+            <span class="h-0.5 w-full bg-white"></span>
+            <span class="h-0.5 w-3/4 bg-white"></span>
+            <span class="h-0.5 w-5/6 bg-white"></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+
+    <div
+      class="fixed inset-0 z-30 hidden flex-col bg-midnight/90 px-8 py-12 text-lg font-semibold text-white backdrop-blur-2xl md:hidden"
+      data-mobile-menu
+    >
+      <div class="flex items-center justify-between">
+        <p class="font-display text-sm uppercase tracking-[0.3em]">Amplixy</p>
+        <button
+          class="rounded-full border border-white/30 p-3"
+          aria-label="Fermer le menu"
+          data-nav-toggle
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="mt-10 flex flex-col gap-6 text-base">
+        <a href="#home" class="hover:text-glow" data-nav-link>Accueil</a>
+        <a href="#approche" class="hover:text-glow" data-nav-link>Approche</a>
+        <a href="#services" class="hover:text-glow" data-nav-link>Services</a>
+        <a href="#realisations" class="hover:text-glow" data-nav-link>Réalisations</a>
+        <a href="#faq" class="hover:text-glow" data-nav-link>FAQ</a>
+        <a
+          href="#contact"
+          class="rounded-full border border-white/30 px-4 py-3 text-center text-base"
+          data-nav-link
+        >
+          Réserver un audit
+        </a>
+      </div>
+    </div>
+
+    <header
+      id="home"
+      class="mx-auto flex min-h-screen max-w-6xl flex-col gap-16 px-4 pt-28 sm:px-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12"
+    >
+      <div>
+        <p class="eyebrow mb-6">Agence digitale clé en main</p>
+        <h1
+          class="font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl"
+        >
+          Moins de chaos digital, plus de temps pour piloter votre PME.
+        </h1>
+        <p class="mt-6 text-lg text-mist/80">
+          Nous reprenons votre site, vos outils et vos messages pour qu'ils vous
+          gagnent des heures chaque semaine : un point d'entrée, un discours clair,
+          des demandes qui arrivent prêtes à traiter.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            class="rounded-full bg-gradient-to-r from-accent to-glow px-6 py-3 font-semibold text-slate-900 shadow-xl transition hover:scale-[1.01]"
+            href="#contact"
+          >
+            Demander un audit
+          </a>
+          <a
+            class="rounded-full px-6 py-3 font-semibold text-glow transition hover:text-white"
+            href="#realisations"
+          >
+            Découvrir nos résultats
+          </a>
+        </div>
+        <dl class="mt-10 grid gap-6 sm:grid-cols-3">
+          <div>
+            <dt class="text-sm uppercase text-mist/60">Temps libéré</dt>
+            <dd class="font-display text-3xl text-white">-40 h</dd>
+            <p class="text-sm text-mist/70">par mois en moyenne</p>
+          </div>
+          <div>
+            <dt class="text-sm uppercase text-mist/60">Leads qualifiés</dt>
+            <dd class="font-display text-3xl text-white">+62 %</dd>
+            <p class="text-sm text-mist/70">en 90 jours</p>
+          </div>
+          <div>
+            <dt class="text-sm uppercase text-mist/60">Livraison</dt>
+            <dd class="font-display text-3xl text-white">4 semaines</dd>
+            <p class="text-sm text-mist/70">pour un site actif</p>
+          </div>
+        </dl>
+      </div>
+      <div class="relative flex justify-center lg:justify-end">
+        <div
+          class="relative h-96 w-96 rounded-full border border-glow/30 bg-gradient-to-br from-accent/30 to-midnight/30 p-6 shadow-glass"
+        >
+          <div
+            class="absolute inset-10 rounded-full border border-dashed border-glow/40 opacity-60"
+          ></div>
+          <img
+            class="relative h-full w-full rounded-[2.5rem] object-cover shadow-2xl"
+            src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80"
+            alt="Equipe Amplixy en action"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main class="relative z-10">
+      <section class="section-shell" aria-labelledby="story-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <p class="eyebrow mb-4">L'histoire que l'on raconte</p>
+          <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+            <div class="space-y-6">
+              <h2
+                id="story-title"
+                class="font-display text-3xl text-white sm:text-4xl"
+              >
+                On remet des mots simples sur votre activité pour que vos prospects
+                se reconnaissent et vous contactent.
+              </h2>
+              <p>
+                Nous parlons avec votre direction, vos équipes terrain et quelques
+                clients pour comprendre ce qui vous freine au quotidien : demandes
+                mal qualifiées, pages impossibles à mettre à jour, outils qui
+                multiplient les saisies.
+              </p>
+              <p>
+                De ces échanges sort un récit clair : le point de départ, l'ambition
+                assumée, la preuve que vous délivrez vraiment. C’est ce récit qui
+                nourrit les pages du site, les mails automatisés et les arguments
+                commerciaux.
+              </p>
+              <ul class="list-disc space-y-2 pl-5 text-mist/80">
+                <li>Atelier fondateurs & managers (2h, concret)</li>
+                <li>Interviews clients et commerciaux</li>
+                <li>Plan d'histoire en 6 scènes utilisable partout</li>
+              </ul>
+            </div>
+            <div class="rounded-3xl border border-white/15 bg-white/5 p-6">
+              <div class="space-y-4">
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-glow">Acte 1</p>
+                  <p class="mt-2 text-sm">
+                    Pourquoi changer maintenant ? Identifier les pertes, aligner
+                    la vision.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-glow">Acte 2</p>
+                  <p class="mt-2 text-sm">
+                    Formuler la promesse phare et l'émotion à transmettre.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-glow">Acte 3</p>
+                  <p class="mt-2 text-sm">
+                    Montrer comment vous livrez : délais tenus, équipe disponible,
+                    résultats visibles.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-glow">Acte 4</p>
+                  <p class="mt-2 text-sm">
+                    Projeter la suite : plan simple, points de contact, indicateurs suivis.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="pains-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <div class="max-w-3xl">
+            <p class="eyebrow mb-4">Problématiques PME</p>
+            <h2
+              id="pains-title"
+              class="font-display text-3xl text-white sm:text-4xl"
+            >
+              Vous perdez un temps fou à expliquer ce que vous faites et à suivre les demandes.
+            </h2>
+            <p class="mt-4 text-mist/80">
+              Site joli mais vide de sens, formulaires qui disparaissent, rendez-vous pris sans contexte…
+              On remet tout à plat pour que vos prospects comprennent, s’engagent et arrivent avec un briefing clair.
+            </p>
+          </div>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">Temps dilué</h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Multiples prestataires, validations interminables, mises à jour
+                inexistantes : vos équipes croulent sous les tâches support.
+              </p>
+            </article>
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">Outils fragmentés</h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Vos outils ne se parlent pas : il faut recopier les infos, relancer à la main et personne ne sait
+                où en est un dossier.
+              </p>
+            </article>
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">Opportunités perdues</h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Votre site n'explique pas votre valeur et vos contenus ne racontent rien de concret. Les bonnes opportunités partent ailleurs.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="pillars-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p class="eyebrow mb-4">Solution Amplixy</p>
+              <h2
+                id="pillars-title"
+                class="font-display text-3xl text-white sm:text-4xl"
+              >
+                Trois piliers pour un site actif et rentable.
+              </h2>
+            </div>
+            <p class="max-w-2xl text-mist/80">
+              Création web premium, automatisation métier et accompagnement continu
+              fonctionnent ensemble. Chaque pilier nourrit les autres pour
+              transformer votre site en dispositif d'acquisition et d'efficacité.
+            </p>
+          </div>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <article class="card-shell reveal">
+              <p class="text-sm uppercase tracking-[0.3em] text-glow">Pilier 01</p>
+              <h3 class="mt-3 text-2xl font-semibold text-white">
+                Création Web Premium
+              </h3>
+              <p class="mt-4 text-sm text-mist/80">
+                Un site qui raconte votre différence avec des mots simples, des visuels cohérents et des pages faciles à mettre à jour.
+              </p>
+            </article>
+            <article class="card-shell reveal">
+              <p class="text-sm uppercase tracking-[0.3em] text-glow">Pilier 02</p>
+              <h3 class="mt-3 text-2xl font-semibold text-white">
+                Automatisation Métier
+              </h3>
+              <p class="mt-4 text-sm text-mist/80">
+                Les formulaires, agendas et suivis se mettent à jour tout seuls. Chaque demande arrive avec le bon niveau d'information.
+              </p>
+            </article>
+            <article class="card-shell reveal">
+              <p class="text-sm uppercase tracking-[0.3em] text-glow">Pilier 03</p>
+              <h3 class="mt-3 text-2xl font-semibold text-white">
+                Accompagnement Continu
+              </h3>
+              <p class="mt-4 text-sm text-mist/80">
+                Une équipe qui reste à vos côtés pour suivre les chiffres, former vos collaborateurs et ajuster le site dès qu'un besoin apparaît.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="process-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <p class="eyebrow mb-4">Notre méthode</p>
+          <h2
+            id="process-title"
+            class="font-display text-3xl text-white sm:text-4xl"
+          >
+            Un parcours guidé en quatre actes pour livrer un dispositif complet.
+          </h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            <article class="card-shell reveal space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-mist/60">01 — Immersion</p>
+              <h3 class="text-2xl font-semibold text-white">Audit & alignement</h3>
+              <p class="text-sm text-mist/80">
+                On vient comprendre comment vous travaillez vraiment : qui vous contacte,
+                comment une demande avance, où ça bloque.
+              </p>
+              <p class="text-xs text-glow">Livrables : rapport d'audit + vision board.</p>
+            </article>
+            <article class="card-shell reveal space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-mist/60">02 — Design Ops</p>
+              <h3 class="text-2xl font-semibold text-white">Storytelling & UX</h3>
+              <p class="text-sm text-mist/80">
+                Nous réécrivons les pages et dessinons les parcours pour que chaque visiteur sache
+                en 30 secondes ce que vous faites, pour qui et comment travailler avec vous.
+              </p>
+              <p class="text-xs text-glow">Livrables : copy deck + prototype Figma.</p>
+            </article>
+            <article class="card-shell reveal space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-mist/60">03 — Build</p>
+              <h3 class="text-2xl font-semibold text-white">Dev & automatisation</h3>
+              <p class="text-sm text-mist/80">
+                Nous mettons le site en ligne et branchons vos formulaires, agendas et outils pour
+                qu'ils se mettent à jour sans effort.
+              </p>
+              <p class="text-xs text-glow">Livrables : site actif + runbook technique.</p>
+            </article>
+            <article class="card-shell reveal space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-mist/60">04 — Adoption</p>
+              <h3 class="text-2xl font-semibold text-white">Lancement & coaching</h3>
+              <p class="text-sm text-mist/80">
+                On suit vos chiffres chaque mois, on forme vos équipes et on ajuste le contenu et
+                les formulaires avec vous.
+              </p>
+              <p class="text-xs text-glow">Livrables : roadmap 90 jours + coaching.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="premium-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <div class="grid gap-10 lg:grid-cols-2">
+            <div>
+              <p class="eyebrow mb-4">Approche clé en main</p>
+              <h2
+                id="premium-title"
+                class="font-display text-3xl text-white sm:text-4xl"
+              >
+                Un seul partenaire pour piloter votre présence en ligne.
+              </h2>
+              <ul class="mt-6 space-y-4 text-mist/80">
+                <li>Nous gérons les mots, les images et la structure du site.</li>
+                <li>On surveille les temps de chargement et la place sur Google.</li>
+                <li>On ajoute des touches premium sans ralentir l'expérience.</li>
+                <li>On reste disponibles pour vos équipes quand elles en ont besoin.</li>
+              </ul>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div class="card-shell reveal">
+                <p class="text-sm text-glow">Playbook d'onboarding</p>
+                <p class="mt-3 text-sm">
+                  Kick-off de 60 minutes, audit process, état des lieux contenus,
+                  priorisation des quick wins.
+                </p>
+                <p class="mt-4 text-xs uppercase tracking-[0.3em] text-mist/60">
+                  J+3
+                </p>
+              </div>
+              <div class="card-shell reveal">
+                <p class="text-sm text-glow">Sprints créatifs & tech</p>
+                <p class="mt-3 text-sm">
+                  Deux sprints synchronisés pour designer, intégrer et automatiser
+                  sans rupture.
+                </p>
+                <p class="mt-4 text-xs uppercase tracking-[0.3em] text-mist/60">
+                  Semaines 1-4
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="approche"
+        class="section-shell"
+        aria-labelledby="approach-title"
+      >
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <p class="eyebrow mb-4">Notre philosophie</p>
+          <h2
+            id="approach-title"
+            class="font-display text-3xl text-white sm:text-4xl"
+          >
+            Pourquoi Amplixy ? Parce qu'un site doit agir.
+          </h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">
+                Site actif vs site vitrine
+              </h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Un site n'est pas un PDF posé sur internet : chaque page doit aider un visiteur
+                à comprendre, à se projeter et à passer à l'action.
+              </p>
+            </article>
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">Automatisation native</h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Les formulaires et les emails servent à avancer un dossier, pas à créer
+                plus d'administratif. On s'assure que rien ne se perd en route.
+              </p>
+            </article>
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">
+                Partenariat long terme
+              </h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Vous gardez la main, nous sommes le bras droit digital qui suit les actions,
+                anticipe les bugs et pousse les améliorations.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="services"
+        class="section-shell"
+        aria-labelledby="services-title"
+      >
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <div class="max-w-3xl">
+            <p class="eyebrow mb-4">Services</p>
+            <h2
+              id="services-title"
+              class="font-display text-3xl text-white sm:text-4xl"
+            >
+              Deux offres, un seul niveau d'exigence.
+            </h2>
+            <p class="mt-4 text-mist/80">
+              Deux formats simples : on relance votre site et votre discours, puis on reste
+              à vos côtés pour garder votre système en mouvement.
+            </p>
+          </div>
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            <article class="card-shell reveal flex flex-col">
+              <p class="text-sm uppercase tracking-[0.3em] text-glow">
+                Site & contenu
+              </p>
+              <h3 class="mt-4 text-2xl font-semibold text-white">
+                L'Expérience Digitale Amplixy
+              </h3>
+              <ul class="mt-4 space-y-3 text-sm text-mist/80">
+                <li>On clarifie vos offres et vos priorités.</li>
+                <li>On écrit les pages et construit les gabarits.</li>
+                <li>On shoot les visuels qui manquaient.</li>
+                <li>On publie sur un outil simple à administrer.</li>
+                <li>On forme vos équipes pour garder la main.</li>
+              </ul>
+              <p class="mt-6 text-sm font-semibold text-glow">
+                Déploiement en 30 jours.
+              </p>
+            </article>
+            <article class="card-shell reveal flex flex-col">
+              <p class="text-sm uppercase tracking-[0.3em] text-glow">
+                Automatisation & support
+              </p>
+              <h3 class="mt-4 text-2xl font-semibold text-white">
+                Le Partenariat Tech
+              </h3>
+              <ul class="mt-4 space-y-3 text-sm text-mist/80">
+                <li>On vérifie que vos outils parlent le même langage.</li>
+                <li>On simplifie les formulaires et les relances.</li>
+                <li>On reste disponible sur Slack pour vos équipes.</li>
+                <li>On suit les chiffres chaque mois et on corrige.</li>
+                <li>On aligne les prochaines étapes avec la direction.</li>
+              </ul>
+              <p class="mt-6 text-sm font-semibold text-glow">
+                Engagement mensuel flexible.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="metrics-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <p class="eyebrow mb-4">Impact</p>
+          <h2
+            id="metrics-title"
+            class="font-display text-3xl text-white sm:text-4xl"
+          >
+            Ce que nos clients mesurent après 90 jours de collaboration.
+          </h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-4">
+            <article class="card-shell reveal text-center">
+              <p class="font-display text-4xl text-glow">+34 %</p>
+              <p class="mt-3 text-sm text-mist/80">
+                de taux de transformation grâce à un discours clarifié.
+              </p>
+              <span class="text-xs text-mist/60">Nova Conseil</span>
+            </article>
+            <article class="card-shell reveal text-center">
+              <p class="font-display text-4xl text-glow">-52 h</p>
+              <p class="mt-3 text-sm text-mist/80">
+                de tâches répétitives supprimées via automatisations CRM.
+              </p>
+              <span class="text-xs text-mist/60">Helios Foods</span>
+            </article>
+            <article class="card-shell reveal text-center">
+              <p class="font-display text-4xl text-glow">+91</p>
+              <p class="mt-3 text-sm text-mist/80">
+                score Lighthouse moyen sur desktop & mobile.
+              </p>
+              <span class="text-xs text-mist/60">Atelier Lumen</span>
+            </article>
+            <article class="card-shell reveal text-center">
+              <p class="font-display text-4xl text-glow">3,2x</p>
+              <p class="mt-3 text-sm text-mist/80">
+                plus de rendez-vous issus du site vs anciens canaux.
+              </p>
+              <span class="text-xs text-mist/60">Maeva Industries</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="realisations"
+        class="section-shell"
+        aria-labelledby="cases-title"
+      >
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <p class="eyebrow mb-4">Réalisations</p>
+          <h2
+            id="cases-title"
+            class="font-display text-3xl text-white sm:text-4xl"
+          >
+            Des cas concrets, des gains mesurables.
+          </h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <article class="card-shell reveal flex flex-col">
+              <div class="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-mist/60">
+                <span>Avant</span><span>Après</span>
+              </div>
+              <h3 class="mt-4 text-xl font-semibold text-white">Helios Foods</h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Process commercial lent, site obsolète, ventes B2B stagnantes.
+              </p>
+              <ul class="mt-4 space-y-2 text-sm text-mist/70">
+                <li>HubSpot + automatisation des commandes récurrentes</li>
+                <li>Nouveau site produit + simulateur catalogue</li>
+                <li>Contenus photo/vidéo en usine</li>
+              </ul>
+              <p class="mt-4 text-sm font-semibold text-glow">
+                +58&nbsp;% de volume B2B en 4 mois.
+              </p>
+            </article>
+            <article class="card-shell reveal flex flex-col">
+              <div class="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-mist/60">
+                <span>Avant</span><span>Après</span>
+              </div>
+              <h3 class="mt-4 text-xl font-semibold text-white">Nova Conseil</h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Prospection chronophage, offres mal comprises.
+              </p>
+              <ul class="mt-4 space-y-2 text-sm text-mist/70">
+                <li>Refonte storytelling + parcours d'audit en ligne</li>
+                <li>Automatisation prise de rendez-vous & scoring</li>
+                <li>Playbooks commerciaux alimentés par la data</li>
+              </ul>
+              <p class="mt-4 text-sm font-semibold text-glow">
+                2,3x plus d'appels qualifiés.
+              </p>
+            </article>
+            <article class="card-shell reveal flex flex-col">
+              <div class="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-mist/60">
+                <span>Avant</span><span>Après</span>
+              </div>
+              <h3 class="mt-4 text-xl font-semibold text-white">Atelier Lumen</h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Besoin de digitaliser la prise de commande sur mesure.
+              </p>
+              <ul class="mt-4 space-y-2 text-sm text-mist/70">
+                <li>Portail client relié à Notion + Airtable</li>
+                <li>Workflow notifications + paiement sécurisé</li>
+                <li>Guide de marque photo et contenus premium</li>
+              </ul>
+              <p class="mt-4 text-sm font-semibold text-glow">
+                -45&nbsp;h d'administratif / mois.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="testimonials-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <p class="eyebrow mb-4">Témoignages</p>
+          <h2
+            id="testimonials-title"
+            class="font-display text-3xl text-white sm:text-4xl"
+          >
+            Des dirigeants libérés de la complexité.
+          </h2>
+          <div
+            class="mt-10 flex gap-4 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory"
+          >
+            <article
+              class="card-shell reveal min-w-[280px] snap-start"
+            >
+              <p class="text-sm text-mist/90">
+                “Amplixy a restructuré notre offre, mis en place un site qui
+                convertit et automatisé notre pipeline. On a gagné un mois de
+                visibilité commerciale.”
+              </p>
+              <div class="mt-4">
+                <strong class="block text-white">Claire Martin</strong>
+                <span class="text-xs text-mist/60">CEO, Nova Conseil</span>
+              </div>
+            </article>
+            <article
+              class="card-shell reveal min-w-[280px] snap-start"
+            >
+              <p class="text-sm text-mist/90">
+                “Enfin une équipe qui parle business avant pixels. Ils ont pris en
+                charge la photo, la rédaction, la partie tech et les formations
+                clients.”
+              </p>
+              <div class="mt-4">
+                <strong class="block text-white">Jules Renaud</strong>
+                <span class="text-xs text-mist/60">Fondateur, Atelier Lumen</span>
+              </div>
+            </article>
+            <article
+              class="card-shell reveal min-w-[280px] snap-start"
+            >
+              <p class="text-sm text-mist/90">
+                “Nos commerciaux disposent d'un site qui raconte la bonne histoire
+                et d'automatisations qui nourrissent le CRM. Amplixy reste à nos
+                côtés tous les mois.”
+              </p>
+              <div class="mt-4">
+                <strong class="block text-white">Sophia El-Amin</strong>
+                <span class="text-xs text-mist/60">COO, Helios Foods</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        class="section-shell"
+        aria-labelledby="contact-title"
+      >
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <div class="grid gap-10 lg:grid-cols-2">
+            <div>
+              <p class="eyebrow mb-4">Prêt à accélérer</p>
+              <h2
+                id="contact-title"
+                class="font-display text-3xl text-white sm:text-4xl"
+              >
+                Audit express de 30 minutes offert.
+              </h2>
+              <p class="mt-4 text-mist/80">
+                Partagez vos enjeux, nous revenons sous 24h avec un plan d'action :
+                priorités, gains rapides, roadmap et devis.
+              </p>
+              <div class="mt-8 grid gap-6 sm:grid-cols-2">
+                <div class="rounded-2xl border border-white/15 bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-mist/60">Délai</p>
+                  <p class="mt-2 font-display text-3xl text-white">24h</p>
+                  <p class="text-sm text-mist/70">pour un retour</p>
+                </div>
+                <div class="rounded-2xl border border-white/15 bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-mist/60">
+                    Equipe
+                  </p>
+                  <p class="mt-2 font-display text-3xl text-white">3</p>
+                  <p class="text-sm text-mist/70">experts dédiés</p>
+                </div>
+              </div>
+            </div>
+            <form class="card-shell reveal space-y-4" id="contact-form">
+              <label class="text-sm font-semibold text-white/90">
+                Nom & Prénom
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Julie Durant"
+                  class="mt-2 w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none"
+                />
+              </label>
+              <label class="text-sm font-semibold text-white/90">
+                Société
+                <input
+                  type="text"
+                  name="company"
+                  required
+                  placeholder="Nova Conseil"
+                  class="mt-2 w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none"
+                />
+              </label>
+              <label class="text-sm font-semibold text-white/90">
+                Email professionnel
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="julie@entreprise.fr"
+                  class="mt-2 w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none"
+                />
+              </label>
+              <label class="text-sm font-semibold text-white/90">
+                Contexte & objectifs
+                <textarea
+                  name="message"
+                  rows="4"
+                  placeholder="Décrivez votre situation actuelle..."
+                  class="mt-2 w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none"
+                ></textarea>
+              </label>
+              <button
+                type="submit"
+                class="w-full rounded-full bg-gradient-to-r from-accent to-glow px-6 py-3 font-semibold text-slate-900 shadow-xl transition hover:opacity-90"
+              >
+                Réserver un créneau
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="faq"
+        class="section-shell"
+        aria-labelledby="faq-title"
+      >
+        <div class="mx-auto max-w-6xl px-4 sm:px-8">
+          <p class="eyebrow mb-4">Questions fréquentes</p>
+          <h2
+            id="faq-title"
+            class="font-display text-3xl text-white sm:text-4xl"
+          >
+            Tout ce qu'on nous demande avant de démarrer.
+          </h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">
+                Combien de temps dure un projet ?
+              </h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Entre 4 et 6 semaines pour un site actif clé en main, selon la
+                complexité des intégrations et la disponibilité de vos équipes.
+                Nous lançons toujours avec un MVP premium avant d'ajouter des modules.
+              </p>
+            </article>
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">
+                Travaillez-vous avec nos prestataires existants ?
+              </h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Oui. Nous nous connectons à vos équipes IT, marketing ou agences
+                partenaires pour fluidifier le pilotage et éviter la duplication des
+                efforts. Nous pouvons aussi recommander notre réseau expert.
+              </p>
+            </article>
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">
+                Comment garantissez-vous la performance ?
+              </h3>
+              <p class="mt-3 text-sm text-mist/80">
+                Nous livrons un tableau de bord Core Web Vitals et un plan
+                d'optimisation SEO technique dès la mise en ligne. Les audits
+                trimestriels nous permettent d'ajuster contenus et automatisations.
+              </p>
+            </article>
+            <article class="card-shell reveal">
+              <h3 class="text-xl font-semibold text-white">
+                Quel est l'investissement moyen ?
+              </h3>
+              <p class="mt-3 text-sm text-mist/80">
+                La plupart des mandats démarrent à partir de 12 k€ pour la création
+                du site actif, puis un abonnement mensuel entre 2,5 k€ et 6 k€ pour
+                le partenariat tech continu.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-midnight/80 py-12">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 text-sm text-mist/80 sm:px-8 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-white">Amplixy</p>
+          <p class="mt-2 max-w-md text-xs text-mist/60">
+            Agence digitale premium basée à Paris & Lyon. Nous accompagnons les
+            PME ambitieuses dans la durée avec des dispositifs digitaux actifs.
+          </p>
+        </div>
+        <div class="flex flex-col gap-2 text-sm text-glow md:text-right">
+          <a href="mailto:bonjour@amplixy.com" class="hover:text-white">bonjour@amplixy.com</a>
+          <a href="tel:+33184000000" class="hover:text-white">+33 1 84 00 00 00</a>
+        </div>
+      </div>
+      <p class="mt-8 text-center text-xs text-mist/50">
+        © Amplixy 2025 — Site actif, croissance réelle.
+      </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
+
