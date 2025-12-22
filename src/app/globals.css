@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a1128;
+  --foreground: #e0e1dd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@layer components {
+  .section-shell {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+  .card-shell {
+    @apply rounded-3xl border border-white/10 bg-white/5 p-6 shadow-glass backdrop-blur-sm;
+  }
+}
+
+@layer utilities {
+  .eyebrow {
+    @apply uppercase tracking-[0.4em] text-xs font-semibold text-mist/60;
+  }
+}
+
