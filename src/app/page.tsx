@@ -14,66 +14,118 @@ export default function Home() {
 
       <header
         id="home"
-        className="mx-auto flex min-h-screen max-w-6xl flex-col gap-16 px-4 pt-28 sm:px-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12"
+        className="mx-auto max-w-6xl px-4 pt-28 pb-6 sm:px-8 lg:min-h-screen lg:pb-0"
       >
-        <Reveal>
-          <p className="eyebrow mb-6">Partenaire de visibilité</p>
-          <h1 className="font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
-            On rend votre entreprise <span className="text-glow">évidente</span> à choisir.
-          </h1>
-          <p className="mt-6 text-lg text-mist/80">
-            Nous aidons les entreprises à rendre leur expertise visible, crédible et cohérente. Construisez une présence en ligne qui travaille pour vous dans la durée, sans y consacrer votre temps.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              className="rounded-full bg-gradient-to-r from-accent to-glow px-6 py-3 font-semibold text-slate-900 shadow-xl transition hover:scale-[1.01]"
-              href="#contact"
-            >
-              Audit gratuit
-            </a>
-            <a
-              className="rounded-full px-6 py-3 font-semibold text-glow transition hover:text-white"
-              href="#approche"
-            >
-              Notre approche
-            </a>
-          </div>
-          <dl className="mt-10 grid gap-6 sm:grid-cols-3">
-            <div>
-              <dt className="text-sm uppercase text-mist/60">Visibilité</dt>
-              <dd className="font-display text-3xl text-white">3x</dd>
-              <p className="text-sm text-mist/70">plus de visite</p>
+        {/* Mobile: Layout vertical empilé */}
+        <div className="flex flex-col gap-6 lg:hidden">
+          <Reveal>
+            <p className="eyebrow mb-2">Partenaire de visibilité</p>
+          </Reveal>
+          
+          <Reveal delay={0.1} className="flex justify-center">
+            <div className="relative h-64 w-64 rounded-full border border-glow/30 bg-gradient-to-br from-accent/30 to-midnight/30 p-4 shadow-glass">
+              <div className="absolute inset-6 rounded-full border border-dashed border-glow/40 opacity-60"></div>
+              <Image
+                className="relative h-full w-full rounded-2xl object-cover shadow-2xl"
+                src="/img/julius-drost-dS-q7-zkD9c-unsplash.jpg"
+                alt="Expertise visuelle Amplixy"
+                width={256}
+                height={256}
+              />
             </div>
-            <div>
-              <dt className="text-sm uppercase text-mist/60">Temps libéré</dt>
-              <dd className="font-display text-3xl text-white">20h</dd>
-              <p className="text-sm text-mist/70">par semaine économisé</p>
-            </div>
-            <div>
-              <dt className="text-sm uppercase text-mist/60">Contacts</dt>
-              <dd className="font-display text-3xl text-white">2x</dd>
-              <p className="text-sm text-mist/70">plus de contact</p>
-            </div>
-          </dl>
-        </Reveal>
+          </Reveal>
 
-        <Reveal delay={0.2} className="relative flex justify-center lg:justify-end">
-          <div className="relative h-80 w-80 sm:h-96 sm:w-96 rounded-full border border-glow/30 bg-gradient-to-br from-accent/30 to-midnight/30 p-6 shadow-glass">
-            <div className="absolute inset-10 rounded-full border border-dashed border-glow/40 opacity-60"></div>
-            <Image
-              className="relative h-full w-full rounded-[2.5rem] object-cover shadow-2xl"
-              src="/img/julius-drost-dS-q7-zkD9c-unsplash.jpg"
-              alt="Expertise visuelle Amplixy"
-              width={400}
-              height={400}
-            />
-          </div>
-        </Reveal>
+          <Reveal delay={0.2} className="text-center">
+            <h1 className="font-display text-3xl leading-tight text-white">
+              On rend votre entreprise <span className="text-glow">évidente</span> à choisir.
+            </h1>
+            <p className="mt-4 text-base text-mist/80">
+              Nous aidons les entreprises à rendre leur expertise visible, crédible et cohérente. Construisez une présence en ligne qui travaille pour vous dans la durée, sans y consacrer votre temps.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.3}>
+            <dl className="grid grid-cols-3 gap-4">
+              <div>
+                <dt className="text-xs uppercase text-mist/60">Visibilité</dt>
+                <dd className="font-display text-2xl text-white">3x</dd>
+                <p className="text-xs text-mist/70">plus de visite</p>
+              </div>
+              <div>
+                <dt className="text-xs uppercase text-mist/60">Temps libéré</dt>
+                <dd className="font-display text-2xl text-white">20h</dd>
+                <p className="text-xs text-mist/70">par semaine</p>
+              </div>
+              <div>
+                <dt className="text-xs uppercase text-mist/60">Contacts</dt>
+                <dd className="font-display text-2xl text-white">2x</dd>
+                <p className="text-xs text-mist/70">plus de contact</p>
+              </div>
+            </dl>
+          </Reveal>
+        </div>
+
+        {/* Desktop: Layout en colonnes */}
+        <div className="hidden lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+          <Reveal>
+            <p className="eyebrow mb-6">Partenaire de visibilité</p>
+            <h1 className="font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
+              On rend votre entreprise <span className="text-glow">évidente</span> à choisir.
+            </h1>
+            <p className="mt-6 text-lg text-mist/80">
+              Nous aidons les entreprises à rendre leur expertise visible, crédible et cohérente. Construisez une présence en ligne qui travaille pour vous dans la durée, sans y consacrer votre temps.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                className="rounded-full bg-gradient-to-r from-accent to-glow px-6 py-3 font-semibold text-slate-900 shadow-xl transition hover:scale-[1.01]"
+                href="#contact"
+              >
+                Audit gratuit
+              </a>
+              <a
+                className="rounded-full px-6 py-3 font-semibold text-glow transition hover:text-white"
+                href="#approche"
+              >
+                Notre approche
+              </a>
+            </div>
+            <dl className="mt-10 grid gap-6 sm:grid-cols-3">
+              <div>
+                <dt className="text-sm uppercase text-mist/60">Visibilité</dt>
+                <dd className="font-display text-3xl text-white">3x</dd>
+                <p className="text-sm text-mist/70">plus de visite</p>
+              </div>
+              <div>
+                <dt className="text-sm uppercase text-mist/60">Temps libéré</dt>
+                <dd className="font-display text-3xl text-white">20h</dd>
+                <p className="text-sm text-mist/70">par semaine économisé</p>
+              </div>
+              <div>
+                <dt className="text-sm uppercase text-mist/60">Contacts</dt>
+                <dd className="font-display text-3xl text-white">2x</dd>
+                <p className="text-sm text-mist/70">plus de contact</p>
+              </div>
+            </dl>
+          </Reveal>
+
+          <Reveal delay={0.2} className="relative flex justify-center lg:justify-end">
+            <div className="relative h-80 w-80 sm:h-96 sm:w-96 rounded-full border border-glow/30 bg-gradient-to-br from-accent/30 to-midnight/30 p-6 shadow-glass">
+              <div className="absolute inset-10 rounded-full border border-dashed border-glow/40 opacity-60"></div>
+              <Image
+                className="relative h-full w-full rounded-[2.5rem] object-cover shadow-2xl"
+                src="/img/julius-drost-dS-q7-zkD9c-unsplash.jpg"
+                alt="Expertise visuelle Amplixy"
+                width={400}
+                height={400}
+              />
+            </div>
+          </Reveal>
+        </div>
       </header>
 
       <main className="relative z-10">
         {/* À qui ça s'adresse */}
-        <section className="section-shell" aria-labelledby="story-title" id="approche">
+        <section className="pt-8 pb-16 sm:pt-12 sm:pb-20 lg:section-shell" aria-labelledby="story-title" id="approche">
           <div className="mx-auto max-w-6xl px-4 sm:px-8">
             <Reveal>
               <p className="eyebrow mb-4">Notre Mission</p>
