@@ -44,7 +44,7 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.3}>
+          <div>
             <dl className="grid grid-cols-3 gap-4">
               <div>
                 <dt className="text-xs uppercase text-mist/60">Visibilité</dt>
@@ -62,7 +62,7 @@ export default function Home() {
                 <p className="text-xs text-mist/70">plus de contact</p>
               </div>
             </dl>
-          </Reveal>
+          </div>
         </div>
 
         {/* Desktop: Layout en colonnes */}
