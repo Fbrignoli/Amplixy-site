@@ -60,7 +60,7 @@ export default function Home() {
         <Reveal delay={0.2} className="relative flex justify-center lg:justify-end">
           <div className="relative h-80 w-80 sm:h-96 sm:w-96 rounded-full border border-glow/30 bg-gradient-to-br from-accent/30 to-midnight/30 p-6 shadow-glass">
             <div className="absolute inset-10 rounded-full border border-dashed border-glow/40 opacity-60"></div>
-            <img
+            <Image
               className="relative h-full w-full rounded-[2.5rem] object-cover shadow-2xl"
               src="/img/julius-drost-dS-q7-zkD9c-unsplash.jpg"
               alt="Expertise visuelle Amplixy"
@@ -229,9 +229,11 @@ export default function Home() {
                   className="mx-8 flex items-center justify-center transition-all duration-300"
                 >
                   <div className="relative h-24 w-48 flex items-center justify-center px-6 border border-white/20 rounded-2xl bg-white/15 shadow-glass backdrop-blur-xl overflow-hidden group">
-                    <img
+                    <Image
                       src={src}
                       alt={`Partenaire ${i + 1}`}
+                      width={192}
+                      height={64}
                       className="max-h-16 max-w-full object-contain relative z-10 brightness-0 invert"
                     />
                   </div>
@@ -258,9 +260,11 @@ export default function Home() {
                   className="mx-8 flex items-center justify-center transition-all duration-300"
                 >
                   <div className="relative h-24 w-48 flex items-center justify-center px-6 border border-white/20 rounded-2xl bg-white/15 shadow-glass backdrop-blur-xl overflow-hidden group">
-                    <img
+                    <Image
                       src={src}
                       alt={`Partenaire ${i + 1}`}
+                      width={192}
+                      height={64}
                       className="max-h-16 max-w-full object-contain relative z-10 brightness-0 invert"
                     />
                   </div>
