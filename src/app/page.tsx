@@ -136,10 +136,10 @@ export default function Home() {
                   Faire connaître votre entreprise de la bonne manière.
                 </h2>
                 <p>
-                  Votre savoir-faire mérite d'être vu et compris. Nous transformons votre expertise en contenus et supports qui renforcent la confiance et facilitent la prise de contact.
+                  Votre savoir-faire mérite d’être vu et compris. Nous transformons votre expertise en contenus et supports qui renforcent la confiance et facilitent la prise de contact.
                 </p>
                 <p>
-                  L'objectif n'est pas simplement de "poster", mais de construire une présence stable et professionnelle qui travaille pour vous, sans que vous ayez à y consacrer votre temps précieux.
+                  L’objectif n’est pas simplement de « poster », mais de construire une présence stable et professionnelle qui travaille pour vous, sans que vous ayez à y consacrer votre temps précieux.
                 </p>
                 <ul className="list-disc space-y-2 pl-5 text-mist/80">
                   <li>Valorisation de votre expertise réelle</li>
@@ -173,7 +173,7 @@ export default function Home() {
               <div>
                 <p className="eyebrow mb-4">Nos Valeurs</p>
                 <h2 id="pillars-title" className="font-display text-3xl text-white sm:text-4xl">
-                  Une approche basée sur le réel et l'utile.
+                  Une approche basée sur le réel et l’utile.
                 </h2>
               </div>
               <p className="max-w-2xl text-mist/80">
@@ -212,7 +212,7 @@ export default function Home() {
               <Reveal delay={0.1} className="card-shell flex flex-col">
                 <p className="text-sm uppercase tracking-[0.3em] text-glow">Conversion</p>
                 <h3 className="mt-4 text-2xl font-semibold text-white">Site Web</h3>
-                <p className="mt-3 text-sm text-mist/70">Un site qui ne se contente pas d'exister, il vend.</p>
+                <p className="mt-3 text-sm text-mist/70">Un site qui ne se contente pas d’exister, il vend.</p>
                 <ul className="mt-4 space-y-3 text-sm text-mist/80">
                   <li><strong>Design moderne & vivant</strong> : une vitrine qui reflète votre excellence.</li>
                   <li><strong>Optimisation Conversion</strong> : transformez chaque visiteur en client qualifié.</li>
@@ -226,10 +226,10 @@ export default function Home() {
                 <h3 className="mt-4 text-2xl font-semibold text-white">Création de Contenu</h3>
                 <p className="mt-3 text-sm text-mist/70">Des contenus spécialisés par des experts</p>
                 <ul className="mt-4 space-y-3 text-sm text-mist/80">
-                  <li><strong>Reportages photo & vidéo</strong> : des visuels haute qualité qui captent l'attention.</li>
+                  <li><strong>Reportages photo & vidéo</strong> : des visuels haute qualité qui captent l’attention.</li>
                   <li><strong>Rédaction experte</strong> : des textes qui valorisent votre expertise réelle.</li>
                   <li><strong>Contenu spécialisé</strong> : des supports créés par des experts de votre domaine.</li>
-                  <li><strong>Savoir-faire réel</strong> : montrez l'authenticité de votre métier au monde.</li>
+                  <li><strong>Savoir-faire réel</strong> : montrez l’authenticité de votre métier au monde.</li>
                 </ul>
                 <p className="mt-6 text-sm font-semibold text-glow">Objectif : Immersion</p>
               </Reveal>
@@ -238,7 +238,7 @@ export default function Home() {
                 <h3 className="mt-4 text-2xl font-semibold text-white">Accompagnement</h3>
                 <p className="mt-3 text-sm text-mist/70">Notre expertise au service de votre visibilité</p>
                 <ul className="mt-4 space-y-3 text-sm text-mist/80">
-                  <li><strong>Stratégie de contenu</strong> : un plan d'action précis pour dominer votre marché.</li>
+                  <li><strong>Stratégie de contenu</strong> : un plan d’action précis pour dominer votre marché.</li>
                   <li><strong>Brainstorming créatif</strong> : des idées neuves pour rester toujours pertinent.</li>
                   <li><strong>Gestion des postes</strong> : nous gérons la programmation et la diffusion pour vous.</li>
                   <li><strong>Accélération</strong> : mettez notre expertise au service de votre développement.</li>
