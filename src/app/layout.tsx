@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Lato } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -29,6 +30,12 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${lato.variable} font-sans antialiased bg-midnight text-mist selection:bg-accent/30 selection:text-glow`}
       >
+        <Script
+          src="https://trafic.amplixy.cloud/script.js"
+          data-website-id="0cbbe7f2-9749-460d-a88a-e665d0ee2904"
+          strategy="afterInteractive"
+          defer
+        />
         <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(74,124,153,0.25),_transparent_55%)]"></div>
         {children}
       </body>
