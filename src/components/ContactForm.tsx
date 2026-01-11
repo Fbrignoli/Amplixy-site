@@ -5,20 +5,49 @@ import { useState } from "react";
 export const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    setSubmitted(true);
-    setLoading(false);
-    
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 5000);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      website: formData.get('website'),
+      social: formData.get('social'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Une erreur est survenue');
+      }
+
+      setSubmitted(true);
+      e.currentTarget.reset();
+
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Erreur lors de l\'envoi');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -104,13 +133,19 @@ export const ContactForm = () => {
           className="w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none transition-colors"
         ></textarea>
       </div>
-      
+
+      {error && (
+        <div className="rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+          {error}
+        </div>
+      )}
+
       <button
         type="submit"
         disabled={loading || submitted}
         className={`w-full rounded-full bg-gradient-to-r from-accent to-glow px-6 py-4 font-semibold text-slate-900 shadow-xl transition-all active:scale-95 ${
           submitted ? "opacity-100" : "hover:opacity-90"
-        }`}
+        } disabled:opacity-50 disabled:cursor-not-allowed`}
       >
         {loading ? "Envoi..." : submitted ? "Merci, on vous répond sous 24h" : "Audit gratuit"}
       </button>
