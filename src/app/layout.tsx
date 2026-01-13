@@ -36,23 +36,6 @@ export default function RootLayout({
           strategy="afterInteractive"
           defer
         />
-        <Script
-          id="crisp-chat"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.$crisp=[];
-              window.CRISP_WEBSITE_ID="25df57f5-4e3e-4d44-bd9a-9e839e4e5579";
-              (function(){
-                d=document;
-                s=d.createElement("script");
-                s.src="https://client.crisp.chat/l.js";
-                s.async=1;
-                d.getElementsByTagName("head")[0].appendChild(s);
-              })();
-            `,
-          }}
-        />
         <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(74,124,153,0.25),_transparent_55%)]"></div>
         {children}
       </body>
