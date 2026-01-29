@@ -35,7 +35,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://trafic.amplixy.cloud; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://trafic.amplixy.cloud; frame-ancestors 'self';"
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://trafic.amplixy.cloud https://app.cal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://trafic.amplixy.cloud https://app.cal.com https://cal.eu https://www.cal.eu; frame-src 'self' https://cal.eu https://www.cal.eu https://app.cal.com; frame-ancestors 'self';"
           }
         ],
       },

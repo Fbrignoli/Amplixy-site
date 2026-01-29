@@ -6,11 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "#home", label: "Accueil" },
-  { href: "#approche", label: "Notre Mission" },
-  { href: "#services", label: "Nos Solutions" },
-  { href: "#realisations", label: "Réussites" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#probleme", label: "Le Problème" },
+  { href: "#offres", label: "Nos Offres" },
+  { href: "#solution", label: "Notre Approche" },
+  { href: "#fondateur", label: "Le Fondateur" },
 ];
 
 export const Navbar = () => {
@@ -54,9 +53,9 @@ export const Navbar = () => {
             ))}
             <Link
               className="rounded-full border border-white/30 px-4 py-2 text-sm font-semibold text-white transition hover:border-glow hover:text-glow"
-              href="#contact"
+              href="#rdv"
             >
-              Audit gratuit
+              Prendre RDV
             </Link>
           </div>
 
@@ -101,11 +100,11 @@ export const Navbar = () => {
                 </Link>
               ))}
               <Link
-                href="#contact"
+                href="#rdv"
                 className="mt-4 rounded-full border border-white/30 px-4 py-4 text-center text-lg font-semibold bg-white/5"
                 onClick={closeMenu}
               >
-                Audit gratuit
+                Prendre RDV
               </Link>
             </div>
           </motion.div>
