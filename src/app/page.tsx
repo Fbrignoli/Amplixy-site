@@ -23,7 +23,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hidden H1 for SEO */}
-      <h1 className="sr-only">Amplixy - Organisation digitale pour TPE-PME</h1>
+      <h1 className="sr-only">Amplixy - Organisation digitale pour PME</h1>
 
       {/* Hero Section */}
       <header
@@ -142,26 +142,46 @@ export default function Home() {
         <section id="probleme" className="py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <Reveal>
-              <p className="eyebrow mb-3 text-center">On connaît la situation</p>
+              <p className="eyebrow mb-3 text-center">L&apos;abondance d&apos;outils</p>
               <h2 className="font-display text-xl text-white text-center lg:text-4xl max-w-3xl mx-auto">
-                Vos outils devaient vous faire gagner du temps. C&apos;est l&apos;inverse qui se passe.
+                Vos outils vous coûtent cher. Et vous font perdre du temps.
               </h2>
             </Reveal>
 
             <div className="mt-10 lg:mt-16 max-w-3xl mx-auto space-y-6">
               <Reveal delay={0.1}>
                 <p className="text-sm lg:text-base text-mist/90 text-center">
-                  Slack, Notion, Trello, Drive, Monday, emails... Vous avez adopté ces outils pour être plus efficace.
-                  Mais aujourd&apos;hui, vous passez plus de temps à chercher l&apos;information qu&apos;à travailler.
+                  Slack, Notion, Trello, Drive, Monday, HubSpot, emails... Chaque outil semblait indispensable.
+                  Résultat : des abonnements qui s&apos;accumulent, des fonctionnalités qui se chevauchent,
+                  et une facture mensuelle qui explose — sans que la productivité suive.
                 </p>
               </Reveal>
+
+              {/* Stats cards */}
+              <Reveal delay={0.15}>
+                <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                  <div className="card-shell p-4 text-center">
+                    <p className="font-display text-2xl lg:text-3xl text-glow font-bold">8 000€</p>
+                    <p className="text-xs lg:text-sm text-mist/70 mt-1">/ an en moyenne en abonnements SaaS pour une PME</p>
+                  </div>
+                  <div className="card-shell p-4 text-center">
+                    <p className="font-display text-2xl lg:text-3xl text-glow font-bold">30%</p>
+                    <p className="text-xs lg:text-sm text-mist/70 mt-1">des licences sont sous-utilisées ou en doublon</p>
+                  </div>
+                  <div className="card-shell p-4 text-center">
+                    <p className="font-display text-2xl lg:text-3xl text-glow font-bold">20h</p>
+                    <p className="text-xs lg:text-sm text-mist/70 mt-1">/ mois perdues à chercher l&apos;information</p>
+                  </div>
+                </div>
+              </Reveal>
+
               <Reveal delay={0.2}>
                 <ul className="mt-8 grid gap-4 sm:grid-cols-2">
                   {[
-                    { icon: "🔍", text: "Vous cherchez constamment où est l'info" },
+                    { icon: "💸", text: "Vous payez des outils que personne n'utilise vraiment" },
+                    { icon: "🔄", text: "Plusieurs outils font la même chose (CRM, tâches, docs...)" },
                     { icon: "🧠", text: "Tout repose sur votre tête (et ça vous épuise)" },
-                    { icon: "⏰", text: "Vous perdez un temps fou à coordonner" },
-                    { icon: "❓", text: "Votre équipe ne sait pas vraiment comment utiliser les outils" }
+                    { icon: "❓", text: "Votre équipe ne sait pas quel outil utiliser pour quoi" }
                   ].map((item, i) => (
                     <li key={i} className="card-shell p-4 flex items-start gap-3 text-sm lg:text-base text-mist/90">
                       <span className="text-xl">{item.icon}</span>
@@ -172,15 +192,65 @@ export default function Home() {
               </Reveal>
               <Reveal delay={0.3}>
                 <p className="text-sm lg:text-base text-mist/70 text-center italic mt-8">
-                  Si ça vous parle, vous n&apos;êtes pas seul. Et surtout : ce n&apos;est pas une fatalité.
+                  Ce phénomène touche <strong className="text-white">78% des PME</strong>. Et il a une solution.
                 </p>
               </Reveal>
             </div>
           </div>
         </section>
 
+        {/* Vous vous reconnaissez ? */}
+        <section className="py-16 lg:py-24 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <Reveal>
+              <p className="eyebrow mb-3 text-center">Vous vous reconnaissez ?</p>
+              <h2 className="font-display text-xl text-white text-center lg:text-4xl max-w-3xl mx-auto">
+                Si c&apos;est votre quotidien, on peut vous aider
+              </h2>
+            </Reveal>
+
+            <div className="mt-10 lg:mt-16 grid gap-5 lg:gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+              <Reveal delay={0.1} className="card-shell p-5 lg:p-8">
+                <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">Ça vous parle si...</h3>
+                <ul className="space-y-3 text-sm text-mist/80">
+                  {[
+                    "Vous dirigez une équipe de 1 à 50 personnes",
+                    "Vous êtes dans les services B2B",
+                    "Vous avez accumulé des outils sans vraie stratégie",
+                    "Vous passez trop de temps à coordonner",
+                    "Vous avez du mal à déléguer efficacement"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-glow mt-0.5">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+
+              <Reveal delay={0.2} className="card-shell p-5 lg:p-8">
+                <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">On nous appelle souvent quand...</h3>
+                <ul className="space-y-3 text-sm text-mist/80">
+                  {[
+                    "Vous recrutez et devez documenter pour déléguer",
+                    "Votre boîte grandit et l'informel ne suffit plus",
+                    "Vous frôlez le burn-out à force de tout porter",
+                    "La perte de temps est devenue insupportable",
+                    "Vous n'arrivez plus à onboarder de nouveaux collaborateurs"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent mt-0.5">→</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* Nos Offres */}
-        <section id="offres" className="py-16 lg:py-24 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+        <section id="offres" className="py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <Reveal>
               <p className="eyebrow mb-3 text-center">Nos offres</p>
@@ -210,7 +280,7 @@ export default function Home() {
                     <span className="font-display text-2xl lg:text-3xl text-white font-bold">4 900 €</span>
                     <span className="text-sm text-mist/60">HT</span>
                   </div>
-                  <p className="text-xs text-mist/60 mb-6">Durée : 15 jours</p>
+                  <p className="text-xs text-mist/60 mb-6">Durée : 15 jours ouvrés</p>
 
                   <ul className="space-y-3">
                     {[
@@ -262,7 +332,7 @@ export default function Home() {
                     <span className="font-display text-2xl lg:text-3xl text-white font-bold">7 900 €</span>
                     <span className="text-sm text-mist/60">HT</span>
                   </div>
-                  <p className="text-xs text-mist/60 mb-6">Durée : 3 semaines</p>
+                  <p className="text-xs text-mist/60 mb-6">Durée : 20 jours ouvrés</p>
 
                   <ul className="space-y-3">
                     {[
@@ -341,7 +411,7 @@ export default function Home() {
                   <div className="mx-4 lg:mx-6 flex items-center justify-center flex-shrink-0">
                     <div className="card-shell p-4 h-20 w-36 lg:h-24 lg:w-44 flex flex-col items-center justify-center">
                       <span className="font-display text-white text-2xl lg:text-3xl font-bold">+15</span>
-                      <span className="font-sans text-white/60 text-[10px] lg:text-xs uppercase tracking-widest font-semibold">TPE-PME</span>
+                      <span className="font-sans text-white/60 text-[10px] lg:text-xs uppercase tracking-widest font-semibold">PME</span>
                     </div>
                   </div>
                 </div>
@@ -356,10 +426,11 @@ export default function Home() {
             <Reveal>
               <p className="eyebrow mb-3 text-center">Notre approche</p>
               <h2 className="font-display text-xl text-white text-center lg:text-4xl max-w-3xl mx-auto">
-                Nous remettons de l&apos;ordre dans votre système digital
+                Nous optimisons vos outils — et vos coûts
               </h2>
               <p className="mt-4 text-sm lg:text-base text-mist/80 text-center max-w-2xl mx-auto">
-                Pas besoin de tout changer. Nous partons de ce que vous avez, et nous structurons.
+                Pas besoin de tout changer. Nous rationalisons ce que vous avez, supprimons les doublons,
+                et vous faisons économiser sur vos abonnements.
               </p>
             </Reveal>
 
@@ -368,22 +439,22 @@ export default function Home() {
                 {
                   num: "1",
                   title: "Nous auditons",
-                  text: "On regarde vos outils, vos usages, vos flux. On identifie ce qui bloque et ce qui fonctionne."
+                  text: "On cartographie tous vos outils, leurs coûts, et leur utilisation réelle. On identifie les doublons et les gaspillages."
                 },
                 {
                   num: "2",
-                  title: "Nous simplifions",
-                  text: "On supprime le superflu, les doublons, les outils que personne n'utilise vraiment."
+                  title: "Nous rationalisons",
+                  text: "On supprime les abonnements inutiles, on regroupe les fonctionnalités. Moins d'outils = moins de coûts."
                 },
                 {
                   num: "3",
                   title: "Nous structurons",
-                  text: "On met en place un système cohérent avec des règles claires. Chaque outil a son rôle."
+                  text: "On configure un système cohérent où chaque outil a un rôle précis. Fini les zones grises."
                 },
                 {
                   num: "4",
                   title: "Nous accompagnons",
-                  text: "On forme votre équipe et on s'assure que le nouveau système est vraiment adopté."
+                  text: "On forme votre équipe pour garantir l'adoption. Un outil bien utilisé, c'est un outil rentabilisé."
                 }
               ].map((item, idx) => (
                 <Reveal key={idx} delay={idx * 0.1} className="card-shell p-5 lg:p-8 text-center">
@@ -399,8 +470,8 @@ export default function Home() {
             <Reveal delay={0.5}>
               <div className="mt-12 text-center">
                 <p className="text-sm lg:text-base text-mist/90 max-w-2xl mx-auto">
-                  <strong className="text-white">Le résultat ?</strong> Un système où chaque outil a sa place,
-                  où votre équipe sait comment travailler, et où vous pouvez enfin déléguer l&apos;esprit tranquille.
+                  <strong className="text-white">Le résultat ?</strong> Une facture SaaS allégée, un système clair,
+                  et une équipe qui sait enfin comment travailler efficacement.
                 </p>
               </div>
             </Reveal>
@@ -447,20 +518,20 @@ export default function Home() {
                       j&apos;ai rapidement compris que ma vraie valeur n&apos;était pas dans le code,
                       mais dans la capacité à transformer des idées en projets concrets.
                       Business analyste puis chef de projet, j&apos;ai travaillé pour des grands groupes
-                      comme Airbus, Dassault Aviation ou CMA CGM.
+                      comme Airbus, Dassault Aviation ou CMA CGM — là où la rigueur organisationnelle
+                      n&apos;est pas une option.
                     </p>
                     <p>
-                      <strong className="text-white">Ce que j&apos;ai vu sur le terrain :</strong> En accompagnant une vingtaine d&apos;entreprises,
-                      j&apos;ai constaté le même schéma : une multitude de SaaS empilés sans cohérence,
-                      des équipes qui ne savent plus quel outil utiliser pour quoi,
-                      et des process inexistants ou ignorés. Le résultat ? Des dirigeants épuisés
-                      qui passent leur temps à chercher l&apos;information au lieu de développer leur activité.
+                      <strong className="text-white">Ce que j&apos;ai vu sur le terrain :</strong> En accompagnant une vingtaine de PME,
+                      j&apos;ai constaté le même schéma : des abonnements SaaS qui s&apos;accumulent sans stratégie,
+                      des fonctionnalités payées en double, des équipes perdues entre 5 ou 10 outils différents.
+                      Résultat : des factures qui explosent et une productivité qui stagne.
                     </p>
                     <p>
-                      <strong className="text-white">Pourquoi je fais ça :</strong> Mon expérience dans les grands comptes m&apos;a appris
-                      les méthodes qui fonctionnent pour structurer le travail. Aujourd&apos;hui,
-                      je mets cette expertise au service des TPE-PME qui méritent, elles aussi,
-                      d&apos;avoir un système digital qui tourne — sans la complexité ni les coûts des grandes entreprises.
+                      <strong className="text-white">Ce que j&apos;apporte :</strong> Les méthodes des grands comptes,
+                      adaptées à votre réalité. Je vous aide à rationaliser vos outils, réduire vos coûts SaaS,
+                      et mettre en place un système simple que votre équipe utilisera vraiment.
+                      Pas de sur-engineering, pas de solutions surdimensionnées — juste ce qu&apos;il vous faut.
                     </p>
                   </div>
 
@@ -540,56 +611,6 @@ export default function Home() {
                   </div>
                 </Reveal>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pour qui ? */}
-        <section className="py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <Reveal>
-              <p className="eyebrow mb-3 text-center">Pour qui ?</p>
-              <h2 className="font-display text-xl text-white text-center lg:text-4xl max-w-3xl mx-auto">
-                Nous travaillons avec les TPE-PME de services B2B
-              </h2>
-            </Reveal>
-
-            <div className="mt-10 lg:mt-16 grid gap-5 lg:gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-              <Reveal delay={0.1} className="card-shell p-5 lg:p-8">
-                <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">Ça vous parle si...</h3>
-                <ul className="space-y-3 text-sm text-mist/80">
-                  {[
-                    "Vous dirigez une équipe de 1 à 50 personnes",
-                    "Vous êtes dans les services B2B",
-                    "Vous avez accumulé des outils sans vraie stratégie",
-                    "Vous passez trop de temps à coordonner",
-                    "Vous avez du mal à déléguer efficacement"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-glow mt-0.5">✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-
-              <Reveal delay={0.2} className="card-shell p-5 lg:p-8">
-                <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">Souvent, on nous appelle quand...</h3>
-                <ul className="space-y-3 text-sm text-mist/80">
-                  {[
-                    "Vous recrutez et devez documenter pour déléguer",
-                    "Votre boîte grandit et l'informel ne suffit plus",
-                    "Vous frôlez le burn-out à force de tout porter",
-                    "La perte de temps est devenue insupportable",
-                    "Vous n'arrivez plus à onboarder de nouveaux collaborateurs"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-0.5">→</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
             </div>
           </div>
         </section>
