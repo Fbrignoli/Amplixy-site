@@ -46,8 +46,8 @@ export default function Methodologie() {
           <Reveal delay={0.2}>
             <div className="prose prose-slate max-w-none">
               <p className="text-lg text-charcoal leading-relaxed mb-6">
-                Le chiffre de <strong>1 500€ minimum perdus par an et par salarié</strong> est une estimation
-                conservatrice basée sur les données suivantes :
+                Le chiffre de <strong>6 336€ perdus par an et par salarié</strong> est une estimation
+                basée sur les données suivantes :
               </p>
 
               <div className="bg-white rounded-2xl p-6 border border-slate-100 mb-6">
