@@ -16,6 +16,7 @@
     "next": "^15.0.5",
     "react": "^19.0.3",
     "react-dom": "^19.0.3",
+    "react-noise": "^0.2.11",
     "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {

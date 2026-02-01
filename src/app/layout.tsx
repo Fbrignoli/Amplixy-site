@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Montserrat, Lato } from "next/font/google";
+import { Montserrat, Lato, Caveat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import GrainOverlay from "@/components/GrainOverlay";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -13,6 +14,12 @@ const lato = Lato({
   subsets: ["latin"],
   weight: ["300", "400", "700"],
   variable: "--font-lato",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-caveat",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <body
-        className={`${montserrat.variable} ${lato.variable} font-sans antialiased bg-midnight text-mist selection:bg-accent/30 selection:text-glow`}
+        className={`${montserrat.variable} ${lato.variable} ${caveat.variable} font-sans antialiased bg-paper text-ink selection:bg-accent/20 selection:text-ink`}
       >
         <Script
           src="https://trafic.amplixy.cloud/script.js"
@@ -36,8 +43,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           defer
         />
-        <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(74,124,153,0.25),_transparent_55%)]"></div>
-        {children}
+        <GrainOverlay>{children}</GrainOverlay>
       </body>
     </html>
   );

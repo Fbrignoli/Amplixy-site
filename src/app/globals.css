@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a1128;
-  --foreground: #e0e1dd;
+  --background: #faf9f6;
+  --foreground: #0a1128;
+  --blue-dark: #3d5a80;
+}
+
+.bg-blue-dark {
+  background-color: var(--blue-dark);
 }
 
 html {
@@ -14,59 +19,192 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
+  position: relative;
+  isolation: isolate;
 }
 
+/* Grain overlay - CSS only */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: url("data:image/png;base64,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CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAoVB4CwYKnMWfJiIU3oL/8ddAofD/AP8D/+MChH8pq3YAAAAASUVORK5CYII=");
+  opacity: 0.25;
+}
+
+
+/* =====================
+   BACKGROUND STYLES - impli.fr inspired (paper texture effect)
+   ===================== */
+
+/* Subtle paper noise texture */
+.paper-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.bg-paper {
+  background-color: #f5f7fa;
+  position: relative;
+}
+
+/* Paper texture overlay - subtle grain effect */
+.bg-paper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-paper > *:not(nav):not(canvas) {
+  position: relative;
+}
+
+.bg-cream {
+  background: linear-gradient(180deg, #f0f4f8 0%, #f5f7fa 100%);
+  position: relative;
+}
+
+/* Paper texture for cream background too */
+.bg-cream::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-cream > *:not(nav):not(canvas) {
+  position: relative;
+}
+
+/* Highlighted text (yellow marker effect) */
+.highlight {
+  background: linear-gradient(180deg, transparent 50%, #fef08a 50%);
+  padding: 0 4px;
+}
+
+/* =====================
+   COMPONENTS
+   ===================== */
 @layer components {
   .section-shell {
     @apply py-16 sm:py-20 lg:py-28;
   }
 
-  /* Enhanced glassmorphism card */
+  /* Paper-style card with subtle shadow */
   .card-shell {
-    @apply relative rounded-3xl border border-white/15 bg-gradient-to-br from-white/10 via-white/5 to-white/5 p-6 sm:p-8 shadow-glass backdrop-blur-xl;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    @apply relative rounded-xl border border-ink/5 bg-white p-6 sm:p-8 shadow-paper;
   }
 
-  .card-shell::before {
+  /* Lifted card - like paper sitting on desk */
+  .card-lifted {
+    @apply relative rounded-xl border border-ink/5 bg-white p-6 sm:p-8 shadow-lifted;
+  }
+
+  /* Screen/mockup frame */
+  .screen-frame {
+    @apply relative rounded-2xl bg-white shadow-lifted overflow-hidden;
+    box-shadow:
+      0 4px 6px -1px rgba(10, 17, 40, 0.05),
+      0 20px 40px -8px rgba(10, 17, 40, 0.1),
+      0 0 0 1px rgba(10, 17, 40, 0.03);
+  }
+
+  .screen-frame::before {
     content: '';
     position: absolute;
-    inset: 0;
-    border-radius: 1.5rem;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(154, 227, 255, 0.3), rgba(74, 124, 153, 0.2), transparent);
-    -webkit-mask: linear-gradient(#fff  0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 32px;
+    background: linear-gradient(to bottom, #f8f8f8, #f0f0f0);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
   }
 
-  /* Glass button */
-  .glass-button {
-    @apply relative rounded-full border border-white/20 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-xl transition-all hover:bg-white/15 hover:border-white/30 hover:scale-105 active:scale-95;
-  }
-
-  /* Enhanced hero glass container */
-  .hero-glass {
-    @apply relative rounded-[3rem] border border-glow/20 bg-gradient-to-br from-accent/20 via-white/5 to-midnight/10 p-8 shadow-2xl backdrop-blur-2xl;
-  }
-
-  .hero-glass::after {
-    content: '';
+  .screen-frame::after {
+    content: '● ● ●';
     position: absolute;
-    inset: 0;
-    border-radius: 3rem;
-    background: radial-gradient(circle at 30% 20%, rgba(154, 227, 255, 0.15), transparent 60%);
-    pointer-events: none;
+    top: 8px;
+    left: 12px;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #ccc;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply relative rounded-full bg-gradient-to-r from-accent to-glow px-6 py-3 font-semibold text-white transition-all hover:shadow-paper-lg hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply relative rounded-full border-2 border-ink/10 bg-white px-6 py-3 font-semibold text-ink transition-all hover:border-accent hover:text-accent hover:scale-105 active:scale-95;
+  }
+
+  .btn-coral {
+    @apply relative rounded-full bg-coral px-6 py-3 font-semibold text-white transition-all hover:bg-coral/90 hover:shadow-paper-lg hover:scale-105 active:scale-95;
+  }
+
+  /* Form input */
+  .input-paper {
+    @apply w-full rounded-lg border border-ink/10 bg-white px-4 py-3 text-sm text-ink placeholder:text-slate focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none transition-colors;
   }
 }
 
+/* =====================
+   UTILITIES
+   ===================== */
 @layer utilities {
   .eyebrow {
-    @apply uppercase tracking-[0.4em] text-xs font-semibold text-glow/80;
+    @apply uppercase tracking-[0.4em] text-xs font-semibold text-accent;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-glow via-white to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-accent via-glow to-coral bg-clip-text text-transparent;
+  }
+
+  /* Sketch underline effect */
+  .sketch-underline {
+    position: relative;
+    display: inline;
+  }
+
+  .sketch-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-image: url('/img/doodles/wavy-underline.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .sketch-underline-coral::after {
+    background-image: url('/img/doodles/wavy-underline-coral.svg');
+  }
+
+  /* Sketch font */
+  .font-sketch {
+    font-family: var(--font-caveat), cursive;
+  }
+
+  /* Handwritten annotation style */
+  .annotation {
+    font-family: var(--font-caveat), cursive;
+    color: #ff6b4a;
+    font-size: 1.25rem;
+    transform: rotate(-3deg);
+    display: inline-block;
   }
 }
-

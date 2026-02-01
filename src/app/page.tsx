@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 
@@ -13,532 +13,513 @@ export default function Home() {
     (async function () {
       const cal = await getCalApi({ namespace: "diagnostique" });
       cal("ui", {
-        theme: "dark",
+        theme: "light",
         hideEventTypeDetails: false,
       });
     })();
   }, []);
+
   return (
     <>
       <Navbar />
 
-      {/* Hidden H1 for SEO */}
       <h1 className="sr-only">Amplixy - Organisation digitale pour PME</h1>
 
-      {/* Hero Section */}
-      <header
-        id="home"
-        className="relative mx-auto max-w-7xl px-5 pt-24 pb-12 lg:px-12 lg:pt-40 lg:pb-28 min-h-[90vh] lg:min-h-screen flex items-center"
-      >
-        {/* Mobile: Vertical stack */}
-        <div className="flex flex-col items-center text-center lg:hidden w-full space-y-6">
+      {/* ============================================
+          HERO - Style impli.fr centré
+          ============================================ */}
+      <header id="home" className="relative min-h-screen flex flex-col justify-center bg-paper">
+        <div className="mx-auto max-w-5xl px-6 pt-32 pb-12 text-center">
           <Reveal>
-            <p className="eyebrow mb-3">Organisation digitale</p>
-            <p className="font-display text-3xl leading-tight text-white">
-              Nous organisons vos outils,{" "}
-              <span className="text-gradient">vous gérez votre business</span>
-            </p>
+            <span className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-white border border-slate-200 text-sm text-slate-600 shadow-sm">
+              Pour les PME qui veulent s&apos;organiser efficacement
+            </span>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-ink leading-[1.1]">
+              Les bons <span className="highlight">outils</span>,
+              <br />
+              <span className="relative inline-block">
+                bien utilisés
+                <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 200 8" preserveAspectRatio="none">
+                  <path d="M0 4 Q50 0 100 4 T200 4" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" fill="none"/>
+                </svg>
+              </span>.
+            </h2>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="w-full py-4">
-              <div className="relative mx-auto w-56 h-56">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/30 via-glow/20 to-transparent blur-3xl -z-10 scale-125"></div>
-                <div className="relative rounded-full border border-white/15 bg-gradient-to-br from-white/10 via-white/5 to-white/5 p-3 shadow-glass backdrop-blur-xl w-full h-full">
-                  <Image
-                    className="relative w-full h-full rounded-2xl object-cover shadow-2xl"
-                    src="/img/premium_photo-1661329859712-76d8a4500fdb.avif"
-                    alt="Organisation digitale Amplixy"
-                    width={224}
-                    height={224}
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <p className="text-base text-mist/90 max-w-md px-2 leading-relaxed">
-              Vous perdez du temps avec vos outils digitaux ? Nous mettons de l&apos;ordre.
-              Un système clair, des règles simples, une équipe qui sait comment travailler.
+            <p className="mt-8 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Trop d&apos;outils, trop d&apos;abonnements, trop de temps perdu.
+              <br className="hidden sm:block" />
+              On vous aide à faire le tri, structurer et adopter les bons outils.
             </p>
           </Reveal>
 
-          <Reveal delay={0.4}>
-            <div className="flex flex-row gap-3 justify-center pt-2">
-              <a
-                href="#rdv"
-                className="rounded-full bg-gradient-to-r from-accent to-glow px-6 py-3 font-semibold text-slate-900 shadow-xl transition hover:scale-105 active:scale-95 text-sm"
+          <Reveal delay={0.3}>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                data-cal-namespace="diagnostique"
+                data-cal-link="brignoli-florian-oykak5/diagnostique"
+                data-cal-origin="https://cal.eu"
+                data-cal-config='{"theme":"light"}'
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-blue-dark text-white px-8 py-4 font-semibold transition-all hover:bg-blue-dark/90"
               >
-                Parlons-en
-              </a>
+                Réserver un diagnostic
+                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
               <a
                 href="#probleme"
-                className="rounded-full border border-white/20 bg-white/5 px-6 py-3 font-medium text-white backdrop-blur-sm transition hover:bg-white/10 text-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white text-ink px-8 py-4 font-semibold transition-all hover:border-slate-300 hover:bg-slate-50"
               >
-                Comment ça marche
+                Découvrir l&apos;approche
               </a>
+            </div>
+          </Reveal>
+
+          {/* Trust stats */}
+          <Reveal delay={0.5}>
+            <p className="mt-10 text-sm text-accent font-medium">
+              100% de satisfaction pour les +20 PME accompagnées !
+            </p>
+          </Reveal>
+        </div>
+
+        {/* Partner logos */}
+        <div className="pb-12">
+          <Reveal delay={0.6}>
+            <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 px-6">
+              {[
+                "/img/partenaire/AIRBUS_Blue.png",
+                "/img/partenaire/CMA_CGM_logo.svg.png",
+                "/img/partenaire/dircom-logo_amu_cmjn.png",
+                "/img/partenaire/NAF-NAF-Le-Grand-Mechant-Look-Logo-Vector.svg-.png",
+              ].map((src, i) => (
+                <Image
+                  key={i}
+                  src={src}
+                  alt={`Partenaire ${i + 1}`}
+                  width={120}
+                  height={40}
+                  className="h-8 sm:h-10 w-auto object-contain opacity-40 hover:opacity-70 transition-opacity"
+                />
+              ))}
             </div>
           </Reveal>
         </div>
 
-        {/* Desktop: Side by side layout */}
-        <div className="hidden lg:grid lg:grid-cols-[1fr_1.2fr] lg:gap-20 xl:gap-24 lg:items-center w-full">
-          <div className="text-left">
-            <Reveal>
-              <p className="eyebrow mb-4">Organisation digitale</p>
-              <p className="font-display text-4xl xl:text-5xl leading-tight text-white">
-                Nous organisons vos outils,{" "}
-                <span className="text-gradient">vous gérez votre business</span>
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <p className="mt-6 text-xl text-mist/90">
-                Vous perdez du temps avec vos outils digitaux ? Nous mettons de l&apos;ordre.
-                Un système clair, des règles simples, une équipe qui sait comment travailler.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.3}>
-              <div className="mt-10 flex gap-4">
-                <a
-                  href="#rdv"
-                  className="rounded-full bg-gradient-to-r from-accent to-glow px-8 py-4 font-semibold text-slate-900 shadow-2xl transition hover:scale-105 active:scale-95"
-                >
-                  Parlons-en
-                </a>
-                <a
-                  href="#probleme"
-                  className="rounded-full border border-white/20 bg-white/5 px-8 py-4 font-medium text-white backdrop-blur-sm transition hover:bg-white/10"
-                >
-                  Comment ça marche
-                </a>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.4}>
-            <div className="relative flex justify-end">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/30 via-glow/20 to-transparent blur-3xl -z-10 scale-110"></div>
-              <div className="relative rounded-full border border-white/15 bg-gradient-to-br from-white/10 via-white/5 to-white/5 p-4 shadow-glass backdrop-blur-xl aspect-square max-w-md">
-                <Image
-                  className="relative w-full h-full rounded-2xl object-cover shadow-2xl"
-                  src="/img/premium_photo-1661329859712-76d8a4500fdb.avif"
-                  alt="Organisation digitale Amplixy"
-                  width={500}
-                  height={500}
-                  priority
-                />
-              </div>
-            </div>
+        {/* Arrow to next section */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+          <Reveal delay={0.7}>
+            <a href="#probleme" className="flex flex-col items-center text-slate-400 hover:text-accent transition-colors">
+              <svg width="40" height="50" viewBox="0 0 40 50" className="animate-bounce">
+                <path d="M20 5 Q18 25 20 35 Q22 25 20 5" stroke="currentColor" strokeWidth="2" fill="none"/>
+                <path d="M12 30 L20 42 L28 30" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
           </Reveal>
         </div>
       </header>
 
-      <main className="relative z-10">
-        {/* Le Problème - On parle à VOUS */}
-        <section id="probleme" className="py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <main>
+        {/* Wave divider: paper → blue-dark */}
+        <div className="relative h-12 lg:h-16 bg-paper">
+          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0 30 Q150 50 300 30 T600 35 T900 25 T1200 30 L1200 60 L0 60 Z" fill="#3d5a80"/>
+          </svg>
+        </div>
+
+        {/* ============================================
+            LE PROBLÈME - Style numéroté avec alternance
+            ============================================ */}
+        <section id="probleme" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-blue-dark text-white relative">
+          <div className="mx-auto max-w-6xl px-6">
             <Reveal>
-              <p className="eyebrow mb-3 text-center">L&apos;abondance d&apos;outils</p>
-              <h2 className="font-display text-xl text-white text-center lg:text-4xl max-w-3xl mx-auto">
-                Vos outils vous coûtent cher. Et vous font perdre du temps.
-              </h2>
+              <div className="text-center mb-12">
+                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-glow text-xs font-semibold uppercase tracking-wider">
+                  Le constat
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+                  Vos outils vous coûtent{" "}
+                  <span className="relative inline-block">
+                    trop
+                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
+                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.5"/>
+                    </svg>
+                  </span>{" "}
+                  cher.
+                </h2>
+              </div>
             </Reveal>
 
-            <div className="mt-10 lg:mt-16 max-w-3xl mx-auto space-y-6">
-              <Reveal delay={0.1}>
-                <p className="text-sm lg:text-base text-mist/90 text-center">
-                  Slack, Notion, Trello, Drive, Monday, HubSpot, emails... Chaque outil semblait indispensable.
-                  Résultat : des abonnements qui s&apos;accumulent, des fonctionnalités qui se chevauchent,
-                  et une facture mensuelle qui explose — sans que la productivité suive.
-                </p>
-              </Reveal>
-
-              {/* Stats cards */}
-              <Reveal delay={0.15}>
-                <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  <div className="card-shell p-4 text-center">
-                    <p className="font-display text-2xl lg:text-3xl text-glow font-bold">8 000€</p>
-                    <p className="text-xs lg:text-sm text-mist/70 mt-1">/ an en moyenne en abonnements SaaS pour une PME</p>
-                  </div>
-                  <div className="card-shell p-4 text-center">
-                    <p className="font-display text-2xl lg:text-3xl text-glow font-bold">30%</p>
-                    <p className="text-xs lg:text-sm text-mist/70 mt-1">des licences sont sous-utilisées ou en doublon</p>
-                  </div>
-                  <div className="card-shell p-4 text-center">
-                    <p className="font-display text-2xl lg:text-3xl text-glow font-bold">20h</p>
-                    <p className="text-xs lg:text-sm text-mist/70 mt-1">/ mois perdues à chercher l&apos;information</p>
-                  </div>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.2}>
-                <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {[
-                    { icon: "💸", text: "Vous payez des outils que personne n'utilise vraiment" },
-                    { icon: "🔄", text: "Plusieurs outils font la même chose (CRM, tâches, docs...)" },
-                    { icon: "🧠", text: "Tout repose sur votre tête (et ça vous épuise)" },
-                    { icon: "❓", text: "Votre équipe ne sait pas quel outil utiliser pour quoi" }
-                  ].map((item, i) => (
-                    <li key={i} className="card-shell p-4 flex items-start gap-3 text-sm lg:text-base text-mist/90">
-                      <span className="text-xl">{item.icon}</span>
-                      <span>{item.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-              <Reveal delay={0.3}>
-                <p className="text-sm lg:text-base text-mist/70 text-center italic mt-8">
-                  Ce phénomène touche <strong className="text-white">78% des PME</strong>. Et il a une solution.
-                </p>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Vous vous reconnaissez ? */}
-        <section className="py-16 lg:py-24 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <Reveal>
-              <p className="eyebrow mb-3 text-center">Vous vous reconnaissez ?</p>
-              <h2 className="font-display text-xl text-white text-center lg:text-4xl max-w-3xl mx-auto">
-                Si c&apos;est votre quotidien, on peut vous aider
-              </h2>
-            </Reveal>
-
-            <div className="mt-10 lg:mt-16 grid gap-5 lg:gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-              <Reveal delay={0.1} className="card-shell p-5 lg:p-8">
-                <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">Ça vous parle si...</h3>
-                <ul className="space-y-3 text-sm text-mist/80">
-                  {[
-                    "Vous dirigez une équipe de 1 à 50 personnes",
-                    "Vous êtes dans les services B2B",
-                    "Vous avez accumulé des outils sans vraie stratégie",
-                    "Vous passez trop de temps à coordonner",
-                    "Vous avez du mal à déléguer efficacement"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-glow mt-0.5">✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-
-              <Reveal delay={0.2} className="card-shell p-5 lg:p-8">
-                <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">On nous appelle souvent quand...</h3>
-                <ul className="space-y-3 text-sm text-mist/80">
-                  {[
-                    "Vous recrutez et devez documenter pour déléguer",
-                    "Votre boîte grandit et l'informel ne suffit plus",
-                    "Vous frôlez le burn-out à force de tout porter",
-                    "La perte de temps est devenue insupportable",
-                    "Vous n'arrivez plus à onboarder de nouveaux collaborateurs"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-accent mt-0.5">→</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Nos Offres */}
-        <section id="offres" className="py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <Reveal>
-              <p className="eyebrow mb-3 text-center">Nos offres</p>
-              <h2 className="font-display text-xl text-white text-center lg:text-4xl max-w-3xl mx-auto">
-                Des solutions adaptées à votre taille
-              </h2>
-              <p className="mt-4 text-sm lg:text-base text-mist/80 text-center max-w-2xl mx-auto">
-                Deux formules claires, sans surprise, pour structurer votre organisation digitale.
-              </p>
-            </Reveal>
-
-            <div className="mt-10 lg:mt-16 grid gap-6 lg:gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-              {/* FONDATION */}
-              <Reveal delay={0.1} className="card-shell p-6 lg:p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-accent/20 to-transparent rounded-bl-full"></div>
-                <div className="relative">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">🧩</span>
-                    <h3 className="text-xl lg:text-2xl font-display font-semibold text-white">FONDATION</h3>
-                  </div>
-                  <p className="text-sm lg:text-base text-mist/80 mb-6">
-                    Pour les indépendants et petites équipes
-                  </p>
-
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-xs text-mist/60">À partir de</span>
-                    <span className="font-display text-2xl lg:text-3xl text-white font-bold">4 900 €</span>
-                    <span className="text-sm text-mist/60">HT</span>
-                  </div>
-                  <p className="text-xs text-mist/60 mb-6">Durée : 15 jours ouvrés</p>
-
-                  <ul className="space-y-3">
-                    {[
-                      { icon: "🗺️", title: "Architecture", text: "On définit le rôle de chaque outil" },
-                      { icon: "🧱", title: "Outil central", text: "Un espace où tout est regroupé" },
-                      { icon: "🔗", title: "Outils connectés", text: "Vos apps synchronisées intelligemment" },
-                      { icon: "📐", title: "Règles & usages", text: "Comment utiliser quoi, et quand" },
-                      { icon: "🚀", title: "Adoption", text: "Formation pour ancrer les nouvelles habitudes" },
-                      { icon: "🔧", title: "Ajustements", text: "On affine après les premiers jours d'usage" }
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-mist/80">
-                        <span className="text-lg flex-shrink-0">{item.icon}</span>
-                        <div>
-                          <span className="text-white font-medium">{item.title}</span>
-                          <span className="text-mist/60"> — {item.text}</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-8">
-                    <a
-                      href="#rdv"
-                      className="inline-block w-full text-center rounded-full border border-white/20 bg-white/5 px-6 py-3 font-medium text-white backdrop-blur-sm transition hover:bg-white/10 text-sm"
-                    >
-                      Discuter de cette offre
-                    </a>
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* STRUCTURE */}
-              <Reveal delay={0.2} className="card-shell p-6 lg:p-8 relative overflow-hidden border-glow/30">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-glow/20 to-transparent rounded-bl-full"></div>
-                <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 rounded-full bg-glow/20 text-glow text-xs font-medium">Populaire</span>
-                </div>
-                <div className="relative">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">🧩</span>
-                    <h3 className="text-xl lg:text-2xl font-display font-semibold text-white">STRUCTURE</h3>
-                  </div>
-                  <p className="text-sm lg:text-base text-mist/80 mb-6">
-                    Pour les équipes en croissance
-                  </p>
-
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-xs text-mist/60">À partir de</span>
-                    <span className="font-display text-2xl lg:text-3xl text-white font-bold">7 900 €</span>
-                    <span className="text-sm text-mist/60">HT</span>
-                  </div>
-                  <p className="text-xs text-mist/60 mb-6">Durée : 20 jours ouvrés</p>
-
-                  <ul className="space-y-3">
-                    {[
-                      { icon: "🏗️", title: "Architecture d'équipe", text: "Système adapté à plusieurs collaborateurs" },
-                      { icon: "🧱", title: "Outils structurants", text: "Base de données, tâches, documentation" },
-                      { icon: "⚙️", title: "Automatisations utiles", text: "Moins de tâches manuelles, plus de fluidité" },
-                      { icon: "📊", title: "Pilotage", text: "Vision claire sur les projets et les priorités" },
-                      { icon: "🚀", title: "Adoption collective", text: "Toute l'équipe formée et alignée" },
-                      { icon: "🔧", title: "Stabilisation", text: "Suivi post-déploiement pour ancrer le système" }
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-mist/80">
-                        <span className="text-lg flex-shrink-0">{item.icon}</span>
-                        <div>
-                          <span className="text-white font-medium">{item.title}</span>
-                          <span className="text-mist/60"> — {item.text}</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-8">
-                    <a
-                      href="#rdv"
-                      className="inline-block w-full text-center rounded-full bg-gradient-to-r from-accent to-glow px-6 py-3 font-semibold text-slate-900 shadow-xl transition hover:scale-105 active:scale-95 text-sm"
-                    >
-                      Discuter de cette offre
-                    </a>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Ils nous font confiance */}
-        <section className="py-12 lg:py-20 overflow-hidden">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8 mb-8">
-            <Reveal>
-              <p className="eyebrow mb-3 text-center">Ils nous font confiance</p>
-              <h2 className="font-display text-xl text-white text-center lg:text-4xl">
-                Nos partenaires
-              </h2>
-            </Reveal>
-          </div>
-
-          <div className="relative flex overflow-x-hidden py-6">
-            <motion.div
-              className="flex whitespace-nowrap"
-              animate={{ x: [0, -1200] }}
-              transition={{
-                duration: 30,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            >
-              {[...Array(4)].map((_, setIndex) => (
-                <div key={setIndex} className="flex">
-                  {[
-                    "/img/partenaire/AIRBUS_Blue.png",
-                    "/img/partenaire/CMA_CGM_logo.svg.png",
-                    "/img/partenaire/dircom-logo_amu_cmjn.png",
-                    "/img/partenaire/NAF-NAF-Le-Grand-Mechant-Look-Logo-Vector.svg-.png",
-                  ].map((src, i) => (
-                    <div key={`${setIndex}-${i}`} className="mx-4 lg:mx-6 flex items-center justify-center flex-shrink-0">
-                      <div className="card-shell p-4 h-20 w-36 lg:h-24 lg:w-44 flex items-center justify-center hover:border-glow/30 transition-all">
-                        <Image
-                          src={src}
-                          alt={`Partenaire ${i + 1}`}
-                          width={176}
-                          height={64}
-                          className="max-h-12 lg:max-h-14 max-w-full object-contain brightness-0 invert"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                  <div className="mx-4 lg:mx-6 flex items-center justify-center flex-shrink-0">
-                    <div className="card-shell p-4 h-20 w-36 lg:h-24 lg:w-44 flex flex-col items-center justify-center">
-                      <span className="font-display text-white text-2xl lg:text-3xl font-bold">+15</span>
-                      <span className="font-sans text-white/60 text-[10px] lg:text-xs uppercase tracking-widest font-semibold">PME</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* La Solution - NOUS vous aidons */}
-        <section id="solution" className="py-16 lg:py-24 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <Reveal>
-              <p className="eyebrow mb-3 text-center">Notre approche</p>
-              <h2 className="font-display text-xl text-white text-center lg:text-4xl max-w-3xl mx-auto">
-                Nous optimisons vos outils — et vos coûts
-              </h2>
-              <p className="mt-4 text-sm lg:text-base text-mist/80 text-center max-w-2xl mx-auto">
-                Pas besoin de tout changer. Nous rationalisons ce que vous avez, supprimons les doublons,
-                et vous faisons économiser sur vos abonnements.
-              </p>
-            </Reveal>
-
-            <div className="mt-10 lg:mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {/* Grille compacte 2x2 */}
+            <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
               {[
-                {
-                  num: "1",
-                  title: "Nous auditons",
-                  text: "On cartographie tous vos outils, leurs coûts, et leur utilisation réelle. On identifie les doublons et les gaspillages."
-                },
-                {
-                  num: "2",
-                  title: "Nous rationalisons",
-                  text: "On supprime les abonnements inutiles, on regroupe les fonctionnalités. Moins d'outils = moins de coûts."
-                },
-                {
-                  num: "3",
-                  title: "Nous structurons",
-                  text: "On configure un système cohérent où chaque outil a un rôle précis. Fini les zones grises."
-                },
-                {
-                  num: "4",
-                  title: "Nous accompagnons",
-                  text: "On forme votre équipe pour garantir l'adoption. Un outil bien utilisé, c'est un outil rentabilisé."
-                }
+                { title: "Trop d'abonnements", stat: "4 000€", statLabel: "/an par salarié en moyenne", icon: "💸" },
+                { title: "Licences en doublon ou sous-utilisées", stat: "30%", statLabel: "en moyenne", icon: "🔄" },
+                { title: "L'information introuvable", stat: "9,3h", statLabel: "/semaine perdues par personne", icon: "🔍" },
+                { title: "Tout repose sur vous", stat: "78%", statLabel: "des dirigeants concernés", icon: "🧠" }
               ].map((item, idx) => (
-                <Reveal key={idx} delay={idx * 0.1} className="card-shell p-5 lg:p-8 text-center">
-                  <div className="mb-4 mx-auto flex h-12 w-12 lg:h-14 lg:w-14 items-center justify-center rounded-full bg-gradient-to-br from-glow/30 to-accent/30">
-                    <span className="font-display text-lg lg:text-xl font-bold text-white">{item.num}</span>
+                <Reveal key={idx} delay={idx * 0.05}>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 flex items-center gap-4">
+                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center text-2xl">
+                      {item.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-display text-lg font-bold text-white">{item.title}</h3>
+                      <p className="text-white/60 text-sm">{item.statLabel}</p>
+                    </div>
+                    <div className="flex-shrink-0 text-right">
+                      <p className="font-display text-2xl font-bold text-white">{item.stat}</p>
+                    </div>
                   </div>
-                  <h3 className="text-lg lg:text-xl font-semibold text-white mb-3">{item.title}</h3>
-                  <p className="text-xs lg:text-sm text-mist/80">{item.text}</p>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Summary statement */}
+            <Reveal delay={0.3}>
+              <div className="mt-8 text-center">
+                <p className="inline-block text-white/80 text-lg">
+                  Vous perdez donc au minimum{" "}
+                  <span className="relative inline-block font-bold text-white">
+                    6 336€ par an et par salarié
+                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
+                      <path d="M0 5 Q20 2 40 5 T80 4 T100 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5"/>
+                    </svg>
+                  </span>{" "}
+                  à cause de vos outils.
+                </p>
+                <div className="mt-3">
+                  <Link href="/methodologie" className="text-white/50 text-sm hover:text-white/80 transition-colors underline underline-offset-2">
+                    Comment on obtient ce chiffre ?
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Wave divider: blue-dark → paper */}
+        <div className="relative h-12 lg:h-16 bg-blue-dark">
+          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0 25 Q200 45 400 30 T800 35 T1200 25 L1200 60 L0 60 Z" fill="#faf9f6"/>
+          </svg>
+        </div>
+
+        {/* ============================================
+            C'EST POUR VOUS SI...
+            ============================================ */}
+        <section className="pt-6 pb-16 lg:pt-8 lg:pb-24 bg-paper">
+          <div className="mx-auto max-w-4xl px-6">
+            <Reveal>
+              <div className="text-center mb-10">
+                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-ink/5 text-ink/60 text-xs font-semibold uppercase tracking-wider">
+                  Pour qui ?
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
+                  C&apos;est pour vous{" "}
+                  <span className="relative inline-block">
+                    si
+                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
+                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="#3d5a80" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4"/>
+                    </svg>
+                  </span>...
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { icon: "👥", text: "Vous dirigez une équipe de 1 à 50 personnes" },
+                { icon: "📈", text: "Votre boîte grandit et l'informel ne suffit plus" },
+                { icon: "🔧", text: "Vous avez accumulé des outils sans stratégie" },
+                { icon: "⏰", text: "Vous passez trop de temps à coordonner" },
+                { icon: "🆘", text: "L'onboarding de vos nouveaux est chaotique" },
+                { icon: "😤", text: "La perte de temps devient insupportable" }
+              ].map((item, i) => (
+                <Reveal key={i} delay={i * 0.05}>
+                  <div className="bg-white rounded-xl p-4 border border-slate-100 flex items-start gap-3">
+                    <span className="text-xl flex-shrink-0">{item.icon}</span>
+                    <p className="text-sm text-charcoal leading-snug">{item.text}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Wave divider: paper → blue-dark */}
+        <div className="relative h-12 lg:h-16 bg-paper">
+          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0 35 Q250 15 500 35 T1000 30 T1200 35 L1200 60 L0 60 Z" fill="#3d5a80"/>
+          </svg>
+        </div>
+
+        {/* ============================================
+            NOTRE APPROCHE - Steps 1-2-3-4 style impli
+            ============================================ */}
+        <section id="solution" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-blue-dark text-white relative overflow-hidden">
+          <div className="mx-auto max-w-6xl px-6 relative z-10">
+            <Reveal>
+              <div className="text-center mb-12">
+                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/60 text-xs font-semibold uppercase tracking-wider">
+                  Notre méthode
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
+                  4 étapes pour reprendre{" "}
+                  <span className="relative inline-block">
+                    le contrôle
+                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
+                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.5"/>
+                    </svg>
+                  </span>
+                </h2>
+              </div>
+            </Reveal>
+
+            {/* Hand-drawn arrow showing progression */}
+            <div className="hidden lg:flex justify-center mb-8">
+              <div className="flex items-center gap-4 text-white/40">
+                <span className="text-sm italic">Du chaos...</span>
+                <svg width="120" height="20" viewBox="0 0 120 20">
+                  <path d="M0 10 Q30 5 60 12 T120 10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <path d="M108 5 L120 10 L108 15" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                </svg>
+                <span className="text-sm italic">...à la clarté</span>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { num: "1", title: "Audit", desc: "On cartographie vos outils, leurs coûts et leur utilisation réelle.", icon: "🗺️" },
+                { num: "2", title: "Rationalisation", desc: "On supprime les doublons et abonnements inutiles.", icon: "✂️" },
+                { num: "3", title: "Structuration", desc: "On configure un système où chaque outil a un rôle précis.", icon: "🏗️" },
+                { num: "4", title: "Adoption", desc: "On forme votre équipe pour garantir l'utilisation.", icon: "🚀" }
+              ].map((step, idx) => (
+                <Reveal key={idx} delay={idx * 0.1}>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full relative">
+                    {/* Hand-drawn number */}
+                    <div className="absolute -top-3 -left-2 w-8 h-8 flex items-center justify-center">
+                      <svg viewBox="0 0 40 40" className="w-full h-full">
+                        <circle cx="20" cy="20" r="16" stroke="white" strokeWidth="2" fill="none" strokeDasharray="2 2"/>
+                        <text x="20" y="25" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">{step.num}</text>
+                      </svg>
+                    </div>
+                    <div className="pt-2">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xl">{step.icon}</span>
+                        <h3 className="font-display text-lg font-bold">{step.title}</h3>
+                      </div>
+                      <p className="text-white/60 text-sm leading-relaxed">{step.desc}</p>
+                    </div>
+                  </div>
                 </Reveal>
               ))}
             </div>
 
             <Reveal delay={0.5}>
-              <div className="mt-12 text-center">
-                <p className="text-sm lg:text-base text-mist/90 max-w-2xl mx-auto">
-                  <strong className="text-white">Le résultat ?</strong> Une facture SaaS allégée, un système clair,
-                  et une équipe qui sait enfin comment travailler efficacement.
+              <div className="mt-10 text-center">
+                <p className="text-white/70 max-w-xl mx-auto">
+                  <strong className="text-white">Le résultat ?</strong> Une facture allégée, un système clair,
+                  et une équipe qui sait comment travailler.
                 </p>
               </div>
             </Reveal>
           </div>
         </section>
 
+        {/* Wave divider: blue-dark → paper */}
+        <div className="relative h-12 lg:h-16 bg-blue-dark">
+          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0 30 Q300 50 600 25 T1200 30 L1200 60 L0 60 Z" fill="#faf9f6"/>
+          </svg>
+        </div>
 
-        {/* Le Fondateur */}
-        <section id="fondateur" className="py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        {/* ============================================
+            NOS OFFRES - Style cards premium
+            ============================================ */}
+        <section id="offres" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
+          <div className="mx-auto max-w-6xl px-6">
             <Reveal>
-              <p className="eyebrow mb-3 text-center">Qui sommes-nous</p>
-              <h2 className="font-display text-xl text-white text-center lg:text-4xl max-w-3xl mx-auto">
-                La personne derrière AMPLIXY
-              </h2>
+              <div className="text-center mb-12">
+                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-ink/5 text-ink/60 text-xs font-semibold uppercase tracking-wider">
+                  Nos offres
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
+                  Deux formules,{" "}
+                  <span className="relative inline-block">
+                    pas de surprise
+                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
+                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="#3d5a80" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4"/>
+                    </svg>
+                  </span>
+                </h2>
+              </div>
             </Reveal>
 
-            <div className="mt-10 lg:mt-16 grid gap-8 lg:grid-cols-[1fr_2fr] items-center max-w-4xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {/* FONDATION */}
               <Reveal delay={0.1}>
-                <div className="relative mx-auto w-48 h-48 lg:w-64 lg:h-64">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/30 via-glow/20 to-transparent blur-2xl -z-10 scale-110"></div>
-                  <div className="relative rounded-full border border-white/15 bg-gradient-to-br from-white/10 via-white/5 to-white/5 p-2 shadow-glass backdrop-blur-xl w-full h-full overflow-hidden">
+                <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-paper h-full flex flex-col border border-slate-100">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-2xl">🧩</span>
+                    <h3 className="font-display text-xl font-bold text-ink">Fondation</h3>
+                  </div>
+                  <p className="text-slate text-sm mb-4">Pour les petites équipes</p>
+
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-3xl font-bold text-ink">6 499€</span>
+                      <span className="text-slate text-sm">HT</span>
+                    </div>
+                    <p className="text-xs text-slate mt-1">15 jours ouvrés</p>
+                  </div>
+
+                  <ul className="space-y-2 flex-1 text-sm">
+                    {[
+                      "Architecture : rôle de chaque outil",
+                      "Outil central configuré",
+                      "Outils connectés et synchronisés",
+                      "Règles d'usage documentées",
+                      "Formation de l'équipe",
+                      "Ajustements post-déploiement"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-charcoal">
+                        <svg className="w-4 h-4 text-blue-dark flex-shrink-0 mt-0.5" viewBox="0 0 20 20">
+                          <path d="M4 10 L8 14 L16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                        </svg>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    data-cal-namespace="diagnostique"
+                    data-cal-link="brignoli-florian-oykak5/diagnostique"
+                    data-cal-origin="https://cal.eu"
+                    data-cal-config='{"theme":"light"}'
+                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl border-2 border-ink/10 text-ink px-5 py-3 font-semibold text-sm transition-all hover:border-ink/30 hover:bg-ink/5"
+                  >
+                    Discuter de cette offre
+                  </button>
+                </div>
+              </Reveal>
+
+              {/* STRUCTURE */}
+              <Reveal delay={0.2}>
+                <div className="bg-blue-dark rounded-2xl p-6 lg:p-8 shadow-paper h-full flex flex-col relative">
+                  {/* Hand-drawn "populaire" annotation */}
+                  <div className="absolute -top-3 -right-2 rotate-6">
+                    <span className="inline-block px-3 py-1 bg-white text-blue-dark text-xs font-semibold rounded-full shadow-sm">
+                      ⭐ Populaire
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-2xl">🏗️</span>
+                    <h3 className="font-display text-xl font-bold text-white">Structure</h3>
+                  </div>
+                  <p className="text-white/60 text-sm mb-4">Pour les équipes en croissance</p>
+
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-3xl font-bold text-white">9 499€</span>
+                      <span className="text-white/60 text-sm">HT</span>
+                    </div>
+                    <p className="text-xs text-white/60 mt-1">20 jours ouvrés</p>
+                  </div>
+
+                  <ul className="space-y-2 flex-1 text-sm">
+                    {[
+                      "Tout Fondation inclus",
+                      "Architecture multi-collaborateurs",
+                      "Base de données structurée",
+                      "Automatisations des tâches",
+                      "Tableaux de bord et pilotage",
+                      "Suivi post-déploiement étendu"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-white/80">
+                        <svg className="w-4 h-4 text-white flex-shrink-0 mt-0.5" viewBox="0 0 20 20">
+                          <path d="M4 10 L8 14 L16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                        </svg>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    data-cal-namespace="diagnostique"
+                    data-cal-link="brignoli-florian-oykak5/diagnostique"
+                    data-cal-origin="https://cal.eu"
+                    data-cal-config='{"theme":"light"}'
+                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-white text-blue-dark px-5 py-3 font-semibold text-sm transition-all hover:bg-white/90"
+                  >
+                    Discuter de cette offre
+                  </button>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Wave divider: paper → blue-dark */}
+        <div className="relative h-12 lg:h-16 bg-paper">
+          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0 25 Q200 45 400 28 T800 32 T1200 28 L1200 60 L0 60 Z" fill="#3d5a80"/>
+          </svg>
+        </div>
+
+        {/* ============================================
+            LE FONDATEUR
+            ============================================ */}
+        <section id="fondateur" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-blue-dark text-white relative overflow-hidden">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="grid lg:grid-cols-[auto_1fr] gap-10 lg:gap-16 items-center">
+              <Reveal>
+                <div className="relative max-w-[220px] mx-auto lg:mx-0">
+                  {/* Hand-drawn frame effect */}
+                  <div className="absolute inset-0 -m-3 border-2 border-white/20 rounded-2xl border-dashed"></div>
+                  <div className="relative z-10 rounded-2xl overflow-hidden">
                     <Image
                       src="/img/profile-pic (9).png"
                       alt="Florian BRIGNOLI - Fondateur d'AMPLIXY"
-                      width={256}
-                      height={256}
-                      className="w-full h-full rounded-full object-cover"
+                      width={220}
+                      height={220}
+                      className="w-full aspect-square object-cover"
                     />
                   </div>
                 </div>
               </Reveal>
 
               <Reveal delay={0.2}>
-                <div className="text-center lg:text-left">
-                  <h3 className="text-xl lg:text-2xl font-semibold text-white mb-2">
-                    Florian BRIGNOLI
-                  </h3>
-                  <p className="text-glow font-medium mb-4">Fondateur d&apos;AMPLIXY</p>
+                <div>
+                  <span className="inline-block mb-3 px-3 py-1 rounded-full bg-white/10 text-white/60 text-xs font-semibold uppercase tracking-wider">
+                    Le fondateur
+                  </span>
+                  <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-1">
+                    Florian Brignoli
+                  </h2>
+                  <p className="text-white/50 text-sm mb-5 italic">Fondateur d&apos;Amplixy</p>
 
-                  <div className="space-y-4 text-sm lg:text-base text-mist/90">
+                  <div className="space-y-3 text-white/70 text-sm leading-relaxed">
                     <p>
-                      <strong className="text-white">Mon parcours :</strong> Formé en alternance sur des cursus techniques,
-                      j&apos;ai rapidement compris que ma vraie valeur n&apos;était pas dans le code,
-                      mais dans la capacité à transformer des idées en projets concrets.
-                      Business analyste puis chef de projet, j&apos;ai travaillé pour des grands groupes
-                      comme Airbus, Dassault Aviation ou CMA CGM — là où la rigueur organisationnelle
-                      n&apos;est pas une option.
+                      <strong className="text-white">Mon parcours :</strong> Business analyste puis chef de projet
+                      pour <strong className="text-white">Airbus, Dassault Aviation, CMA CGM</strong> —
+                      là où la rigueur n&apos;est pas une option.
                     </p>
                     <p>
-                      <strong className="text-white">Ce que j&apos;ai vu sur le terrain :</strong> En accompagnant une vingtaine de PME,
-                      j&apos;ai constaté le même schéma : des abonnements SaaS qui s&apos;accumulent sans stratégie,
-                      des fonctionnalités payées en double, des équipes perdues entre 5 ou 10 outils différents.
-                      Résultat : des factures qui explosent et une productivité qui stagne.
+                      <strong className="text-white">Ce que j&apos;ai vu :</strong> En accompagnant +20 PME,
+                      toujours le même schéma : abonnements qui s&apos;accumulent, fonctionnalités en double,
+                      équipes perdues.
                     </p>
                     <p>
                       <strong className="text-white">Ce que j&apos;apporte :</strong> Les méthodes des grands comptes,
-                      adaptées à votre réalité. Je vous aide à rationaliser vos outils, réduire vos coûts SaaS,
-                      et mettre en place un système simple que votre équipe utilisera vraiment.
-                      Pas de sur-engineering, pas de solutions surdimensionnées — juste ce qu&apos;il vous faut.
+                      adaptées à votre réalité. Pas de sur-engineering.
                     </p>
-                  </div>
-
-                  <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start">
-                    <span className="px-3 py-1 rounded-full bg-white/10 text-xs text-mist/80">Chef de projet</span>
-                    <span className="px-3 py-1 rounded-full bg-white/10 text-xs text-mist/80">Business Analyst</span>
-                    <span className="px-3 py-1 rounded-full bg-white/10 text-xs text-mist/80">+20 entreprises accompagnées</span>
                   </div>
                 </div>
               </Reveal>
@@ -546,75 +527,72 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Réserver un appel - Cal.com Embed */}
-        <section id="rdv" className="py-16 lg:py-24 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-5 lg:gap-16">
-              <div className="lg:col-span-2">
-                <Reveal>
-                  <p className="eyebrow mb-3">Discutons</p>
-                  <h2 className="font-display text-xl text-white lg:text-4xl">
-                    On en parle ?
-                  </h2>
-                  <p className="mt-4 text-sm lg:text-base text-mist/90">
-                    30 minutes pour comprendre votre situation et voir si nous pouvons vous aider.
-                    Sans engagement, sans blabla commercial.
-                  </p>
-                  <div className="mt-6 space-y-3 text-sm text-mist/80">
-                    <p className="flex items-center gap-2">
-                      <span className="text-glow">✓</span>
-                      Nous faisons un diagnostic rapide de votre situation
-                    </p>
-                    <p className="flex items-center gap-2">
-                      <span className="text-glow">✓</span>
-                      Nous vous donnons des pistes concrètes
-                    </p>
-                    <p className="flex items-center gap-2">
-                      <span className="text-glow">✓</span>
-                      Vous décidez si ça vous parle
-                    </p>
-                  </div>
-                  <div className="mt-6 grid gap-4 grid-cols-2">
-                    <div className="card-shell p-4 lg:p-6">
-                      <p className="eyebrow mb-1">Durée</p>
-                      <p className="font-display text-2xl lg:text-3xl text-white mb-1">30 min</p>
-                      <p className="text-xs text-mist/70">appel découverte</p>
-                    </div>
-                    <div className="card-shell p-4 lg:p-6">
-                      <p className="eyebrow mb-1">Format</p>
-                      <p className="font-display text-xl lg:text-2xl text-white mb-1">Visio</p>
-                      <p className="text-xs text-mist/70">ou téléphone</p>
-                    </div>
-                  </div>
-                </Reveal>
-              </div>
+        {/* Wave divider: blue-dark → paper */}
+        <div className="relative h-12 lg:h-16 bg-blue-dark">
+          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0 32 Q350 50 700 28 T1200 35 L1200 60 L0 60 Z" fill="#faf9f6"/>
+          </svg>
+        </div>
 
-              <div className="lg:col-span-3">
-                <Reveal delay={0.2}>
-                  <div className="card-shell p-6 lg:p-8 flex flex-col items-center justify-center text-center min-h-[300px]">
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-glow/30 to-accent/30 flex items-center justify-center">
-                      <span className="text-4xl">📅</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Réservez votre créneau</h3>
-                    <p className="text-sm text-mist/70 max-w-sm mb-6">
-                      Choisissez le moment qui vous convient pour un premier échange de 30 minutes.
-                    </p>
-                    <button
-                      data-cal-namespace="diagnostique"
-                      data-cal-link="brignoli-florian-oykak5/diagnostique"
-                      data-cal-origin="https://cal.eu"
-                      data-cal-config='{"theme":"dark"}'
-                      className="rounded-full bg-gradient-to-r from-accent to-glow px-8 py-4 font-semibold text-slate-900 shadow-xl transition hover:scale-105 active:scale-95"
-                    >
-                      Choisir un créneau
-                    </button>
+        {/* ============================================
+            CTA - Réserver un appel
+            ============================================ */}
+        <section id="rdv" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
+          <div className="mx-auto max-w-3xl px-6">
+            <Reveal>
+              <div className="bg-blue-dark rounded-2xl p-8 lg:p-12 text-center text-white relative">
+                {/* Hand-drawn corner decorations */}
+                <svg className="absolute top-4 left-4 w-8 h-8 text-white/20" viewBox="0 0 30 30">
+                  <path d="M5 25 L5 5 L25 5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                </svg>
+                <svg className="absolute bottom-4 right-4 w-8 h-8 text-white/20" viewBox="0 0 30 30">
+                  <path d="M25 5 L25 25 L5 25" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                </svg>
+
+                <div className="relative z-10">
+                  <span className="inline-block mb-4 text-4xl">📅</span>
+                  <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
+                    On en{" "}
+                    <span className="relative inline-block">
+                      parle
+                      <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
+                        <path d="M0 4 Q25 0 50 4 T100 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.5"/>
+                      </svg>
+                    </span>{" "}?
+                  </h2>
+                  <p className="text-white/60 max-w-md mx-auto mb-6 text-sm">
+                    30 minutes pour comprendre votre situation et voir si on peut vous aider.
+                    Sans engagement, sans blabla.
+                  </p>
+
+                  <div className="flex flex-wrap justify-center gap-4 mb-8 text-xs text-white/70">
+                    {["Diagnostic gratuit", "Pistes concrètes", "Zéro engagement"].map((item, i) => (
+                      <div key={i} className="flex items-center gap-1.5">
+                        <svg className="w-4 h-4" viewBox="0 0 20 20">
+                          <path d="M4 10 L8 14 L16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                        </svg>
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
-                </Reveal>
+
+                  <button
+                    data-cal-namespace="diagnostique"
+                    data-cal-link="brignoli-florian-oykak5/diagnostique"
+                    data-cal-origin="https://cal.eu"
+                    data-cal-config='{"theme":"light"}'
+                    className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white text-blue-dark px-8 py-4 font-semibold transition-all hover:bg-white/90 hover:gap-3"
+                  >
+                    Réserver mon créneau
+                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12 H19 M15 8 L19 12 L15 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
-
       </main>
 
       <Footer />

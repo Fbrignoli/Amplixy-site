@@ -53,7 +53,7 @@ export const ContactForm = () => {
   return (
     <form className="card-shell space-y-4" onSubmit={handleSubmit}>
       <div className="space-y-2">
-        <label className="text-sm font-semibold text-white/90" htmlFor="name">
+        <label className="text-sm font-semibold text-ink" htmlFor="name">
           Nom & Prénom
         </label>
         <input
@@ -62,12 +62,12 @@ export const ContactForm = () => {
           name="name"
           required
           placeholder="Julie Durant"
-          className="w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none transition-colors"
+          className="input-paper"
         />
       </div>
-      
+
       <div className="space-y-2">
-        <label className="text-sm font-semibold text-white/90" htmlFor="company">
+        <label className="text-sm font-semibold text-ink" htmlFor="company">
           Société
         </label>
         <input
@@ -76,12 +76,12 @@ export const ContactForm = () => {
           name="company"
           required
           placeholder="Nova Conseil"
-          className="w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none transition-colors"
+          className="input-paper"
         />
       </div>
-      
+
       <div className="space-y-2">
-        <label className="text-sm font-semibold text-white/90" htmlFor="email">
+        <label className="text-sm font-semibold text-ink" htmlFor="email">
           Email professionnel
         </label>
         <input
@@ -90,39 +90,39 @@ export const ContactForm = () => {
           name="email"
           required
           placeholder="julie@entreprise.fr"
-          className="w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none transition-colors"
+          className="input-paper"
         />
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-white/90" htmlFor="website">
-            Site web <span className="text-xs text-white/40 font-normal">(optionnel)</span>
+          <label className="text-sm font-semibold text-ink" htmlFor="website">
+            Site web <span className="text-xs text-slate font-normal">(optionnel)</span>
           </label>
           <input
             id="website"
             type="url"
             name="website"
             placeholder="https://..."
-            className="w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none transition-colors"
+            className="input-paper"
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-white/90" htmlFor="social">
-            Réseaux sociaux <span className="text-xs text-white/40 font-normal">(optionnel)</span>
+          <label className="text-sm font-semibold text-ink" htmlFor="social">
+            Réseaux sociaux <span className="text-xs text-slate font-normal">(optionnel)</span>
           </label>
           <input
             id="social"
             type="text"
             name="social"
             placeholder="LinkedIn, Instagram..."
-            className="w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none transition-colors"
+            className="input-paper"
           />
         </div>
       </div>
-      
+
       <div className="space-y-2">
-        <label className="text-sm font-semibold text-white/90" htmlFor="message">
+        <label className="text-sm font-semibold text-ink" htmlFor="message">
           Contexte & objectifs
         </label>
         <textarea
@@ -130,12 +130,12 @@ export const ContactForm = () => {
           name="message"
           rows={4}
           placeholder="Décrivez votre situation actuelle..."
-          className="w-full rounded-2xl border border-white/10 bg-midnight/50 px-4 py-3 text-sm text-white focus:border-glow focus:outline-none transition-colors"
+          className="input-paper resize-none"
         ></textarea>
       </div>
 
       {error && (
-        <div className="rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+        <div className="rounded-lg border border-red-500/30 bg-red-50 px-4 py-3 text-sm text-red-600">
           {error}
         </div>
       )}
@@ -143,8 +143,8 @@ export const ContactForm = () => {
       <button
         type="submit"
         disabled={loading || submitted}
-        className={`w-full rounded-full bg-gradient-to-r from-accent to-glow px-6 py-4 font-semibold text-slate-900 shadow-xl transition-all active:scale-95 ${
-          submitted ? "opacity-100" : "hover:opacity-90"
+        className={`w-full rounded-full bg-gradient-to-r from-accent to-glow px-6 py-4 font-semibold text-white shadow-paper transition-all active:scale-95 ${
+          submitted ? "opacity-100" : "hover:shadow-paper-lg hover:scale-[1.02]"
         } disabled:opacity-50 disabled:cursor-not-allowed`}
       >
         {loading ? "Envoi..." : submitted ? "Merci, on vous répond sous 24h" : "Audit gratuit"}
@@ -152,4 +152,3 @@ export const ContactForm = () => {
     </form>
   );
 };
-

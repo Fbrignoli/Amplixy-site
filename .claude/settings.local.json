@@ -4,7 +4,23 @@
       "Bash(timeout /t 5)",
       "Bash(cd:*)",
       "Bash(npx next dev)",
-      "Bash(./node_modules/.bin/next dev:*)"
+      "Bash(./node_modules/.bin/next dev:*)",
+      "WebFetch(domain:impli.fr)",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__navigate_page",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "mcp__chrome-devtools__new_page",
+      "WebFetch(domain:www.impli.fr)",
+      "WebFetch(domain:www.jesselnieman.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:www.subframe.com)",
+      "WebFetch(domain:github.com)",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__list_pages",
+      "mcp__chrome-devtools__press_key",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__click"
     ]
   }
 }
