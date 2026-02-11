@@ -3,14 +3,15 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "#probleme", label: "Le Problème" },
-  { href: "#offres", label: "Nos Offres" },
-  { href: "#solution", label: "Notre Approche" },
-  { href: "#fondateur", label: "Le Fondateur" },
+  { href: "#outils", label: "Nos Outils" },
+  { href: "#confiance", label: "Confiance" },
+  { href: "#contact", label: "Contact" },
 ];
 
 function NavbarContent({ isOpen, setIsOpen, closeMenu, scrolled }: { isOpen: boolean; setIsOpen: (v: boolean) => void; closeMenu: () => void; scrolled: boolean }) {
@@ -25,11 +26,15 @@ function NavbarContent({ isOpen, setIsOpen, closeMenu, scrolled }: { isOpen: boo
         aria-label="Navigation principale"
       >
         <div className="flex items-center justify-between">
-          <Link
-            href="#home"
-            className="font-display text-sm uppercase tracking-[0.3em] text-ink"
-          >
-            Amplixy
+          <Link href="#home">
+            <Image
+              src="/img/logo wm.png"
+              alt="Amplixy"
+              width={120}
+              height={32}
+              className="h-8 w-auto"
+              priority
+            />
           </Link>
 
           <div className="hidden items-center gap-6 md:flex">
@@ -44,7 +49,7 @@ function NavbarContent({ isOpen, setIsOpen, closeMenu, scrolled }: { isOpen: boo
             ))}
             <button
               data-cal-namespace="diagnostique"
-              data-cal-link="brignoli-florian-oykak5/diagnostique"
+              data-cal-link="florianbrignoli/meetup"
               data-cal-origin="https://cal.eu"
               data-cal-config='{"theme":"light"}'
               className="rounded-full bg-blue-dark px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-dark/90 hover:shadow-paper-lg hover:scale-105"
@@ -73,7 +78,13 @@ function NavbarContent({ isOpen, setIsOpen, closeMenu, scrolled }: { isOpen: boo
             className="fixed inset-0 z-[10000] flex flex-col bg-paper px-8 py-12 text-lg font-semibold text-ink md:hidden"
           >
             <div className="flex items-center justify-between">
-              <p className="font-display text-sm uppercase tracking-[0.3em]">Amplixy</p>
+              <Image
+                src="/img/logo wm.png"
+                alt="Amplixy"
+                width={120}
+                height={32}
+                className="h-8 w-auto"
+              />
               <button
                 className="rounded-full border border-ink/10 bg-white p-2"
                 onClick={() => setIsOpen(false)}
@@ -95,7 +106,7 @@ function NavbarContent({ isOpen, setIsOpen, closeMenu, scrolled }: { isOpen: boo
               ))}
               <button
                 data-cal-namespace="diagnostique"
-                data-cal-link="brignoli-florian-oykak5/diagnostique"
+                data-cal-link="florianbrignoli/meetup"
                 data-cal-origin="https://cal.eu"
                 data-cal-config='{"theme":"light"}'
                 className="mt-4 rounded-full bg-blue-dark px-4 py-4 text-center text-lg font-semibold text-white w-full"

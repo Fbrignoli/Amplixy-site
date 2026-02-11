@@ -7,7 +7,7 @@ export const Footer = () => {
         <div>
           <p className="font-display text-ink text-lg">Amplixy</p>
           <p className="mt-2 max-w-md text-xs text-slate leading-relaxed">
-            Les bons outils, bien utilisés.
+            Toute entreprise mérite d&apos;être vue.
           </p>
         </div>
         <div className="flex flex-col gap-2 text-sm text-accent md:text-right">

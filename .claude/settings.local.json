@@ -21,7 +21,8 @@
       "mcp__chrome-devtools__press_key",
       "mcp__chrome-devtools__evaluate_script",
       "mcp__chrome-devtools__click",
-      "Bash(cd /Users/florianbrignoli/Documents/05\\\\ -\\\\ Developpement/Amplixy-site && npm run build:*)"
+      "Bash(cd /Users/florianbrignoli/Documents/05\\\\ -\\\\ Developpement/Amplixy-site && npm run build:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }
