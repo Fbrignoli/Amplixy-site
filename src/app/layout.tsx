@@ -23,8 +23,8 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Amplixy | On rend votre entreprise évidente à choisir",
-  description: "Partenaire de visibilité long terme pour les entreprises. Nous rendons votre expertise visible, crédible et cohérente en ligne : contenus de fond, supports visuels et sites orientés conversion.",
+  title: "Amplixy | On aide les TPE-PME à prendre le virage du numérique",
+  description: "Des outils digitaux simples et accessibles pour les TPE-PME. Sites web professionnels, fidélisation clients — pensés pour votre réalité, pas pour les grandes entreprises.",
   icons: {
     icon: "/img/icon wm.png",
     apple: "/img/icon wm.png",
