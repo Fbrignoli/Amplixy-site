@@ -13,10 +13,14 @@ const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-const waveClip = {
-  closed: "polygon(0 0, 100% 0, 100% 0%, 80% 0%, 60% 0%, 40% 0%, 20% 0%, 0 0%)",
-  wave: "polygon(0 0, 100% 0, 100% 85%, 80% 100%, 60% 85%, 40% 100%, 20% 85%, 0 100%)",
-  full: "polygon(0 0, 100% 0, 100% 100%, 80% 100%, 60% 100%, 40% 100%, 20% 100%, 0 100%)",
+const overlayVariants = {
+  closed: {
+    clipPath: "polygon(0 0, 100% 0, 100% 0%, 80% 0%, 60% 0%, 40% 0%, 20% 0%, 0 0%)",
+  },
+  open: {
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 80% 100%, 60% 100%, 40% 100%, 20% 100%, 0 100%)",
+    transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
+  },
 };
 
 export const Navbar = () => {
@@ -109,12 +113,10 @@ export const Navbar = () => {
         {isOpen && (
           <motion.div
             className="fixed inset-0 z-[10000] bg-blue-dark md:hidden"
-            initial={{ clipPath: waveClip.closed }}
-            animate={[
-              { clipPath: waveClip.wave, transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] } },
-              { clipPath: waveClip.full, transition: { duration: 0.3, ease: [0.25, 1, 0.5, 1] } },
-            ]}
-            exit={{ clipPath: waveClip.closed, transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] } }}
+            variants={overlayVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
           >
             {/* Content */}
             <div className="flex flex-col h-full px-8 pt-6 pb-12">
