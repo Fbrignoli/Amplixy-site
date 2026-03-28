@@ -36,14 +36,27 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-ink leading-[1.1]">
-              On aide les TPE-PME à prendre le{" "}
-              <span className="relative inline-block">
-                virage du numérique
+            <h2 className="font-display text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-ink leading-[1.1]">
+              On aide les TPE-PME
+              <br className="sm:hidden" />
+              {" "}à prendre le{" "}
+              {/* Grand écran (lg+): souligne "virage du numérique" */}
+              <span className="relative inline-block hidden lg:inline-block">
+                virage du numérique.
                 <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 200 8" preserveAspectRatio="none">
                   <path d="M0 4 Q50 0 100 4 T200 4" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" fill="none"/>
                 </svg>
-              </span>.
+              </span>
+              {/* Mobile + tablette (< lg): souligne seulement "numérique" */}
+              <span className="lg:hidden">
+                virage du{" "}
+                <span className="relative inline-block">
+                  numérique.
+                  <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 200 8" preserveAspectRatio="none">
+                    <path d="M0 4 Q50 0 100 4 T200 4" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" fill="none"/>
+                  </svg>
+                </span>
+              </span>
             </h2>
           </Reveal>
 

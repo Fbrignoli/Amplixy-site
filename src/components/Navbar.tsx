@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,7 +13,45 @@ const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-function NavbarContent({ isOpen, setIsOpen, closeMenu, scrolled }: { isOpen: boolean; setIsOpen: (v: boolean) => void; closeMenu: () => void; scrolled: boolean }) {
+const waveClip = {
+  closed: "polygon(0 0, 100% 0, 100% 0%, 80% 0%, 60% 0%, 40% 0%, 20% 0%, 0 0%)",
+  wave: "polygon(0 0, 100% 0, 100% 85%, 80% 100%, 60% 85%, 40% 100%, 20% 85%, 0 100%)",
+  full: "polygon(0 0, 100% 0, 100% 100%, 80% 100%, 60% 100%, 40% 100%, 20% 100%, 0 100%)",
+};
+
+export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const closeMenu = () => setIsOpen(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  if (!mounted) return null;
+
   return (
     <>
       <nav
@@ -71,89 +108,90 @@ function NavbarContent({ isOpen, setIsOpen, closeMenu, scrolled }: { isOpen: boo
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[10000] flex flex-col bg-paper px-8 py-12 text-lg font-semibold text-ink md:hidden"
+            className="fixed inset-0 z-[10000] bg-blue-dark md:hidden"
+            initial={{ clipPath: waveClip.closed }}
+            animate={[
+              { clipPath: waveClip.wave, transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] } },
+              { clipPath: waveClip.full, transition: { duration: 0.3, ease: [0.25, 1, 0.5, 1] } },
+            ]}
+            exit={{ clipPath: waveClip.closed, transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] } }}
           >
-            <div className="flex items-center justify-between">
-              <Image
-                src="/img/logo wm.png"
-                alt="Amplixy"
-                width={120}
-                height={32}
-                className="h-8 w-auto"
-              />
-              <button
-                className="rounded-full border border-ink/10 bg-white p-2"
-                onClick={() => setIsOpen(false)}
-                aria-label="Fermer le menu"
+            {/* Content */}
+            <div className="flex flex-col h-full px-8 pt-6 pb-12">
+              {/* Header */}
+              <motion.div
+                className="flex items-center justify-between"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ delay: 0.3, duration: 0.4 }}
               >
-                <X className="h-6 w-6 text-ink" />
-              </button>
-            </div>
-            <div className="mt-12 flex flex-col gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-2xl font-display text-ink hover:text-accent transition-colors"
-                  onClick={closeMenu}
+                <Image
+                  src="/img/logo dm.png"
+                  alt="Amplixy"
+                  width={120}
+                  height={32}
+                  className="h-8 w-auto"
+                />
+                <button
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm"
+                  onClick={() => setIsOpen(false)}
+                  aria-label="Fermer le menu"
                 >
-                  {link.label}
-                </Link>
-              ))}
-              <button
-                data-cal-namespace="diagnostique"
-                data-cal-link="florianbrignoli/meetup"
-                data-cal-origin="https://cal.eu"
-                data-cal-config='{"theme":"light"}'
-                className="mt-4 rounded-full bg-blue-dark px-4 py-4 text-center text-lg font-semibold text-white w-full"
-                onClick={closeMenu}
-              >
-                Prendre RDV
-              </button>
+                  <X className="h-5 w-5 text-white" />
+                </button>
+              </motion.div>
+
+              {/* Links */}
+              <div className="flex flex-col justify-center flex-1 gap-8 mt-12">
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{
+                      delay: 0.35 + i * 0.08,
+                      duration: 0.5,
+                      ease: [0.25, 1, 0.5, 1],
+                    }}
+                  >
+                    <Link
+                      href={link.href}
+                      className="text-2xl font-display font-bold text-white hover:text-glow transition-colors"
+                      onClick={closeMenu}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{
+                    delay: 0.35 + navLinks.length * 0.08,
+                    duration: 0.5,
+                    ease: [0.25, 1, 0.5, 1],
+                  }}
+                >
+                  <button
+                    data-cal-namespace="diagnostique"
+                    data-cal-link="florianbrignoli/meetup"
+                    data-cal-origin="https://cal.eu"
+                    data-cal-config='{"theme":"light"}'
+                    className="mt-4 rounded-full bg-glow px-6 py-4 text-center text-lg font-semibold text-midnight w-full"
+                    onClick={closeMenu}
+                  >
+                    Prendre RDV
+                  </button>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
-  );
-}
-
-export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  const closeMenu = () => setIsOpen(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-  }, [isOpen]);
-
-  if (!mounted) return null;
-
-  return createPortal(
-    <NavbarContent isOpen={isOpen} setIsOpen={setIsOpen} closeMenu={closeMenu} scrolled={scrolled} />,
-    document.body
   );
 };
