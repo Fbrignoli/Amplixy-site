@@ -64,11 +64,11 @@ export default function MentionsLegales() {
                 <h2 className="font-display text-xl font-bold text-ink mb-4">3. Hébergement</h2>
                 <p className="text-charcoal">
                   Le site est hébergé par :<br />
-                  <strong>Railway Corporation</strong><br />
-                  548 Market St, PMB 68956<br />
-                  San Francisco, California 94104<br />
-                  États-Unis<br />
-                  Site : <a href="https://railway.app" target="_blank" rel="noopener noreferrer" className="text-blue-dark underline">railway.app</a>
+                  <strong>Hostinger International Ltd.</strong><br />
+                  61 Lordou Vironos Street<br />
+                  6023 Larnaca<br />
+                  Chypre<br />
+                  Site : <a href="https://www.hostinger.fr" target="_blank" rel="noopener noreferrer" className="text-blue-dark underline">hostinger.fr</a>
                 </p>
               </section>
 
