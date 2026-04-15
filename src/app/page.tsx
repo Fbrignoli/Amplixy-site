@@ -104,15 +104,15 @@ export default function Home() {
           <Reveal delay={0.6}>
             <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 px-6">
               {[
-                "/img/partenaire/AIRBUS_Blue.png",
-                "/img/partenaire/CMA_CGM_logo.svg.png",
-                "/img/partenaire/dircom-logo_amu_cmjn.png",
-                "/img/partenaire/NAF-NAF-Le-Grand-Mechant-Look-Logo-Vector.svg-.png",
-              ].map((src, i) => (
+                { src: "/img/partenaire/AIRBUS_Blue.png", alt: "Airbus" },
+                { src: "/img/partenaire/CMA_CGM_logo.svg.png", alt: "CMA CGM" },
+                { src: "/img/partenaire/dircom-logo_amu_cmjn.png", alt: "Aix-Marseille Université" },
+                { src: "/img/partenaire/NAF-NAF-Le-Grand-Mechant-Look-Logo-Vector.svg-.png", alt: "NAF NAF" },
+              ].map((partner, i) => (
                 <Image
                   key={i}
-                  src={src}
-                  alt={`Partenaire ${i + 1}`}
+                  src={partner.src}
+                  alt={partner.alt}
                   width={120}
                   height={40}
                   className="h-8 sm:h-10 w-auto object-contain opacity-40 hover:opacity-70 transition-opacity"
@@ -135,7 +135,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main>
+      <main id="main-content">
         {/* Wave divider: paper → blue-dark */}
         <div className="relative h-12 lg:h-16 bg-paper">
           <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
@@ -289,7 +289,7 @@ export default function Home() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
               {/* Card 1 — Sites web */}
               <Reveal delay={0.1}>
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col">
+                <article className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-2xl">🌐</span>
                     <h3 className="font-display text-xl font-bold">Sites web professionnels</h3>
@@ -305,12 +305,12 @@ export default function Home() {
                   >
                     En savoir plus
                   </a>
-                </div>
+                </article>
               </Reveal>
 
               {/* Card 2 — Firaxy */}
               <Reveal delay={0.2}>
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col">
+                <article className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-2xl">🎯</span>
                     <h3 className="font-display text-xl font-bold">Firaxy — Fidélisation clients</h3>
@@ -327,12 +327,12 @@ export default function Home() {
                   >
                     Découvrir Firaxy
                   </a>
-                </div>
+                </article>
               </Reveal>
 
               {/* Card 3 — Et demain ? */}
               <Reveal delay={0.3}>
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col sm:col-span-2 lg:col-span-1">
+                <article className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col sm:col-span-2 lg:col-span-1">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-2xl">🔮</span>
                     <h3 className="font-display text-xl font-bold">Et demain ?</h3>
@@ -340,7 +340,7 @@ export default function Home() {
                   <div className="space-y-3 text-white/70 text-sm leading-relaxed flex-1">
                     <p>D&apos;autres outils viendront, toujours conçus pour les TPE-PME, toujours simples, toujours accessibles.</p>
                   </div>
-                </div>
+                </article>
               </Reveal>
             </div>
           </div>
