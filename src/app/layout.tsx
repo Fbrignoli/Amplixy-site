@@ -77,14 +77,54 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "À qui s'adressent vos services ?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Aux TPE et PME qui veulent prendre le virage du numérique sans se perdre dans des outils surdimensionnés. Chaque solution est pensée pour votre réalité, pas pour celle des grandes entreprises.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Quels outils proposez-vous ?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Webaxy pour des sites web professionnels simples et rapides à déployer, et Firaxy pour la fidélisation client (programme de fidélité digital pour commerçants). D'autres outils arriveront, toujours pensés pour les TPE-PME.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Comment vous contacter ?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Par email à contact@amplixy.com, par téléphone au 07 78 20 90 44, ou directement en prenant rendez-vous via notre agenda en ligne.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Êtes-vous liés au site amplixy.ai ?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Non, amplixy.ai n'a aucun lien avec notre entreprise. Des démarches sont en cours pour que notre image soit clairement dissociée de ce site. Si vous rencontrez un problème avec amplixy.ai, nous vous conseillons de contacter directement Lemon Squeezy ou Vercel.",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className={`${montserrat.variable} ${lato.variable} ${caveat.variable} font-sans antialiased bg-paper text-ink selection:bg-accent/20 selection:text-ink`}
       >
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-white focus:text-ink focus:rounded-lg focus:shadow-lg"
-        >
+        <a href="#main-content" hidden aria-hidden="true">
           Aller au contenu principal
         </a>
         <Script

@@ -414,6 +414,65 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ============================================
+            FAQ
+            ============================================ */}
+        <section id="faq" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
+          <div className="mx-auto max-w-3xl px-6">
+            <Reveal>
+              <div className="text-center mb-12">
+                <span className="inline-block mb-3 px-3 py-1 rounded-full bg-ink/5 text-ink/60 text-xs font-semibold uppercase tracking-wider">
+                  FAQ
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
+                  Questions{" "}
+                  <span className="relative inline-block">
+                    fréquentes
+                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
+                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="#3d5a80" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4"/>
+                    </svg>
+                  </span>
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="space-y-3">
+              {[
+                {
+                  q: "À qui s'adressent vos services ?",
+                  a: "Aux TPE et PME qui veulent prendre le virage du numérique sans se perdre dans des outils surdimensionnés. Chaque solution est pensée pour votre réalité, pas pour celle des grandes entreprises.",
+                },
+                {
+                  q: "Quels outils proposez-vous ?",
+                  a: "Webaxy pour des sites web professionnels simples et rapides à déployer, et Firaxy pour la fidélisation client (programme de fidélité digital pour commerçants). D'autres outils arriveront, toujours pensés pour les TPE-PME.",
+                },
+                {
+                  q: "Comment vous contacter ?",
+                  a: "Par email à contact@amplixy.com, par téléphone au 07 78 20 90 44, ou directement en prenant rendez-vous via notre agenda en ligne.",
+                },
+                {
+                  q: "Êtes-vous liés au site amplixy.ai ?",
+                  a: "Non, amplixy.ai n'a aucun lien avec notre entreprise. Des démarches sont en cours pour que notre image soit clairement dissociée de ce site. Si vous rencontrez un problème avec amplixy.ai, nous vous conseillons de contacter directement Lemon Squeezy ou Vercel.",
+                },
+              ].map((item, i) => (
+                <Reveal key={item.q} delay={i * 0.05}>
+                  <details className="group bg-white rounded-xl border border-ink/10 overflow-hidden transition-all hover:border-ink/20">
+                    <summary className="flex items-center justify-between gap-4 cursor-pointer px-6 py-5 font-display font-semibold text-ink list-none [&::-webkit-details-marker]:hidden">
+                      <span>{item.q}</span>
+                      <svg className="w-5 h-5 shrink-0 transition-transform group-open:rotate-45 text-ink/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                      </svg>
+                    </summary>
+                    <div className="px-6 pb-5 text-charcoal text-sm leading-relaxed">
+                      {item.a}
+                    </div>
+                  </details>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Wave divider: paper → blue-dark */}
         <div className="relative h-12 lg:h-16 bg-paper">
           <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
