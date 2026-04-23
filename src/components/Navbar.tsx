@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { href: "#probleme", label: "Le Problème" },
   { href: "#outils", label: "Nos Outils" },
+  { href: "#reussites", label: "Nos Réussites" },
   { href: "#confiance", label: "Confiance" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
@@ -70,7 +71,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link href="#home">
             <Image
-              src="/img/logo wm.png"
+              src="/img/logo-wm.png"
               alt="Amplixy"
               width={120}
               height={32}
@@ -130,7 +131,7 @@ export const Navbar = () => {
                 transition={{ delay: 0.3, duration: 0.4 }}
               >
                 <Image
-                  src="/img/logo dm.png"
+                  src="/img/logo-dm.png"
                   alt="Amplixy"
                   width={120}
                   height={32}

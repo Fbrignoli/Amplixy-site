@@ -22,8 +22,6 @@ export default function Home() {
     <>
       <Navbar />
 
-      <h1 className="sr-only">Amplixy - Des outils digitaux simples pour les TPE-PME</h1>
-
       {/* ============================================
           HERO
           ============================================ */}
@@ -35,30 +33,28 @@ export default function Home() {
             </span>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <h2 className="font-display text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-ink leading-[1.1]">
-              On aide les TPE-PME
-              <br className="sm:hidden" />
-              {" "}à prendre le{" "}
-              {/* Grand écran (lg+): souligne "virage du numérique" */}
-              <span className="relative inline-block hidden lg:inline-block">
-                virage du numérique.
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-ink leading-[1.1]">
+            On aide les TPE-PME
+            <br className="sm:hidden" />
+            {" "}à prendre le{" "}
+            {/* Grand écran (lg+): souligne "virage du numérique" */}
+            <span className="relative inline-block hidden lg:inline-block">
+              virage du numérique.
+              <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 200 8" preserveAspectRatio="none">
+                <path d="M0 4 Q50 0 100 4 T200 4" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" fill="none"/>
+              </svg>
+            </span>
+            {/* Mobile + tablette (< lg): souligne seulement "numérique" */}
+            <span className="lg:hidden">
+              virage du{" "}
+              <span className="relative inline-block">
+                numérique.
                 <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 200 8" preserveAspectRatio="none">
                   <path d="M0 4 Q50 0 100 4 T200 4" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" fill="none"/>
                 </svg>
               </span>
-              {/* Mobile + tablette (< lg): souligne seulement "numérique" */}
-              <span className="lg:hidden">
-                virage du{" "}
-                <span className="relative inline-block">
-                  numérique.
-                  <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 200 8" preserveAspectRatio="none">
-                    <path d="M0 4 Q50 0 100 4 T200 4" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" fill="none"/>
-                  </svg>
-                </span>
-              </span>
-            </h2>
-          </Reveal>
+            </span>
+          </h1>
 
           <Reveal delay={0.2}>
             <p className="mt-8 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -354,6 +350,111 @@ export default function Home() {
         </div>
 
         {/* ============================================
+            NOS RÉUSSITES
+            ============================================ */}
+        <section id="reussites" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
+          <div className="mx-auto max-w-6xl px-6">
+            <Reveal>
+              <div className="text-center mb-12">
+                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-ink/5 text-ink/60 text-xs font-semibold uppercase tracking-wider">
+                  Nos réussites
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
+                  Des entreprises qui{" "}
+                  <span className="relative inline-block">
+                    nous font confiance
+                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
+                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="#3d5a80" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4"/>
+                    </svg>
+                  </span>
+                </h2>
+                <p className="mt-4 text-charcoal max-w-2xl mx-auto">
+                  Artisans, commerçants, indépendants : des sites livrés, simples à utiliser, pensés pour leur réalité.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              {[
+                {
+                  name: "Firaxy",
+                  sector: "SaaS — Fidélisation commerçants ambulants",
+                  location: "France",
+                  url: "https://firaxy.com",
+                  image: "/img/reussites/firaxy.webp",
+                  desc: "Plateforme de fidélité pour vendeurs sur marchés et foires. Un QR code, et les clients sont alertés quand on revient dans leur région.",
+                },
+                {
+                  name: "VionCouverture",
+                  sector: "Artisan couvreur",
+                  location: "Melun, Seine-et-Marne",
+                  url: "https://vioncouverture.fr",
+                  image: "/img/reussites/vioncouverture.webp",
+                  desc: "Site vitrine pour un artisan couvreur indépendant. SEO local, structured data, formulaire de contact — livré clé en main.",
+                },
+                {
+                  name: "Accord'Âme",
+                  sector: "École de musique",
+                  location: "Lyon",
+                  url: "https://ecoleaccordame.fr",
+                  image: "/img/reussites/accordame.webp",
+                  desc: "Site one-page pour une école de violon et alto (méthode Suzuki). Design doux, sections cours par âge, carte de localisation intégrée.",
+                },
+                {
+                  name: "Corsicabrignoli",
+                  sector: "Produits corses (marchés)",
+                  location: "Marseille",
+                  url: "https://corsicabrignoli.fr",
+                  image: "/img/reussites/corsicabrignoli.webp",
+                  desc: "Vitrine pour un vendeur de charcuterie et fromages corses sur les marchés de la Côte Bleue. Planning des marchés à jour, crédibilité en ligne.",
+                },
+              ].map((item, i) => (
+                <Reveal key={item.name} delay={i * 0.1}>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block bg-white rounded-2xl overflow-hidden border border-ink/10 transition-all hover:border-accent hover:shadow-paper-lg hover:-translate-y-1 h-full"
+                  >
+                    <div className="aspect-[16/10] overflow-hidden bg-slate-100 relative">
+                      <Image
+                        src={item.image}
+                        alt={`Aperçu du site ${item.name}`}
+                        width={720}
+                        height={450}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-start justify-between gap-3 mb-3">
+                        <div className="min-w-0">
+                          <h3 className="font-display text-xl font-bold text-ink truncate">{item.name}</h3>
+                          <p className="text-xs text-charcoal/60 mt-0.5">
+                            {item.sector} · {item.location}
+                          </p>
+                        </div>
+                        <svg
+                          className="w-5 h-5 text-accent flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H8M17 7v9" />
+                        </svg>
+                      </div>
+                      <p className="text-sm text-charcoal leading-relaxed">{item.desc}</p>
+                      <p className="mt-4 text-xs font-semibold text-accent uppercase tracking-wider">
+                        {item.url.replace(/^https?:\/\//, "")}
+                      </p>
+                    </div>
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================
             POURQUOI NOUS FAIRE CONFIANCE
             ============================================ */}
         <section id="confiance" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
@@ -444,7 +545,11 @@ export default function Home() {
                 },
                 {
                   q: "Quels outils proposez-vous ?",
-                  a: "Webaxy pour des sites web professionnels simples et rapides à déployer, et Firaxy pour la fidélisation client (programme de fidélité digital pour commerçants). D'autres outils arriveront, toujours pensés pour les TPE-PME.",
+                  a: "Des sites web professionnels simples et rapides à déployer (livrés en 48h, à partir de 40€/mois hébergement inclus), et Firaxy pour la fidélisation client (programme de fidélité digital pour commerçants ambulants). D'autres outils arriveront, toujours pensés pour les TPE-PME.",
+                },
+                {
+                  q: "Combien coûte un site web avec Amplixy ?",
+                  a: "Nos sites web démarrent à 40€/mois tout inclus (hébergement, maintenance, support, nom de domaine). Livraison en 48h. Pas de frais de mise en service cachés, pas d'engagement longue durée imposé comme chez certains concurrents WordPress.",
                 },
                 {
                   q: "Comment vous contacter ?",

@@ -24,17 +24,44 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amplixy.com"),
-  title: "Amplixy | On aide les TPE-PME à prendre le virage du numérique",
+  title: "Amplixy — Sites web & outils digitaux pour TPE-PME (dès 40€/mois)",
   description:
-    "Des outils digitaux simples et accessibles pour les TPE-PME. Sites web professionnels, fidélisation clients — pensés pour votre réalité, pas pour les grandes entreprises.",
+    "Sites web professionnels livrés en 48h, à partir de 40€/mois (hébergement inclus). Fidélisation client avec Firaxy. Outils simples pensés pour les TPE-PME françaises.",
+  keywords: [
+    "site web TPE",
+    "site web PME",
+    "création site internet artisan",
+    "outils digitaux petite entreprise",
+    "fidélisation client commerçant",
+    "Amplixy",
+    "Melun",
+    "Île-de-France",
+  ],
+  authors: [{ name: "Florian Brignoli", url: "https://amplixy.com" }],
+  creator: "Florian Brignoli",
+  publisher: "Amplixy",
+  alternates: {
+    canonical: "https://amplixy.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
-    icon: "/img/icon wm.png",
-    apple: "/img/icon wm.png",
+    icon: "/img/icon-wm.png",
+    apple: "/img/icon-wm.png",
   },
   openGraph: {
-    title: "Amplixy | On aide les TPE-PME à prendre le virage du numérique",
+    title: "Amplixy — Sites web & outils digitaux pour TPE-PME (dès 40€/mois)",
     description:
-      "Des outils digitaux simples et accessibles pour les TPE-PME. Sites web professionnels, fidélisation clients — pensés pour votre réalité, pas pour les grandes entreprises.",
+      "Sites web professionnels livrés en 48h, à partir de 40€/mois (hébergement inclus). Fidélisation client avec Firaxy. Outils simples pensés pour les TPE-PME françaises.",
     url: "https://amplixy.com",
     siteName: "Amplixy",
     locale: "fr_FR",
@@ -42,9 +69,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amplixy | On aide les TPE-PME à prendre le virage du numérique",
+    site: "@amplixy",
+    creator: "@florianbrignoli",
+    title: "Amplixy — Sites web & outils digitaux pour TPE-PME",
     description:
-      "Des outils digitaux simples et accessibles pour les TPE-PME. Sites web professionnels, fidélisation clients — pensés pour votre réalité, pas pour les grandes entreprises.",
+      "Sites web livrés en 48h à partir de 40€/mois. Fidélisation client avec Firaxy. Outils simples pour TPE-PME.",
   },
 };
 
@@ -62,18 +91,137 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
+              "@id": "https://amplixy.com/#organization",
               name: "Amplixy",
+              legalName: "AMPLIXY EURL",
               url: "https://amplixy.com",
-              logo: "https://amplixy.com/img/icon wm.png",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://amplixy.com/img/icon-wm.png",
+                width: 512,
+                height: 512,
+              },
+              image: "https://amplixy.com/img/icon-wm.png",
               description:
-                "Des outils digitaux simples et accessibles pour les TPE-PME.",
+                "Sites web professionnels et outils digitaux pour TPE-PME françaises. Livraison en 48h, à partir de 40€/mois.",
               email: "contact@amplixy.com",
               telephone: "+33778209044",
+              foundingDate: "2024",
               founder: {
                 "@type": "Person",
-                name: "Florian Brignoli",
+                "@id": "https://amplixy.com/#florian-brignoli",
               },
-              sameAs: [],
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Melun",
+                postalCode: "77000",
+                addressRegion: "Île-de-France",
+                addressCountry: "FR",
+              },
+              areaServed: [
+                { "@type": "Country", name: "France" },
+                { "@type": "AdministrativeArea", name: "Île-de-France" },
+              ],
+              knowsLanguage: ["fr", "en"],
+              sameAs: [
+                "https://www.linkedin.com/company/amplixy",
+                "https://www.societe.com/societe/amplixy-999167760.html",
+              ],
+              vatID: "FR",
+              identifier: {
+                "@type": "PropertyValue",
+                propertyID: "SIREN",
+                value: "999167760",
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "@id": "https://amplixy.com/#localbusiness",
+              name: "Amplixy",
+              url: "https://amplixy.com",
+              image: "https://amplixy.com/img/icon-wm.png",
+              telephone: "+33778209044",
+              email: "contact@amplixy.com",
+              priceRange: "€€",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Melun",
+                postalCode: "77000",
+                addressRegion: "Île-de-France",
+                addressCountry: "FR",
+              },
+              areaServed: [
+                { "@type": "Country", name: "France" },
+                { "@type": "AdministrativeArea", name: "Île-de-France" },
+              ],
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  opens: "09:00",
+                  closes: "18:00",
+                },
+              ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "@id": "https://amplixy.com/#florian-brignoli",
+              name: "Florian Brignoli",
+              givenName: "Florian",
+              familyName: "Brignoli",
+              jobTitle: "Fondateur & Consultant IT",
+              worksFor: {
+                "@type": "Organization",
+                "@id": "https://amplixy.com/#organization",
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Melun",
+                addressRegion: "Île-de-France",
+                addressCountry: "FR",
+              },
+              description:
+                "Fondateur d'Amplixy. Ingénieur et consultant IT, ancien Airbus, Dassault Aviation, CMA CGM. Spécialisé dans l'accompagnement digital des TPE-PME.",
+              knowsAbout: [
+                "Développement web",
+                "Next.js",
+                "Nuxt.js",
+                "Gestion de projet IT",
+                "Accompagnement TPE-PME",
+                "SEO",
+              ],
+              url: "https://amplixy.com",
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://amplixy.com/#website",
+              url: "https://amplixy.com",
+              name: "Amplixy",
+              description:
+                "Sites web et outils digitaux pour TPE-PME françaises.",
+              publisher: {
+                "@type": "Organization",
+                "@id": "https://amplixy.com/#organization",
+              },
+              inLanguage: "fr-FR",
             }),
           }}
         />
@@ -97,7 +245,15 @@ export default function RootLayout({
                   name: "Quels outils proposez-vous ?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Webaxy pour des sites web professionnels simples et rapides à déployer, et Firaxy pour la fidélisation client (programme de fidélité digital pour commerçants). D'autres outils arriveront, toujours pensés pour les TPE-PME.",
+                    text: "Des sites web professionnels simples et rapides à déployer (livrés en 48h, à partir de 40€/mois hébergement inclus), et Firaxy pour la fidélisation client (programme de fidélité digital pour commerçants ambulants). D'autres outils arriveront, toujours pensés pour les TPE-PME.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Combien coûte un site web avec Amplixy ?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Nos sites web démarrent à 40€/mois tout inclus (hébergement, maintenance, support, nom de domaine). Livraison en 48h. Pas de frais de mise en service cachés, pas d'engagement longue durée imposé comme chez certains concurrents WordPress.",
                   },
                 },
                 {
@@ -105,7 +261,7 @@ export default function RootLayout({
                   name: "Comment vous contacter ?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Par email à contact@amplixy.com, par téléphone au 07 78 20 90 44, ou directement en prenant rendez-vous via notre agenda en ligne.",
+                    text: "Par email à contact@amplixy.com, par téléphone au 07 78 20 90 44, ou directement en prenant rendez-vous via notre agenda en ligne sur amplixy.com.",
                   },
                 },
                 {
