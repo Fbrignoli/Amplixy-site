@@ -1,25 +1,14 @@
-"use client";
-
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
+import { CalInit } from "@/components/CalInit";
+import { SketchUnderline } from "@/components/ui/SketchUnderline";
 import Image from "next/image";
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({ namespace: "diagnostique" });
-      cal("ui", {
-        theme: "light",
-        hideEventTypeDetails: false,
-      });
-    })();
-  }, []);
-
   return (
     <>
+      <CalInit />
       <Navbar />
 
       {/* ============================================
@@ -40,18 +29,14 @@ export default function Home() {
             {/* Grand écran (lg+): souligne "virage du numérique" */}
             <span className="relative inline-block hidden lg:inline-block">
               virage du numérique.
-              <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 200 8" preserveAspectRatio="none">
-                <path d="M0 4 Q50 0 100 4 T200 4" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" fill="none"/>
-              </svg>
+              <SketchUnderline color="#3b82f6" opacity={1} strokeWidth={3} variant="wide" />
             </span>
             {/* Mobile + tablette (< lg): souligne seulement "numérique" */}
             <span className="lg:hidden">
               virage du{" "}
               <span className="relative inline-block">
                 numérique.
-                <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 200 8" preserveAspectRatio="none">
-                  <path d="M0 4 Q50 0 100 4 T200 4" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" fill="none"/>
-                </svg>
+                <SketchUnderline color="#3b82f6" opacity={1} strokeWidth={3} variant="wide" />
               </span>
             </span>
           </h1>
@@ -106,11 +91,12 @@ export default function Home() {
                 { src: "/img/partenaire/NAF-NAF-Le-Grand-Mechant-Look-Logo-Vector.svg-.png", alt: "NAF NAF" },
               ].map((partner, i) => (
                 <Image
-                  key={i}
+                  key={partner.alt}
                   src={partner.src}
                   alt={partner.alt}
                   width={120}
                   height={40}
+                  sizes="120px"
                   className="h-8 sm:h-10 w-auto object-contain opacity-40 hover:opacity-70 transition-opacity"
                 />
               ))}
@@ -153,9 +139,7 @@ export default function Home() {
                   Le numérique, c&apos;est{" "}
                   <span className="relative inline-block">
                     compliqué
-                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
-                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.5"/>
-                    </svg>
+                    <SketchUnderline color="currentColor" opacity={0.5} strokeWidth={3} />
                   </span>{" "}
                   quand on est une petite entreprise.
                 </h2>
@@ -223,9 +207,7 @@ export default function Home() {
                   C&apos;est pour vous{" "}
                   <span className="relative inline-block">
                     si
-                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
-                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="#3d5a80" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4"/>
-                    </svg>
+                    <SketchUnderline />
                   </span>...
                 </h2>
               </div>
@@ -271,9 +253,7 @@ export default function Home() {
                   Des outils pensés{" "}
                   <span className="relative inline-block">
                     pour vous
-                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
-                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.5"/>
-                    </svg>
+                    <SketchUnderline color="currentColor" opacity={0.5} strokeWidth={3} />
                   </span>
                 </h2>
                 <p className="mt-4 text-white/60 max-w-xl mx-auto">
@@ -363,9 +343,7 @@ export default function Home() {
                   Des entreprises qui{" "}
                   <span className="relative inline-block">
                     nous font confiance
-                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
-                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="#3d5a80" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4"/>
-                    </svg>
+                    <SketchUnderline />
                   </span>
                 </h2>
                 <p className="mt-4 text-charcoal max-w-2xl mx-auto">
@@ -466,7 +444,7 @@ export default function Home() {
                   <div className="absolute inset-0 -m-3 border-2 border-ink/10 rounded-2xl border-dashed"></div>
                   <div className="relative z-10 rounded-2xl overflow-hidden">
                     <Image
-                      src="/img/profile-pic (9).png"
+                      src="/img/florian-brignoli.png"
                       alt="Florian BRIGNOLI - Fondateur d'AMPLIXY"
                       width={220}
                       height={220}
@@ -485,9 +463,7 @@ export default function Home() {
                     Pourquoi nous faire{" "}
                     <span className="relative inline-block">
                       confiance
-                      <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
-                        <path d="M0 4 Q25 0 50 4 T100 4" stroke="#3d5a80" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4"/>
-                      </svg>
+                      <SketchUnderline />
                     </span>{" "}?
                   </h2>
 
@@ -529,9 +505,7 @@ export default function Home() {
                   Questions{" "}
                   <span className="relative inline-block">
                     fréquentes
-                    <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
-                      <path d="M0 4 Q25 0 50 4 T100 4" stroke="#3d5a80" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.4"/>
-                    </svg>
+                    <SketchUnderline />
                   </span>
                 </h2>
               </div>
@@ -606,9 +580,7 @@ export default function Home() {
                     On en{" "}
                     <span className="relative inline-block">
                       parle
-                      <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 8" preserveAspectRatio="none">
-                        <path d="M0 4 Q25 0 50 4 T100 4" stroke="#3d5a80" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.4"/>
-                      </svg>
+                      <SketchUnderline strokeWidth={3} />
                     </span>{" "}?
                   </h2>
                   <p className="text-charcoal max-w-md mx-auto mb-8 text-sm">

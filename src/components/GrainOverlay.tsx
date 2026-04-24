@@ -13,11 +13,7 @@ function GrainCanvas() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      generateNoise();
-    };
+    let resizeTimer: ReturnType<typeof setTimeout>;
 
     const generateNoise = () => {
       const imageData = ctx.createImageData(canvas.width, canvas.height);
@@ -34,11 +30,24 @@ function GrainCanvas() {
       ctx.putImageData(imageData, 0, 0);
     };
 
-    resize();
+    // Throttle resize : on ne regénère que si la DPR ou la taille réelle change
+    const resize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        generateNoise();
+      }, 150);
+    };
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    generateNoise();
     window.addEventListener("resize", resize);
 
     return () => {
       window.removeEventListener("resize", resize);
+      clearTimeout(resizeTimer);
     };
   }, []);
 
@@ -53,7 +62,7 @@ function GrainCanvas() {
         height: "100vh",
         pointerEvents: "none",
         zIndex: 9998,
-        opacity: 0.5,
+        opacity: 0.15,
       }}
     />
   );

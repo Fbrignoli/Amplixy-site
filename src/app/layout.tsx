@@ -83,7 +83,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
+    <html lang="fr">
       <head>
         <script
           type="application/ld+json"
@@ -280,7 +280,10 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${lato.variable} ${caveat.variable} font-sans antialiased bg-paper text-ink selection:bg-accent/20 selection:text-ink`}
       >
-        <a href="#main-content" hidden aria-hidden="true">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[10001] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+        >
           Aller au contenu principal
         </a>
         <Script

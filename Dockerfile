@@ -1,7 +1,7 @@
 #
 # Production Dockerfile for Next.js (App Router)
 # - Uses multi-stage build to keep the runtime image small
-# - Works well on Railway and avoids Nixpacks build timeouts
+# - Deployed via Coolify
 #
 
 FROM node:22-alpine AS deps
@@ -28,7 +28,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Railway provides PORT; default to 3000 for local runs
+# Coolify/platform provides PORT; default to 3000 for local runs
 ENV PORT=3000
 
 # Create a non-root user for security
@@ -46,7 +46,7 @@ USER nextjs
 
 EXPOSE 3000
 
-# Bind to 0.0.0.0 so Railway can route traffic to the container
+# Bind to 0.0.0.0 so Coolify can route traffic to the container
 CMD ["sh", "-c", "npm run start -- -p ${PORT} -H 0.0.0.0"]
 
 
