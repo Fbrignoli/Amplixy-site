@@ -92,7 +92,7 @@ export default function Home() {
                 { src: "/img/partenaire/CMA_CGM_logo.svg.png", alt: "CMA CGM" },
                 { src: "/img/partenaire/dircom-logo_amu_cmjn.png", alt: "Aix-Marseille Université" },
                 { src: "/img/partenaire/NAF-NAF-Le-Grand-Mechant-Look-Logo-Vector.svg-.png", alt: "NAF NAF" },
-              ].map((partner, i) => (
+              ].map((partner) => (
                 <Image
                   key={partner.alt}
                   src={partner.src}
@@ -516,8 +516,8 @@ export default function Home() {
             </Reveal>
 
             <div className="space-y-3">
-              {FAQ_ITEMS.map((item, i) => (
-                <Reveal key={item.q} delay={i * 0.05}>
+              {FAQ_ITEMS.map((item, idx) => (
+                <Reveal key={item.q} delay={idx * 0.05}>
                   <details className="group bg-white rounded-xl border border-ink/10 overflow-hidden transition-all hover:border-ink/20">
                     <summary className="flex items-center justify-between gap-4 cursor-pointer px-6 py-5 font-display font-semibold text-ink list-none [&::-webkit-details-marker]:hidden">
                       <span>{item.q}</span>
