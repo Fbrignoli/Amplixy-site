@@ -3,11 +3,13 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { CalInit } from "@/components/CalInit";
 import { SketchUnderline } from "@/components/ui/SketchUnderline";
+import { FAQ_ITEMS, schemaFAQPage } from "@/lib/schema";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFAQPage()) }} />
       <CalInit />
       <Navbar />
 
@@ -65,6 +67,7 @@ export default function Home() {
                 data-cal-link="florianbrignoli/meetup"
                 data-cal-origin="https://cal.eu"
                 data-cal-config='{"theme":"light"}'
+                aria-label="Prendre rendez-vous — Hero"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white text-ink px-8 py-4 font-semibold transition-all hover:border-slate-300 hover:bg-slate-50"
               >
                 Prendre rendez-vous
@@ -177,7 +180,7 @@ export default function Home() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-display text-lg font-bold text-white">{item.title}</h3>
-                      <p className="text-white/60 text-sm mt-1 leading-relaxed">{item.desc}</p>
+                      <p className="text-white/80 text-sm mt-1 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -221,7 +224,7 @@ export default function Home() {
                 { icon: "🤝", text: "Vous préférez avoir une personne de confiance plutôt que de tout faire seul" },
                 { icon: "📍", text: "Vous voulez que vos clients vous trouvent facilement en ligne" },
               ].map((item, i) => (
-                <Reveal key={i} delay={i * 0.05}>
+                <Reveal key={item.icon} delay={i * 0.05}>
                   <div className="bg-white rounded-xl p-4 border border-slate-100 flex items-start gap-3">
                     <span className="text-xl flex-shrink-0">{item.icon}</span>
                     <p className="text-sm text-charcoal leading-snug">{item.text}</p>
@@ -246,7 +249,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-6 relative z-10">
             <Reveal>
               <div className="text-center mb-12">
-                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/60 text-xs font-semibold uppercase tracking-wider">
+                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-wider">
                   Nos outils
                 </span>
                 <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
@@ -256,7 +259,7 @@ export default function Home() {
                     <SketchUnderline color="currentColor" opacity={0.5} strokeWidth={3} />
                   </span>
                 </h2>
-                <p className="mt-4 text-white/60 max-w-xl mx-auto">
+                <p className="mt-4 text-white/80 max-w-xl mx-auto">
                   Un seul interlocuteur de confiance. Des prix justes. Zéro complexité.
                 </p>
               </div>
@@ -400,6 +403,7 @@ export default function Home() {
                         alt={`Aperçu du site ${item.name}`}
                         width={720}
                         height={450}
+                        sizes="(min-width:1024px) 300px, (min-width:640px) 50vw, 100vw"
                         className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
@@ -512,33 +516,12 @@ export default function Home() {
             </Reveal>
 
             <div className="space-y-3">
-              {[
-                {
-                  q: "À qui s'adressent vos services ?",
-                  a: "Aux TPE et PME qui veulent prendre le virage du numérique sans se perdre dans des outils surdimensionnés. Chaque solution est pensée pour votre réalité, pas pour celle des grandes entreprises.",
-                },
-                {
-                  q: "Quels outils proposez-vous ?",
-                  a: "Des sites web professionnels simples et rapides à déployer (livrés en 48h, à partir de 40€/mois hébergement inclus), et Firaxy pour la fidélisation client (programme de fidélité digital pour commerçants ambulants). D'autres outils arriveront, toujours pensés pour les TPE-PME.",
-                },
-                {
-                  q: "Combien coûte un site web avec Amplixy ?",
-                  a: "Nos sites web démarrent à 40€/mois tout inclus (hébergement, maintenance, support, nom de domaine). Livraison en 48h. Pas de frais de mise en service cachés, pas d'engagement longue durée imposé comme chez certains concurrents WordPress.",
-                },
-                {
-                  q: "Comment vous contacter ?",
-                  a: "Par email à contact@amplixy.com, par téléphone au 07 78 20 90 44, ou directement en prenant rendez-vous via notre agenda en ligne.",
-                },
-                {
-                  q: "Êtes-vous liés au site amplixy.ai ?",
-                  a: "Non, amplixy.ai n'a aucun lien avec notre entreprise. Des démarches sont en cours pour que notre image soit clairement dissociée de ce site. Si vous rencontrez un problème avec amplixy.ai, nous vous conseillons de contacter directement Lemon Squeezy ou Vercel.",
-                },
-              ].map((item, i) => (
+              {FAQ_ITEMS.map((item, i) => (
                 <Reveal key={item.q} delay={i * 0.05}>
                   <details className="group bg-white rounded-xl border border-ink/10 overflow-hidden transition-all hover:border-ink/20">
                     <summary className="flex items-center justify-between gap-4 cursor-pointer px-6 py-5 font-display font-semibold text-ink list-none [&::-webkit-details-marker]:hidden">
                       <span>{item.q}</span>
-                      <svg className="w-5 h-5 shrink-0 transition-transform group-open:rotate-45 text-ink/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg aria-hidden="true" focusable="false" className="w-5 h-5 shrink-0 transition-transform group-open:rotate-45 text-ink/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                       </svg>
                     </summary>
@@ -592,6 +575,7 @@ export default function Home() {
                     data-cal-link="florianbrignoli/meetup"
                     data-cal-origin="https://cal.eu"
                     data-cal-config='{"theme":"light"}'
+                    aria-label="Prendre rendez-vous — CTA contact"
                     className="group inline-flex items-center justify-center gap-2 rounded-xl bg-blue-dark text-white px-8 py-4 font-semibold transition-all hover:bg-blue-dark/90 hover:gap-3"
                   >
                     Prendre rendez-vous

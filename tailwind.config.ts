@@ -35,7 +35,6 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-montserrat)", "Poppins", "system-ui", "sans-serif"],
         sans: ["var(--font-lato)", "Open Sans", "system-ui", "sans-serif"],
-        sketch: ["var(--font-caveat)", "cursive"],
       },
       boxShadow: {
         glass: "0 25px 60px rgba(0,0,0,0.35)",

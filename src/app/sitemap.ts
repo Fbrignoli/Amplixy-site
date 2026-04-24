@@ -1,10 +1,11 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
   return [
     {
       url: "https://amplixy.com",
-      lastModified: new Date("2026-04-23"),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 1,
     },

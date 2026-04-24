@@ -56,8 +56,6 @@ export const Navbar = () => {
     };
   }, [isOpen]);
 
-  if (!mounted) return null;
-
   return (
     <>
       <nav
@@ -95,6 +93,7 @@ export const Navbar = () => {
               data-cal-link="florianbrignoli/meetup"
               data-cal-origin="https://cal.eu"
               data-cal-config='{"theme":"light"}'
+              aria-label="Prendre rendez-vous — Navigation"
               className="rounded-full bg-blue-dark px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-dark/90 hover:shadow-paper-lg hover:scale-105"
             >
               Prendre RDV
@@ -185,6 +184,7 @@ export const Navbar = () => {
                     data-cal-link="florianbrignoli/meetup"
                     data-cal-origin="https://cal.eu"
                     data-cal-config='{"theme":"light"}'
+                    aria-label="Prendre rendez-vous — Menu mobile"
                     className="mt-4 rounded-full bg-glow px-6 py-4 text-center text-lg font-semibold text-midnight w-full"
                     onClick={closeMenu}
                   >

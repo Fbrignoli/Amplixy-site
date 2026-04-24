@@ -23,26 +23,16 @@ body {
   isolation: isolate;
 }
 
-/* .grain-overlay supprimé — remplacé par GrainOverlay.tsx (canvas) */
-
-
 /* =====================
-   BACKGROUND STYLES - impli.fr inspired (paper texture effect)
+   BACKGROUND STYLES
    ===================== */
-
-/* Subtle paper noise texture */
-.paper-texture {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 200px 200px;
-}
 
 .bg-paper {
   background-color: #f5f7fa;
   position: relative;
 }
 
-/* Paper texture overlay - subtle grain effect */
+/* Subtle grain texture overlay */
 .bg-paper::before {
   content: '';
   position: absolute;
@@ -56,31 +46,6 @@ body {
   position: relative;
 }
 
-.bg-cream {
-  background: linear-gradient(180deg, #f0f4f8 0%, #f5f7fa 100%);
-  position: relative;
-}
-
-/* Paper texture for cream background too */
-.bg-cream::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: -1;
-}
-
-.bg-cream > *:not(nav):not(canvas) {
-  position: relative;
-}
-
-/* Highlighted text (yellow marker effect) */
-.highlight {
-  background: linear-gradient(180deg, transparent 50%, #fef08a 50%);
-  padding: 0 4px;
-}
-
 /* =====================
    COMPONENTS
    ===================== */
@@ -89,66 +54,12 @@ body {
     @apply py-16 sm:py-20 lg:py-28;
   }
 
-  /* Paper-style card with subtle shadow */
   .card-shell {
     @apply relative rounded-xl border border-ink/5 bg-white p-6 sm:p-8 shadow-paper;
   }
 
-  /* Lifted card - like paper sitting on desk */
-  .card-lifted {
-    @apply relative rounded-xl border border-ink/5 bg-white p-6 sm:p-8 shadow-lifted;
-  }
-
-  /* Screen/mockup frame */
-  .screen-frame {
-    @apply relative rounded-2xl bg-white shadow-lifted overflow-hidden;
-    box-shadow:
-      0 4px 6px -1px rgba(10, 17, 40, 0.05),
-      0 20px 40px -8px rgba(10, 17, 40, 0.1),
-      0 0 0 1px rgba(10, 17, 40, 0.03);
-  }
-
-  .screen-frame::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 32px;
-    background: linear-gradient(to bottom, #f8f8f8, #f0f0f0);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    border-radius: 16px 16px 0 0;
-    display: flex;
-    align-items: center;
-    padding-left: 12px;
-  }
-
-  .screen-frame::after {
-    content: '● ● ●';
-    position: absolute;
-    top: 8px;
-    left: 12px;
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: #ccc;
-  }
-
-  /* Buttons */
-  .btn-primary {
-    @apply relative rounded-full bg-gradient-to-r from-accent to-glow px-6 py-3 font-semibold text-white transition-all hover:shadow-paper-lg hover:scale-105 active:scale-95;
-  }
-
   .btn-secondary {
     @apply relative rounded-full border-2 border-ink/10 bg-white px-6 py-3 font-semibold text-ink transition-all hover:border-accent hover:text-accent hover:scale-105 active:scale-95;
-  }
-
-  .btn-coral {
-    @apply relative rounded-full bg-coral px-6 py-3 font-semibold text-white transition-all hover:bg-coral/90 hover:shadow-paper-lg hover:scale-105 active:scale-95;
-  }
-
-  /* Form input */
-  .input-paper {
-    @apply w-full rounded-lg border border-ink/10 bg-white px-4 py-3 text-sm text-ink placeholder:text-slate focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none transition-colors;
   }
 }
 
@@ -162,41 +73,5 @@ body {
 
   .text-gradient {
     @apply bg-gradient-to-r from-accent via-glow to-coral bg-clip-text text-transparent;
-  }
-
-  /* Sketch underline effect */
-  .sketch-underline {
-    position: relative;
-    display: inline;
-  }
-
-  .sketch-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background-image: url('/img/doodles/wavy-underline.svg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .sketch-underline-coral::after {
-    background-image: url('/img/doodles/wavy-underline-coral.svg');
-  }
-
-  /* Sketch font */
-  .font-sketch {
-    font-family: var(--font-caveat), cursive;
-  }
-
-  /* Handwritten annotation style */
-  .annotation {
-    font-family: var(--font-caveat), cursive;
-    color: #ff6b4a;
-    font-size: 1.25rem;
-    transform: rotate(-3deg);
-    display: inline-block;
   }
 }
