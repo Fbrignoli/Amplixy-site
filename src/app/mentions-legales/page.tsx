@@ -40,7 +40,7 @@ export default function MentionsLegales() {
                 </p>
                 <ul className="text-charcoal space-y-1">
                   <li><strong>Raison sociale :</strong> AMPLIXY</li>
-                  <li><strong>Forme juridique :</strong> Société à responsabilité limitée (SARL)</li>
+                  <li><strong>Forme juridique :</strong> Entreprise unipersonnelle à responsabilité limitée (EURL)</li>
                   <li><strong>Capital social :</strong> 1 000,00 €</li>
                   <li><strong>Siège social :</strong> 16 B Rue de la Rochette, 77000 Melun</li>
                   <li><strong>SIREN :</strong> 999 167 760</li>
@@ -48,7 +48,7 @@ export default function MentionsLegales() {
                   <li><strong>RNE :</strong> Immatriculée au Registre National des Entreprises (INPI)</li>
                   <li><strong>Numéro TVA intracommunautaire :</strong> FR77 999 167 760</li>
                   <li><strong>Code NAF/APE :</strong> 62.02A - Conseil en systèmes et logiciels informatiques</li>
-                  <li><strong>Date de création :</strong> 01/01/2026</li>
+                  <li><strong>Date de création :</strong> 2024</li>
                 </ul>
               </section>
 
