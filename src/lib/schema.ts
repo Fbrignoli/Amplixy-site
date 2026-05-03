@@ -1,27 +1,35 @@
 // Seule source de vérité pour les données structurées JSON-LD et le contenu FAQ.
-// Importé par layout.tsx (JSON-LD) ET page.tsx (FAQ visuel) pour garantir la cohérence
-// exigée par Google Rich Results (différence → perte du rich result FAQ en SERP).
+// Importé par layout.tsx (JSON-LD globaux) ET page.tsx (FAQ visuel).
+// Cible : décideurs ETI 50-500 personnes (DSI, DRH, DAF). Pivot Conseil IA + Change Management.
 
 export const FAQ_ITEMS = [
   {
-    q: "À qui s'adressent vos services ?",
-    a: "Aux TPE et PME qui veulent prendre le virage du numérique sans se perdre dans des outils surdimensionnés. Chaque solution est pensée pour votre réalité, pas pour celle des grandes entreprises.",
+    q: "Par où est-ce qu'on commence si on n'a aucun cas d'usage identifié ?",
+    a: "C'est exactement pour ça que la Discovery existe. En 2 semaines, on fait ensemble l'inventaire de vos processus, on identifie où l'IA peut créer une valeur mesurable rapidement, et on sort un rapport priorisé avec 2-3 cas d'usage concrets. Vous repartez avec une feuille de route, que vous décidiez de continuer avec Amplixy ou non.",
   },
   {
-    q: "Quels outils proposez-vous ?",
-    a: "Des sites web professionnels simples et rapides à déployer (livrés en 48h, à partir de 40€/mois hébergement inclus), et Firaxy pour la fidélisation client (programme de fidélité digital pour commerçants ambulants). D'autres outils arriveront, toujours pensés pour les TPE-PME.",
+    q: "Mes équipes ne sont pas formées à l'IA. Est-ce que c'est un frein ?",
+    a: "Non. Le change management est intégré à la méthode dès le POC. On construit le projet avec les équipes métier, pas pour elles. La formation et l'adoption sont des livrables à part entière, pas une afterthought. L'objectif n'est pas de livrer un outil technique — c'est de livrer un outil qui est réellement utilisé.",
   },
   {
-    q: "Combien coûte un site web avec Amplixy ?",
-    a: "Nos sites web démarrent à 40€/mois tout inclus (hébergement, maintenance, support, nom de domaine). Livraison en 48h. Pas de frais de mise en service cachés, pas d'engagement longue durée imposé comme chez certains concurrents WordPress.",
+    q: "Mon DG veut des résultats en 3 mois. Est-ce que c'est tenable ?",
+    a: "Oui, si on cadre le bon périmètre. Une Discovery prend 2 semaines. Un POC sur un cas d'usage ciblé prend 4 à 6 semaines. En 3 mois, un premier livrable opérationnel est réaliste — à condition de ne pas vouloir transformer toute l'organisation en même temps. La plupart des échecs IA viennent de périmètres trop larges définis trop vite.",
   },
   {
-    q: "Comment vous contacter ?",
-    a: "Par email à contact@amplixy.com, par téléphone au 07 78 20 90 44, ou directement en prenant rendez-vous via notre agenda en ligne sur amplixy.com.",
+    q: "Pourquoi vous plutôt que Capgemini Invent ou un grand cabinet ?",
+    a: "Parce que Capgemini Invent intervient à partir de 200 000€ de ticket, avec une équipe dans laquelle vous n'avez pas de visibilité sur qui travaille réellement sur votre dossier. Chez Amplixy, c'est moi sur toute la mission. Le tarif est proportionné à une ETI, pas à un grand compte. Et mon expérience terrain sur des organisations 50+ personnes me permet de parler le même langage que vos équipes, pas celui d'un cabinet.",
   },
   {
-    q: "Êtes-vous liés au site amplixy.ai ?",
-    a: "Non, amplixy.ai n'a aucun lien avec notre entreprise. Des démarches sont en cours pour que notre image soit clairement dissociée de ce site. Si vous rencontrez un problème avec amplixy.ai, nous vous conseillons de contacter directement Lemon Squeezy ou Vercel.",
+    q: "Qu'est-ce qui se passe après la mission ? On est autonomes ?",
+    a: "L'objectif de chaque mission est que vous soyez autonomes à la fin. Les livrables vous appartiennent. Je ne crée pas de dépendance à Amplixy — si vous avez besoin de moi pour continuer à faire tourner ce qu'on a déployé ensemble, quelque chose n'a pas fonctionné. Je reste disponible pour des questions ponctuelles après livraison, mais ce n'est pas un abonnement forcé.",
+  },
+  {
+    q: "Vous travaillez seul. C'est un risque pour nous ?",
+    a: "C'est une question légitime. L'avantage d'un consultant solo : vous savez exactement qui travaille sur votre dossier, il n'y a pas de hand-off en cours de mission, et la communication est directe. La limite : si j'ai un empêchement majeur, la mission est suspendue. Je suis transparent là-dessus dès le cadrage. C'est pourquoi je travaille sur un périmètre défini avec des jalons clairs — en cas d'interruption, le travail réalisé est documenté et transférable.",
+  },
+  {
+    q: "Vous êtes basé à Melun. Vous travaillez en présentiel ou à distance ?",
+    a: "Principalement à distance, avec des déplacements ponctuels sur site si nécessaire (notamment pour les sessions de cadrage Discovery et les ateliers change management dans le cadre du Déploiement). Je travaille avec des ETI en Île-de-France et en Rhône-Alpes prioritairement, mais sans restriction géographique stricte.",
   },
 ] as const;
 
@@ -41,7 +49,7 @@ export function schemaOrganization() {
     },
     image: "https://amplixy.com/img/icon-wm.png",
     description:
-      "Sites web professionnels et outils digitaux pour TPE-PME françaises. Livraison en 48h, à partir de 40€/mois.",
+      "Cabinet de conseil en transformation IA et change management B2B pour ETI 50-500 personnes. Discovery, POC, Déploiement.",
     email: "contact@amplixy.com",
     telephone: "+33778209044",
     foundingDate: "2024",
@@ -51,6 +59,7 @@ export function schemaOrganization() {
     },
     address: {
       "@type": "PostalAddress",
+      streetAddress: "16 B Rue de la Rochette",
       addressLocality: "Melun",
       postalCode: "77000",
       addressRegion: "Île-de-France",
@@ -59,18 +68,19 @@ export function schemaOrganization() {
     areaServed: [
       { "@type": "Country", name: "France" },
       { "@type": "AdministrativeArea", name: "Île-de-France" },
+      { "@type": "AdministrativeArea", name: "Auvergne-Rhône-Alpes" },
     ],
     knowsLanguage: ["fr", "en"],
     sameAs: [
       "https://www.linkedin.com/company/amplixy",
       "https://www.societe.com/societe/amplixy-999167760.html",
     ],
-    vatID: "FR",
     identifier: {
       "@type": "PropertyValue",
       propertyID: "SIREN",
       value: "999167760",
     },
+    taxID: "FR77999167760",
   };
 }
 
@@ -84,9 +94,12 @@ export function schemaLocalBusiness() {
     image: "https://amplixy.com/img/icon-wm.png",
     telephone: "+33778209044",
     email: "contact@amplixy.com",
-    priceRange: "€€",
+    priceRange: "€€€",
+    description:
+      "Cabinet de conseil en transformation IA et change management pour ETI 50-500 personnes. Interlocuteur unique, tarifs proportionnés, livrables opérationnels.",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "16 B Rue de la Rochette",
       addressLocality: "Melun",
       postalCode: "77000",
       addressRegion: "Île-de-France",
@@ -95,7 +108,38 @@ export function schemaLocalBusiness() {
     areaServed: [
       { "@type": "Country", name: "France" },
       { "@type": "AdministrativeArea", name: "Île-de-France" },
+      { "@type": "AdministrativeArea", name: "Auvergne-Rhône-Alpes" },
     ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Offres Conseil IA",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          name: "Discovery",
+          description:
+            "Audit organisationnel, identification 2-3 cas d'usage IA prioritaires, rapport priorisé. ~2 semaines.",
+          price: "5000",
+          priceCurrency: "EUR",
+        },
+        {
+          "@type": "Offer",
+          name: "POC",
+          description:
+            "Développement et déploiement d'un premier cas d'usage IA opérationnel. 4 à 6 semaines.",
+          price: "15000",
+          priceCurrency: "EUR",
+        },
+        {
+          "@type": "Offer",
+          name: "Déploiement",
+          description:
+            "Accompagnement au déploiement à l'échelle, change management, indicateurs d'adoption.",
+          price: "30000",
+          priceCurrency: "EUR",
+        },
+      ],
+    },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -115,7 +159,7 @@ export function schemaPerson() {
     name: "Florian Brignoli",
     givenName: "Florian",
     familyName: "Brignoli",
-    jobTitle: "Fondateur & Consultant IT",
+    jobTitle: "Consultant Conseil IA & Change Management — Fondateur Amplixy",
     worksFor: {
       "@type": "Organization",
       "@id": "https://amplixy.com/#organization",
@@ -127,16 +171,17 @@ export function schemaPerson() {
       addressCountry: "FR",
     },
     description:
-      "Fondateur d'Amplixy. Ingénieur et consultant IT, ancien Airbus, Dassault Aviation, CMA CGM. Spécialisé dans l'accompagnement digital des TPE-PME.",
+      "Ingénieur et Chef de Projet Digital, basé à Melun. Parcours : Airbus, Dassault Systèmes, NAF NAF, Aix-Marseille Université. Mission CDP en cours dans un groupe international du transport maritime. Fondateur d'Amplixy, cabinet de conseil en transformation IA et change management pour ETI.",
     knowsAbout: [
-      "Développement web",
-      "Next.js",
-      "Nuxt.js",
-      "Gestion de projet IT",
-      "Accompagnement TPE-PME",
-      "SEO",
+      "Transformation IA en organisation",
+      "Change Management",
+      "Gestion de projet digital",
+      "Pilotage d'équipes IT pluridisciplinaires",
+      "Déploiement de cas d'usage IA",
+      "Architecture IT",
     ],
     url: "https://amplixy.com",
+    sameAs: ["https://www.linkedin.com/in/florianbrignoli/"],
   };
 }
 
@@ -146,8 +191,9 @@ export function schemaWebSite() {
     "@type": "WebSite",
     "@id": "https://amplixy.com/#website",
     url: "https://amplixy.com",
-    name: "Amplixy",
-    description: "Sites web et outils digitaux pour TPE-PME françaises.",
+    name: "Amplixy — Conseil IA & Change Management pour ETI",
+    description:
+      "Amplixy accompagne les ETI à construire leur premier projet IA concret : cadré, livré, absorbé par les équipes.",
     publisher: {
       "@type": "Organization",
       "@id": "https://amplixy.com/#organization",

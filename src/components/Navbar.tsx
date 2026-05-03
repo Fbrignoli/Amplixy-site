@@ -7,11 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "#probleme", label: "Le Problème" },
-  { href: "#outils", label: "Nos Outils" },
-  { href: "#reussites", label: "Nos Réussites" },
-  { href: "#confiance", label: "Confiance" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#methode", label: "Méthode" },
+  { href: "#tarifs", label: "Tarifs" },
+  { href: "#cas-concret", label: "Cas concret" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -62,7 +60,7 @@ export const Navbar = () => {
         aria-label="Navigation principale"
       >
         <div className="flex items-center justify-between">
-          <Link href="#home">
+          <Link href="#hero">
             <Image
               src="/img/logo-wm.png"
               alt="Amplixy"
@@ -83,16 +81,12 @@ export const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <button
-              data-cal-namespace="diagnostique"
-              data-cal-link="florianbrignoli/meetup"
-              data-cal-origin="https://cal.eu"
-              data-cal-config='{"theme":"light"}'
-              aria-label="Prendre rendez-vous — Navigation"
+            <a
+              href="#contact"
               className="rounded-full bg-blue-dark px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-dark/90 hover:shadow-paper-lg hover:scale-105"
             >
-              Prendre RDV
-            </button>
+              Réserver 30 min
+            </a>
           </div>
 
           <button
@@ -114,9 +108,7 @@ export const Navbar = () => {
             animate="open"
             exit="closed"
           >
-            {/* Content */}
             <div className="flex flex-col h-full px-8 pt-6 pb-12">
-              {/* Header */}
               <motion.div
                 className="flex items-center justify-between"
                 initial={{ opacity: 0, y: -20 }}
@@ -140,7 +132,6 @@ export const Navbar = () => {
                 </button>
               </motion.div>
 
-              {/* Links */}
               <div className="flex flex-col justify-center flex-1 gap-8 mt-12">
                 {navLinks.map((link, i) => (
                   <motion.div
@@ -174,17 +165,13 @@ export const Navbar = () => {
                     ease: [0.25, 1, 0.5, 1],
                   }}
                 >
-                  <button
-                    data-cal-namespace="diagnostique"
-                    data-cal-link="florianbrignoli/meetup"
-                    data-cal-origin="https://cal.eu"
-                    data-cal-config='{"theme":"light"}'
-                    aria-label="Prendre rendez-vous — Menu mobile"
-                    className="mt-4 rounded-full bg-glow px-6 py-4 text-center text-lg font-semibold text-midnight w-full"
+                  <a
+                    href="#contact"
+                    className="mt-4 rounded-full bg-glow px-6 py-4 text-center text-lg font-semibold text-midnight w-full block"
                     onClick={closeMenu}
                   >
-                    Prendre RDV
-                  </button>
+                    Réserver 30 min
+                  </a>
                 </motion.div>
               </div>
             </div>

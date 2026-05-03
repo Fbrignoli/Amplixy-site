@@ -53,7 +53,8 @@ const nextConfig = {
             // unsafe-eval retiré (BUG-M-03). unsafe-inline conservé temporairement : Cal.com embed
             // injecte des scripts inline que Next 15 nonce seul ne couvre pas sans config Cal côté serveur.
             // TODO: implémenter middleware nonce + configurer Cal.com SDK pour nonce support.
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://trafic.amplixy.cloud https://app.cal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://trafic.amplixy.cloud https://app.cal.com https://cal.eu https://www.cal.eu; frame-src 'self' https://cal.eu https://www.cal.eu https://app.cal.com; frame-ancestors 'self';"
+            // cal.eu ajouté dans script-src (PRE fix CSP) — l'embed cal.eu charge ses scripts depuis cal.eu
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://trafic.amplixy.cloud https://cal.eu https://www.cal.eu https://app.cal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://trafic.amplixy.cloud https://app.cal.com https://cal.eu https://www.cal.eu; frame-src 'self' https://cal.eu https://www.cal.eu https://app.cal.com; frame-ancestors 'self';"
           }
         ],
       },

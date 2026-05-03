@@ -25,19 +25,9 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amplixy.com"),
-  title: "Amplixy — Sites web & outils digitaux pour TPE-PME (dès 40€/mois)",
+  title: "Amplixy — Conseil IA & Change Management pour ETI",
   description:
-    "Sites web professionnels livrés en 48h, à partir de 40€/mois (hébergement inclus). Fidélisation client avec Firaxy. Outils simples pensés pour les TPE-PME françaises.",
-  keywords: [
-    "site web TPE",
-    "site web PME",
-    "création site internet artisan",
-    "outils digitaux petite entreprise",
-    "fidélisation client commerçant",
-    "Amplixy",
-    "Melun",
-    "Île-de-France",
-  ],
+    "Amplixy accompagne les ETI 50-500 personnes à construire leur premier projet IA concret : cadré, livré, absorbé par les équipes. Discovery 5 000€ — POC 15-20 000€ — Déploiement 30 000€+.",
   authors: [{ name: "Florian Brignoli", url: "https://amplixy.com" }],
   creator: "Florian Brignoli",
   publisher: "Amplixy",
@@ -60,9 +50,9 @@ export const metadata: Metadata = {
     apple: "/img/icon-wm.png",
   },
   openGraph: {
-    title: "Amplixy — Sites web & outils digitaux pour TPE-PME (dès 40€/mois)",
+    title: "Amplixy — Conseil IA & Change Management pour ETI",
     description:
-      "Sites web professionnels livrés en 48h, à partir de 40€/mois (hébergement inclus). Fidélisation client avec Firaxy. Outils simples pensés pour les TPE-PME françaises.",
+      "Amplixy accompagne les ETI 50-500 personnes à construire leur premier projet IA concret : cadré, livré, absorbé par les équipes. Interlocuteur unique, tarifs proportionnés.",
     url: "https://amplixy.com",
     siteName: "Amplixy",
     locale: "fr_FR",
@@ -70,11 +60,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@amplixy",
     creator: "@florianbrignoli",
-    title: "Amplixy — Sites web & outils digitaux pour TPE-PME",
+    title: "Amplixy — Conseil IA & Change Management pour ETI",
     description:
-      "Sites web livrés en 48h à partir de 40€/mois. Fidélisation client avec Firaxy. Outils simples pour TPE-PME.",
+      "Accompagnement IA pour ETI 50-500 personnes. Discovery, POC, Déploiement. Interlocuteur unique, tarifs transparents.",
   },
 };
 
@@ -91,7 +80,7 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaLocalBusiness()) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaPerson()) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaWebSite()) }} />
-        {/* FAQPage injecté depuis page.tsx uniquement (pas depuis mentions-legales) */}
+        {/* FAQPage injecté depuis page.tsx uniquement */}
       </head>
       <body
         className={`${montserrat.variable} ${lato.variable} font-sans antialiased bg-paper text-ink selection:bg-accent/20 selection:text-ink`}
@@ -113,4 +102,3 @@ export default function RootLayout({
     </html>
   );
 }
-

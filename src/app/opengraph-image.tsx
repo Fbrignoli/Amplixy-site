@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "Amplixy — On aide les TPE-PME à prendre le virage du numérique";
+  "Amplixy — Conseil IA & Change Management pour ETI 50-500 personnes";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -83,7 +83,7 @@ export default function OgImage() {
         >
           <span
             style={{
-              fontSize: 56,
+              fontSize: 52,
               fontWeight: 700,
               color: "#ffffff",
               lineHeight: 1.15,
@@ -91,7 +91,7 @@ export default function OgImage() {
               maxWidth: 900,
             }}
           >
-            On aide les TPE-PME à prendre le virage du numérique.
+            Conseil IA & Change Management pour ETI
           </span>
         </div>
 
@@ -106,8 +106,7 @@ export default function OgImage() {
             lineHeight: 1.5,
           }}
         >
-          Sites web professionnels, fidélisation clients — pensés pour votre
-          réalité.
+          Discovery 5 000€ — POC 15-20 000€ — Déploiement 30 000€+. Interlocuteur unique, tarifs transparents.
         </span>
 
         {/* Bottom bar */}
@@ -124,7 +123,7 @@ export default function OgImage() {
         >
           <span>amplixy.com</span>
           <span>•</span>
-          <span>contact@amplixy.com</span>
+          <span>Florian Brignoli</span>
         </div>
       </div>
     ),
