@@ -171,7 +171,7 @@ export function schemaPerson() {
       addressCountry: "FR",
     },
     description:
-      "Ingénieur et Chef de Projet Digital, basé à Melun. Parcours : Airbus, Dassault Systèmes, NAF NAF, Aix-Marseille Université. Mission CDP en cours dans un groupe international du transport maritime. Fondateur d'Amplixy, cabinet de conseil en transformation IA et change management pour ETI.",
+      "Ingénieur et chef de projet, basé à Melun. Parcours : Airbus, Dassault Systèmes, NAF NAF, Aix-Marseille Université. Lead Chapter au sein de l'Architecture IT de CMA-CGM (change management, animation d'équipe, dynamiques agiles) depuis octobre 2023. Fondateur d'Amplixy, cabinet de conseil en transformation IA et change management pour ETI.",
     knowsAbout: [
       "Transformation IA en organisation",
       "Change Management",

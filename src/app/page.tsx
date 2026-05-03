@@ -55,35 +55,6 @@ export default function Home() {
             </div>
           </Reveal>
 
-          {/* Logos parcours fondateur */}
-          <Reveal delay={0.5}>
-            <p className="mt-12 text-xs text-slate-400 font-medium uppercase tracking-wider">
-              Organisations où Florian a travaillé
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="pb-12">
-          <Reveal delay={0.6}>
-            <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 px-6">
-              {[
-                { src: "/img/partenaire/AIRBUS_Blue.png", alt: "Airbus" },
-                { src: "/img/partenaire/CMA_CGM_logo.svg.png", alt: "CMA CGM" },
-                { src: "/img/partenaire/dircom-logo_amu_cmjn.png", alt: "Aix-Marseille Université" },
-                { src: "/img/partenaire/NAF-NAF-Le-Grand-Mechant-Look-Logo-Vector.svg-.png", alt: "NAF NAF" },
-              ].map((partner) => (
-                <Image
-                  key={partner.alt}
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={120}
-                  height={40}
-                  sizes="120px"
-                  className="h-8 sm:h-10 w-auto object-contain opacity-40 hover:opacity-70 transition-opacity"
-                />
-              ))}
-            </div>
-          </Reveal>
         </div>
 
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
@@ -165,6 +136,123 @@ export default function Home() {
         </div>
 
         {/* ============================================
+            FRICTIONS IA CONCRÈTES
+            ============================================ */}
+        <section id="frictions" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
+          <div className="mx-auto max-w-6xl px-6">
+            <Reveal>
+              <div className="text-center mb-12">
+                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-ink/5 text-ink/60 text-xs font-semibold uppercase tracking-wider">
+                  Ce que vivent vraiment les DSI ETI
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
+                  Les frictions que{" "}
+                  <span className="relative inline-block">
+                    personne n&apos;anticipe
+                    <SketchUnderline />
+                  </span>
+                </h2>
+                <p className="mt-4 text-charcoal max-w-2xl mx-auto">
+                  Pas de théorie. Trois situations réelles, telles qu&apos;elles se produisent dans les organisations qui tentent de déployer l&apos;IA.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Friction 1 */}
+              <Reveal delay={0.1}>
+                <div className="bg-white rounded-2xl border border-ink/10 p-8 h-full flex flex-col">
+                  <div className="mb-5">
+                    <span className="inline-block px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold uppercase tracking-wider">
+                      Friction
+                    </span>
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-ink mb-3">
+                    Le POC réussi qui ne décolle jamais
+                  </h3>
+                  <p className="text-charcoal text-sm leading-relaxed mb-5">
+                    La démo en comité a impressionné. L&apos;outil fonctionne. Mais 6 mois plus tard, personne ne l&apos;utilise vraiment. Les équipes métier ont repris leurs anciens réflexes. Le projet dort.
+                  </p>
+                  <div className="mt-auto border-t border-slate-100 pt-5">
+                    <p className="text-xs font-semibold text-ink/60 uppercase tracking-wider mb-2">Diagnostic</p>
+                    <p className="text-sm text-charcoal leading-relaxed">
+                      Le problème n&apos;est pas l&apos;outil — c&apos;est que le change management n&apos;a pas été intégré au projet. On a livré une technologie, pas une adoption. La différence se cadre dès la phase POC, pas après.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Friction 2 */}
+              <Reveal delay={0.15}>
+                <div className="bg-white rounded-2xl border border-ink/10 p-8 h-full flex flex-col">
+                  <div className="mb-5">
+                    <span className="inline-block px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold uppercase tracking-wider">
+                      Friction
+                    </span>
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-ink mb-3">
+                    Le cas d&apos;usage trop large pour démarrer
+                  </h3>
+                  <p className="text-charcoal text-sm leading-relaxed mb-5">
+                    La direction demande &quot;automatiser notre service client grâce à l&apos;IA&quot;. L&apos;équipe IT cherche par où commencer. Après 4 mois de réflexion, le projet n&apos;a toujours pas de périmètre, et personne n&apos;ose trancher.
+                  </p>
+                  <div className="mt-auto border-t border-slate-100 pt-5">
+                    <p className="text-xs font-semibold text-ink/60 uppercase tracking-wider mb-2">Diagnostic</p>
+                    <p className="text-sm text-charcoal leading-relaxed">
+                      Un cas d&apos;usage mal cadré consomme de l&apos;énergie sans avancer. La Discovery sert précisément à ça : identifier les 2-3 points de friction à fort ROI mesurable, et choisir un premier périmètre assez petit pour réussir.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Friction 3 */}
+              <Reveal delay={0.2}>
+                <div className="bg-white rounded-2xl border border-ink/10 p-8 h-full flex flex-col">
+                  <div className="mb-5">
+                    <span className="inline-block px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold uppercase tracking-wider">
+                      Friction
+                    </span>
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-ink mb-3">
+                    L&apos;équipe data qui dit non — et elle a raison
+                  </h3>
+                  <p className="text-charcoal text-sm leading-relaxed mb-5">
+                    La direction pousse pour un projet IA. L&apos;équipe data signale que les données ne sont pas prêtes : qualité insuffisante, silos entre systèmes, gouvernance inexistante. Impasse. On abandonne ou on recommence de zéro.
+                  </p>
+                  <div className="mt-auto border-t border-slate-100 pt-5">
+                    <p className="text-xs font-semibold text-ink/60 uppercase tracking-wider mb-2">Diagnostic</p>
+                    <p className="text-sm text-charcoal leading-relaxed">
+                      Le pré-requis data n&apos;est pas un détail technique — c&apos;est le premier point à auditer avant tout projet IA. Identifier le périmètre data réellement disponible permet de choisir un cas d&apos;usage faisable plutôt que de bloquer 6 mois sur un idéal inaccessible.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+            <Reveal delay={0.25}>
+              <div className="mt-10 text-center">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-dark hover:text-blue-dark/80 transition-colors"
+                >
+                  Votre situation ressemble à l&apos;une de ces frictions ?
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Wave : paper → blue-dark */}
+        <div className="relative h-12 lg:h-16 bg-paper">
+          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0 35 Q300 15 600 35 T1200 25 L1200 60 L0 60 Z" fill="#3d5a80"/>
+          </svg>
+        </div>
+
+        {/* ============================================
             MÉTHODE
             ============================================ */}
         <section id="methode" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
@@ -175,14 +263,14 @@ export default function Home() {
                   Méthode
                 </span>
                 <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
-                  Chaque mission{" "}
+                  Trois étapes pour{" "}
                   <span className="relative inline-block">
-                    commence petit
+                    sortir de la sandbox
                     <SketchUnderline />
                   </span>
                 </h2>
                 <p className="mt-4 text-charcoal max-w-2xl mx-auto">
-                  On valide avant d&apos;investir. On livre avant de continuer. Aucune obligation de continuer après chaque étape.
+                  Chaque étape répond à une friction précise. Aucune obligation de continuer — chaque palier se suffit à lui-même.
                 </p>
               </div>
             </Reveal>
@@ -199,18 +287,22 @@ export default function Home() {
                     <p className="text-2xl font-bold text-ink">5 000€ HT</p>
                     <p className="text-sm text-charcoal">~2 semaines</p>
                   </div>
+                  <p className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-3">Votre friction</p>
+                  <p className="text-sm text-charcoal italic mb-4">
+                    &quot;On ne sait pas par où commencer. On a plein d&apos;idées mais aucune ne semble prioritaire.&quot;
+                  </p>
                   <ul className="space-y-3 text-sm text-charcoal leading-relaxed flex-1">
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      Audit organisationnel : quels processus consomment du temps inutilement ?
+                      Audit de vos processus : on identifie où l&apos;IA crée une valeur mesurable rapidement
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      Identification de 2-3 cas d&apos;usage prioritaires avec estimation d&apos;effort et de ROI
+                      Sélection des 2-3 cas d&apos;usage à fort ROI, avec estimation d&apos;effort réaliste
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      Livrable : rapport 15-20 pages avec recommandations priorisées et plan d&apos;action
+                      Livrable : rapport priorisé + plan d&apos;action concret, que vous continuiez ou non
                     </li>
                   </ul>
                   <p className="mt-6 text-xs text-charcoal/60 border-t border-slate-100 pt-4">
@@ -235,18 +327,22 @@ export default function Home() {
                     <p className="text-2xl font-bold text-ink">15 000 — 20 000€ HT</p>
                     <p className="text-sm text-charcoal">4 à 6 semaines</p>
                   </div>
+                  <p className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-3">Votre friction</p>
+                  <p className="text-sm text-charcoal italic mb-4">
+                    &quot;On a un cas d&apos;usage. Mais entre l&apos;idée et quelque chose d&apos;utilisé par nos équipes, le chemin est flou.&quot;
+                  </p>
                   <ul className="space-y-3 text-sm text-charcoal leading-relaxed flex-1">
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      Développement et déploiement d&apos;un premier cas d&apos;usage IA opérationnel
+                      On construit le prototype avec les équipes métier — pas à côté d&apos;elles
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      Implication des équipes métier dès la conception
+                      Déploiement sur un périmètre défini, avec mesure de l&apos;usage réel
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      Livrable : prototype fonctionnel déployé + plan de change management
+                      Livrable : prototype fonctionnel déployé + plan de change management pour la généralisation
                     </li>
                   </ul>
                   <p className="mt-6 text-xs text-charcoal/60 border-t border-slate-100 pt-4">
@@ -266,10 +362,14 @@ export default function Home() {
                     <p className="text-2xl font-bold text-ink">30 000€+ HT</p>
                     <p className="text-sm text-charcoal">Forfait ou retainer mensuel</p>
                   </div>
+                  <p className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-3">Votre friction</p>
+                  <p className="text-sm text-charcoal italic mb-4">
+                    &quot;Le POC a fonctionné. Maintenant on veut généraliser — mais l&apos;organisation résiste et on ne sait pas comment piloter ça.&quot;
+                  </p>
                   <ul className="space-y-3 text-sm text-charcoal leading-relaxed flex-1">
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      Accompagnement au déploiement à l&apos;échelle sur plusieurs périmètres métier
+                      Pilotage du déploiement à l&apos;échelle sur plusieurs périmètres métier
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
@@ -277,7 +377,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      Suivi opérationnel jusqu&apos;à l&apos;ancrage dans les pratiques
+                      Suivi opérationnel jusqu&apos;à l&apos;ancrage réel dans les pratiques
                     </li>
                   </ul>
                   <p className="mt-6 text-xs text-charcoal/60 border-t border-slate-100 pt-4">
@@ -448,63 +548,63 @@ export default function Home() {
             <Reveal>
               <div className="text-center mb-12">
                 <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-wider">
-                  Cas concret
+                  Exemple de terrain
                 </span>
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
-                  Pas du discours.{" "}
+                  Aligner une équipe IT sur un chantier de transformation —{" "}
                   <span className="relative inline-block">
-                    De l&apos;expérience terrain.
+                    ce que ça apprend
                     <SketchUnderline color="currentColor" opacity={0.5} strokeWidth={3} />
                   </span>
                 </h2>
+                <p className="mt-4 text-white/70 max-w-xl mx-auto text-sm">
+                  Ce n&apos;est pas une référence commerciale — c&apos;est le terrain d&apos;où je parle.
+                </p>
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 lg:p-10">
-                <div className="flex flex-wrap items-center gap-3 mb-6">
+                <div className="flex flex-wrap items-center gap-3 mb-8">
                   <Image
                     src="/img/partenaire/CMA_CGM_logo.svg.png"
                     alt="CMA CGM"
                     width={100}
                     height={32}
-                    className="h-8 w-auto object-contain brightness-0 invert opacity-80"
+                    className="h-7 w-auto object-contain brightness-0 invert opacity-70"
                   />
-                  <span className="text-white/40">·</span>
-                  <span className="text-white/60 text-sm">Mission en cours</span>
+                  <span className="text-white/30">·</span>
+                  <span className="text-white/50 text-xs">Mission en cours depuis octobre 2023</span>
                 </div>
 
-                <div className="grid lg:grid-cols-3 gap-8">
+                <div className="grid lg:grid-cols-2 gap-8 mb-8">
                   <div>
-                    <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-2">Contexte</p>
-                    <p className="text-white text-sm leading-relaxed">
-                      Pilotage de la transformation digitale au sein de l&apos;équipe Architecture IT du groupe <strong className="text-white">CMA-CGM</strong>, en tant que Chef de Projet Digital. Mission en cours.
-                    </p>
-                    <p className="text-white/70 text-sm mt-2">
-                      Organisation : équipe pluridisciplinaire 50+ personnes réparties sur plusieurs sites.
+                    <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-3">La situation</p>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Au sein de l&apos;équipe Architecture IT de CMA-CGM (50+ personnes), dans un rôle de <strong className="text-white">Lead Chapter</strong> : change management, animation d&apos;équipe, dynamiques agiles. Une organisation à forte contrainte opérationnelle, avec des équipes pluridisciplinaires à aligner sur des chantiers de transformation.
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-2">Rôle</p>
-                    <p className="text-white text-sm leading-relaxed">
-                      Chef de Projet Digital — pilotage d&apos;une équipe pluridisciplinaire architecture IT, coordination des parties prenantes, suivi de déploiement sur des chantiers de transformation dans une organisation à forte contrainte réglementaire et logistique internationale.
+                    <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-3">Ce que ça enseigne</p>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Le principal obstacle à la transformation n&apos;est pas technique. C&apos;est l&apos;alignement : faire converger des équipes aux cultures différentes (tech, métier, direction) sur un même objectif, avec des contraintes de calendrier et de budget réelles. Ce problème est identique dans une ETI qui démarre un projet IA.
                     </p>
                   </div>
+                </div>
 
-                  <div>
-                    <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-2">Ce que ça prouve</p>
-                    <p className="text-white text-sm leading-relaxed">
-                      Piloter une transformation dans une organisation de cette taille, c&apos;est exactement le même type de problème qu&apos;une ETI face à un projet IA : des équipes à aligner, des contraintes métier à respecter, des décisions à cadrer pour que ça ne reste pas en sandbox.
-                    </p>
-                  </div>
+                <div className="border-t border-white/10 pt-6">
+                  <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-3">La leçon transférable</p>
+                  <p className="text-white/80 text-sm leading-relaxed max-w-2xl">
+                    Un projet de transformation réussit quand le change management est intégré dès la conception — pas ajouté en fin de parcours pour &quot;faire adopter&quot; un outil que personne n&apos;a vu venir. C&apos;est le principe qui structure chaque mission Amplixy, du POC au Déploiement.
+                  </p>
                 </div>
               </div>
             </Reveal>
 
             <Reveal delay={0.15}>
-              <p className="mt-6 text-center text-white/50 text-xs">
-                Zéro chiffre client, zéro livrable précis, zéro donnée interne. Ce qui est partagé ici : le rôle, le périmètre, la nature de la mission.
+              <p className="mt-6 text-center text-white/40 text-xs">
+                Zéro chiffre client, zéro livrable précis, zéro donnée interne — uniquement le rôle, le contexte et la nature de la mission.
               </p>
             </Reveal>
           </div>
@@ -550,17 +650,17 @@ export default function Home() {
 
                   <div className="space-y-4 text-charcoal text-sm leading-relaxed">
                     <p>
-                      Parcours : <strong className="text-ink">Airbus, Dassault Systèmes, NAF NAF, Aix-Marseille Université</strong>, et une mission CDP en cours dans un groupe international du transport maritime (équipe 50+ personnes).
-                    </p>
-                    <p>
                       J&apos;opère mon propre système agentique IA en production dans mes processus quotidiens. Ce n&apos;est pas de la veille technologique — c&apos;est du déploiement réel, avec les problèmes réels que ça pose : intégration dans des workflows existants, adoption par les utilisateurs, gouvernance des données, gestion des erreurs.
                     </p>
                     <p>
-                      Mon positionnement est celui d&apos;un chef de projet qui pilote le déploiement IA en organisation. Pas d&apos;un architecte LLM qui vous explique comment fonctionne GPT-4. Pas d&apos;un data scientist qui optimise vos modèles. Quelqu&apos;un qui fait le pont entre les décisions de direction, les équipes tech, et les équipes métier — et qui s&apos;assure que le projet sort de la sandbox.
+                      Mon positionnement est celui d&apos;un <strong className="text-ink">profil change management qui pilote le déploiement IA en organisation</strong>. Pas d&apos;un architecte LLM qui vous explique comment fonctionne GPT-4. Pas d&apos;un data scientist qui optimise vos modèles. Quelqu&apos;un qui fait le pont entre les décisions de direction, les équipes tech, et les équipes métier — et qui s&apos;assure que le projet sort de la sandbox.
+                    </p>
+                    <p>
+                      Ce positionnement vient d&apos;un terrain réel : <strong className="text-ink">Lead Chapter au sein de l&apos;Architecture IT de CMA-CGM</strong> (change management, animation d&apos;équipe, dynamiques agiles) depuis octobre 2023.
                     </p>
                   </div>
 
-                  <div className="mt-6">
+                  <div className="mt-6 mb-8">
                     <a
                       href="https://www.linkedin.com/in/florianbrignoli/"
                       target="_blank"
@@ -572,6 +672,31 @@ export default function Home() {
                       </svg>
                       Profil LinkedIn — Florian Brignoli
                     </a>
+                  </div>
+
+                  {/* Logos — preuve discrète, parcours, pas "clients Amplixy" */}
+                  <div>
+                    <p className="text-xs text-charcoal/50 font-medium uppercase tracking-wider mb-4">
+                      Organisations où Florian a travaillé
+                    </p>
+                    <div className="flex flex-wrap items-center gap-6">
+                      {[
+                        { src: "/img/partenaire/AIRBUS_Blue.png", alt: "Airbus" },
+                        { src: "/img/partenaire/CMA_CGM_logo.svg.png", alt: "CMA CGM" },
+                        { src: "/img/partenaire/dircom-logo_amu_cmjn.png", alt: "Aix-Marseille Université" },
+                        { src: "/img/partenaire/NAF-NAF-Le-Grand-Mechant-Look-Logo-Vector.svg-.png", alt: "NAF NAF" },
+                      ].map((partner) => (
+                        <Image
+                          key={partner.alt}
+                          src={partner.src}
+                          alt={partner.alt}
+                          width={100}
+                          height={32}
+                          sizes="100px"
+                          className="h-7 w-auto object-contain opacity-35 hover:opacity-60 transition-opacity"
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -689,14 +814,14 @@ export default function Home() {
 
                 <div className="relative z-10">
                   <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-ink mb-3">
-                    Réservez 30 minutes de{" "}
+                    Réservez 30 minutes pour regarder{" "}
                     <span className="relative inline-block">
-                      cadrage
+                      votre friction concrète
                       <SketchUnderline strokeWidth={3} />
                     </span>
                   </h2>
                   <p className="text-charcoal max-w-md mx-auto mb-8 text-sm">
-                    Pas de pitch commercial — on discute de votre situation concrète et on voit si Amplixy peut vous aider. Gratuit. Sans engagement.
+                    Pas de pitch commercial. On part de votre situation réelle — où en êtes-vous, quelle est la friction principale — et on voit ensemble si et comment Amplixy peut vous aider. Gratuit. Sans engagement.
                   </p>
 
                   <button
