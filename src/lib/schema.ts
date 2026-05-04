@@ -4,32 +4,36 @@
 
 export const FAQ_ITEMS = [
   {
-    q: "Par où est-ce qu'on commence si on n'a aucun cas d'usage identifié ?",
-    a: "C'est exactement pour ça que la Discovery existe. En 2 semaines, on fait ensemble l'inventaire de vos processus, on identifie où l'IA peut créer une valeur mesurable rapidement, et on sort un rapport priorisé avec 2-3 cas d'usage concrets. Vous repartez avec une feuille de route, que vous décidiez de continuer avec Amplixy ou non.",
+    q: "Pas de cas d'usage identifié — par où commencer ?",
+    a: "Discovery : 2 semaines pour identifier 2-3 cas d'usage chiffrés en heures gagnées. Pas de réflexion abstraite — on regarde vos process réels, on fait l'inventaire du shadow IT existant, et on sort un rapport priorisé avec un plan d'action. Vous repartez avec une feuille de route concrète, que vous continuiez ou non avec Amplixy.",
   },
   {
-    q: "Mes équipes ne sont pas formées à l'IA. Est-ce que c'est un frein ?",
-    a: "Non. Le change management est intégré à la méthode dès le POC. On construit le projet avec les équipes métier, pas pour elles. La formation et l'adoption sont des livrables à part entière, pas une afterthought. L'objectif n'est pas de livrer un outil technique — c'est de livrer un outil qui est réellement utilisé.",
+    q: "Mes équipes ne sont pas formées. C'est un frein ?",
+    a: "Non — c'est précisément le problème qu'on résout. Pas de formation OPCO de 2 jours. Sessions courtes intégrées au déploiement, sur les vrais cas d'usage, avec les outils utilisés au quotidien. L'objectif n'est pas de livrer un outil technique — c'est de livrer un outil qui est réellement utilisé.",
   },
   {
-    q: "Mon DG veut des résultats en 3 mois. Est-ce que c'est tenable ?",
-    a: "Oui, si on cadre le bon périmètre. Une Discovery prend 2 semaines. Un POC sur un cas d'usage ciblé prend 4 à 6 semaines. En 3 mois, un premier livrable opérationnel est réaliste — à condition de ne pas vouloir transformer toute l'organisation en même temps. La plupart des échecs IA viennent de périmètres trop larges définis trop vite.",
+    q: "Le shadow IT IA et les données sensibles, c'est mon problème ou le vôtre ?",
+    a: "C'est le vôtre — c'est pourquoi la sécurité fait partie de chaque étape, pas d'un lot séparé. 11-15% de vos collaborateurs ont déjà copié-collé des données dans une IA publique. Le shadow IT est déjà installé. On le cartographie en Discovery, on documente les règles avant le POC, on gouverne au Déploiement.",
   },
   {
-    q: "Pourquoi vous plutôt que Capgemini Invent ou un grand cabinet ?",
-    a: "Parce que Capgemini Invent intervient à partir de 200 000€ de ticket, avec une équipe dans laquelle vous n'avez pas de visibilité sur qui travaille réellement sur votre dossier. Chez Amplixy, c'est moi sur toute la mission. Le tarif est proportionné à une ETI, pas à un grand compte. Et mon expérience terrain sur des organisations 50+ personnes me permet de parler le même langage que vos équipes, pas celui d'un cabinet.",
+    q: "Mon DG veut des résultats en 3 mois. Tenable ?",
+    a: "Oui si on cadre le bon périmètre. Discovery 2 sem + POC 4-6 sem = 6-8 sem total. Vous êtes dans les 3 mois. La condition : ne pas vouloir transformer toute l'organisation en même temps. La plupart des échecs IA viennent de périmètres trop larges définis trop vite.",
   },
   {
-    q: "Qu'est-ce qui se passe après la mission ? On est autonomes ?",
-    a: "L'objectif de chaque mission est que vous soyez autonomes à la fin. Les livrables vous appartiennent. Je ne crée pas de dépendance à Amplixy — si vous avez besoin de moi pour continuer à faire tourner ce qu'on a déployé ensemble, quelque chose n'a pas fonctionné. Je reste disponible pour des questions ponctuelles après livraison, mais ce n'est pas un abonnement forcé.",
+    q: "Pourquoi vous plutôt que Capgemini Invent ?",
+    a: "Capgemini démarre à 200k€ avec une équipe de juniors et un partner qui n'apparaît qu'au lancement. Amplixy démarre à 5k€, c'est moi sur toute la durée, et le périmètre est calibré pour une ETI. Vous ne payez pas pour la marque ni pour les frais de structure d'un cabinet.",
+  },
+  {
+    q: "Que se passe-t-il après la mission ? On est autonomes ?",
+    a: "Oui, c'est l'objectif. Si vous avez encore besoin d'Amplixy 6 mois après la fin de la mission, on a raté quelque chose. Le Déploiement inclut la transmission aux managers — pas une dépendance. Les livrables vous appartiennent.",
   },
   {
     q: "Vous travaillez seul. C'est un risque pour nous ?",
-    a: "C'est une question légitime. L'avantage d'un consultant solo : vous savez exactement qui travaille sur votre dossier, il n'y a pas de hand-off en cours de mission, et la communication est directe. La limite : si j'ai un empêchement majeur, la mission est suspendue. Je suis transparent là-dessus dès le cadrage. C'est pourquoi je travaille sur un périmètre défini avec des jalons clairs — en cas d'interruption, le travail réalisé est documenté et transférable.",
+    a: "Je ne vais pas prétendre que ça ne peut pas arriver. En cas d'indisponibilité majeure, le contrat prévoit une clause de transmission. Mais ça reste un trade-off : interlocuteur unique = pas de hand-off junior. Vous savez exactement qui travaille sur votre dossier.",
   },
   {
-    q: "Vous êtes basé à Melun. Vous travaillez en présentiel ou à distance ?",
-    a: "Principalement à distance, avec des déplacements ponctuels sur site si nécessaire (notamment pour les sessions de cadrage Discovery et les ateliers change management dans le cadre du Déploiement). Je travaille avec des ETI en Île-de-France et en Rhône-Alpes prioritairement, mais sans restriction géographique stricte.",
+    q: "Vous êtes basé à Melun. Présentiel ou distance ?",
+    a: "Mix selon la phase. Discovery : 1-2 jours sur site pour rencontrer les équipes. POC : majoritairement à distance avec 2-3 visites. Déploiement : selon vos managers. Frais de déplacement inclus en France métropolitaine.",
   },
 ] as const;
 
@@ -171,7 +175,7 @@ export function schemaPerson() {
       addressCountry: "FR",
     },
     description:
-      "Ingénieur et chef de projet, basé à Melun. Parcours : Airbus, Dassault Systèmes, NAF NAF, Aix-Marseille Université. Lead Chapter au sein de l'Architecture IT de CMA-CGM (change management, animation d'équipe, dynamiques agiles) depuis octobre 2023. Fondateur d'Amplixy, cabinet de conseil en transformation IA et change management pour ETI.",
+      "Ingénieur et chef de projet, basé à Melun. Profil change management qui pilote le déploiement IA en organisation — fait le pont entre la direction, la tech et le métier. Parcours : Airbus, NAF NAF, Aix-Marseille Université. Lead Chapter au sein de l'Architecture IT de CMA-CGM depuis octobre 2023. Fondateur d'Amplixy, conseil IA & change management pour ETI.",
     knowsAbout: [
       "Transformation IA en organisation",
       "Change Management",

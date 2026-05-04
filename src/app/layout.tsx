@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     apple: "/img/icon-wm.png",
   },
   openGraph: {
-    title: "Amplixy — Conseil IA & Change Management pour ETI",
+    title: "Vos équipes utilisent l'IA en cachette. Amplixy aide à reprendre le contrôle.",
     description:
       "Amplixy accompagne les ETI 50-500 personnes à construire leur premier projet IA concret : cadré, livré, absorbé par les équipes. Interlocuteur unique, tarifs proportionnés.",
     url: "https://amplixy.com",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@florianbrignoli",
-    title: "Amplixy — Conseil IA & Change Management pour ETI",
+    title: "Vos équipes utilisent l'IA en cachette. Amplixy aide à reprendre le contrôle.",
     description:
       "Accompagnement IA pour ETI 50-500 personnes. Discovery, POC, Déploiement. Interlocuteur unique, tarifs transparents.",
   },
