@@ -85,12 +85,6 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${lato.variable} font-sans antialiased bg-paper text-ink selection:bg-accent/20 selection:text-ink`}
       >
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[10001] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
-        >
-          Aller au contenu principal
-        </a>
         <Script
           src="https://trafic.amplixy.cloud/script.js"
           data-website-id="0cbbe7f2-9749-460d-a88a-e665d0ee2904"

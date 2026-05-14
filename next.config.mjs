@@ -16,6 +16,8 @@ const nextConfig = {
     ]
   },
   async headers() {
+    const isDev = process.env.NODE_ENV !== 'production'
+    const scriptSrc = `'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://trafic.amplixy.cloud https://cal.eu https://www.cal.eu https://app.cal.com`
     return [
       {
         source: '/:path*',
@@ -52,9 +54,9 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             // unsafe-eval retiré (BUG-M-03). unsafe-inline conservé temporairement : Cal.com embed
             // injecte des scripts inline que Next 15 nonce seul ne couvre pas sans config Cal côté serveur.
-            // TODO: implémenter middleware nonce + configurer Cal.com SDK pour nonce support.
-            // cal.eu ajouté dans script-src (PRE fix CSP) — l'embed cal.eu charge ses scripts depuis cal.eu
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://trafic.amplixy.cloud https://cal.eu https://www.cal.eu https://app.cal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://trafic.amplixy.cloud https://app.cal.com https://cal.eu https://www.cal.eu; frame-src 'self' https://cal.eu https://www.cal.eu https://app.cal.com; frame-ancestors 'self';"
+            // En dev : unsafe-eval ajouté via scriptSrc pour permettre HMR Next.
+            // cal.eu et www.cal.eu présents dans scriptSrc et frame-src pour l'embed Cal.com.
+            value: `default-src 'self'; script-src ${scriptSrc}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://trafic.amplixy.cloud https://app.cal.com https://cal.eu https://www.cal.eu; frame-src 'self' https://cal.eu https://www.cal.eu https://app.cal.com; frame-ancestors 'self';`
           }
         ],
       },
