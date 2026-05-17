@@ -25,9 +25,9 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amplixy.com"),
-  title: "Amplixy — Conseil IA & Change Management pour ETI",
+  title: "Amplixy — Outils IA pour PME",
   description:
-    "Amplixy accompagne les ETI 50-500 personnes à construire leur premier projet IA concret : cadré, livré, absorbé par les équipes. Discovery 5 000€ — POC 15-20 000€ — Déploiement 30 000€+.",
+    "Amplixy met en place des outils IA simples pour PME de 10 à 50 personnes : demandes clients résumées, devis préparés plus vite, relances suivies, comptes-rendus transformés en actions. Diagnostic 1 500€ — Mise en place à partir de 5 000€ — Run 300-800€/mois.",
   authors: [{ name: "Florian Brignoli", url: "https://amplixy.com" }],
   creator: "Florian Brignoli",
   publisher: "Amplixy",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     apple: "/img/icon-wm.png",
   },
   openGraph: {
-    title: "Vos équipes utilisent l'IA en cachette. Amplixy aide à reprendre le contrôle.",
+    title: "Fini les tâches répétitives qui ralentissent votre PME — Amplixy",
     description:
-      "Amplixy accompagne les ETI 50-500 personnes à construire leur premier projet IA concret : cadré, livré, absorbé par les équipes. Interlocuteur unique, tarifs proportionnés.",
+      "Des outils IA simples pour aider vos équipes à répondre plus vite, relancer au bon moment, produire des comptes-rendus propres et retrouver l'information utile sans perdre des heures.",
     url: "https://amplixy.com",
     siteName: "Amplixy",
     locale: "fr_FR",
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@florianbrignoli",
-    title: "Vos équipes utilisent l'IA en cachette. Amplixy aide à reprendre le contrôle.",
+    title: "Fini les tâches répétitives qui ralentissent votre PME — Amplixy",
     description:
-      "Accompagnement IA pour ETI 50-500 personnes. Discovery, POC, Déploiement. Interlocuteur unique, tarifs transparents.",
+      "Outils IA pour PME 10-50 personnes. Demandes clients, devis, relances, comptes-rendus. Diagnostic 1 500€ HT.",
   },
 };
 

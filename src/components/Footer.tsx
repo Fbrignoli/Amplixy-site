@@ -7,7 +7,7 @@ export const Footer = () => {
         <div>
           <p className="font-display text-ink text-lg">Amplixy</p>
           <p className="mt-1 text-xs text-slate">
-            Conseil IA & Change Management — ETI 50-500 personnes
+            Outils IA pour PME — 10 à 50 personnes
           </p>
           <p className="mt-3 text-xs text-slate">
             16 B Rue de la Rochette, 77000 Melun

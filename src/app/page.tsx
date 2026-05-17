@@ -20,21 +20,21 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6 pt-32 pb-12 text-center">
           <Reveal>
             <span className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-white border border-slate-200 text-sm text-slate-600 shadow-sm">
-              Conseil IA & Change Management — ETI
+              Outils IA pour PME — 10 à 50 personnes
             </span>
           </Reveal>
 
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-ink leading-[1.1]">
-            Vos équipes utilisent l&apos;IA en cachette.{" "}
+            Fini les tâches répétitives qui{" "}
             <span className="relative inline-block">
-              Avec vos données.
+              ralentissent votre PME.
               <SketchUnderline color="#3b82f6" opacity={0.6} strokeWidth={3} variant="wide" />
             </span>
           </h1>
 
           <Reveal delay={0.2}>
             <p className="mt-8 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Reprenez le contrôle. Faites-en gagner du temps. Sans former vos équipes au lance-pierre, sans exposer vos données.
+              Amplixy met en place des outils IA simples pour aider vos équipes à répondre plus vite, relancer au bon moment, produire des comptes-rendus propres et retrouver l&apos;information utile sans perdre des heures.
             </p>
           </Reveal>
 
@@ -44,12 +44,18 @@ export default function Home() {
                 href="#contact"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-blue-dark text-white px-8 py-4 font-semibold transition-all hover:bg-blue-dark/90 hover:gap-3"
               >
-                Réserver 30 min de cadrage
+                Identifier mes gains de temps
                 <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
-              <p className="text-xs text-slate-400">Gratuit. Sans engagement. Pas de pitch commercial.</p>
+              <a
+                href="#outils"
+                className="text-sm font-semibold text-charcoal hover:text-blue-dark transition-colors mt-1"
+              >
+                Voir les outils possibles →
+              </a>
+              <p className="text-xs text-slate-400 mt-2">Gratuit. Sans engagement. Pas de pitch commercial.</p>
             </div>
           </Reveal>
 
@@ -76,53 +82,62 @@ export default function Home() {
         </div>
 
         {/* ============================================
-            LE PROBLÈME
+            LE PROBLÈME — temps perdu, pas outil manquant
             ============================================ */}
         <section id="probleme" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-blue-dark text-white relative">
           <div className="mx-auto max-w-6xl px-6">
             <Reveal>
               <div className="text-center mb-12">
                 <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-glow text-xs font-semibold uppercase tracking-wider">
-                  Ce qui bloque
+                  Le constat
                 </span>
                 <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-                  L&apos;IA avance vite.{" "}
+                  Ce n&apos;est pas une question d&apos;outil.{" "}
                   <span className="relative inline-block">
-                    Votre organisation, moins.
+                    C&apos;est une question de temps perdu.
                     <SketchUnderline color="currentColor" opacity={0.4} strokeWidth={3} />
                   </span>
                 </h2>
+                <p className="mt-6 text-white/80 max-w-3xl mx-auto leading-relaxed">
+                  Dans beaucoup de PME, les journées se remplissent de petites tâches invisibles : copier une information, reformuler un mail, chercher un document, refaire un compte-rendu, penser à relancer, demander où en est un dossier. L&apos;IA devient utile quand elle retire ces frictions du quotidien.
+                </p>
               </div>
             </Reveal>
 
             <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6">
               <Reveal delay={0.1}>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                  <h3 className="font-display text-lg font-bold text-white mb-3">Vos équipes utilisent l&apos;IA. Sans vous.</h3>
+                  <h3 className="font-display text-lg font-bold text-white mb-3">Les demandes clients se perdent</h3>
                   <p className="text-white/80 text-sm leading-relaxed">
-                    Vos collaborateurs utilisent ChatGPT depuis 18 mois. Vous le savez. Vous avez peut-être fermé les yeux. Le problème : ils le font avec vos données. Fichiers clients. Comptes-rendus. Briefs commerciaux. Ces données partent dans des serveurs hors RGPD, entraînent peut-être des modèles tiers, et vous n&apos;avez aucun contrôle. C&apos;est du shadow IT IA. Selon Cyberhaven et Microsoft Work Trend Index, 11 à 15% des salariés ont déjà copié-collé des données internes dans une IA publique. Le piège : ne pas prendre l&apos;IA en main n&apos;arrête pas le shadow IT. Il l&apos;aggrave.
+                    Le client écrit par mail, formulaire, téléphone, WhatsApp ou LinkedIn. Quelqu&apos;un répond, quelqu&apos;un oublie, quelqu&apos;un note dans un coin. Le suivi dépend trop de la mémoire de l&apos;équipe. Résultat : des demandes oubliées, des temps de réponse longs, et un dirigeant obligé de repasser derrière.
                   </p>
                 </div>
               </Reveal>
 
               <Reveal delay={0.15}>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                  <h3 className="font-display text-lg font-bold text-white mb-3">Le POC mort en sandbox</h3>
+                  <h3 className="font-display text-lg font-bold text-white mb-3">Les devis dorment dans une boîte mail</h3>
                   <p className="text-white/80 text-sm leading-relaxed">
-                    Vous avez peut-être déjà investi dans un POC. Démo convaincante en comité. L&apos;outil fonctionnait. Six mois plus tard : personne ne l&apos;utilise. Les équipes ont repris leurs anciens réflexes. Ce n&apos;est pas un problème d&apos;outil. C&apos;est un problème de formation. On a livré une technologie sans intégrer les équipes qui devaient l&apos;utiliser. Pas de sessions courtes sur les vrais cas d&apos;usage. Pas de suivi à J+30. 80% des POC IA ne sortent jamais de la phase de test. La raison est presque toujours la même.
+                    Le prospect est chaud. Mais le devis prend deux jours parce qu&apos;il faut retrouver l&apos;ancien modèle, reformuler, vérifier les infos, relancer quelqu&apos;un en interne. Le prospect refroidit pendant ce temps. Un prospect attend rarement ; vos devis ne devraient pas non plus.
                   </p>
                 </div>
               </Reveal>
 
               <Reveal delay={0.2}>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                  <h3 className="font-display text-lg font-bold text-white mb-3">200 000€ pour un POC. C&apos;est leur plancher.</h3>
+                  <h3 className="font-display text-lg font-bold text-white mb-3">Les relances dépendent de la mémoire</h3>
                   <p className="text-white/80 text-sm leading-relaxed">
-                    Vous avez demandé des devis. Capgemini Invent, Onepoint, un cabinet recommandé par un autre DSI. Tous arrivent à partir de 200k€. Avec une équipe de juniors encadrée par un partner qui n&apos;apparaît qu&apos;au lancement et à la livraison. Pour une ETI de 200 personnes, le ratio coût/risque ne tient pas. Vous avez besoin d&apos;un premier projet IA cadré, livré en 2 mois, qui sort vraiment de la sandbox — pas d&apos;un programme de transformation à 200k€.
+                    Tout le monde sait qu&apos;il faut relancer, mais personne ne le fait au bon moment. Les opportunités se perdent sans bruit. Ce n&apos;est pas parce qu&apos;un prospect ne répond pas qu&apos;il est perdu — encore faut-il penser à le relancer. Et la mémoire d&apos;une équipe n&apos;est pas un système de suivi.
                   </p>
                 </div>
               </Reveal>
             </div>
+
+            <Reveal delay={0.25}>
+              <p className="mt-10 text-center text-white/70 text-sm max-w-2xl mx-auto leading-relaxed italic">
+                Si trois personnes perdent chacune 30 minutes par jour en copier-coller, recherche d&apos;information et relances manuelles, cela représente déjà plus de 30 heures par mois — qui ne vont ni au client, ni au commercial, ni à la production.
+              </p>
+            </Reveal>
           </div>
         </section>
 
@@ -134,111 +149,68 @@ export default function Home() {
         </div>
 
         {/* ============================================
-            FRICTIONS IA CONCRÈTES
+            LES OUTILS IA — 6 cartes
             ============================================ */}
-        <section id="frictions" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
+        <section id="outils" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
           <div className="mx-auto max-w-6xl px-6">
             <Reveal>
               <div className="text-center mb-12">
                 <span className="inline-block mb-4 px-3 py-1 rounded-full bg-ink/5 text-ink/60 text-xs font-semibold uppercase tracking-wider">
-                  Frictions réelles
+                  Outils IA
                 </span>
                 <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
-                  Trois blocages que vos équipes{" "}
+                  On commence par{" "}
                   <span className="relative inline-block">
-                    vont rencontrer
+                    un outil concret.
                     <SketchUnderline />
                   </span>
                 </h2>
                 <p className="mt-4 text-charcoal max-w-2xl mx-auto">
-                  Pas de théorie. Trois situations qui se produisent dans toute ETI qui démarre l&apos;IA.
+                  Pas une plateforme de plus à brancher. Un outil IA qui retire une vraie friction de votre quotidien, intégré à vos outils existants, utilisé par les équipes qui en ont besoin.
                 </p>
               </div>
             </Reveal>
 
-            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Friction 1 */}
-              <Reveal delay={0.1}>
-                <div className="bg-white rounded-2xl border border-ink/10 p-8 h-full flex flex-col">
-                  <div className="mb-5">
-                    <span className="inline-block px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold uppercase tracking-wider">
-                      Friction
-                    </span>
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-ink mb-3">
-                    Le shadow IT IA déjà installé
-                  </h3>
-                  <p className="text-charcoal text-sm leading-relaxed mb-5">
-                    Votre équipe commerciale gagne du temps sur les synthèses de mails. Votre équipe RH accélère la rédaction des comptes-rendus d&apos;entretien. Votre service support répond aux clients avec ChatGPT. Mais personne ne vous l&apos;a signalé officiellement. C&apos;est non dit, non cadré, non gouverné. C&apos;est du shadow IT IA — déjà installé chez vous.
-                  </p>
-                  <div className="mt-auto border-t border-slate-100 pt-5">
-                    <p className="text-xs font-semibold text-ink/60 uppercase tracking-wider mb-2">Diagnostic</p>
-                    <p className="text-sm text-charcoal leading-relaxed">
-                      La friction réelle n&apos;est pas &quot;comment déployer l&apos;IA&quot;. C&apos;est &quot;comment récupérer le shadow IT IA qui existe déjà, le sécuriser, et en faire quelque chose de mesurable&quot;. Avant de lancer un projet IA, faites un inventaire informel du shadow IT avec 3 managers. Votre premier cas d&apos;usage est probablement déjà là.
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* Friction 2 */}
-              <Reveal delay={0.15}>
-                <div className="bg-white rounded-2xl border border-ink/10 p-8 h-full flex flex-col">
-                  <div className="mb-5">
-                    <span className="inline-block px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold uppercase tracking-wider">
-                      Friction
-                    </span>
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-ink mb-3">
-                    Personne ne sait quoi déployer en priorité
-                  </h3>
-                  <p className="text-charcoal text-sm leading-relaxed mb-5">
-                    La direction dit &quot;on veut utiliser l&apos;IA&quot;. Votre équipe IT reçoit la demande. Trois réunions plus tard, personne n&apos;a tranché sur le périmètre.
-                  </p>
-                  <div className="mt-auto border-t border-slate-100 pt-5">
-                    <p className="text-xs font-semibold text-ink/60 uppercase tracking-wider mb-2">Diagnostic</p>
-                    <p className="text-sm text-charcoal leading-relaxed">
-                      La friction est tarifaire avant d&apos;être stratégique. Quand le périmètre n&apos;est pas cadré, le devis grands cabinets monte à 200k€ — sans garantie de résultat. Essayez de reformuler votre projet IA en une phrase qui contient un chiffre concret de gain de temps. Si vous n&apos;y arrivez pas, il manque encore un audit.
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* Friction 3 */}
-              <Reveal delay={0.2}>
-                <div className="bg-white rounded-2xl border border-ink/10 p-8 h-full flex flex-col">
-                  <div className="mb-5">
-                    <span className="inline-block px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold uppercase tracking-wider">
-                      Friction
-                    </span>
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-ink mb-3">
-                    L&apos;équipe data dit non — et elle a raison
-                  </h3>
-                  <p className="text-charcoal text-sm leading-relaxed mb-5">
-                    La direction pousse pour un projet IA. L&apos;équipe data signale que les données ne sont pas prêtes : qualité insuffisante, silos, gouvernance inexistante. Impasse.
-                  </p>
-                  <div className="mt-auto border-t border-slate-100 pt-5">
-                    <p className="text-xs font-semibold text-ink/60 uppercase tracking-wider mb-2">Diagnostic</p>
-                    <p className="text-sm text-charcoal leading-relaxed">
-                      Le pré-requis data n&apos;est pas un détail technique. C&apos;est le premier point à auditer avant tout projet IA. Identifier le périmètre data réellement disponible permet de choisir un cas d&apos;usage faisable plutôt que de bloquer 6 mois sur un idéal inaccessible.
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Demandes clients résumées et priorisées",
+                  text: "Chaque demande entrante (mail, formulaire, WhatsApp) est captée, résumée, qualifiée et orientée vers la bonne personne. Vous savez qui doit répondre, quoi répondre, et quelle relance prévoir.",
+                },
+                {
+                  title: "Devis préparés plus vite",
+                  text: "L'IA prépare un brouillon de devis, retrouve les éléments utiles dans vos anciens documents et propose une réponse claire. L'humain vérifie, ajuste et envoie. Moins de copier-coller, meilleure réactivité commerciale.",
+                },
+                {
+                  title: "Relances commerciales suivies",
+                  text: "L'outil repère les dossiers à relancer, prépare le message dans votre ton, et rappelle à l'équipe quoi faire. Moins de dépendance à la mémoire du commercial ou du dirigeant. Meilleure conversion sans recruter.",
+                },
+                {
+                  title: "Comptes-rendus transformés en actions",
+                  text: "Notes ou transcriptions d'appel transformées en compte-rendu clair : décisions prises, actions à mener, responsables, mail de suivi prêt à envoyer. Une réunion utile, c'est une réunion qui laisse des décisions et un suivi.",
+                },
+                {
+                  title: "Base documentaire interrogeable",
+                  text: "Vos procédures, anciens devis, mails utiles, documents internes sont structurés dans une base que l'équipe interroge en langage naturel. Moins d'interruptions pour redemander la même chose. Capitalisation du savoir.",
+                },
+                {
+                  title: "Réponses répétitives préparées",
+                  text: "Les questions qui reviennent toujours (parents, clients, prospects, prestataires) reçoivent un brouillon de réponse cohérente, à valider en un coup d'œil. Votre équipe garde la main — elle part juste d'un brouillon propre.",
+                },
+              ].map((tool, i) => (
+                <Reveal key={tool.title} delay={i * 0.05}>
+                  <article className="bg-white rounded-2xl border border-ink/10 p-6 h-full flex flex-col transition-all hover:border-blue-dark/30 hover:shadow-paper">
+                    <h3 className="font-display text-base font-bold text-ink mb-3 leading-snug">{tool.title}</h3>
+                    <p className="text-sm text-charcoal leading-relaxed flex-1">{tool.text}</p>
+                  </article>
+                </Reveal>
+              ))}
             </div>
 
-            <Reveal delay={0.25}>
-              <div className="mt-10 text-center">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-dark hover:text-blue-dark/80 transition-colors"
-                >
-                  Votre friction ressemble à ça ? Parlons-en.
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              </div>
+            <Reveal delay={0.4}>
+              <p className="mt-10 text-center text-sm text-charcoal max-w-2xl mx-auto italic">
+                On part de vos outils existants et de vos vrais usages. Pas besoin de changer toute votre organisation pour gagner du temps dès maintenant.
+              </p>
             </Reveal>
           </div>
         </section>
@@ -251,144 +223,231 @@ export default function Home() {
         </div>
 
         {/* ============================================
-            MÉTHODE
+            MÉTHODE — diagnostiquer, déployer, faire adopter
             ============================================ */}
-        <section id="methode" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
-          <div className="mx-auto max-w-6xl px-6">
+        <section id="methode" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-blue-dark text-white">
+          <div className="mx-auto max-w-5xl px-6">
             <Reveal>
-              <div className="text-center mb-4">
-                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-ink/5 text-ink/60 text-xs font-semibold uppercase tracking-wider">
+              <div className="text-center mb-12">
+                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-wider">
                   Méthode
                 </span>
-                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
-                  Trois étapes pour{" "}
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+                  Une méthode simple :{" "}
                   <span className="relative inline-block">
-                    sortir de la sandbox
-                    <SketchUnderline />
+                    diagnostiquer, déployer, faire adopter.
+                    <SketchUnderline color="currentColor" opacity={0.5} strokeWidth={3} />
                   </span>
                 </h2>
-                <p className="mt-4 text-charcoal max-w-2xl mx-auto">
-                  Chaque étape répond à une friction précise. Aucune obligation de continuer — chaque palier se suffit à lui-même.
-                </p>
-                <p className="mt-3 text-charcoal max-w-2xl mx-auto text-sm">
-                  Discovery / POC / Déploiement. Construit pour éviter trois erreurs : déployer sans cadrer (le POC qui dort), cadrer sans sécuriser (le shadow IT qui se développe), sécuriser sans former (l&apos;outil que personne n&apos;utilise).
+                <p className="mt-4 text-white/70 max-w-2xl mx-auto">
+                  Pas une stratégie IA de 60 pages. Cinq étapes pour passer d&apos;une tâche pénible à un outil que vos équipes utilisent vraiment.
                 </p>
               </div>
             </Reveal>
 
-            <div className="mt-12 grid sm:grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Discovery */}
+            <ol className="space-y-4">
+              {[
+                {
+                  step: "1",
+                  title: "On repère les tâches répétitives qui coûtent du temps",
+                  text: "Atelier de cadrage avec vous et 1 à 3 personnes terrain. On cartographie ce qui mange réellement les journées — pas ce qu'on imagine en théorie.",
+                },
+                {
+                  step: "2",
+                  title: "On choisit l'outil IA le plus rentable à créer",
+                  text: "Scoring impact / effort / risque sur les cas d'usage identifiés. On sélectionne celui qui combine gain de temps mesurable et faisabilité avec votre stack actuelle.",
+                },
+                {
+                  step: "3",
+                  title: "On le met en place avec vos outils existants",
+                  text: "Pas de refonte. On branche l'outil IA sur ce que vous utilisez déjà (mail, Drive, logiciel métier). Conception du fonctionnement cible, paramétrage, garde-fous confidentialité.",
+                },
+                {
+                  step: "4",
+                  title: "On forme l'équipe et on garde une validation humaine",
+                  text: "Sessions courtes, sur les vrais cas d'usage, par les utilisateurs concernés — pas une journée de slides génériques. Validation humaine obligatoire sur les sorties sensibles.",
+                },
+                {
+                  step: "5",
+                  title: "On mesure le gain et on améliore",
+                  text: "Mesure avant/après. Ajustement des prompts et automatisations selon les retours terrain. L'outil ne reste pas figé, il s'affine avec l'usage réel.",
+                },
+              ].map((item, i) => (
+                <Reveal key={item.step} delay={i * 0.05}>
+                  <li className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 flex gap-5">
+                    <div className="flex-shrink-0">
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-white font-bold text-lg">
+                        {item.step}
+                      </span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-lg font-bold text-white mb-2">{item.title}</h3>
+                      <p className="text-white/80 text-sm leading-relaxed">{item.text}</p>
+                    </div>
+                  </li>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Wave : blue-dark → paper */}
+        <div className="relative h-12 lg:h-16 bg-blue-dark">
+          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0 30 Q300 50 600 25 T1200 30 L1200 60 L0 60 Z" fill="#faf9f6"/>
+          </svg>
+        </div>
+
+        {/* ============================================
+            OFFRE — 3 paliers
+            ============================================ */}
+        <section id="tarifs" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
+          <div className="mx-auto max-w-6xl px-6">
+            <Reveal>
+              <div className="text-center mb-12">
+                <span className="inline-block mb-4 px-3 py-1 rounded-full bg-ink/5 text-ink/60 text-xs font-semibold uppercase tracking-wider">
+                  Offre
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
+                  Trois niveaux selon{" "}
+                  <span className="relative inline-block">
+                    votre maturité.
+                    <SketchUnderline />
+                  </span>
+                </h2>
+                <p className="mt-4 text-charcoal max-w-2xl mx-auto">
+                  Tarifs affichés. Pas de &quot;nous vous enverrons un devis après un premier entretien&quot;. Vous savez où on commence et où on va avant le premier appel.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Diagnostic IA Express */}
               <Reveal delay={0.1}>
                 <div className="bg-white rounded-2xl border-2 border-blue-dark p-8 h-full flex flex-col relative">
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className="bg-blue-dark text-white text-xs font-semibold px-3 py-1 rounded-full">
-                      1 — La plupart commencent ici
+                      La plupart commencent ici
                     </span>
                   </div>
                   <div className="flex items-center gap-3 mb-6">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-dark text-white flex items-center justify-center text-sm font-bold">1</span>
-                    <h3 className="font-display text-xl font-bold text-ink">Discovery</h3>
+                    <h3 className="font-display text-xl font-bold text-ink">Diagnostic IA Express</h3>
                   </div>
                   <div className="space-y-1 mb-6">
-                    <p className="text-2xl font-bold text-ink">5 000€ HT</p>
-                    <p className="text-sm text-charcoal">~2 semaines</p>
+                    <p className="text-2xl font-bold text-ink">1 500€ HT</p>
+                    <p className="text-sm text-charcoal">Demi-journée à 1 jour</p>
                   </div>
-                  <p className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-3">Votre friction</p>
-                  <p className="text-sm text-charcoal italic mb-4">
-                    &quot;On ne sait pas par où commencer. On a plein d&apos;idées mais aucune ne semble prioritaire.&quot;
+                  <p className="text-sm text-charcoal leading-relaxed mb-5">
+                    En une demi-journée, on identifie où votre équipe perd vraiment du temps et quel outil IA peut être mis en place sans bouleverser votre organisation.
                   </p>
-                  <ul className="space-y-3 text-sm text-charcoal leading-relaxed flex-1">
+                  <p className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-3">Vous repartez avec</p>
+                  <ul className="space-y-2 text-sm text-charcoal leading-relaxed flex-1">
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      <span><strong>Gain de temps</strong> : audit des process pour identifier où l&apos;IA crée de la valeur mesurable rapidement (heures gagnées par semaine, par équipe, par cas d&apos;usage)</span>
+                      <span>Carte des irritants opérationnels</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      <span><strong>Sécurité</strong> : cartographie du shadow IT existant + analyse des flux sensibles concernés</span>
+                      <span>3 cas d&apos;usage IA priorisés (impact / effort / risque)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      <span><strong>Formation</strong> : état des lieux des compétences équipes — qui est prêt, qui doit être accompagné</span>
+                      <span>Estimation du temps économisable</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
+                      <span>Plan d&apos;action 30 jours</span>
                     </li>
                   </ul>
-                  <p className="mt-4 text-sm text-charcoal leading-relaxed">
-                    Livrable : rapport priorisé + plan d&apos;action concret + cadre sécurité, que vous continuiez ou non avec Amplixy.
-                  </p>
                   <p className="mt-6 text-xs text-charcoal/60 border-t border-slate-100 pt-4">
-                    Aucun engagement sur la suite. La Discovery se suffit à elle-même.
+                    Aucun engagement sur la suite. Le diagnostic se suffit à lui-même.
                   </p>
                 </div>
               </Reveal>
 
-              {/* POC */}
+              {/* Mise en place */}
               <Reveal delay={0.15}>
                 <div className="bg-white rounded-2xl border border-ink/10 p-8 h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-dark text-white flex items-center justify-center text-sm font-bold">2</span>
-                    <h3 className="font-display text-xl font-bold text-ink">POC</h3>
+                    <h3 className="font-display text-xl font-bold text-ink">Mise en place d&apos;un outil IA métier</h3>
                   </div>
                   <div className="space-y-1 mb-6">
-                    <p className="text-2xl font-bold text-ink">15 000 — 20 000€ HT</p>
-                    <p className="text-sm text-charcoal">4 à 6 semaines</p>
+                    <p className="text-2xl font-bold text-ink">À partir de 5 000€ HT</p>
+                    <p className="text-sm text-charcoal">2 à 4 semaines</p>
                   </div>
-                  <p className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-3">Votre friction</p>
-                  <p className="text-sm text-charcoal italic mb-4">
-                    &quot;On a un cas d&apos;usage. Mais entre l&apos;idée et quelque chose d&apos;utilisé par nos équipes, le chemin est flou.&quot;
+                  <p className="text-sm text-charcoal leading-relaxed mb-5">
+                    On prend une tâche récurrente qui fatigue votre équipe, on la transforme en outil simple, et on vous laisse avec un système utilisable, documenté et maîtrisé.
                   </p>
-                  <ul className="space-y-3 text-sm text-charcoal leading-relaxed flex-1">
+                  <p className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-3">Inclus</p>
+                  <ul className="space-y-2 text-sm text-charcoal leading-relaxed flex-1">
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      <span><strong>Gain de temps</strong> : prototype IA construit avec les équipes métier, mesure des heures gagnées en conditions réelles</span>
+                      <span>Cadrage du process actuel + conception cible</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      <span><strong>Formation</strong> : sessions courtes calibrées sur les outils utilisés — pas une journée de slides PowerPoint génériques</span>
+                      <span>Paramétrage outils IA / automatisation, garde-fous confidentialité</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      <span><strong>Sécurité</strong> : règles d&apos;usage documentées avant le premier utilisateur, hébergement UE, DPA RGPD signé, flux auditable</span>
+                      <span>Validation humaine sur les sorties sensibles</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
+                      <span>Documentation simple + formation de l&apos;équipe</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
+                      <span>Mesure avant / après</span>
                     </li>
                   </ul>
-                  <p className="mt-4 text-sm text-charcoal leading-relaxed">
-                    Livrable : prototype fonctionnel déployé + plan de change management + cadre sécurité activé.
-                  </p>
                   <p className="mt-6 text-xs text-charcoal/60 border-t border-slate-100 pt-4">
-                    Pré-requis : avoir réalisé une Discovery ou disposer d&apos;un cas d&apos;usage déjà identifié et chiffré.
+                    Pré-requis : un cas d&apos;usage identifié (issu d&apos;un Diagnostic ou évident).
                   </p>
                 </div>
               </Reveal>
 
-              {/* Déploiement */}
+              {/* Run */}
               <Reveal delay={0.2}>
                 <div className="bg-white rounded-2xl border border-ink/10 p-8 h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-dark text-white flex items-center justify-center text-sm font-bold">3</span>
-                    <h3 className="font-display text-xl font-bold text-ink">Déploiement</h3>
+                    <h3 className="font-display text-xl font-bold text-ink">Run IA PME</h3>
                   </div>
                   <div className="space-y-1 mb-6">
-                    <p className="text-2xl font-bold text-ink">30 000€+ HT</p>
-                    <p className="text-sm text-charcoal">Forfait ou retainer mensuel</p>
+                    <p className="text-2xl font-bold text-ink">300 à 800€ HT / mois</p>
+                    <p className="text-sm text-charcoal">Engagement mensuel léger</p>
                   </div>
-                  <p className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-3">Votre friction</p>
-                  <p className="text-sm text-charcoal italic mb-4">
-                    &quot;Le POC a fonctionné. Maintenant on veut généraliser — mais l&apos;organisation résiste.&quot;
+                  <p className="text-sm text-charcoal leading-relaxed mb-5">
+                    L&apos;outil ne reste pas figé. On l&apos;améliore avec vos retours terrain pour qu&apos;il continue à faire gagner du temps.
                   </p>
-                  <ul className="space-y-3 text-sm text-charcoal leading-relaxed flex-1">
+                  <p className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-3">Inclus</p>
+                  <ul className="space-y-2 text-sm text-charcoal leading-relaxed flex-1">
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      <span><strong>Gain de temps</strong> : passage à l&apos;échelle sur plusieurs périmètres métier, suivi du ROI en heures</span>
+                      <span>Ajustement prompts et automatisations</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      <span><strong>Formation continue</strong> : managers formés à reconnaître les usages, sessions de montée en compétence régulières</span>
+                      <span>Support usage et correction des irritants</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
-                      <span><strong>Sécurité en gouvernance</strong> : alertes sur les outils non-validés, gouvernance shadow IT en continu</span>
+                      <span>Revue mensuelle des gains</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
+                      <span>Ajout léger de nouveaux cas d&apos;usage</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-dark mt-0.5 flex-shrink-0">—</span>
+                      <span>Veille outils utile, sans survente</span>
                     </li>
                   </ul>
                   <p className="mt-6 text-xs text-charcoal/60 border-t border-slate-100 pt-4">
-                    Format : retainer mensuel ou forfait selon le périmètre.
+                    Optionnel. Vous restez autonomes si vous préférez.
                   </p>
                 </div>
               </Reveal>
@@ -396,7 +455,7 @@ export default function Home() {
 
             <Reveal delay={0.25}>
               <p className="mt-8 text-center text-sm text-charcoal max-w-2xl mx-auto">
-                La majorité des clients commencent par une Discovery. Certains s&apos;arrêtent là — la clarté obtenue leur suffit pour avancer en interne. D&apos;autres continuent vers le POC, puis le Déploiement. Aucune clause de reconduction cachée.
+                Chaque mission est cadrée par contrat avant démarrage. Si le périmètre change en cours : on s&apos;arrête, on re-cadre, on re-valide. Pas de facturation à l&apos;heure non prévue, pas de dépassement sans accord préalable.
               </p>
             </Reveal>
           </div>
@@ -410,86 +469,44 @@ export default function Home() {
         </div>
 
         {/* ============================================
-            TARIFS
+            RÉASSURANCE — L'IA reste sous contrôle
             ============================================ */}
-        <section id="tarifs" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-blue-dark text-white">
+        <section id="reassurance" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-blue-dark text-white">
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
               <div className="text-center mb-12">
                 <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-wider">
-                  Tarifs
+                  Réassurance
                 </span>
-                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-                  Des tarifs{" "}
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
+                  L&apos;IA reste{" "}
                   <span className="relative inline-block">
-                    transparents
+                    sous contrôle.
                     <SketchUnderline color="currentColor" opacity={0.5} strokeWidth={3} />
                   </span>
                 </h2>
-                <p className="mt-4 text-white/70 max-w-xl mx-auto">
-                  Pas de &quot;nous vous enverrons un devis après un premier entretien&quot;. Les tarifs sont affichés.
-                </p>
-                <p className="mt-3 text-white/70 max-w-xl mx-auto text-sm">
-                  Pourquoi c&apos;est important : un cabinet qui cache ses prix attend de voir si vous pouvez payer plus. C&apos;est leur métier. Mais ce n&apos;est pas le vôtre — vous voulez savoir si l&apos;investissement IA tient économiquement, dès la première lecture.
-                </p>
-                <p className="mt-3 text-white/70 max-w-xl mx-auto text-sm">
-                  ROI à garder en tête : une équipe de 10 personnes qui gagne 5h/semaine grâce à un cas d&apos;usage IA bien intégré, c&apos;est ~12 500€/mois libérés (50€/h coût chargé). La Discovery se rentabilise en 2 semaines de gain de temps équipe.
+                <p className="mt-4 text-white/70 max-w-2xl mx-auto text-sm">
+                  Cinq garde-fous intégrés à chaque outil mis en place, dès le cadrage — pas en option ajoutée à la fin.
                 </p>
               </div>
             </Reveal>
 
-            <Reveal delay={0.1}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-white/20">
-                      <th className="text-left px-6 py-4 text-white/80 text-sm font-semibold">Étape</th>
-                      <th className="text-left px-6 py-4 text-white/80 text-sm font-semibold">Tarif HT</th>
-                      <th className="text-left px-6 py-4 text-white/80 text-sm font-semibold hidden sm:table-cell">Durée indicative</th>
-                      <th className="text-left px-6 py-4 text-white/80 text-sm font-semibold hidden lg:table-cell">Ce que vous obtenez</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-white/10">
-                    <tr>
-                      <td className="px-6 py-5">
-                        <span className="font-display font-bold text-white">Discovery</span>
-                      </td>
-                      <td className="px-6 py-5">
-                        <span className="font-bold text-white text-lg">5 000€ HT</span>
-                      </td>
-                      <td className="px-6 py-5 text-white/70 text-sm hidden sm:table-cell">~2 semaines</td>
-                      <td className="px-6 py-5 text-white/70 text-sm hidden lg:table-cell">Audit + identification cas d&apos;usage chiffrés + cartographie shadow IT + plan d&apos;action</td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-5">
-                        <span className="font-display font-bold text-white">POC</span>
-                      </td>
-                      <td className="px-6 py-5">
-                        <span className="font-bold text-white text-lg">15 000 — 20 000€ HT</span>
-                      </td>
-                      <td className="px-6 py-5 text-white/70 text-sm hidden sm:table-cell">4-6 semaines</td>
-                      <td className="px-6 py-5 text-white/70 text-sm hidden lg:table-cell">Prototype IA opérationnel + équipes formées + cadre sécurité activé</td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-5">
-                        <span className="font-display font-bold text-white">Déploiement</span>
-                      </td>
-                      <td className="px-6 py-5">
-                        <span className="font-bold text-white text-lg">30 000€+ HT</span>
-                      </td>
-                      <td className="px-6 py-5 text-white/70 text-sm hidden sm:table-cell">Forfait ou retainer</td>
-                      <td className="px-6 py-5 text-white/70 text-sm hidden lg:table-cell">Passage à l&apos;échelle + formation continue + gouvernance</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.15}>
-              <p className="mt-6 text-center text-white/70 text-sm">
-                Chaque mission est cadrée par contrat avant démarrage. Si le périmètre change en cours de mission : on s&apos;arrête, on re-cadre, on re-valide. Pas de facturation à l&apos;heure non prévue, pas de dépassement sans accord préalable.
-              </p>
-            </Reveal>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {[
+                { title: "Validation humaine", text: "Sur toutes les sorties sensibles. L'IA propose, l'humain valide." },
+                { title: "Confidentialité dès le cadrage", text: "Certaines données ne doivent pas partir dans certains outils. On le tranche avant de brancher." },
+                { title: "Documentation simple", text: "Vos équipes savent comment l'outil marche et comment le faire évoluer." },
+                { title: "Pas de refonte globale", text: "On travaille avec vos outils existants. Une seule friction à la fois." },
+                { title: "Priorité aux gains visibles", text: "Mesure avant/après. Si l'outil ne fait pas gagner de temps, il n'a pas sa place." },
+              ].map((item, i) => (
+                <Reveal key={item.title} delay={i * 0.05}>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 h-full">
+                    <h3 className="font-display text-sm font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed">{item.text}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -501,7 +518,7 @@ export default function Home() {
         </div>
 
         {/* ============================================
-            CE QUE JE NE FAIS PAS
+            CE QUE JE NE FAIS PAS — adapté PME
             ============================================ */}
         <section id="perimetre" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-paper">
           <div className="mx-auto max-w-4xl px-6">
@@ -523,11 +540,11 @@ export default function Home() {
 
             <div className="space-y-3">
               {[
-                "Je ne développe pas de modèles de langage (LLM) ni d'algorithmes de machine learning. Pour ça, vous avez besoin d'un labo de recherche ou d'un éditeur (OpenAI, Mistral, Anthropic). Mon métier, c'est de déployer ces modèles en organisation.",
-                "Je ne produis pas de rapports d'audit data science. Si votre problème est la qualité de vos données ou votre architecture data, je peux orienter vers le bon profil — mais ce n'est pas mon périmètre.",
-                "Je ne forme pas en deux jours de PowerPoint génériques. Je forme avec les outils utilisés au quotidien, par les utilisateurs qui en ont besoin. Une formation OPCO classique ne change pas les pratiques.",
-                "Je ne déploie pas sans cadre sécurité. Sinon vous le payez plus tard, en incident RGPD ou en shadow IT incontrôlé. Plus coûteux que le gain de temps qu'on venait chercher.",
-                "Je ne sous-traite pas les missions à des consultants juniors. Je suis l'unique interlocuteur sur toute la durée.",
+                "Je ne vends pas de formation IA générique en deux jours de slides PowerPoint. Une formation OPCO classique ne change pas les pratiques. Je forme avec les outils utilisés au quotidien, par les utilisateurs qui en ont besoin.",
+                "Je ne déploie pas une plateforme de plus à brancher sur vos outils existants. Si l'outil n'est pas intégré à votre quotidien, il devient un onglet de plus que personne n'utilise.",
+                "Je ne promets pas « 5 heures gagnées par jour » avant la mesure. C'est fort commercialement, mais malhonnête sans diagnostic. On estime au diagnostic, on mesure après mise en place.",
+                "Je ne déploie pas sans validation humaine sur les sorties sensibles. Sinon vous le payez plus tard, en mauvaise réponse client ou en fuite de donnée. Plus coûteux que le gain de temps qu'on venait chercher.",
+                "Je ne sous-traite pas les missions à des consultants juniors. Je suis l'unique interlocuteur sur toute la durée — du diagnostic à la mise en place.",
               ].map((item, i) => (
                 <Reveal key={i} delay={i * 0.05}>
                   <div className="bg-white rounded-xl border border-ink/10 px-6 py-4 flex items-start gap-4">
@@ -554,7 +571,7 @@ export default function Home() {
         </div>
 
         {/* ============================================
-            CAS CONCRET
+            CAS CONCRET — terrain CMA-CGM, leçon transférable PME
             ============================================ */}
         <section id="cas-concret" className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-blue-dark text-white">
           <div className="mx-auto max-w-5xl px-6">
@@ -564,9 +581,9 @@ export default function Home() {
                   Terrain
                 </span>
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
-                  Ce qu&apos;on apprend en alignant 50 personnes{" "}
+                  Ce que j&apos;apprends en alignant 50 personnes{" "}
                   <span className="relative inline-block">
-                    sur un chantier IA
+                    sur un chantier de transformation
                     <SketchUnderline color="currentColor" opacity={0.5} strokeWidth={3} />
                   </span>
                 </h2>
@@ -594,14 +611,14 @@ export default function Home() {
                   <div>
                     <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-3">La situation</p>
                     <p className="text-white/80 text-sm leading-relaxed">
-                      Lead Chapter au sein de l&apos;équipe Architecture IT de <strong className="text-white">CMA-CGM</strong> (50+ personnes), depuis octobre 2023. Trois acteurs aux métriques de succès différentes à aligner sur un même chantier : architectes IT (mesurés sur la robustesse), direction métier (mesurée sur les délais), managers d&apos;équipe (mesurés sur l&apos;adoption). Trois langages, trois calendriers, trois priorités. Chacun a raison de son côté.
+                      Lead Chapter au sein de l&apos;équipe Architecture IT de <strong className="text-white">CMA-CGM</strong> (50+ personnes), depuis octobre 2023 : change management, animation d&apos;équipe, dynamiques agiles. Trois acteurs aux métriques différentes à aligner sur un même chantier : architectes IT, direction métier, managers d&apos;équipe. Trois langages, trois calendriers, trois priorités.
                     </p>
                   </div>
 
                   <div>
                     <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-3">Ce que ça enseigne</p>
                     <p className="text-white/80 text-sm leading-relaxed">
-                      Le principal obstacle à un déploiement IA n&apos;est pas technique. C&apos;est l&apos;alignement : faire converger des équipes aux cultures différentes (tech, métier, direction) sur un cas d&apos;usage commun, avec des contraintes de calendrier et de budget réelles. Ce problème est identique dans une ETI qui démarre un projet IA — à plus petite échelle, avec moins de marge de manœuvre.
+                      Le principal obstacle à un déploiement n&apos;est pas technique. C&apos;est l&apos;alignement humain : faire converger des équipes aux cultures différentes (terrain, ADV, direction) sur un même outil. Dans une PME 10-50 personnes, le problème est identique, à plus petite échelle — avec moins de marge d&apos;erreur.
                     </p>
                   </div>
                 </div>
@@ -609,7 +626,7 @@ export default function Home() {
                 <div className="border-t border-white/10 pt-6">
                   <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-3">La leçon transférable</p>
                   <p className="text-white/80 text-sm leading-relaxed max-w-2xl">
-                    Un projet IA réussit quand le change management est intégré dès la conception. Pas ajouté en fin de parcours pour &quot;faire adopter&quot; un outil que personne n&apos;a vu venir. Et le cadre sécurité doit être posé au même moment — pas après la première fuite.
+                    Un outil IA réussit quand l&apos;adoption est intégrée dès la conception — pas ajoutée en fin de parcours pour « faire accepter » quelque chose que personne n&apos;a vu venir. Et le cadre confidentialité doit être posé au même moment — pas après le premier incident.
                   </p>
                 </div>
               </div>
@@ -642,7 +659,7 @@ export default function Home() {
                   <div className="relative z-10 rounded-2xl overflow-hidden">
                     <Image
                       src="/img/florian-brignoli.png"
-                      alt="Florian Brignoli — Fondateur Amplixy, Conseil IA & Change Management"
+                      alt="Florian Brignoli — Fondateur Amplixy, outils IA pour PME"
                       width={220}
                       height={220}
                       className="w-full aspect-square object-cover"
@@ -663,10 +680,10 @@ export default function Home() {
 
                   <div className="space-y-4 text-charcoal text-sm leading-relaxed">
                     <p>
-                      J&apos;opère mon propre système agentique IA en production dans mes processus quotidiens. Ce n&apos;est pas de la veille technologique — c&apos;est ce que ça implique vraiment : intégrer dans des workflows existants, gérer l&apos;adoption, gouverner les données, traiter les erreurs en temps réel.
+                      J&apos;opère mon propre système agentique IA en production dans mes processus quotidiens. Ce n&apos;est pas de la veille technologique — c&apos;est ce que ça implique vraiment au quotidien : intégrer dans des workflows existants, gérer l&apos;adoption, gouverner les données, traiter les erreurs en temps réel.
                     </p>
                     <p>
-                      Mon positionnement : <strong className="text-ink">profil change management qui pilote le déploiement IA en organisation</strong>. Pas un architecte LLM qui vous explique comment fonctionne GPT-4. Pas un data scientist qui optimise vos modèles. Quelqu&apos;un qui fait le pont entre la direction, la tech et le métier — et qui s&apos;assure que le projet sort de la sandbox.
+                      Mon métier : <strong className="text-ink">retirer les tâches répétitives qui ralentissent vos équipes, en mettant en place un premier outil IA concret</strong>. Pas un architecte LLM qui vous explique comment fonctionne GPT-4. Pas un data scientist. Quelqu&apos;un qui fait le pont entre vos outils existants et vos vrais usages — et qui s&apos;assure que l&apos;outil est utilisé.
                     </p>
                     <p>
                       Ce positionnement vient du terrain : <strong className="text-ink">Lead Chapter au sein de l&apos;Architecture IT de CMA-CGM</strong> (change management, animation d&apos;équipe, dynamiques agiles) depuis octobre 2023.
@@ -687,7 +704,7 @@ export default function Home() {
                     </a>
                   </div>
 
-                  {/* Logos — preuve discrète, parcours, pas "clients Amplixy" */}
+                  {/* Logos — parcours, pas "clients Amplixy" */}
                   <div>
                     <p className="text-xs text-charcoal/50 font-medium uppercase tracking-wider mb-4">
                       Organisations où Florian a travaillé
@@ -738,19 +755,19 @@ export default function Home() {
                   {[
                     {
                       title: "Vous parlez toujours à moi",
-                      text: "Du premier appel de cadrage à la livraison finale. Pas de sous-traitance déguisée, pas de hand-off vers un junior en cours de mission.",
+                      text: "Du diagnostic à la mise en place. Pas de sous-traitance déguisée, pas de hand-off vers un junior en cours de mission.",
                     },
                     {
                       title: "Périmètre signé avant de démarrer",
-                      text: "Chaque mission est cadrée par contrat signé. Périmètre, livrables, jalons, tarif. Si quelque chose change en cours : on s'arrête, on re-cadre, on re-valide.",
+                      text: "Chaque mission est cadrée par contrat. Périmètre, livrables, jalons, tarif. Si quelque chose change : on s'arrête, on re-cadre, on re-valide.",
                     },
                     {
-                      title: "Un livrable utilisable à chaque palier",
-                      text: "Je ne promets pas de miracle en temps record. Je promets des livrables actionnables à chaque étape — pas des slides en attente d'une suite.",
+                      title: "Un outil utilisable, pas une démo",
+                      text: "Je ne livre pas un POC qui dort dans un slide. Chaque mission se termine par un outil que vos équipes utilisent — documenté et maîtrisé.",
                     },
                     {
-                      title: "Je vous dis si je suis pas la bonne personne",
-                      text: "Si lors du premier appel je juge que votre problème sort de mon périmètre, je vous le dis et je vous oriente. Ce n'est pas de la générosité — c'est juste honnête.",
+                      title: "Je vous dis si vous êtes pas la bonne PME pour ça",
+                      text: "Si lors du premier appel je juge que votre situation sort de mon périmètre, je vous le dis et je vous oriente. Pas de mission forcée.",
                     },
                   ].map((item) => (
                     <div key={item.title} className="space-y-2">
@@ -827,17 +844,17 @@ export default function Home() {
 
                 <div className="relative z-10">
                   <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-ink mb-3">
-                    Réservez 30 minutes pour regarder{" "}
+                    Réservez 30 minutes pour identifier{" "}
                     <span className="relative inline-block">
-                      votre friction concrète
+                      vos gains de temps
                       <SketchUnderline strokeWidth={3} />
                     </span>
                   </h2>
-                  <p className="text-charcoal max-w-md mx-auto mb-8 text-sm">
-                    Pas de pitch commercial. On part de votre situation réelle — où en êtes-vous, quelle est la friction principale, qu&apos;est-ce qui bloque vraiment — et on voit ensemble si Amplixy peut vous aider.
+                  <p className="text-charcoal max-w-md mx-auto mb-6 text-sm">
+                    Pas de pitch commercial. On part de votre quotidien — quelles tâches répétitives ralentissent vraiment votre équipe — et on voit ensemble si un outil IA peut soulager.
                   </p>
                   <p className="text-charcoal max-w-md mx-auto mb-8 text-sm">
-                    En 30 min vous repartez avec une lecture claire sur trois axes : où vous pouvez gagner du temps mesurable, comment former vos équipes vraiment, et où sont les angles morts sécurité (shadow IT compris).
+                    En 30 min vous repartez avec une lecture claire : où sont les vraies frictions, lequel des outils IA aurait l&apos;impact le plus rapide, et combien de temps vous pourriez gagner.
                   </p>
 
                   <button

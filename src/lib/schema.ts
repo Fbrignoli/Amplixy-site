@@ -1,39 +1,39 @@
 // Seule source de vérité pour les données structurées JSON-LD et le contenu FAQ.
 // Importé par layout.tsx (JSON-LD globaux) ET page.tsx (FAQ visuel).
-// Cible : décideurs ETI 50-500 personnes (DSI, DRH, DAF). Pivot Conseil IA + Change Management.
+// Cible : PME 10-50 personnes. Positionnement : outils IA simples pour soulager les tâches répétitives.
 
 export const FAQ_ITEMS = [
   {
-    q: "Pas de cas d'usage identifié — par où commencer ?",
-    a: "Discovery : 2 semaines pour identifier 2-3 cas d'usage chiffrés en heures gagnées. Pas de réflexion abstraite — on regarde vos process réels, on fait l'inventaire du shadow IT existant, et on sort un rapport priorisé avec un plan d'action. Vous repartez avec une feuille de route concrète, que vous continuiez ou non avec Amplixy.",
+    q: "On n'est pas assez gros pour l'IA. Ça vaut le coup ?",
+    a: "Justement, l'offre est pensée pour les PME de 10 à 50 personnes. On ne démarre pas par une stratégie globale, mais par une tâche répétitive qui vous coûte déjà du temps : demandes clients dispersées, devis qui traînent, relances oubliées, comptes-rendus jamais faits. Si trois personnes perdent chacune 30 min par jour sur ces tâches, c'est déjà plus de 30 heures par mois à reprendre. Un Diagnostic IA Express à 1 500€ HT suffit pour identifier le bon premier outil.",
   },
   {
-    q: "Mes équipes ne sont pas formées. C'est un frein ?",
-    a: "Non — c'est précisément le problème qu'on résout. Pas de formation OPCO de 2 jours. Sessions courtes intégrées au déploiement, sur les vrais cas d'usage, avec les outils utilisés au quotidien. L'objectif n'est pas de livrer un outil technique — c'est de livrer un outil qui est réellement utilisé.",
+    q: "On a déjà essayé ChatGPT. Pourquoi vous ?",
+    a: "ChatGPT seul aide ponctuellement — quand quelqu'un pense à l'utiliser et sait bien le prompter. La valeur arrive quand on crée un outil autour d'un vrai usage métier : une demande client arrive, elle est résumée, qualifiée, orientée, puis suivie. Un brouillon de devis est préparé avec vos anciens documents. Une relance est rappelée au bon moment. C'est intégré au quotidien, pas une fenêtre de plus à ouvrir.",
   },
   {
-    q: "Le shadow IT IA et les données sensibles, c'est mon problème ou le vôtre ?",
-    a: "C'est le vôtre — c'est pourquoi la sécurité fait partie de chaque étape, pas d'un lot séparé. 11-15% de vos collaborateurs ont déjà copié-collé des données dans une IA publique. Le shadow IT est déjà installé. On le cartographie en Discovery, on documente les règles avant le POC, on gouverne au Déploiement.",
+    q: "Nos données sont sensibles. Comment vous gérez ?",
+    a: "On cadre les usages avant de brancher quoi que ce soit. Certaines informations ne doivent pas partir dans certains outils — on le tranche dès le diagnostic. Validation humaine obligatoire sur les sorties sensibles, hébergement UE quand c'est possible, documentation des flux. La confidentialité fait partie du fonctionnement, pas une option ajoutée à la fin.",
   },
   {
-    q: "Mon DG veut des résultats en 3 mois. Tenable ?",
-    a: "Oui si on cadre le bon périmètre. Discovery 2 sem + POC 4-6 sem = 6-8 sem total. Vous êtes dans les 3 mois. La condition : ne pas vouloir transformer toute l'organisation en même temps. La plupart des échecs IA viennent de périmètres trop larges définis trop vite.",
+    q: "Mon équipe ne va pas l'utiliser. Comment vous assurez l'adoption ?",
+    a: "On part d'une douleur terrain, pas d'une technologie. Si l'outil retire une tâche pénible au quotidien — recopier, chercher, relancer, reformuler — l'adoption est beaucoup plus naturelle. La formation est faite avec les outils utilisés réellement, par les utilisateurs concernés, sur leurs vrais cas d'usage. Pas une journée de slides génériques. Et on mesure l'usage avant/après pour vérifier que ça tient.",
   },
   {
-    q: "Pourquoi vous plutôt que Capgemini Invent ?",
-    a: "Capgemini démarre à 200k€ avec une équipe de juniors et un partner qui n'apparaît qu'au lancement. Amplixy démarre à 5k€, c'est moi sur toute la durée, et le périmètre est calibré pour une ETI. Vous ne payez pas pour la marque ni pour les frais de structure d'un cabinet.",
+    q: "Je n'ai pas le temps pour un projet. Combien ça prend ?",
+    a: "Le format est volontairement court. Diagnostic IA Express : une demi-journée à 1 jour. Mise en place d'un outil IA métier : 2 à 4 semaines. On choisit une seule tâche à soulager, on évite la refonte globale, on vise un gain visible rapidement. L'idée n'est pas de transformer votre entreprise mais de retirer une friction qui mange vos journées.",
   },
   {
-    q: "Que se passe-t-il après la mission ? On est autonomes ?",
-    a: "Oui, c'est l'objectif. Si vous avez encore besoin d'Amplixy 6 mois après la fin de la mission, on a raté quelque chose. Le Déploiement inclut la transmission aux managers — pas une dépendance. Les livrables vous appartiennent.",
+    q: "Combien de temps on gagne concrètement ?",
+    a: "On l'estime au diagnostic, puis on le mesure après déploiement. Pas de promesse à 5h/jour avant d'avoir regardé votre quotidien — c'est fort commercialement mais malhonnête. Sur certaines tâches répétitives, 30 minutes par personne et par jour suffisent déjà à représenter plusieurs dizaines d'heures par mois. Le ROI dépend du cas d'usage choisi, du nombre de personnes qui en bénéficient, et de la qualité de l'adoption.",
   },
   {
     q: "Vous travaillez seul. C'est un risque pour nous ?",
-    a: "Je ne vais pas prétendre que ça ne peut pas arriver. En cas d'indisponibilité majeure, le contrat prévoit une clause de transmission. Mais ça reste un trade-off : interlocuteur unique = pas de hand-off junior. Vous savez exactement qui travaille sur votre dossier.",
+    a: "C'est une question légitime. L'avantage : vous savez exactement qui travaille sur votre dossier, pas de hand-off en cours de mission, communication directe. La limite : en cas d'empêchement majeur, la mission est suspendue. Je suis transparent dès le cadrage. Chaque mission est cadrée sur un périmètre défini avec des jalons clairs — en cas d'interruption, le travail réalisé est documenté et transférable.",
   },
   {
-    q: "Vous êtes basé à Melun. Présentiel ou distance ?",
-    a: "Mix selon la phase. Discovery : 1-2 jours sur site pour rencontrer les équipes. POC : majoritairement à distance avec 2-3 visites. Déploiement : selon vos managers. Frais de déplacement inclus en France métropolitaine.",
+    q: "Vous êtes basé à Melun. Vous travaillez à distance ?",
+    a: "Principalement à distance, avec des déplacements ponctuels sur site si nécessaire (sessions de diagnostic, ateliers de formation au démarrage). Je travaille avec des PME en Île-de-France et au-delà, sans restriction géographique stricte. Pour les outils IA, la majorité du travail se fait très bien en distanciel.",
   },
 ] as const;
 
@@ -53,7 +53,7 @@ export function schemaOrganization() {
     },
     image: "https://amplixy.com/img/icon-wm.png",
     description:
-      "Cabinet de conseil en transformation IA et change management B2B pour ETI 50-500 personnes. Discovery, POC, Déploiement.",
+      "Amplixy met en place des outils IA simples pour PME de 10 à 50 personnes : demandes clients résumées, devis préparés plus vite, relances suivies, comptes-rendus transformés en actions. Diagnostic IA Express 1 500€ HT — Mise en place outil IA métier à partir de 5 000€ HT — Run IA PME 300 à 800€/mois.",
     email: "contact@amplixy.com",
     telephone: "+33778209044",
     foundingDate: "2024",
@@ -72,19 +72,18 @@ export function schemaOrganization() {
     areaServed: [
       { "@type": "Country", name: "France" },
       { "@type": "AdministrativeArea", name: "Île-de-France" },
-      { "@type": "AdministrativeArea", name: "Auvergne-Rhône-Alpes" },
     ],
     knowsLanguage: ["fr", "en"],
     sameAs: [
       "https://www.linkedin.com/company/amplixy",
       "https://www.societe.com/societe/amplixy-999167760.html",
     ],
+    vatID: "FR",
     identifier: {
       "@type": "PropertyValue",
       propertyID: "SIREN",
       value: "999167760",
     },
-    taxID: "FR77999167760",
   };
 }
 
@@ -98,9 +97,7 @@ export function schemaLocalBusiness() {
     image: "https://amplixy.com/img/icon-wm.png",
     telephone: "+33778209044",
     email: "contact@amplixy.com",
-    priceRange: "€€€",
-    description:
-      "Cabinet de conseil en transformation IA et change management pour ETI 50-500 personnes. Interlocuteur unique, tarifs proportionnés, livrables opérationnels.",
+    priceRange: "€€",
     address: {
       "@type": "PostalAddress",
       streetAddress: "16 B Rue de la Rochette",
@@ -112,38 +109,7 @@ export function schemaLocalBusiness() {
     areaServed: [
       { "@type": "Country", name: "France" },
       { "@type": "AdministrativeArea", name: "Île-de-France" },
-      { "@type": "AdministrativeArea", name: "Auvergne-Rhône-Alpes" },
     ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Offres Conseil IA",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          name: "Discovery",
-          description:
-            "Audit organisationnel, identification 2-3 cas d'usage IA prioritaires, rapport priorisé. ~2 semaines.",
-          price: "5000",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          name: "POC",
-          description:
-            "Développement et déploiement d'un premier cas d'usage IA opérationnel. 4 à 6 semaines.",
-          price: "15000",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          name: "Déploiement",
-          description:
-            "Accompagnement au déploiement à l'échelle, change management, indicateurs d'adoption.",
-          price: "30000",
-          priceCurrency: "EUR",
-        },
-      ],
-    },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -163,7 +129,7 @@ export function schemaPerson() {
     name: "Florian Brignoli",
     givenName: "Florian",
     familyName: "Brignoli",
-    jobTitle: "Consultant Conseil IA & Change Management — Fondateur Amplixy",
+    jobTitle: "Fondateur Amplixy — Outils IA pour PME",
     worksFor: {
       "@type": "Organization",
       "@id": "https://amplixy.com/#organization",
@@ -175,17 +141,18 @@ export function schemaPerson() {
       addressCountry: "FR",
     },
     description:
-      "Ingénieur et chef de projet, basé à Melun. Profil change management qui pilote le déploiement IA en organisation — fait le pont entre la direction, la tech et le métier. Parcours : Airbus, NAF NAF, Aix-Marseille Université. Lead Chapter au sein de l'Architecture IT de CMA-CGM depuis octobre 2023. Fondateur d'Amplixy, conseil IA & change management pour ETI.",
+      "Fondateur d'Amplixy. Met en place des outils IA simples pour les PME de 10 à 50 personnes — pour retirer les tâches répétitives qui ralentissent les équipes (demandes clients, devis, relances, comptes-rendus). Lead Chapter Architecture IT chez CMA-CGM depuis 2023. Parcours : Airbus, NAF NAF, Aix-Marseille Université.",
     knowsAbout: [
-      "Transformation IA en organisation",
-      "Change Management",
-      "Gestion de projet digital",
-      "Pilotage d'équipes IT pluridisciplinaires",
-      "Déploiement de cas d'usage IA",
-      "Architecture IT",
+      "Outils IA pour PME",
+      "Automatisation des tâches répétitives",
+      "Change management",
+      "Adoption d'outils IA",
+      "Gestion de projet IT",
+      "Qualification de demandes clients",
+      "Préparation automatisée de devis",
+      "Suivi des relances commerciales",
     ],
     url: "https://amplixy.com",
-    sameAs: ["https://www.linkedin.com/in/florianbrignoli/"],
   };
 }
 
@@ -195,9 +162,9 @@ export function schemaWebSite() {
     "@type": "WebSite",
     "@id": "https://amplixy.com/#website",
     url: "https://amplixy.com",
-    name: "Amplixy — Conseil IA & Change Management pour ETI",
+    name: "Amplixy",
     description:
-      "Amplixy accompagne les ETI à construire leur premier projet IA concret : cadré, livré, absorbé par les équipes.",
+      "Outils IA simples pour PME de 10 à 50 personnes. Demandes clients, devis, relances, comptes-rendus — moins de tâches répétitives, plus de temps utile.",
     publisher: {
       "@type": "Organization",
       "@id": "https://amplixy.com/#organization",

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "Amplixy — Conseil IA & Change Management pour ETI 50-500 personnes";
+  "Amplixy — Outils IA simples pour PME de 10 à 50 personnes";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -91,7 +91,7 @@ export default function OgImage() {
               maxWidth: 900,
             }}
           >
-            Conseil IA & Change Management pour ETI
+            Fini les tâches répétitives qui ralentissent votre PME.
           </span>
         </div>
 
@@ -106,7 +106,7 @@ export default function OgImage() {
             lineHeight: 1.5,
           }}
         >
-          Discovery 5 000€ — POC 15-20 000€ — Déploiement 30 000€+. Interlocuteur unique, tarifs transparents.
+          Outils IA pour PME 10-50. Diagnostic 1 500€ — Mise en place dès 5 000€ — Run 300 à 800€/mois.
         </span>
 
         {/* Bottom bar */}
