@@ -1,73 +1,90 @@
 # Amplixy
 
-> Amplixy est une EURL française qui crée des sites web professionnels et des outils digitaux simples pour les TPE-PME (1 à 50 personnes). Fondée par Florian Brignoli, basée à Melun (77), Île-de-France.
+> Amplixy est un cabinet conseil IA qui accompagne les PME de 10 à 50 personnes dans le cadrage, la mise en place et l'adoption d'outils IA orientés opérations.
 
 ## Entreprise
 
 - **Nom légal** : AMPLIXY EURL
 - **SIREN** : 999 167 760
 - **Siège** : Melun (77000), Île-de-France, France
-- **Fondateur** : Florian Brignoli (ingénieur, ex-Airbus, Dassault Aviation, CMA CGM)
+- **Direction** : Florian Brignoli, ancien chef de projet technique
 - **Contact** : contact@amplixy.com · 07 78 20 90 44
 - **Site** : https://amplixy.com
 - **LinkedIn** : https://www.linkedin.com/company/amplixy
 
 ## Positionnement
 
-Amplixy aide les TPE-PME françaises à prendre le virage du numérique sans complexité ni surcoût. Les solutions sont pensées pour les artisans, commerçants, indépendants et dirigeants de petites structures qui veulent être en ligne sans dépendre d'agences facturant plusieurs milliers d'euros ni de plateformes WordPress engageant sur plusieurs années.
+Amplixy intervient quand une PME veut passer d'un usage ponctuel de l'IA à un outil réellement intégré dans ses opérations. Les cas les plus fréquents concernent les demandes clients, les devis, les relances, les comptes-rendus et la documentation interne.
+
+Le point de départ reste le travail réel de l'équipe : les outils déjà en place, les habitudes, les contraintes de confidentialité, les validations nécessaires et les irritants que les collaborateurs rencontrent chaque semaine.
 
 ## Offres
 
-### Sites web professionnels
-- **Prix** : à partir de 40€/mois tout inclus (hébergement, maintenance, support, nom de domaine)
-- **Délai** : livré en 48h
-- **Inclus** : prise de rendez-vous, réservation, formulaires de contact, SEO de base
-- **Pas d'engagement longue durée imposé**
-- **Pas de frais de mise en service cachés**
+### Diagnostic IA Express
 
-### Firaxy — Fidélisation clients
-- Programme de fidélité digital pour commerçants ambulants (marchés, foires)
-- QR code scanné par les clients → alerte email automatique quand le vendeur revient dans leur région
-- Remplace les cartes de fidélité papier perdues
-- Site : https://firaxy.com
+- **Prix** : 1 500 € HT
+- **Durée** : demi-journée à 1 jour
+- **Objectif** : identifier les irritants opérationnels et prioriser les cas d'usage IA utiles
+- **Livrables** : cartographie des irritants, 3 cas d'usage priorisés, hypothèse de gain, plan d'action 30 jours
 
-## Clients (Nos Réussites)
+### Mise en place d'un outil IA métier
 
-1. **Firaxy** (https://firaxy.com) — Plateforme SaaS de fidélisation pour commerçants ambulants, France
-2. **VionCouverture** (https://vioncouverture.fr) — Artisan couvreur à Melun (Seine-et-Marne) — site vitrine avec SEO local et structured data
-3. **Accord'Âme** (https://ecoleaccordame.fr) — École de violon et alto (méthode Suzuki) à Lyon — site one-page avec carousel photos et localisation
-4. **Corsicabrignoli** (https://corsicabrignoli.fr) — Vendeur de charcuterie et fromages corses sur les marchés de Marseille et Côte Bleue
+- **Prix** : à partir de 5 000 € HT
+- **Durée** : 2 à 4 semaines
+- **Objectif** : transformer un cas prioritaire en outil utilisable par l'équipe
+- **Inclus** : cadrage du flux, paramétrage, règles de validation, garde-fous confidentialité, documentation courte, formation des utilisateurs
+
+### Run IA PME
+
+- **Prix** : 300 à 800 € HT / mois
+- **Objectif** : ajuster l'outil après usage et corriger les irritants terrain
+- **Inclus** : support d'usage, ajustement des consignes, revue mensuelle, amélioration légère des cas d'usage
+
+## Cas d'usage
+
+- Demandes clients résumées, qualifiées et orientées vers la bonne personne
+- Devis préparés à partir des informations utiles et des modèles existants
+- Relances commerciales suivies avec messages prêts à adapter
+- Comptes-rendus transformés en décisions, actions et messages de suivi
+- Documentation interne plus facile à retrouver
+- Réponses récurrentes préparées à partir des éléments validés par l'entreprise
 
 ## Cible
 
-- Artisans, commerçants, indépendants
-- Dirigeants de TPE-PME (1 à 50 personnes)
-- Secteurs B2B de services
-- Zone géographique : France entière, spécialisation Île-de-France
+- PME de 10 à 50 personnes
+- Dirigeant encore impliqué dans l'opérationnel
+- Équipe administrative, commerciale, ADV ou support qui traite beaucoup de demandes
+- Secteurs pertinents : services B2B, BTP structuré, formation, commerce B2B, tourisme, hébergement
+- Zone géographique : France, avec ancrage Île-de-France et Melun
 
-## Différenciateurs
+## Approche
 
-- **Un seul interlocuteur de confiance** (pas d'équipe interchangeable)
-- **Prix transparents** (à partir de 40€/mois)
-- **Délai rapide** (48h pour un site)
-- **Langue** : français, support humain
-- **Origine** : le fondateur a grandi sur les marchés — il connaît la réalité des commerçants et artisans
+- Cadrage court avec le dirigeant et les utilisateurs terrain
+- Choix d'un premier cas d'usage prioritaire
+- Mise en place autour des outils déjà utilisés par l'équipe
+- Validation humaine sur les sorties sensibles
+- Documentation simple et formation pratique
+- Ajustement après les premiers retours d'usage
 
 ## Questions fréquentes
 
-### Combien coûte un site web avec Amplixy ?
-À partir de 40€/mois tout inclus. Hébergement, maintenance, support et nom de domaine compris. Livré en 48h. Pas de frais cachés, pas d'engagement longue durée.
+### L'IA est-elle utile pour une PME de 10 à 50 personnes ?
 
-### À qui s'adressent les services ?
-Aux TPE et PME françaises (1 à 50 personnes) qui veulent être en ligne sans se perdre dans des outils surdimensionnés conçus pour les grandes entreprises.
+Oui, quand le cas d'usage est concret : demandes clients dispersées, devis longs à préparer, relances irrégulières, comptes-rendus peu exploitables ou documentation difficile à retrouver.
 
-### Quelle est la différence avec une agence web classique ?
-Les agences web facturent 2 000 à 5 000€ un site en 4 semaines minimum. Amplixy livre en 48h à partir de 40€/mois. Les solutions WordPress reviennent souvent à 150€/mois sur 5 ans d'engagement — Amplixy n'impose pas d'engagement longue durée.
+### Combien de temps prend un projet ?
+
+Le Diagnostic IA Express prend une demi-journée à une journée. La mise en place d'un premier outil prend généralement deux à quatre semaines.
+
+### Comment sont gérées les données sensibles ?
+
+Les données autorisées, les données exclues, les validations humaines et les outils utilisables sont cadrés dès le départ. Les devis, réponses clients et documents sensibles restent validés par l'humain.
 
 ### Êtes-vous liés au site amplixy.ai ?
+
 Non. amplixy.ai n'a aucun lien avec Amplixy EURL. Des démarches sont en cours pour dissocier clairement l'image de la société.
 
 ## Pages principales
 
-- [Accueil](https://amplixy.com) — Présentation des services, tarifs, nos réussites, FAQ, contact
+- [Accueil](https://amplixy.com) — Outils IA pour PME, offres, méthode, FAQ, contact
 - [Mentions légales](https://amplixy.com/mentions-legales) — Informations légales

@@ -1,9 +1,20 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Mentions légales — Amplixy",
+  description: "Mentions légales d'Amplixy EURL, cabinet de conseil en transformation IA et change management, basé à Melun (77).",
+  alternates: {
+    canonical: "https://amplixy.com/mentions-legales",
+  },
+  robots: {
+    index: true,
+    follow: false,
+  },
+};
 
 export default function MentionsLegales() {
   return (
