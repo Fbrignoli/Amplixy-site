@@ -25,9 +25,9 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amplixy.com"),
-  title: "Amplixy — Outils IA pour PME",
+  title: "Conseil IA opérationnel pour PME — Amplixy",
   description:
-    "Amplixy met en place des outils IA simples pour PME de 10 à 50 personnes : demandes clients résumées, devis préparés plus vite, relances suivies, comptes-rendus transformés en actions. Diagnostic 1 500€ — Mise en place à partir de 5 000€ — Run 300-800€/mois.",
+    "Amplixy accompagne les PME dans le cadrage, la mise en place et l'adoption d'outils IA utiles aux opérations : suivi client, devis, relances, comptes-rendus, documentation interne.",
   authors: [{ name: "Florian Brignoli", url: "https://amplixy.com" }],
   creator: "Florian Brignoli",
   publisher: "Amplixy",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     apple: "/img/icon-wm.png",
   },
   openGraph: {
-    title: "Fini les tâches répétitives qui ralentissent votre PME — Amplixy",
+    title: "Conseil IA opérationnel pour PME | Amplixy",
     description:
-      "Des outils IA simples pour aider vos équipes à répondre plus vite, relancer au bon moment, produire des comptes-rendus propres et retrouver l'information utile sans perdre des heures.",
+      "Cadrage, mise en place et adoption d'outils IA pour PME structurées : suivi client, devis, relances, comptes-rendus, documentation interne.",
     url: "https://amplixy.com",
     siteName: "Amplixy",
     locale: "fr_FR",
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@florianbrignoli",
-    title: "Fini les tâches répétitives qui ralentissent votre PME — Amplixy",
+    title: "Conseil IA opérationnel pour PME | Amplixy",
     description:
-      "Outils IA pour PME 10-50 personnes. Demandes clients, devis, relances, comptes-rendus. Diagnostic 1 500€ HT.",
+      "Amplixy accompagne les PME dans le cadrage et l'adoption d'outils IA orientés opérations.",
   },
 };
 

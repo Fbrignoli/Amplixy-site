@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "Amplixy — Outils IA simples pour PME de 10 à 50 personnes";
+  "Amplixy — Conseil IA opérationnel pour PME structurées.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -91,7 +91,7 @@ export default function OgImage() {
               maxWidth: 900,
             }}
           >
-            Fini les tâches répétitives qui ralentissent votre PME.
+            Conseil IA opérationnel pour PME structurées.
           </span>
         </div>
 
@@ -106,7 +106,7 @@ export default function OgImage() {
             lineHeight: 1.5,
           }}
         >
-          Outils IA pour PME 10-50. Diagnostic 1 500€ — Mise en place dès 5 000€ — Run 300 à 800€/mois.
+          Cadrage, mise en place et adoption d&apos;outils IA utiles aux opérations.
         </span>
 
         {/* Bottom bar */}

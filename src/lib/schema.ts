@@ -4,36 +4,40 @@
 
 export const FAQ_ITEMS = [
   {
-    q: "On n'est pas assez gros pour l'IA. Ça vaut le coup ?",
-    a: "Justement, l'offre est pensée pour les PME de 10 à 50 personnes. On ne démarre pas par une stratégie globale, mais par une tâche répétitive qui vous coûte déjà du temps : demandes clients dispersées, devis qui traînent, relances oubliées, comptes-rendus jamais faits. Si trois personnes perdent chacune 30 min par jour sur ces tâches, c'est déjà plus de 30 heures par mois à reprendre. Un Diagnostic IA Express à 1 500€ HT suffit pour identifier le bon premier outil.",
+    q: "L'IA, c'est pour les grandes entreprises. Est-ce vraiment utile pour une PME de 10 à 50 personnes ?",
+    a: "Oui, quand le sujet est bien choisi. Dans une PME de 10 à 50 personnes, les sujets qui prennent du temps sont souvent très concrets : demandes clients dispersées, devis longs à préparer, relances suivies de façon irrégulière, comptes-rendus difficiles à exploiter. Le diagnostic sert à repérer le premier cas utile et à vérifier qu'il peut être traité avec vos outils actuels.",
   },
   {
-    q: "On a déjà essayé ChatGPT. Pourquoi vous ?",
-    a: "ChatGPT seul aide ponctuellement — quand quelqu'un pense à l'utiliser et sait bien le prompter. La valeur arrive quand on crée un outil autour d'un vrai usage métier : une demande client arrive, elle est résumée, qualifiée, orientée, puis suivie. Un brouillon de devis est préparé avec vos anciens documents. Une relance est rappelée au bon moment. C'est intégré au quotidien, pas une fenêtre de plus à ouvrir.",
+    q: "On utilise déjà ChatGPT dans l'équipe. Pourquoi faire appel à Amplixy ?",
+    a: "ChatGPT aide déjà beaucoup pour rédiger ou reformuler. Amplixy intervient quand vous voulez intégrer l'IA dans un vrai flux de travail : suivre une demande, préparer un devis, relancer un prospect, produire un compte-rendu ou retrouver une information interne. L'enjeu est de rendre l'usage simple, cadré et régulier pour l'équipe.",
   },
   {
-    q: "Nos données sont sensibles. Comment vous gérez ?",
-    a: "On cadre les usages avant de brancher quoi que ce soit. Certaines informations ne doivent pas partir dans certains outils — on le tranche dès le diagnostic. Validation humaine obligatoire sur les sorties sensibles, hébergement UE quand c'est possible, documentation des flux. La confidentialité fait partie du fonctionnement, pas une option ajoutée à la fin.",
+    q: "Nos données clients sont sensibles. Comment gérez-vous la confidentialité ?",
+    a: "La confidentialité est cadrée dès le départ. On identifie les données autorisées, les données à exclure, les outils acceptables et les validations nécessaires. Les réponses clients, devis et documents sensibles restent soumis à une validation humaine. Lorsque c'est pertinent, on privilégie des solutions hébergées en Europe et on documente les flux.",
   },
   {
-    q: "Mon équipe ne va pas l'utiliser. Comment vous assurez l'adoption ?",
-    a: "On part d'une douleur terrain, pas d'une technologie. Si l'outil retire une tâche pénible au quotidien — recopier, chercher, relancer, reformuler — l'adoption est beaucoup plus naturelle. La formation est faite avec les outils utilisés réellement, par les utilisateurs concernés, sur leurs vrais cas d'usage. Pas une journée de slides génériques. Et on mesure l'usage avant/après pour vérifier que ça tient.",
+    q: "Comment garantir l'adoption par les équipes ?",
+    a: "L'adoption vient surtout du choix du bon cas d'usage. On travaille avec les personnes concernées, sur leurs exemples, dans leurs outils. La formation est courte et pratique. Après la mise en place, on observe l'usage réel et on ajuste ce qui ne tourne pas encore bien.",
   },
   {
-    q: "Je n'ai pas le temps pour un projet. Combien ça prend ?",
-    a: "Le format est volontairement court. Diagnostic IA Express : une demi-journée à 1 jour. Mise en place d'un outil IA métier : 2 à 4 semaines. On choisit une seule tâche à soulager, on évite la refonte globale, on vise un gain visible rapidement. L'idée n'est pas de transformer votre entreprise mais de retirer une friction qui mange vos journées.",
+    q: "Combien de temps faut-il consacrer au projet ?",
+    a: "Le format est court. Le Diagnostic IA Express prend une demi-journée à une journée avec le dirigeant et deux ou trois personnes terrain. La mise en place d'un outil IA métier prend généralement deux à quatre semaines sur un cas ciblé. L'objectif est de traiter un sujet précis, puis de vérifier son usage.",
   },
   {
-    q: "Combien de temps on gagne concrètement ?",
-    a: "On l'estime au diagnostic, puis on le mesure après déploiement. Pas de promesse à 5h/jour avant d'avoir regardé votre quotidien — c'est fort commercialement mais malhonnête. Sur certaines tâches répétitives, 30 minutes par personne et par jour suffisent déjà à représenter plusieurs dizaines d'heures par mois. Le ROI dépend du cas d'usage choisi, du nombre de personnes qui en bénéficient, et de la qualité de l'adoption.",
+    q: "Combien de temps peut-on réellement gagner avec un outil IA dans une PME ?",
+    a: "Les gains s'estiment pendant le diagnostic et se vérifient après déploiement. Ils dépendent du cas choisi, du nombre de personnes concernées, du volume de demandes et de l'adoption par l'équipe. Le diagnostic produit une hypothèse de gain réaliste, puis la mission permet de la confronter à l'usage.",
   },
   {
-    q: "Vous travaillez seul. C'est un risque pour nous ?",
-    a: "C'est une question légitime. L'avantage : vous savez exactement qui travaille sur votre dossier, pas de hand-off en cours de mission, communication directe. La limite : en cas d'empêchement majeur, la mission est suspendue. Je suis transparent dès le cadrage. Chaque mission est cadrée sur un périmètre défini avec des jalons clairs — en cas d'interruption, le travail réalisé est documenté et transférable.",
+    q: "Amplixy, c'est un consultant solo. Est-ce un risque pour notre projet ?",
+    a: "C'est un point à poser clairement. Le déroulé est documenté à chaque étape. En cas d'empêchement, la mission peut être décalée — c'est intégré dès le départ.",
   },
   {
-    q: "Vous êtes basé à Melun. Vous travaillez à distance ?",
-    a: "Principalement à distance, avec des déplacements ponctuels sur site si nécessaire (sessions de diagnostic, ateliers de formation au démarrage). Je travaille avec des PME en Île-de-France et au-delà, sans restriction géographique stricte. Pour les outils IA, la majorité du travail se fait très bien en distanciel.",
+    q: "Vous êtes basé à Melun (77). Travaillez-vous aussi avec des PME hors Île-de-France ?",
+    a: "La grande majorité du travail se fait à distance, ce qui permet d'intervenir sans contrainte géographique. Des déplacements ponctuels sur site sont possibles pour les sessions de diagnostic initial et les ateliers de formation au démarrage. Amplixy accompagne des PME en Île-de-France (Paris, Seine-et-Marne, Essonne, Val-de-Marne, Hauts-de-Seine) et dans d'autres régions pour les missions entièrement à distance.",
+  },
+  {
+    q: "Êtes-vous liés au site amplixy.ai ?",
+    a: "amplixy.ai est un site indépendant, sans aucun lien avec Amplixy. Notre entreprise est Amplixy (amplixy.com), EURL française domiciliée à Melun, SIREN 999 167 760. Si vous avez un doute, les mentions légales font foi.",
   },
 ] as const;
 
@@ -53,7 +57,7 @@ export function schemaOrganization() {
     },
     image: "https://amplixy.com/img/icon-wm.png",
     description:
-      "Amplixy met en place des outils IA simples pour PME de 10 à 50 personnes : demandes clients résumées, devis préparés plus vite, relances suivies, comptes-rendus transformés en actions. Diagnostic IA Express 1 500€ HT — Mise en place outil IA métier à partir de 5 000€ HT — Run IA PME 300 à 800€/mois.",
+      "Amplixy est un cabinet conseil IA basé à Melun. Il accompagne les PME de 10 à 50 personnes dans le cadrage, la mise en place et l'adoption d'outils IA orientés opérations : suivi des demandes clients, préparation de devis, relances commerciales, comptes-rendus et documentation interne.",
     email: "contact@amplixy.com",
     telephone: "+33778209044",
     foundingDate: "2024",
@@ -141,16 +145,19 @@ export function schemaPerson() {
       addressCountry: "FR",
     },
     description:
-      "Fondateur d'Amplixy. Met en place des outils IA simples pour les PME de 10 à 50 personnes — pour retirer les tâches répétitives qui ralentissent les équipes (demandes clients, devis, relances, comptes-rendus). Lead Chapter Architecture IT chez CMA-CGM depuis 2023. Parcours : Airbus, NAF NAF, Aix-Marseille Université.",
+      "Florian Brignoli dirige Amplixy, cabinet conseil IA pour PME. Son expertise couvre le cadrage opérationnel, la mise en place d'outils IA, le pilotage IT et l'adoption par les équipes. Il intervient aussi comme Lead Chapter au sein de l'Architecture IT de CMA-CGM depuis octobre 2023.",
     knowsAbout: [
       "Outils IA pour PME",
       "Automatisation des tâches répétitives",
-      "Change management",
-      "Adoption d'outils IA",
+      "Déploiement d'outils IA en PME",
+      "Change management et adoption IA",
       "Gestion de projet IT",
-      "Qualification de demandes clients",
+      "Qualification et suivi des demandes clients",
       "Préparation automatisée de devis",
       "Suivi des relances commerciales",
+      "Comptes-rendus de réunion automatisés",
+      "Base documentaire interrogeable par IA",
+      "Consultant IA PME Île-de-France",
     ],
     url: "https://amplixy.com",
   };
@@ -164,7 +171,7 @@ export function schemaWebSite() {
     url: "https://amplixy.com",
     name: "Amplixy",
     description:
-      "Outils IA simples pour PME de 10 à 50 personnes. Demandes clients, devis, relances, comptes-rendus — moins de tâches répétitives, plus de temps utile.",
+      "Amplixy accompagne les PME de 10 à 50 personnes dans le cadrage, la mise en place et l'adoption d'outils IA orientés opérations.",
     publisher: {
       "@type": "Organization",
       "@id": "https://amplixy.com/#organization",
