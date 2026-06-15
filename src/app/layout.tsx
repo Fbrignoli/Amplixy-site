@@ -25,9 +25,9 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amplixy.com"),
-  title: "Conseil IA opérationnel pour PME — Amplixy",
+  title: "Amplixy — Agence numérique : conseil IA, sites web, outils sur-mesure",
   description:
-    "Amplixy accompagne les PME dans le cadrage, la mise en place et l'adoption d'outils IA utiles aux opérations : suivi client, devis, relances, comptes-rendus, documentation interne.",
+    "Amplixy est une agence basée à Melun qui aide les entreprises à prendre le virage du numérique. Trois métiers : conseil IA (Florian Brignoli), création et refonte de sites web, conception d'outils sur-mesure pour les pros.",
   authors: [{ name: "Florian Brignoli", url: "https://amplixy.com" }],
   creator: "Florian Brignoli",
   publisher: "Amplixy",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     apple: "/img/icon-wm.png",
   },
   openGraph: {
-    title: "Conseil IA opérationnel pour PME | Amplixy",
+    title: "Amplixy — Agence numérique : conseil IA, sites web, outils sur-mesure",
     description:
-      "Cadrage, mise en place et adoption d'outils IA pour PME structurées : suivi client, devis, relances, comptes-rendus, documentation interne.",
+      "Agence à Melun qui aide les entreprises à prendre le virage du numérique. Conseil IA (Florian Brignoli), sites web, outils sur-mesure.",
     url: "https://amplixy.com",
     siteName: "Amplixy",
     locale: "fr_FR",
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@florianbrignoli",
-    title: "Conseil IA opérationnel pour PME | Amplixy",
+    title: "Amplixy — Agence numérique",
     description:
-      "Amplixy accompagne les PME dans le cadrage et l'adoption d'outils IA orientés opérations.",
+      "Conseil IA, sites web, outils sur-mesure. Agence basée à Melun.",
   },
 };
 
