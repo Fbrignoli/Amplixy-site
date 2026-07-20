@@ -1,10 +1,12 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance when working with code in this repository.
 
 ## Project Overview
 
-Amplixy is a marketing/visibility services website built with Next.js 15 (App Router), React 19, TypeScript, and Tailwind CSS. It's a single-page application with a landing page showcasing services, values, and a contact form. The site uses Framer Motion for animations and is deployed via Docker on Railway.
+Amplixy is a French single-page marketing site for an independent digital studio. Its three entry points are AI consulting, websites, and custom business tools. The experience is proof-led: real client work, a short method, and direct booking through Cal.eu.
+
+Stack: Next.js 15 App Router, React 19, TypeScript, Tailwind CSS, and a small layer of global CSS. Production runs in Docker through Coolify.
 
 ## Development Commands
 
@@ -23,64 +25,56 @@ npm start
 
 # Lint code
 npm run lint
+
+# TypeScript validation
+npm run typecheck
+
+# Content regression tests
+npm test
 ```
 
 ## Architecture
 
 ### App Structure
 
-- **Next.js App Router**: Uses the `src/app/` directory structure
-  - [layout.tsx](src/app/layout.tsx): Root layout with Google Fonts (Montserrat, Lato), Umami analytics script, and radial gradient background
-  - [page.tsx](src/app/page.tsx): Main landing page (client component) with all sections
-  - [globals.css](src/app/globals.css): Custom CSS with Tailwind utilities (`.section-shell`, `.card-shell`, `.eyebrow`)
+- **Next.js App Router**: uses the `src/app/` directory structure
+  - [layout.tsx](src/app/layout.tsx): root layout, Archivo font, metadata, schemas, and Umami analytics
+  - [page.tsx](src/app/page.tsx): server-rendered homepage and all marketing sections
+  - [globals.css](src/app/globals.css): responsive design system and component styles
+  - [opengraph-image.tsx](src/app/opengraph-image.tsx): generated social image
+- **Shared site constants**: [src/lib/site.ts](src/lib/site.ts), including the canonical Cal.eu booking URL
+- **Structured data**: [src/lib/schema.ts](src/lib/schema.ts)
 
 ### Component Library
 
 Located in [src/components/](src/components/):
 
-- **Navbar**: Fixed floating navbar with mobile menu (using Framer Motion AnimatePresence)
-- **Footer**: Simple footer with contact info
-- **Reveal**: Reusable scroll-reveal animation wrapper (Framer Motion `whileInView`)
-- **ContactForm**: Contact form with client-side state (currently simulates API call)
+- **Navbar**: sticky responsive navigation with direct booking CTA and accessible mobile menu
+- **Footer**: contact, company details, and legal route
+- **Reveal**: legacy reusable animation helper; it is not required by the current homepage
 
 ### Styling System
 
-Custom color palette defined in [tailwind.config.ts](tailwind.config.ts):
-- `midnight`: #0a1128 (primary background)
-- `abyss`: #172a3a (secondary background)
-- `mist`: #e0e1dd (text color)
-- `accent`: #4a7c99 (brand accent)
-- `glow`: #9ae3ff (highlight color)
+The palette deliberately stays narrow: Amplixy blue and its nuances, complementary orange, ink, and white. Do not introduce additional brand colors. Typography uses Archivo through `next/font` for both display and body text.
 
-Typography:
-- Display font: Montserrat (weights: 500, 600, 700)
-- Body font: Lato (weights: 300, 400, 700)
-- Accessible via CSS variables: `--font-montserrat`, `--font-lato`
-
-Custom utility classes (see [globals.css](src/app/globals.css)):
-- `.section-shell`: Consistent section padding
-- `.card-shell`: Glassmorphic card styling
-- `.eyebrow`: Small uppercase labels
+The homepage is mobile-first. Keep explicit checks around 390 px, 768 px, and 1280 px. Preserve safe areas, touch targets, keyboard focus, and `prefers-reduced-motion` behavior.
 
 ### Key Features
 
-1. **Responsive Design**: Mobile-first approach with distinct mobile/desktop layouts in hero section
-2. **Scroll Animations**: Uses `Reveal` component throughout for fade-in effects on scroll
-3. **Infinite Logo Carousel**: Partner logos with Framer Motion animation
-4. **Analytics**: Umami self-hosted analytics (trafic.amplixy.cloud)
-5. **SEO**: FAQ structured data (JSON-LD schema)
+1. **Responsive design**: three stacked project windows in the hero and fluid layouts at each breakpoint
+2. **Real portfolio**: local optimized WebP assets for Vion Couverture, Accord'Âme, and Corsicabrignoli
+3. **Direct conversion**: every “Parler/Cadrer un besoin” CTA opens `https://www.cal.eu/florianbrignoli/quick-chat`
+4. **Analytics**: self-hosted Umami at `trafic.amplixy.cloud`
+5. **SEO**: canonical metadata, sitemap, robots, Open Graph image, and JSON-LD
 
 ## Deployment
 
-The project uses Docker for production deployment:
-- Multi-stage build (deps → builder → runner)
-- Optimized for Railway platform
-- Exposes port 3000, binds to 0.0.0.0
-- See [Dockerfile](Dockerfile) for details
+The project uses a multi-stage Docker build and is deployed by Coolify on the Hostinger VPS. Production follows the GitHub `main` branch. The container exposes port 3000 and binds to `0.0.0.0`; see [Dockerfile](Dockerfile).
 
 ## Important Notes
 
-- **Language**: All content is in French
-- **Client Components**: Most components use `"use client"` directive due to Framer Motion and hooks
-- **No API Route**: The contact form currently simulates submission (see [ContactForm.tsx](src/components/ContactForm.tsx:14))
-- **Images**: Logo images in `/public/img/partenaire/` are inverted (white) via Tailwind classes
+- **Language**: all public content is in French
+- **Homepage**: prefer a server component; keep client code limited to genuine interaction such as the mobile menu
+- **Booking**: reuse `CALENDAR_URL` instead of duplicating the URL
+- **Images**: use local optimized assets with `next/image`
+- **Quality gate**: run lint, typecheck, tests, and the production build before deployment

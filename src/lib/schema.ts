@@ -1,34 +1,3 @@
-// Seule source de vérité pour les données structurées JSON-LD et le contenu FAQ.
-// Importé par layout.tsx (JSON-LD globaux) ET page.tsx (FAQ visuel).
-// Cible : PME 10-50 personnes. Positionnement : outils IA simples pour soulager les tâches répétitives.
-
-export const FAQ_ITEMS = [
-  {
-    q: "Amplixy, c'est une agence ou un cabinet de conseil ?",
-    a: "Amplixy est une agence avec trois métiers : conseil pour intégrer l'IA dans le quotidien, création et refonte de sites web, et conception d'outils sur-mesure pour les pros. Selon votre besoin, on mobilise un ou plusieurs de ces métiers.",
-  },
-  {
-    q: "Le conseil IA, ça passe par Florian Brignoli ?",
-    a: "Oui. Le volet conseil est porté par la marque personnelle Florian Brignoli, avec son propre site florianbrignoli.fr et sa chaîne YouTube. La facturation et le contrat passent par Amplixy.",
-  },
-  {
-    q: "Vous accompagnez quel type d'entreprise ?",
-    a: "Principalement des dirigeants de PME, des indépendants et des entrepreneurs solos en France. Sur le pilier sites web, on reste sur des projets vitrines et marques où on apporte une vraie valeur ajoutée.",
-  },
-  {
-    q: "Vous travaillez à distance ou en présentiel ?",
-    a: "La majorité du travail se fait à distance, sans contrainte géographique. Des déplacements ponctuels sont possibles pour les premiers échanges et certains ateliers. Siège social à Melun (77), interventions partout en France.",
-  },
-  {
-    q: "Vous gardez la maintenance des sites livrés ?",
-    a: "Oui, en option. Chaque site livré peut être suivi sous un contrat de maintenance léger (mises à jour techniques, ajustements de contenu, surveillance). Le client garde la propriété du code et l'hébergement reste choisi avec lui.",
-  },
-  {
-    q: "Êtes-vous liés au site amplixy.ai ?",
-    a: "Non. amplixy.ai est un site indépendant, sans aucun lien avec Amplixy. Notre entreprise est Amplixy (amplixy.com), EURL française domiciliée à Melun, SIREN 999 167 760. Si vous avez un doute, les mentions légales font foi.",
-  },
-] as const;
-
 export function schemaOrganization() {
   return {
     "@context": "https://schema.org",
@@ -45,7 +14,7 @@ export function schemaOrganization() {
     },
     image: "https://amplixy.com/img/icon-wm.png",
     description:
-      "Amplixy est une agence basée à Melun qui aide les entreprises à prendre le virage du numérique. Trois métiers : conseil IA (sous la marque Florian Brignoli), création et refonte de sites web pour PME et indépendants, et conception d'outils sur-mesure pour les professionnels (Firaxy et autres produits à venir).",
+      "Amplixy conçoit des systèmes numériques utiles autour du travail réel : conseil IA, sites web et outils métier sur mesure.",
     email: "contact@amplixy.com",
     telephone: "+33778209044",
     foundingDate: "2024",
@@ -61,16 +30,12 @@ export function schemaOrganization() {
       addressRegion: "Île-de-France",
       addressCountry: "FR",
     },
-    areaServed: [
-      { "@type": "Country", name: "France" },
-      { "@type": "AdministrativeArea", name: "Île-de-France" },
-    ],
+    areaServed: [{ "@type": "Country", name: "France" }],
     knowsLanguage: ["fr", "en"],
     sameAs: [
       "https://www.linkedin.com/company/amplixy",
       "https://www.societe.com/societe/amplixy-999167760.html",
     ],
-    vatID: "FR",
     identifier: {
       "@type": "PropertyValue",
       propertyID: "SIREN",
@@ -82,7 +47,7 @@ export function schemaOrganization() {
 export function schemaLocalBusiness() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "@id": "https://amplixy.com/#localbusiness",
     name: "Amplixy",
     url: "https://amplixy.com",
@@ -98,18 +63,7 @@ export function schemaLocalBusiness() {
       addressRegion: "Île-de-France",
       addressCountry: "FR",
     },
-    areaServed: [
-      { "@type": "Country", name: "France" },
-      { "@type": "AdministrativeArea", name: "Île-de-France" },
-    ],
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
-      },
-    ],
+    areaServed: [{ "@type": "Country", name: "France" }],
   };
 }
 
@@ -121,29 +75,20 @@ export function schemaPerson() {
     name: "Florian Brignoli",
     givenName: "Florian",
     familyName: "Brignoli",
-    jobTitle: "Fondateur Amplixy — Agence numérique",
+    jobTitle: "Fondateur d’Amplixy",
     worksFor: {
       "@type": "Organization",
       "@id": "https://amplixy.com/#organization",
     },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Melun",
-      addressRegion: "Île-de-France",
-      addressCountry: "FR",
-    },
     description:
-      "Florian Brignoli dirige Amplixy, agence qui aide les entreprises à prendre le virage du numérique. Son expérience en conseil couvre Dassault Aviation, Airbus et CMA-CGM, avec un focus actuel sur l'intégration de l'IA dans les opérations des PME et des indépendants. Il porte le pilier conseil sous sa marque personnelle florianbrignoli.fr.",
+      "Florian Brignoli dirige Amplixy et conçoit des systèmes numériques adaptés au travail réel des entreprises.",
     knowsAbout: [
-      "Accompagnement IA des PME",
+      "Conseil et assistants IA",
       "Création et refonte de sites web",
-      "Conception d'outils sur-mesure pour les professionnels",
-      "Architecture d'entreprise et IT",
-      "Change management et adoption d'outils",
-      "Conseil en transformation numérique",
-      "Direction de projets IT en grands groupes",
+      "Conception d’outils métier sur mesure",
+      "Pilotage de projets IT",
     ],
-    url: "https://amplixy.com",
+    url: "https://florianbrignoli.fr",
   };
 }
 
@@ -155,26 +100,11 @@ export function schemaWebSite() {
     url: "https://amplixy.com",
     name: "Amplixy",
     description:
-      "Amplixy est une agence qui aide les entreprises à prendre le virage du numérique : conseil IA, création de sites web, outils sur-mesure pour les pros.",
+      "Conseil IA, sites web et outils métier sur mesure conçus autour du travail réel.",
     publisher: {
       "@type": "Organization",
       "@id": "https://amplixy.com/#organization",
     },
     inLanguage: "fr-FR",
-  };
-}
-
-export function schemaFAQPage() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
   };
 }

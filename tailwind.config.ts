@@ -10,31 +10,31 @@ const config: Config = {
     extend: {
       colors: {
         // Paper backgrounds
-        paper: "#faf9f6",
-        cream: "#f5f3ef",
-        parchment: "#efe9dd",
+        paper: "#f4f6ff",
+        cream: "#eef2ff",
+        parchment: "#e2e8ff",
 
         // Text colors
-        ink: "#0a1128",
-        charcoal: "#2d3748",
+        ink: "#0c111d",
+        charcoal: "#334155",
         slate: "#64748b",
 
         // Accent colors
-        accent: "#7eb8d8",
-        glow: "#9ae3ff",
-        coral: "#ff6b4a",
+        accent: "#2454e8",
+        glow: "#aec4ff",
+        coral: "#d65c15",
 
         // Dark pastel blue for sections
-        "blue-dark": "#3d5a80",
+        "blue-dark": "#142a66",
 
         // Legacy (for gradual migration)
-        midnight: "#0a1128",
-        abyss: "#172a3a",
-        mist: "#e0e1dd",
+        midnight: "#0c111d",
+        abyss: "#142a66",
+        mist: "#e2e8ff",
       },
       fontFamily: {
-        display: ["var(--font-montserrat)", "Poppins", "system-ui", "sans-serif"],
-        sans: ["var(--font-lato)", "Open Sans", "system-ui", "sans-serif"],
+        display: ["var(--font-archivo)", "system-ui", "sans-serif"],
+        sans: ["var(--font-archivo)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         glass: "0 25px 60px rgba(0,0,0,0.35)",
@@ -49,4 +49,3 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-

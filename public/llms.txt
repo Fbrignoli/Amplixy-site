@@ -1,90 +1,48 @@
 # Amplixy
 
-> Amplixy est un cabinet conseil IA qui accompagne les PME de 10 à 50 personnes dans le cadrage, la mise en place et l'adoption d'outils IA orientés opérations.
+> Amplixy conçoit des systèmes numériques utiles autour du travail réel : conseil IA, sites web et outils métier sur mesure.
 
 ## Entreprise
 
 - **Nom légal** : AMPLIXY EURL
 - **SIREN** : 999 167 760
-- **Siège** : Melun (77000), Île-de-France, France
-- **Direction** : Florian Brignoli, ancien chef de projet technique
+- **Siège** : 16 B Rue de la Rochette, 77000 Melun, France
+- **Direction** : Florian Brignoli
 - **Contact** : contact@amplixy.com · 07 78 20 90 44
 - **Site** : https://amplixy.com
-- **LinkedIn** : https://www.linkedin.com/company/amplixy
 
 ## Positionnement
 
-Amplixy intervient quand une PME veut passer d'un usage ponctuel de l'IA à un outil réellement intégré dans ses opérations. Les cas les plus fréquents concernent les demandes clients, les devis, les relances, les comptes-rendus et la documentation interne.
+Le numérique doit s’adapter au métier, pas l’inverse. Amplixy part des tâches, contraintes et résultats attendus avant de choisir ou de construire une solution.
 
-Le point de départ reste le travail réel de l'équipe : les outils déjà en place, les habitudes, les contraintes de confidentialité, les validations nécessaires et les irritants que les collaborateurs rencontrent chaque semaine.
+## Expertises
 
-## Offres
+### Conseil IA
 
-### Diagnostic IA Express
+Choisir le bon usage, construire la solution et rendre les équipes autonomes. Le volet conseil est porté par Florian Brignoli : https://florianbrignoli.fr.
 
-- **Prix** : 1 500 € HT
-- **Durée** : demi-journée à 1 jour
-- **Objectif** : identifier les irritants opérationnels et prioriser les cas d'usage IA utiles
-- **Livrables** : cartographie des irritants, 3 cas d'usage priorisés, hypothèse de gain, plan d'action 30 jours
+### Sites web
 
-### Mise en place d'un outil IA métier
+Concevoir des vitrines rapides, crédibles et structurées autour de la décision du client. Réalisations : Vion Couverture, Accord’Âme et Corsicabrignoli.
 
-- **Prix** : à partir de 5 000 € HT
-- **Durée** : 2 à 4 semaines
-- **Objectif** : transformer un cas prioritaire en outil utilisable par l'équipe
-- **Inclus** : cadrage du flux, paramétrage, règles de validation, garde-fous confidentialité, documentation courte, formation des utilisateurs
+### Outils métier
 
-### Run IA PME
+Construire un outil autour des opérations réelles de l’entreprise au lieu d’imposer un processus générique.
 
-- **Prix** : 300 à 800 € HT / mois
-- **Objectif** : ajuster l'outil après usage et corriger les irritants terrain
-- **Inclus** : support d'usage, ajustement des consignes, revue mensuelle, amélioration légère des cas d'usage
+## Méthode
 
-## Cas d'usage
+1. Observer le travail réel et les contraintes.
+2. Simplifier les détours et doublons.
+3. Construire une solution utile et testable.
+4. Transmettre pour rendre le client autonome et propriétaire.
 
-- Demandes clients résumées, qualifiées et orientées vers la bonne personne
-- Devis préparés à partir des informations utiles et des modèles existants
-- Relances commerciales suivies avec messages prêts à adapter
-- Comptes-rendus transformés en décisions, actions et messages de suivi
-- Documentation interne plus facile à retrouver
-- Réponses récurrentes préparées à partir des éléments validés par l'entreprise
+## Contact
 
-## Cible
+- Agenda : https://www.cal.eu/florianbrignoli/quick-chat
+- Email : contact@amplixy.com
+- Téléphone : 07 78 20 90 44
 
-- PME de 10 à 50 personnes
-- Dirigeant encore impliqué dans l'opérationnel
-- Équipe administrative, commerciale, ADV ou support qui traite beaucoup de demandes
-- Secteurs pertinents : services B2B, BTP structuré, formation, commerce B2B, tourisme, hébergement
-- Zone géographique : France, avec ancrage Île-de-France et Melun
+## Pages
 
-## Approche
-
-- Cadrage court avec le dirigeant et les utilisateurs terrain
-- Choix d'un premier cas d'usage prioritaire
-- Mise en place autour des outils déjà utilisés par l'équipe
-- Validation humaine sur les sorties sensibles
-- Documentation simple et formation pratique
-- Ajustement après les premiers retours d'usage
-
-## Questions fréquentes
-
-### L'IA est-elle utile pour une PME de 10 à 50 personnes ?
-
-Oui, quand le cas d'usage est concret : demandes clients dispersées, devis longs à préparer, relances irrégulières, comptes-rendus peu exploitables ou documentation difficile à retrouver.
-
-### Combien de temps prend un projet ?
-
-Le Diagnostic IA Express prend une demi-journée à une journée. La mise en place d'un premier outil prend généralement deux à quatre semaines.
-
-### Comment sont gérées les données sensibles ?
-
-Les données autorisées, les données exclues, les validations humaines et les outils utilisables sont cadrés dès le départ. Les devis, réponses clients et documents sensibles restent validés par l'humain.
-
-### Êtes-vous liés au site amplixy.ai ?
-
-Non. amplixy.ai n'a aucun lien avec Amplixy EURL. Des démarches sont en cours pour dissocier clairement l'image de la société.
-
-## Pages principales
-
-- [Accueil](https://amplixy.com) — Outils IA pour PME, offres, méthode, FAQ, contact
+- [Accueil](https://amplixy.com) — Expertises, réalisations, méthode et prise de rendez-vous
 - [Mentions légales](https://amplixy.com/mentions-legales) — Informations légales

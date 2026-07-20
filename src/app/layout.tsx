@@ -1,33 +1,25 @@
 import type { Metadata } from "next";
-import { Montserrat, Lato } from "next/font/google";
+import { Archivo } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import GrainOverlay from "@/components/GrainOverlay";
 import {
-  schemaOrganization,
   schemaLocalBusiness,
+  schemaOrganization,
   schemaPerson,
   schemaWebSite,
 } from "@/lib/schema";
 
-const montserrat = Montserrat({
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-montserrat",
+  variable: "--font-archivo",
+  display: "swap",
 });
-
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-lato",
-});
-
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amplixy.com"),
-  title: "Amplixy — Agence numérique : conseil IA, sites web, outils sur-mesure",
+  title: "Amplixy — Conseil IA, sites web et outils métier",
   description:
-    "Amplixy est une agence basée à Melun qui aide les entreprises à prendre le virage du numérique. Trois métiers : conseil IA (Florian Brignoli), création et refonte de sites web, conception d'outils sur-mesure pour les pros.",
+    "Amplixy conçoit des systèmes numériques utiles autour du travail réel : conseil IA, sites web et outils métier sur mesure.",
   authors: [{ name: "Florian Brignoli", url: "https://amplixy.com" }],
   creator: "Florian Brignoli",
   publisher: "Amplixy",
@@ -50,9 +42,9 @@ export const metadata: Metadata = {
     apple: "/img/icon-wm.png",
   },
   openGraph: {
-    title: "Amplixy — Agence numérique : conseil IA, sites web, outils sur-mesure",
+    title: "Le numérique doit s’adapter à votre métier. Pas l’inverse.",
     description:
-      "Agence à Melun qui aide les entreprises à prendre le virage du numérique. Conseil IA (Florian Brignoli), sites web, outils sur-mesure.",
+      "Conseil IA, sites web et outils métier sur mesure, conçus autour du travail réel.",
     url: "https://amplixy.com",
     siteName: "Amplixy",
     locale: "fr_FR",
@@ -61,9 +53,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@florianbrignoli",
-    title: "Amplixy — Agence numérique",
-    description:
-      "Conseil IA, sites web, outils sur-mesure. Agence basée à Melun.",
+    title: "Amplixy — Le numérique adapté à votre métier",
+    description: "Conseil IA, sites web et outils métier sur mesure.",
   },
 };
 
@@ -75,23 +66,35 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        {/* JSON-LD globaux (toutes pages) — source : src/lib/schema.ts */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrganization()) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaLocalBusiness()) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaPerson()) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaWebSite()) }} />
-        {/* FAQPage injecté depuis page.tsx uniquement */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaOrganization()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaLocalBusiness()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaPerson()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaWebSite()) }}
+        />
       </head>
-      <body
-        className={`${montserrat.variable} ${lato.variable} font-sans antialiased bg-paper text-ink selection:bg-accent/20 selection:text-ink`}
-      >
+      <body className={`${archivo.variable} font-sans antialiased`}>
         <Script
           src="https://trafic.amplixy.cloud/script.js"
           data-website-id="0cbbe7f2-9749-460d-a88a-e665d0ee2904"
           strategy="afterInteractive"
           defer
         />
-        <GrainOverlay>{children}</GrainOverlay>
+        {children}
       </body>
     </html>
   );
