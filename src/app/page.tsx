@@ -243,11 +243,11 @@ export default function Home() {
           <div className="site-shell">
             <div className="work-head">
               <h2 className="work-title" id="work-title">
-                Des projets qui se comprennent avant même qu’on les explique.
+                Ce qu’on a déjà construit.
               </h2>
               <p>
-                Pas de faux tableaux de bord. Ici, le travail livré occupe la
-                place principale.
+                Trois entreprises. Pour chacune, Amplixy a conçu un site
+                adapté à son métier et à ses clients.
               </p>
             </div>
             <div className="work-grid">

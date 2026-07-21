@@ -17,6 +17,9 @@ test("la page expose la promesse et les sections validées", async () => {
     page,
     /Une structure française, un interlocuteur, des livrables/,
   );
+  assert.match(page, /Ce qu’on a déjà construit/);
+  assert.match(page, /Trois entreprises\. Pour chacune/);
+  assert.doesNotMatch(page, /Pas de faux tableaux de bord/);
 });
 
 test("les trois réalisations sont affichées dans le hero et le portfolio", async () => {
