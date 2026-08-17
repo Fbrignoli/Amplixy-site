@@ -39,8 +39,19 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/img/icon-wm.png",
-    apple: "/img/icon-wm.png",
+    icon: [
+      {
+        url: "/img/amplixy-monogramme-transparent.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: [
+      {
+        url: "/img/amplixy-monogramme-transparent-180.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
   openGraph: {
     title: "L’outil qui manque à votre activité",

@@ -140,6 +140,19 @@ test("l’identité utilise Geist et une seule famille d’orange", async () => 
   assert.doesNotMatch(css, /background-clip:\s*text/);
 });
 
+test("l’icône utilise le monogramme transparent officiel", async () => {
+  const [layout, icon] = await Promise.all([
+    read("src/app/layout.tsx"),
+    read("public/img/amplixy-monogramme-transparent.svg"),
+  ]);
+
+  assert.match(layout, /amplixy-monogramme-transparent\.svg/);
+  assert.match(layout, /amplixy-monogramme-transparent-180\.png/);
+  assert.match(icon, /color="#0E141C"/);
+  assert.match(icon, /fill="#FF6917"/);
+  assert.doesNotMatch(icon, /<rect[^>]+(?:fill="#FFFFFF"|stroke=)/);
+});
+
 test("les animations respectent la réduction du mouvement", async () => {
   const css = await read("src/app/globals.css");
 
