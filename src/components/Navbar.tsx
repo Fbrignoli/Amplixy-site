@@ -67,7 +67,6 @@ export const Navbar = () => {
             rel="noopener noreferrer"
           >
             Parler de votre besoin
-            <span aria-hidden="true">↗</span>
           </a>
         </div>
 
@@ -131,7 +130,6 @@ export const Navbar = () => {
             onClick={close}
           >
             Parler de votre besoin
-            <span aria-hidden="true">↗</span>
           </a>
 
           <p className="menu-sheet-contact">

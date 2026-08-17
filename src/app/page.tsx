@@ -86,7 +86,6 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   Parler de votre besoin
-                  <span aria-hidden="true">↗</span>
                 </a>
                 <a className="text-link" href="#approche">
                   Voir comment on travaille
@@ -399,7 +398,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                   >
                     Découvrir Firaxy
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true">→</span>
                   </a>
                 </div>
               </article>
@@ -445,7 +444,6 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 Parler de votre besoin
-                <span aria-hidden="true">↗</span>
               </a>
               <span className="closing-phone">
                 Vous préférez appeler ?{" "}

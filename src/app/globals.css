@@ -860,20 +860,6 @@ a {
   transition: transform 500ms var(--ease-out);
 }
 
-.project-open {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  display: grid;
-  width: 2.75rem;
-  height: 2.75rem;
-  place-items: center;
-  background: var(--orange);
-  color: var(--ink);
-  font-size: 1.1rem;
-  font-weight: 750;
-}
-
 .project:hover .project-shot {
   transform: scale(1.015);
 }

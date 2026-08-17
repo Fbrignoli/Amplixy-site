@@ -59,9 +59,6 @@ export default function PortfolioPage() {
                     priority={index === 0}
                     sizes="(min-width: 900px) 360px, (min-width: 600px) 50vw, 100vw"
                   />
-                  <span className="project-open" aria-hidden="true">
-                    ↗
-                  </span>
                 </div>
                 <div className="project-copy">
                   <span>{project.trade}</span>

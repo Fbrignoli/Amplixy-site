@@ -79,7 +79,6 @@ export const ThumbBar = () => {
         rel="noopener noreferrer"
       >
         Parler de votre besoin
-        <span aria-hidden="true">↗</span>
       </a>
       <span className="thumb-bar-note">
         30 minutes, sans engagement · ou{" "}

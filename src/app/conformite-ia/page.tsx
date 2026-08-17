@@ -115,7 +115,6 @@ export default function CompliancePage() {
                       rel="noopener noreferrer"
                     >
                       Vérifier qui peut être DPO
-                      <span aria-hidden="true">↗</span>
                     </a>
                   </span>
                 </dd>
@@ -190,7 +189,6 @@ export default function CompliancePage() {
                   rel="noopener noreferrer"
                 >
                   CNIL : mettre un système d’IA en conformité
-                  <span aria-hidden="true">↗</span>
                 </a>
               </li>
               <li>
@@ -200,7 +198,6 @@ export default function CompliancePage() {
                   rel="noopener noreferrer"
                 >
                   CNIL : comprendre le rôle du DPO
-                  <span aria-hidden="true">↗</span>
                 </a>
               </li>
               <li>
@@ -210,7 +207,6 @@ export default function CompliancePage() {
                   rel="noopener noreferrer"
                 >
                   CNIL : savoir si la désignation d’un DPO est obligatoire
-                  <span aria-hidden="true">↗</span>
                 </a>
               </li>
               <li>
@@ -220,7 +216,6 @@ export default function CompliancePage() {
                   rel="noopener noreferrer"
                 >
                   CNIL : désigner ou remplacer un DPO
-                  <span aria-hidden="true">↗</span>
                 </a>
               </li>
               <li>
@@ -230,7 +225,6 @@ export default function CompliancePage() {
                   rel="noopener noreferrer"
                 >
                   Comité européen : guide DPO pour les PME
-                  <span aria-hidden="true">↗</span>
                 </a>
               </li>
               <li>
@@ -240,7 +234,6 @@ export default function CompliancePage() {
                   rel="noopener noreferrer"
                 >
                   Texte officiel du règlement européen sur l’IA
-                  <span aria-hidden="true">↗</span>
                 </a>
               </li>
             </ul>

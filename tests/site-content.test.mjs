@@ -188,6 +188,23 @@ test("la section produits distingue Firaxy du prochain produit", async () => {
   assert.ok(page.indexOf('id="produits"') > page.indexOf('id="conformite"'));
 });
 
+test("les liens évitent les flèches diagonales et Firaxy garde une flèche horizontale", async () => {
+  const sources = await Promise.all([
+    read("src/app/page.tsx"),
+    read("src/app/portfolio/page.tsx"),
+    read("src/app/conformite-ia/page.tsx"),
+    read("src/components/Navbar.tsx"),
+    read("src/components/ThumbBar.tsx"),
+  ]);
+  const page = sources[0];
+
+  assert.doesNotMatch(sources.join("\n"), /↗/);
+  assert.match(
+    page,
+    /Découvrir Firaxy\s*<span aria-hidden="true">→<\/span>/,
+  );
+});
+
 test("la souveraineté et la conformité sont cadrées sans garantie absolue", async () => {
   const [page, guide] = await Promise.all([
     read("src/app/page.tsx"),
