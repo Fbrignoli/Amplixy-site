@@ -1,7 +1,7 @@
 #
 # Production Dockerfile for Next.js (App Router)
 # - Uses multi-stage build to keep the runtime image small
-# - Deployed via Coolify
+# - Deployed automatically via the GitHub webhook configured in Coolify
 #
 
 FROM node:22-alpine AS deps
@@ -48,7 +48,6 @@ EXPOSE 3000
 
 # Bind to 0.0.0.0 so Coolify can route traffic to the container
 CMD ["sh", "-c", "npm run start -- -p ${PORT} -H 0.0.0.0"]
-
 
 
 
