@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Amplixy — Votre métier avant la technique.";
+export const alt = "Amplixy — Votre métier d’abord, la technique ensuite.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -45,8 +45,8 @@ export default function OgImage() {
               letterSpacing: "-0.04em",
             }}
           >
-            <span>Votre métier</span>
-            <span style={{ color: "#701B32" }}>avant la technique.</span>
+            <span>Votre métier d’abord,</span>
+            <span style={{ color: "#701B32" }}>la technique ensuite.</span>
           </span>
           <span style={{ marginTop: 32, color: "#49505A", fontSize: 24 }}>
             Outil métier · Automatisation · IA · Site web

@@ -116,8 +116,8 @@ export default function Home() {
               </figcaption>
 
               <blockquote>
-                Votre métier
-                <strong>avant la technique.</strong>
+                <span>Votre <em>métier</em> d’abord,</span>
+                <strong>la technique ensuite.</strong>
               </blockquote>
 
               <div className="principle-path">

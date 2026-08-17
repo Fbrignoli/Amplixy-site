@@ -41,9 +41,10 @@ test("la page vend une seule promesse centrée sur l’outil adapté au métier"
 test("le principe de conception est expliqué sans simuler un faux logiciel", async () => {
   const page = await read("src/app/page.tsx");
 
-  assert.match(page, /Votre métier/);
-  assert.match(page, /avant la technique/);
+  assert.match(page, /Votre <em>métier<\/em> d’abord,/);
+  assert.match(page, /la technique ensuite/);
   assert.doesNotMatch(page, /Le besoin choisit la forme|Jamais l’inverse/);
+  assert.doesNotMatch(page, /avant la technique/);
   assert.match(page, /Votre réalité/);
   assert.match(page, /La réponse utile/);
   assert.doesNotMatch(page, /Prêt à travailler/);
@@ -177,6 +178,7 @@ test("l’identité applique la palette Carmin canonique du brandbook", async ()
   )].map((match) => match[1].trim()).sort();
   assert.deepEqual(accentLightTextSelectors, [
     ".compliance-checks li > span",
+    ".principle-board blockquote em",
     ".principle-step > span",
   ]);
   assert.match(css, /\.case-link-primary\s*\{[\s\S]*color:\s*var\(--accent-deep\)/);
@@ -224,9 +226,9 @@ test("l’image sociale et les données structurées utilisent la nouvelle marqu
     assert.match(openGraph, new RegExp(color));
   }
 
-  assert.match(openGraph, /Votre métier/);
-  assert.match(openGraph, /avant la technique/);
-  assert.doesNotMatch(openGraph, /Le numérique doit s’adapter|Pas l’inverse/);
+  assert.match(openGraph, /Votre métier d’abord,/);
+  assert.match(openGraph, /la technique ensuite/);
+  assert.doesNotMatch(openGraph, /Le numérique doit s’adapter|Pas l’inverse|avant la technique/);
   assert.doesNotMatch(openGraph, /#2454e8|#d65c15/i);
   assert.match(schema, /amplixy-monogramme-transparent\.png/);
   assert.doesNotMatch(schema, /icon-wm\.png/);

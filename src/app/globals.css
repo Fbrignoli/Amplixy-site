@@ -569,6 +569,11 @@ a {
   font-weight: inherit;
 }
 
+.principle-board blockquote em {
+  color: var(--accent-light);
+  font-style: normal;
+}
+
 .principle-path {
   display: grid;
   gap: 1rem;
