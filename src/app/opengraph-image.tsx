@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt =
-  "Amplixy — Le numérique doit s’adapter à votre métier. Pas l’inverse.";
+export const alt = "Amplixy — Votre métier avant la technique.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -46,8 +45,8 @@ export default function OgImage() {
               letterSpacing: "-0.04em",
             }}
           >
-            <span>Le numérique doit s’adapter</span>
-            <span style={{ color: "#701B32" }}>à votre métier.</span>
+            <span>Votre métier</span>
+            <span style={{ color: "#701B32" }}>avant la technique.</span>
           </span>
           <span style={{ marginTop: 32, color: "#49505A", fontSize: 24 }}>
             Outil métier · Automatisation · IA · Site web

@@ -224,6 +224,9 @@ test("l’image sociale et les données structurées utilisent la nouvelle marqu
     assert.match(openGraph, new RegExp(color));
   }
 
+  assert.match(openGraph, /Votre métier/);
+  assert.match(openGraph, /avant la technique/);
+  assert.doesNotMatch(openGraph, /Le numérique doit s’adapter|Pas l’inverse/);
   assert.doesNotMatch(openGraph, /#2454e8|#d65c15/i);
   assert.match(schema, /amplixy-monogramme-transparent\.png/);
   assert.doesNotMatch(schema, /icon-wm\.png/);
