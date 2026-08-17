@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
+import { Geist } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import {
@@ -9,17 +9,18 @@ import {
   schemaWebSite,
 } from "@/lib/schema";
 
-const archivo = Archivo({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-archivo",
+  variable: "--font-sans",
+  weight: "variable",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amplixy.com"),
-  title: "Amplixy — Conseil IA, sites web et outils métier",
+  title: "Amplixy — Solutions numériques sur mesure",
   description:
-    "Amplixy conçoit des systèmes numériques utiles autour du travail réel : conseil IA, sites web et outils métier sur mesure.",
+    "Amplixy construit l’outil numérique adapté à votre activité : outil métier, automatisation ou site, conçu autour de votre façon de travailler.",
   authors: [{ name: "Florian Brignoli", url: "https://amplixy.com" }],
   creator: "Florian Brignoli",
   publisher: "Amplixy",
@@ -42,9 +43,9 @@ export const metadata: Metadata = {
     apple: "/img/icon-wm.png",
   },
   openGraph: {
-    title: "Le numérique doit s’adapter à votre métier. Pas l’inverse.",
+    title: "L’outil qui manque à votre activité",
     description:
-      "Conseil IA, sites web et outils métier sur mesure, conçus autour du travail réel.",
+      "Outil métier, automatisation ou site : Amplixy construit la solution autour de votre façon de travailler.",
     url: "https://amplixy.com",
     siteName: "Amplixy",
     locale: "fr_FR",
@@ -53,8 +54,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@florianbrignoli",
-    title: "Amplixy — Le numérique adapté à votre métier",
-    description: "Conseil IA, sites web et outils métier sur mesure.",
+    title: "Amplixy — L’outil adapté à votre activité",
+    description:
+      "Des solutions numériques sur mesure, conçues autour du travail réel.",
   },
 };
 
@@ -87,7 +89,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaWebSite()) }}
         />
       </head>
-      <body className={`${archivo.variable} font-sans antialiased`}>
+      <body className={`${geist.variable} font-sans antialiased`}>
         <Script
           src="https://trafic.amplixy.cloud/script.js"
           data-website-id="0cbbe7f2-9749-460d-a88a-e665d0ee2904"

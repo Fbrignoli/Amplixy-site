@@ -88,7 +88,7 @@ export function schemaPerson() {
       "Conception d’outils métier sur mesure",
       "Pilotage de projets IT",
     ],
-    url: "https://florianbrignoli.fr",
+    url: "https://amplixy.com/#florian-brignoli",
   };
 }
 

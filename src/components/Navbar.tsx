@@ -1,25 +1,57 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { CALENDAR_URL, NAV_LINKS } from "@/lib/site";
+import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  CALENDAR_URL,
+  CONTACT_PHONE,
+  CONTACT_PHONE_HREF,
+  NAV_LINKS,
+} from "@/lib/site";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const openerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    if (isOpen && !dialog.open) {
+      dialog.showModal();
+      document.body.style.overflow = "hidden";
+    }
+
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
+  const close = useCallback(() => {
+    dialogRef.current?.close();
+  }, []);
+
+  const handleClosed = useCallback(() => {
+    setIsOpen(false);
+    document.body.style.overflow = "";
+    openerRef.current?.focus();
+  }, []);
+
   return (
-    <header className="site-header">
+    <header className="site-header" data-scrolled={isScrolled}>
       <nav className="site-shell site-nav" aria-label="Navigation principale">
         <Link className="site-brand" href="/" aria-label="Amplixy, accueil">
-          AMPLIXY<span>.</span>
+          Amplixy<span>.</span>
         </Link>
 
         <div className="desktop-nav">
@@ -29,18 +61,20 @@ export const Navbar = () => {
             </Link>
           ))}
           <a
-            className="button nav-cta"
+            className="button button-primary nav-cta"
             href={CALENDAR_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Parler d’un besoin <span aria-hidden="true">↗</span>
+            Parler de votre besoin
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
 
         <button
           className="menu-button"
           type="button"
+          ref={openerRef}
           aria-label="Ouvrir le menu"
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
@@ -50,43 +84,62 @@ export const Navbar = () => {
         </button>
       </nav>
 
-      {isOpen && (
-        <div className="mobile-menu" id="mobile-navigation">
-          <div className="mobile-menu-head">
-            <Link className="site-brand" href="/" onClick={() => setIsOpen(false)}>
-              AMPLIXY<span>.</span>
+      <dialog
+        className="menu-dialog"
+        id="mobile-navigation"
+        ref={dialogRef}
+        aria-label="Menu"
+        onClose={handleClosed}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            close();
+          }
+        }}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) close();
+        }}
+      >
+        <div className="menu-sheet">
+          <div className="menu-sheet-head">
+            <Link className="site-brand" href="/" onClick={close}>
+              Amplixy<span>.</span>
             </Link>
             <button
-              className="menu-button menu-button-close"
+              className="menu-button"
               type="button"
               aria-label="Fermer le menu"
-              onClick={() => setIsOpen(false)}
+              onClick={close}
             >
               <X aria-hidden="true" />
             </button>
           </div>
-          <div className="mobile-menu-links">
+
+          <div className="menu-sheet-links">
             {NAV_LINKS.map((link) => (
-              <Link
-                href={link.href}
-                key={link.href}
-                onClick={() => setIsOpen(false)}
-              >
+              <Link href={link.href} key={link.href} onClick={close}>
                 {link.label}
               </Link>
             ))}
-            <a
-              className="button button-signal"
-              href={CALENDAR_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-            >
-              Parler d’un besoin <span aria-hidden="true">↗</span>
-            </a>
           </div>
+
+          <a
+            className="button button-primary menu-sheet-cta"
+            href={CALENDAR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={close}
+          >
+            Parler de votre besoin
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <p className="menu-sheet-contact">
+            Ou directement au{" "}
+            <a href={CONTACT_PHONE_HREF}>{CONTACT_PHONE}</a>
+          </p>
         </div>
-      )}
+      </dialog>
     </header>
   );
 };
