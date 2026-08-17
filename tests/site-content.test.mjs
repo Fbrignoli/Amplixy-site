@@ -136,6 +136,7 @@ test("l’identité utilise Geist et une seule famille d’orange", async () => 
   assert.match(css, /--accent:\s*oklch\([^)]*43\)/);
   assert.match(css, /--accent-deep:\s*oklch\([^)]*43\)/);
   assert.doesNotMatch(css, /--signal:/);
+  assert.match(css, /\.site-brand\s*\{[\s\S]*font-size:\s*1\.35rem/);
   assert.match(css, /\.case-link-primary\s*\{[\s\S]*color:\s*var\(--accent-deep\)/);
   assert.doesNotMatch(css, /background-clip:\s*text/);
 });
