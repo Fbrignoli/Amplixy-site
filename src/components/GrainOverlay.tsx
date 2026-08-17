@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useRef } from "react";
 
 function GrainCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -73,16 +72,10 @@ export default function GrainOverlay({
 }: {
   children: React.ReactNode;
 }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <>
       {children}
-      {mounted && createPortal(<GrainCanvas />, document.body)}
+      <GrainCanvas />
     </>
   );
 }
