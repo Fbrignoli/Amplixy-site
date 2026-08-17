@@ -15,8 +15,8 @@ export default function OgImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          color: "white",
-          background: "#2454e8",
+          color: "#0E141C",
+          background: "#FAFAFA",
           padding: "62px 72px",
           fontFamily: "Arial, sans-serif",
         }}
@@ -30,13 +30,15 @@ export default function OgImage() {
             fontWeight: 800,
           }}
         >
-          <span>AMPLIXY<span style={{ color: "#d65c15" }}>.</span></span>
-          <span style={{ fontSize: 18, opacity: 0.78 }}>Melun · France</span>
+          <span>Amplixy<span style={{ color: "#A52A48" }}>.</span></span>
+          <span style={{ color: "#49505A", fontSize: 18 }}>Melun · France</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span
             style={{
+              display: "flex",
+              flexDirection: "column",
               maxWidth: 1010,
               fontSize: 70,
               fontWeight: 800,
@@ -44,10 +46,11 @@ export default function OgImage() {
               letterSpacing: "-0.04em",
             }}
           >
-            Le numérique doit s’adapter à votre métier. Pas l’inverse.
+            <span>Le numérique doit s’adapter</span>
+            <span style={{ color: "#701B32" }}>à votre métier.</span>
           </span>
-          <span style={{ marginTop: 32, fontSize: 24, opacity: 0.84 }}>
-            Conseil IA · Sites web · Outils métier
+          <span style={{ marginTop: 32, color: "#49505A", fontSize: 24 }}>
+            Outil métier · Automatisation · IA · Site web
           </span>
         </div>
 
@@ -56,7 +59,7 @@ export default function OgImage() {
             width: 160,
             height: 12,
             display: "flex",
-            background: "#d65c15",
+            background: "#A52A48",
           }}
         />
       </div>

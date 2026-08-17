@@ -1,3 +1,6 @@
+const BRAND_MARK_URL =
+  "https://amplixy.com/img/amplixy-monogramme-transparent.png";
+
 export function schemaOrganization() {
   return {
     "@context": "https://schema.org",
@@ -8,11 +11,11 @@ export function schemaOrganization() {
     url: "https://amplixy.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://amplixy.com/img/icon-wm.png",
-      width: 512,
-      height: 512,
+      url: BRAND_MARK_URL,
+      width: 1024,
+      height: 1024,
     },
-    image: "https://amplixy.com/img/icon-wm.png",
+    image: BRAND_MARK_URL,
     description:
       "Amplixy conçoit des systèmes numériques utiles autour du travail réel : conseil IA, sites web et outils métier sur mesure.",
     email: "contact@amplixy.com",
@@ -51,7 +54,7 @@ export function schemaLocalBusiness() {
     "@id": "https://amplixy.com/#localbusiness",
     name: "Amplixy",
     url: "https://amplixy.com",
-    image: "https://amplixy.com/img/icon-wm.png",
+    image: BRAND_MARK_URL,
     telephone: "+33778209044",
     email: "contact@amplixy.com",
     priceRange: "€€",

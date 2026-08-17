@@ -116,8 +116,8 @@ export default function Home() {
               </figcaption>
 
               <blockquote>
-                Le besoin choisit la forme.
-                <strong>Jamais l’inverse.</strong>
+                Votre métier
+                <strong>avant la technique.</strong>
               </blockquote>
 
               <div className="principle-path">

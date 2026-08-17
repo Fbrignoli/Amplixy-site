@@ -4,6 +4,29 @@ import test from "node:test";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
+const relativeLuminance = (hex) => {
+  const channels = hex
+    .slice(1)
+    .match(/../g)
+    .map((value) => Number.parseInt(value, 16) / 255)
+    .map((value) =>
+      value <= 0.04045
+        ? value / 12.92
+        : ((value + 0.055) / 1.055) ** 2.4,
+    );
+
+  return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
+};
+
+const contrastRatio = (foreground, background) => {
+  const values = [
+    relativeLuminance(foreground),
+    relativeLuminance(background),
+  ].sort((a, b) => b - a);
+
+  return (values[0] + 0.05) / (values[1] + 0.05);
+};
+
 test("la page vend une seule promesse centrée sur l’outil adapté au métier", async () => {
   const page = await read("src/app/page.tsx");
 
@@ -18,8 +41,9 @@ test("la page vend une seule promesse centrée sur l’outil adapté au métier"
 test("le principe de conception est expliqué sans simuler un faux logiciel", async () => {
   const page = await read("src/app/page.tsx");
 
-  assert.match(page, /Le besoin choisit la forme/);
-  assert.match(page, /Jamais l’inverse/);
+  assert.match(page, /Votre métier/);
+  assert.match(page, /avant la technique/);
+  assert.doesNotMatch(page, /Le besoin choisit la forme|Jamais l’inverse/);
   assert.match(page, /Votre réalité/);
   assert.match(page, /La réponse utile/);
   assert.doesNotMatch(page, /Prêt à travailler/);
@@ -118,27 +142,62 @@ test("le menu mobile utilise un vrai dialogue modal", async () => {
 
   assert.match(navbar, /<dialog/);
   assert.match(navbar, /dialog\.showModal\(\)/);
+  assert.match(navbar, /closeButtonRef\.current\?\.focus\(\)/);
   assert.match(navbar, /event\.key === "Escape"/);
   assert.match(navbar, /openerRef\.current\?\.focus\(\)/);
   assert.match(css, /\.menu-dialog::backdrop/);
   assert.match(css, /height:\s*100dvh/);
 });
 
-test("l’identité utilise Geist et une seule famille d’orange", async () => {
-  const [layout, css] = await Promise.all([
+test("l’identité applique la palette Carmin canonique du brandbook", async () => {
+  const [layout, css, tailwind] = await Promise.all([
     read("src/app/layout.tsx"),
     read("src/app/globals.css"),
+    read("tailwind.config.ts"),
   ]);
 
   assert.match(layout, /import \{ Geist \}/);
   assert.doesNotMatch(layout, /import \{ Fraunces/);
   assert.doesNotMatch(layout, /import \{ Inter/);
-  assert.match(css, /--accent:\s*oklch\([^)]*43\)/);
-  assert.match(css, /--accent-deep:\s*oklch\([^)]*43\)/);
-  assert.doesNotMatch(css, /--signal:/);
+  assert.match(css, /--paper:\s*#fafafa/);
+  assert.match(css, /--ink:\s*#0e141c/);
+  assert.match(css, /--stone:\s*#e9ebef/);
+  assert.match(css, /--muted:\s*#49505a/);
+  assert.match(css, /--accent:\s*#a52a48/);
+  assert.match(css, /--accent-deep:\s*#701b32/);
+  assert.match(css, /--accent-light:\s*#c06a7f/);
+  assert.doesNotMatch(`${css}\n${tailwind}`, /orange|0\.7 0\.2 43/i);
   assert.match(css, /\.site-brand\s*\{[\s\S]*font-size:\s*1\.35rem/);
+  assert.match(css, /\.site-brand span\s*\{[\s\S]*color:\s*var\(--accent\)/);
+  assert.match(css, /\.button-primary\s*\{[\s\S]*background:\s*var\(--accent\)[\s\S]*color:\s*#ffffff/);
+  assert.match(css, /\.principle-step > span\s*\{[\s\S]*color:\s*var\(--accent-light\)[\s\S]*font-size:\s*0\.875rem[\s\S]*font-weight:\s*720/);
+  assert.match(css, /\.compliance-checks li > span\s*\{[\s\S]*color:\s*var\(--accent-light\)[\s\S]*font-size:\s*0\.875rem[\s\S]*font-weight:\s*720/);
+  const accentLightTextSelectors = [...css.matchAll(
+    /([^{}]+)\{[^{}]*color:\s*var\(--accent-light\)[^{}]*\}/g,
+  )].map((match) => match[1].trim()).sort();
+  assert.deepEqual(accentLightTextSelectors, [
+    ".compliance-checks li > span",
+    ".principle-step > span",
+  ]);
   assert.match(css, /\.case-link-primary\s*\{[\s\S]*color:\s*var\(--accent-deep\)/);
   assert.doesNotMatch(css, /background-clip:\s*text/);
+});
+
+test("les paires de couleurs éditoriales respectent WCAG AA", () => {
+  const pairs = [
+    ["#FFFFFF", "#A52A48", 4.5],
+    ["#FAFAFA", "#701B32", 4.5],
+    ["#FAFAFA", "#49505A", 4.5],
+    ["#0E141C", "#C7CCD2", 4.5],
+    ["#0E141C", "#C06A7F", 4.5],
+  ];
+
+  for (const [foreground, background, minimum] of pairs) {
+    assert.ok(
+      contrastRatio(foreground, background) >= minimum,
+      `${foreground} sur ${background} doit atteindre ${minimum}:1`,
+    );
+  }
 });
 
 test("l’icône utilise le monogramme transparent officiel", async () => {
@@ -150,8 +209,34 @@ test("l’icône utilise le monogramme transparent officiel", async () => {
   assert.match(layout, /amplixy-monogramme-transparent\.svg/);
   assert.match(layout, /amplixy-monogramme-transparent-180\.png/);
   assert.match(icon, /color="#0E141C"/);
-  assert.match(icon, /fill="#FF6917"/);
+  assert.match(icon, /fill="#A52A48"/);
+  assert.match(icon, /Carmin signal/);
   assert.doesNotMatch(icon, /<rect[^>]+(?:fill="#FFFFFF"|stroke=)/);
+});
+
+test("l’image sociale et les données structurées utilisent la nouvelle marque", async () => {
+  const [openGraph, schema] = await Promise.all([
+    read("src/app/opengraph-image.tsx"),
+    read("src/lib/schema.ts"),
+  ]);
+
+  for (const color of ["#FAFAFA", "#0E141C", "#A52A48", "#701B32", "#49505A"]) {
+    assert.match(openGraph, new RegExp(color));
+  }
+
+  assert.doesNotMatch(openGraph, /#2454e8|#d65c15/i);
+  assert.match(schema, /amplixy-monogramme-transparent\.png/);
+  assert.doesNotMatch(schema, /icon-wm\.png/);
+});
+
+test("les mentions légales suivent le même système visuel", async () => {
+  const legal = await read("src/app/mentions-legales/page.tsx");
+
+  assert.match(legal, /className="legal-page"/);
+  assert.match(legal, /className="legal-content"/);
+  assert.match(legal, /<Navbar \/>/);
+  assert.match(legal, /<Footer \/>/);
+  assert.doesNotMatch(legal, /slate|blue-dark|charcoal|rounded-2xl/);
 });
 
 test("les animations respectent la réduction du mouvement", async () => {

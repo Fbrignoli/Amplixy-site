@@ -15,6 +15,7 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const openerRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 8);
@@ -30,6 +31,7 @@ export const Navbar = () => {
     if (isOpen && !dialog.open) {
       dialog.showModal();
       document.body.style.overflow = "hidden";
+      closeButtonRef.current?.focus();
     }
 
     return () => {
@@ -107,6 +109,7 @@ export const Navbar = () => {
             <button
               className="menu-button"
               type="button"
+              ref={closeButtonRef}
               aria-label="Fermer le menu"
               onClick={close}
             >
