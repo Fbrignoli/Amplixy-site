@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
+import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import {
   schemaLocalBusiness,
   schemaOrganization,
@@ -101,13 +101,8 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geist.variable} font-sans antialiased`}>
-        <Script
-          src="https://trafic.amplixy.cloud/script.js"
-          data-website-id="0cbbe7f2-9749-460d-a88a-e665d0ee2904"
-          strategy="afterInteractive"
-          defer
-        />
         {children}
+        <AnalyticsConsent />
       </body>
     </html>
   );

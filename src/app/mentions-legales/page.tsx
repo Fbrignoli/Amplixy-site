@@ -47,10 +47,11 @@ export default function MentionsLegales() {
                 <li><strong>Siège social :</strong> 16 B Rue de la Rochette, 77000 Melun</li>
                 <li><strong>SIREN :</strong> 999 167 760</li>
                 <li><strong>SIRET :</strong> 999 167 760 00019</li>
+                <li><strong>Immatriculation :</strong> RCS Melun 999 167 760</li>
                 <li><strong>RNE :</strong> Immatriculée au Registre National des Entreprises (INPI)</li>
                 <li><strong>Numéro de TVA intracommunautaire :</strong> FR77 999 167 760</li>
                 <li><strong>Code NAF/APE :</strong> 62.02A — Conseil en systèmes et logiciels informatiques</li>
-                <li><strong>Date de création :</strong> 2024</li>
+                <li><strong>Date de création :</strong> 1er janvier 2026</li>
               </ul>
             </section>
 
@@ -70,6 +71,8 @@ export default function MentionsLegales() {
                 61 Lordou Vironos Street<br />
                 6023 Larnaca<br />
                 Chypre<br />
+                Téléphone publié par le groupe (bureau du registraire) : {" "}
+                <a href="tel:+37064503378">+370 645 03378</a><br />
                 Site : <a href="https://www.hostinger.fr" target="_blank" rel="noopener noreferrer">hostinger.fr</a>
               </p>
             </section>
@@ -89,44 +92,27 @@ export default function MentionsLegales() {
             <section>
               <h2>5. Protection des données personnelles (RGPD)</h2>
               <p>
-                Conformément au Règlement Général sur la Protection des Données
-                (RGPD) et à la loi Informatique et Libertés, vous disposez d’un
-                droit d’accès, de rectification, de suppression et de portabilité
-                de vos données personnelles.
-              </p>
-              <p>
-                <strong>Données collectées :</strong> les données personnelles
-                collectées sur ce site sont limitées aux informations que vous
-                transmettez volontairement via le formulaire de contact ou la
-                prise de rendez-vous (nom, email, téléphone).
-              </p>
-              <p>
-                <strong>Finalité :</strong> ces données sont utilisées uniquement
-                pour répondre à vos demandes et vous contacter dans le cadre de
-                nos services.
-              </p>
-              <p>
-                <strong>Conservation :</strong> vos données sont conservées
-                pendant une durée maximale de trois ans après notre dernier
-                contact.
-              </p>
-              <p>
-                Pour exercer vos droits ou pour toute question relative à vos
-                données personnelles, contactez-nous à : <a href="mailto:contact@amplixy.com">contact@amplixy.com</a>.
+                Les traitements de données, leurs bases légales, leurs durées de
+                conservation, les destinataires et les modalités d’exercice de
+                vos droits sont décrits dans la {" "}
+                <Link href="/politique-confidentialite">
+                  politique de confidentialité
+                </Link>
+                .
               </p>
             </section>
 
             <section>
               <h2>6. Cookies</h2>
               <p>
-                Ce site utilise des cookies à des fins de mesure d’audience. Ces
-                cookies nous permettent de comprendre comment les visiteurs
-                utilisent le site.
+                Le site n’utilise pas de cookies publicitaires. La mesure
+                d’audience Umami est bloquée tant que vous ne l’avez pas acceptée
+                et votre refus n’empêche aucune fonctionnalité du site.
               </p>
               <p>
-                <strong>Outil utilisé :</strong> Umami Analytics, une solution
-                respectueuse de la vie privée ne nécessitant pas de consentement
-                selon les recommandations de la CNIL.
+                Une exemption de consentement n’est possible que si toutes les
+                conditions applicables sont démontrées. Amplixy ne la revendique
+                pas pour sa configuration actuelle.
               </p>
             </section>
 
@@ -134,10 +120,11 @@ export default function MentionsLegales() {
               <h2>7. Limitation de responsabilité</h2>
               <p>
                 AMPLIXY s’efforce d’assurer l’exactitude et la mise à jour des
-                informations diffusées sur ce site. Toutefois, AMPLIXY ne peut
-                garantir l’exactitude, la précision ou l’exhaustivité des
-                informations mises à disposition. AMPLIXY décline toute
-                responsabilité pour toute imprécision, inexactitude ou omission.
+                informations diffusées sur ce site. Une erreur ou indisponibilité
+                peut néanmoins survenir. Cette information générale ne remplace
+                pas un conseil adapté à votre situation. Aucune disposition de
+                cette page n’exclut ni ne limite une responsabilité qui ne peut
+                légalement l’être.
               </p>
             </section>
 
@@ -145,12 +132,22 @@ export default function MentionsLegales() {
               <h2>8. Droit applicable</h2>
               <p>
                 Les présentes mentions légales sont régies par le droit français.
-                En cas de litige, les tribunaux français seront seuls compétents.
+                En cas de litige, les règles de compétence prévues par les textes
+                applicables déterminent la juridiction compétente.
+              </p>
+            </section>
+
+            <section>
+              <h2>9. Public professionnel</h2>
+              <p>
+                Les offres présentées sur amplixy.com sont destinées exclusivement
+                à des clients agissant à des fins professionnelles. Les conditions
+                commerciales applicables sont communiquées avant tout engagement.
               </p>
             </section>
           </div>
 
-          <p className="legal-updated">Dernière mise à jour : février 2026</p>
+          <p className="legal-updated">Dernière mise à jour : 19 août 2026</p>
         </div>
       </main>
 

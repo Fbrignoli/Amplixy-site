@@ -19,8 +19,8 @@ export function schemaOrganization() {
     description:
       "Amplixy conçoit des systèmes numériques utiles autour du travail réel : conseil IA, sites web et outils métier sur mesure.",
     email: "contact@amplixy.com",
-    telephone: "+33778209044",
-    foundingDate: "2024",
+    telephone: "+33651070231",
+    foundingDate: "2026-01-01",
     founder: {
       "@type": "Person",
       "@id": "https://amplixy.com/#florian-brignoli",
@@ -55,7 +55,7 @@ export function schemaLocalBusiness() {
     name: "Amplixy",
     url: "https://amplixy.com",
     image: BRAND_MARK_URL,
-    telephone: "+33778209044",
+    telephone: "+33651070231",
     email: "contact@amplixy.com",
     priceRange: "€€",
     address: {

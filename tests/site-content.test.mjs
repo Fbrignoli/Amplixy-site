@@ -108,20 +108,27 @@ test("les trois cas ont le même poids sur une seule rangée", async () => {
   assert.match(css, /grid-template-columns:\s*repeat\(3,/);
 });
 
-test("chaque appel à l’action ouvre l’agenda Cal.eu", async () => {
-  const [page, navbar, thumbBar, site] = await Promise.all([
+test("chaque appel à l’action passe par l’information de réservation", async () => {
+  const [page, navbar, thumbBar, site, booking] = await Promise.all([
     read("src/app/page.tsx"),
     read("src/components/Navbar.tsx"),
     read("src/components/ThumbBar.tsx"),
     read("src/lib/site.ts"),
+    read("src/app/rendez-vous/page.tsx"),
   ]);
 
   assert.match(site, /https:\/\/www\.cal\.eu\/florianbrignoli\/quick-chat/);
+  assert.match(site, /BOOKING_URL = "\/rendez-vous"/);
 
   for (const source of [page, navbar, thumbBar]) {
-    assert.match(source, /href=\{CALENDAR_URL\}/);
+    assert.match(source, /href=\{BOOKING_URL\}/);
     assert.match(source, /Parler de votre besoin/);
   }
+
+  assert.match(booking, /href=\{CALENDAR_URL\}/);
+  assert.match(booking, /nom, email, date et heure, fuseau horaire/);
+  assert.match(booking, /notes libres et éventuels invités/);
+  assert.match(booking, /politique de confidentialité d’Amplixy/);
 });
 
 test("une action reste atteignable en permanence sur mobile", async () => {
@@ -242,6 +249,70 @@ test("les mentions légales suivent le même système visuel", async () => {
   assert.match(legal, /<Navbar \/>/);
   assert.match(legal, /<Footer \/>/);
   assert.doesNotMatch(legal, /slate|blue-dark|charcoal|rounded-2xl/);
+});
+
+test("les mentions légales identifient complètement la société et l’hébergeur", async () => {
+  const legal = await read("src/app/mentions-legales/page.tsx");
+
+  assert.match(legal, /RCS Melun 999 167 760/);
+  assert.match(legal, /1er janvier 2026/);
+  assert.match(legal, /\+370 645 03378/);
+  assert.match(legal, /19 août 2026/);
+  assert.match(legal, /règles de compétence prévues par les textes/);
+  assert.match(legal, /destinées exclusivement\s+à des clients agissant à des fins professionnelles/);
+  assert.doesNotMatch(legal, /tribunaux français seront seuls compétents/);
+  assert.doesNotMatch(legal, /décline toute\s+responsabilité/);
+});
+
+test("la politique de confidentialité couvre les traitements et tous les droits RGPD", async () => {
+  const privacy = await read("src/app/politique-confidentialite/page.tsx");
+
+  for (const expected of [
+    "Responsable du traitement",
+    "Demandes par email ou téléphone",
+    "Prise de rendez-vous",
+    "Mesure d’audience",
+    "Hostinger International Ltd.",
+    "Cal.com, Inc. / Cal.eu",
+    "Transferts hors Espace économique européen",
+    "l’accès à vos données",
+    "leur rectification ou leur effacement",
+    "limitation du traitement",
+    "vous opposer",
+    "portabilité",
+    "Commission nationale de l’informatique et des libertés",
+  ]) {
+    assert.match(privacy, new RegExp(expected));
+  }
+
+  assert.match(privacy, /au plus tard dans un\s+mois/);
+  assert.match(privacy, /vingt-cinq mois/);
+  assert.match(privacy, /trois\s+ans après le dernier échange actif/);
+  assert.match(privacy, /jusqu’à\s+cinq ans à titre de preuve/);
+  assert.match(privacy, /douze mois après sa date/);
+  assert.match(privacy, /au maximum sept jours/);
+  assert.match(privacy, /jusqu’à trente jours/);
+});
+
+test("Umami reste bloqué avant consentement et le choix est réversible", async () => {
+  const [layout, consent, footer] = await Promise.all([
+    read("src/app/layout.tsx"),
+    read("src/components/AnalyticsConsent.tsx"),
+    read("src/components/Footer.tsx"),
+  ]);
+
+  assert.doesNotMatch(layout, /trafic\.amplixy\.cloud\/script\.js/);
+  assert.match(layout, /<AnalyticsConsent \/>/);
+  assert.match(consent, /choice === "accepted"/);
+  assert.match(consent, /trafic\.amplixy\.cloud\/script\.js/);
+  assert.match(consent, /umami\.disabled/);
+  assert.match(consent, /data-do-not-track="true"/);
+  assert.match(consent, /data-exclude-search="true"/);
+  assert.match(consent, /data-exclude-hash="true"/);
+  assert.match(consent, /Refuser/);
+  assert.match(consent, /Accepter/);
+  assert.match(footer, /<AnalyticsSettingsButton \/>/);
+  assert.match(footer, /Politique de confidentialité/);
 });
 
 test("les animations respectent la réduction du mouvement", async () => {

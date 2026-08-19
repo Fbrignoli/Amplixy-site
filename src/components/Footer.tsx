@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AnalyticsSettingsButton } from "@/components/AnalyticsConsent";
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF } from "@/lib/site";
 
 export const Footer = () => {
@@ -13,6 +14,10 @@ export const Footer = () => {
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           <a href={CONTACT_PHONE_HREF}>{CONTACT_PHONE}</a>
           <Link href="/conformite-ia">Conformité IA &amp; données</Link>
+          <Link href="/politique-confidentialite">
+            Politique de confidentialité
+          </Link>
+          <AnalyticsSettingsButton />
           <Link href="/mentions-legales">Mentions légales</Link>
         </div>
 

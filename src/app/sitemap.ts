@@ -23,9 +23,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: "https://amplixy.com/mentions-legales",
-      lastModified: new Date("2026-04-09"),
+      lastModified: new Date("2026-08-19"),
       changeFrequency: "yearly",
       priority: 0.3,
+    },
+    {
+      url: "https://amplixy.com/politique-confidentialite",
+      lastModified: new Date("2026-08-19"),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: "https://amplixy.com/rendez-vous",
+      lastModified: new Date("2026-08-19"),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
   ];
 }

@@ -5,7 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { ThumbBar } from "@/components/ThumbBar";
 import { ToolMarquee } from "@/components/ToolMarquee";
 import {
-  CALENDAR_URL,
+  BOOKING_URL,
   CONTACT_PHONE,
   CONTACT_PHONE_HREF,
 } from "@/lib/site";
@@ -81,9 +81,7 @@ export default function Home() {
               <div className="hero-actions" id="hero-cta">
                 <a
                   className="button button-primary"
-                  href={CALENDAR_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={BOOKING_URL}
                 >
                   Parler de votre besoin
                 </a>
@@ -439,9 +437,7 @@ export default function Home() {
               </p>
               <a
                 className="button button-inverse"
-                href={CALENDAR_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={BOOKING_URL}
               >
                 Parler de votre besoin
               </a>

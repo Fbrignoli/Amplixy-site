@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CALENDAR_URL, CONTACT_PHONE, CONTACT_PHONE_HREF } from "@/lib/site";
+import { BOOKING_URL, CONTACT_PHONE, CONTACT_PHONE_HREF } from "@/lib/site";
 
 /*
   Correction du défaut le plus coûteux de la version précédente : sur mobile, la
@@ -74,9 +74,7 @@ export const ThumbBar = () => {
     >
       <a
         className="button button-primary"
-        href={CALENDAR_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={BOOKING_URL}
       >
         Parler de votre besoin
       </a>

@@ -8,7 +8,7 @@
 - **SIREN** : 999 167 760
 - **Siège** : 16 B Rue de la Rochette, 77000 Melun, France
 - **Direction** : Florian Brignoli
-- **Contact** : contact@amplixy.com · 07 78 20 90 44
+- **Contact** : contact@amplixy.com · 06 51 07 02 31
 - **Site** : https://amplixy.com
 
 ## Positionnement
@@ -40,9 +40,11 @@ Construire un outil autour des opérations réelles de l’entreprise au lieu d�
 
 - Agenda : https://www.cal.eu/florianbrignoli/quick-chat
 - Email : contact@amplixy.com
-- Téléphone : 07 78 20 90 44
+- Téléphone : 06 51 07 02 31
 
 ## Pages
 
 - [Accueil](https://amplixy.com) — Expertises, réalisations, méthode et prise de rendez-vous
 - [Mentions légales](https://amplixy.com/mentions-legales) — Informations légales
+- [Politique de confidentialité](https://amplixy.com/politique-confidentialite) — Traitements de données et droits RGPD
+- [Prendre rendez-vous](https://amplixy.com/rendez-vous) — Information préalable et accès à l’agenda

@@ -50,7 +50,7 @@ npm test
 Located in [src/components/](src/components/):
 
 - **Navbar**: sticky responsive navigation with direct booking CTA and accessible mobile menu
-- **Footer**: contact, company details, and legal route
+- **Footer**: contact, company details, legal routes, and analytics preferences
 - **Reveal**: legacy reusable animation helper; it is not required by the current homepage
 
 ### Styling System
@@ -63,8 +63,8 @@ The homepage is mobile-first. Keep explicit checks around 390 px, 768 px, and 12
 
 1. **Responsive design**: three stacked project windows in the hero and fluid layouts at each breakpoint
 2. **Real portfolio**: local optimized WebP assets for Vion Couverture, Accord'Âme, and Corsicabrignoli
-3. **Direct conversion**: every “Parler/Cadrer un besoin” CTA opens `https://www.cal.eu/florianbrignoli/quick-chat`
-4. **Analytics**: self-hosted Umami at `trafic.amplixy.cloud`
+3. **Booking notice**: every “Parler/Cadrer un besoin” CTA first opens `/rendez-vous`, then Cal.eu after the privacy notice
+4. **Analytics**: self-hosted Umami at `trafic.amplixy.cloud`, blocked until explicit consent
 5. **SEO**: canonical metadata, sitemap, robots, Open Graph image, and JSON-LD
 
 ## Deployment
@@ -75,6 +75,6 @@ The project uses a multi-stage Docker build and is deployed by Coolify on the Ho
 
 - **Language**: all public content is in French
 - **Homepage**: prefer a server component; keep client code limited to genuine interaction such as the mobile menu
-- **Booking**: reuse `CALENDAR_URL` instead of duplicating the URL
+- **Booking**: use `BOOKING_URL` for site CTAs and `CALENDAR_URL` only on the informed booking page
 - **Images**: use local optimized assets with `next/image`
 - **Quality gate**: run lint, typecheck, tests, and the production build before deployment
