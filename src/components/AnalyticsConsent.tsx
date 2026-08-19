@@ -27,6 +27,7 @@ export function AnalyticsConsent() {
   const [choice, setChoice] = useState<AnalyticsChoice | null>(null);
   const [ready, setReady] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -55,7 +56,10 @@ export function AnalyticsConsent() {
   }, []);
 
   useEffect(() => {
-    const openSettings = () => setSettingsOpen(true);
+    const openSettings = () => {
+      setDetailsOpen(false);
+      setSettingsOpen(true);
+    };
     window.addEventListener(OPEN_SETTINGS_EVENT, openSettings);
     return () => window.removeEventListener(OPEN_SETTINGS_EVENT, openSettings);
   }, []);
@@ -63,10 +67,11 @@ export function AnalyticsConsent() {
   const choose = (nextChoice: AnalyticsChoice) => {
     applyChoice(nextChoice);
     setChoice(nextChoice);
+    setDetailsOpen(false);
     setSettingsOpen(false);
   };
 
-  const showPanel = ready && (choice === null || settingsOpen);
+  const showPanel = ready && !detailsOpen && (choice === null || settingsOpen);
 
   return (
     <>
@@ -97,7 +102,13 @@ export function AnalyticsConsent() {
               produire des statistiques de fréquentation. Le site fonctionne
               de la même façon si vous refusez.
             </p>
-            <Link href="/politique-confidentialite#mesure-audience">
+            <Link
+              href="/politique-confidentialite#mesure-audience"
+              onClick={() => {
+                setDetailsOpen(true);
+                setSettingsOpen(false);
+              }}
+            >
               En savoir plus
             </Link>
           </div>

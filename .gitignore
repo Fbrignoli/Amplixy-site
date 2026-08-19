@@ -4,5 +4,6 @@ dist/
 build/
 .env
 .env.*
+!.env.example
 tmpclaude*
 *.tsbuildinfo

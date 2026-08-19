@@ -190,7 +190,7 @@ export default function PolitiqueConfidentialite() {
                 </p>
                 <ul>
                   <li>
-                    <strong>Hostinger International Ltd.</strong>&nbsp;: hébergement
+                    <strong>HOSTINGER INTERNATIONAL LIMITED</strong>&nbsp;: hébergement
                     du site, de l’instance Umami et messagerie professionnelle&nbsp;;
                   </li>
                   <li>
@@ -218,7 +218,7 @@ export default function PolitiqueConfidentialite() {
               <h2>7. Transferts hors Espace économique européen</h2>
               <div>
                 <p>
-                  Hostinger International Ltd. est établi à Chypre, dans l’Union
+                  HOSTINGER INTERNATIONAL LIMITED est établi à Chypre, dans l’Union
                   européenne. Cal.eu est présenté comme un environnement hébergé
                   dans l’Union européenne. Google peut traiter des données dans
                   différents pays pour Calendar et Meet. Certains services

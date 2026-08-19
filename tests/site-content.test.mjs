@@ -117,6 +117,8 @@ test("chaque appel à l’action passe par l’information de réservation", asy
     read("src/app/rendez-vous/page.tsx"),
   ]);
 
+  assert.match(site, /NEXT_PUBLIC_CALENDAR_PROVIDER_NAME/);
+  assert.match(site, /NEXT_PUBLIC_CALENDAR_URL/);
   assert.match(site, /https:\/\/www\.cal\.eu\/florianbrignoli\/quick-chat/);
   assert.match(site, /BOOKING_URL = "\/rendez-vous"/);
 
@@ -126,7 +128,8 @@ test("chaque appel à l’action passe par l’information de réservation", asy
   }
 
   assert.match(booking, /href=\{CALENDAR_URL\}/);
-  assert.match(booking, /nom, email, date et heure, fuseau horaire/);
+  assert.match(booking, /CALENDAR_PROVIDER_NAME/);
+  assert.match(booking, /nom, email,\s+date et heure, fuseau horaire/);
   assert.match(booking, /notes libres et éventuels invités/);
   assert.match(booking, /politique de confidentialité d’Amplixy/);
 });
@@ -257,6 +260,9 @@ test("les mentions légales identifient complètement la société et l’héber
   assert.match(legal, /RCS Melun 999 167 760/);
   assert.match(legal, /1er janvier 2026/);
   assert.match(legal, /\+370 645 03378/);
+  assert.match(legal, /HOSTINGER INTERNATIONAL LIMITED/);
+  assert.match(legal, /compliance@hostinger\.com/);
+  assert.match(legal, /HOSTINGER operations, UAB/);
   assert.match(legal, /19 août 2026/);
   assert.match(legal, /règles de compétence prévues par les textes/);
   assert.match(legal, /destinées exclusivement\s+à des clients agissant à des fins professionnelles/);
@@ -272,7 +278,7 @@ test("la politique de confidentialité couvre les traitements et tous les droits
     "Demandes par email ou téléphone",
     "Prise de rendez-vous",
     "Mesure d’audience",
-    "Hostinger International Ltd.",
+    "HOSTINGER INTERNATIONAL LIMITED",
     "Cal.com, Inc. / Cal.eu",
     "Transferts hors Espace économique européen",
     "l’accès à vos données",
@@ -311,15 +317,22 @@ test("Umami reste bloqué avant consentement et le choix est réversible", async
   assert.match(consent, /data-exclude-hash="true"/);
   assert.match(consent, /Refuser/);
   assert.match(consent, /Accepter/);
+  assert.match(consent, /setDetailsOpen\(true\)/);
+  assert.match(consent, /setSettingsOpen\(false\)/);
+  assert.match(consent, /!detailsOpen/);
   assert.match(footer, /<AnalyticsSettingsButton \/>/);
   assert.match(footer, /Politique de confidentialité/);
 });
 
 test("les animations respectent la réduction du mouvement", async () => {
-  const css = await read("src/app/globals.css");
+  const [css, layout] = await Promise.all([
+    read("src/app/globals.css"),
+    read("src/app/layout.tsx"),
+  ]);
 
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /animation-duration:\s*0\.01ms/);
+  assert.match(layout, /data-scroll-behavior="smooth"/);
 });
 
 test("la capture Vion peut être préchargée si elle devient LCP", async () => {

@@ -67,11 +67,14 @@ export default function MentionsLegales() {
               <h2>3. Hébergement</h2>
               <p>
                 Le site est hébergé par :<br />
-                <strong>Hostinger International Ltd.</strong><br />
+                <strong>HOSTINGER INTERNATIONAL LIMITED</strong><br />
                 61 Lordou Vironos Street<br />
                 6023 Larnaca<br />
                 Chypre<br />
-                Téléphone publié par le groupe (bureau du registraire) : {" "}
+                Email contractuel : {" "}
+                <a href="mailto:compliance@hostinger.com">compliance@hostinger.com</a><br />
+                Téléphone officiel publié par Hostinger pour son bureau du
+                registraire (HOSTINGER operations, UAB) : {" "}
                 <a href="tel:+37064503378">+370 645 03378</a><br />
                 Site : <a href="https://www.hostinger.fr" target="_blank" rel="noopener noreferrer">hostinger.fr</a>
               </p>

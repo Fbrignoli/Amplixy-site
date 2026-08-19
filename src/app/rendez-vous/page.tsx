@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { CALENDAR_URL, CONTACT_EMAIL } from "@/lib/site";
+import {
+  CALENDAR_PROVIDER_NAME,
+  CALENDAR_URL,
+  CONTACT_EMAIL,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Prendre rendez-vous — Amplixy",
@@ -34,12 +38,12 @@ export default function RendezVous() {
           <div className="booking-panel">
             <div>
               <p className="booking-kicker">Un échange de 30 minutes</p>
-              <h2>Choisissez votre créneau sur Cal.eu</h2>
+              <h2>Choisissez votre créneau sur {CALENDAR_PROVIDER_NAME}</h2>
               <p>
-                Le rendez-vous est organisé par Amplixy avec Cal.eu, Google
-                Calendar et Google Meet. Ils traiteront vos nom, email, date et heure, fuseau horaire,
-                notes libres et éventuels invités. Évitez toute donnée sensible
-                dans les notes.
+                Le rendez-vous est organisé par Amplixy avec {CALENDAR_PROVIDER_NAME},
+                Google Calendar et Google Meet. Ils traiteront vos nom, email,
+                date et heure, fuseau horaire, notes libres et éventuels invités.
+                Évitez toute donnée sensible dans les notes.
               </p>
               <p>
                 Ces informations servent uniquement à organiser et préparer
@@ -57,11 +61,12 @@ export default function RendezVous() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Continuer vers Cal.eu
+              Continuer vers {CALENDAR_PROVIDER_NAME}
             </a>
 
             <p className="booking-alternative">
-              Vous ne souhaitez pas utiliser Cal.eu&nbsp;? Écrivez à {" "}
+              Vous ne souhaitez pas utiliser {CALENDAR_PROVIDER_NAME}&nbsp;?
+              Écrivez à {" "}
               <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
             </p>
           </div>
