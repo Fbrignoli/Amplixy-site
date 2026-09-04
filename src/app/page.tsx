@@ -370,10 +370,10 @@ export default function Home() {
                 >
                   <Image
                     className="product-image"
-                    src="/img/reussites/firaxy.webp"
+                    src="/img/reussites/firaxy-2026-09.webp"
                     alt="Page d’accueil de Firaxy, produit Amplixy pour les commerçants de foires et marchés"
-                    width={2880}
-                    height={1800}
+                    width={1440}
+                    height={900}
                   />
                 </a>
                 <div className="product-card-copy">
