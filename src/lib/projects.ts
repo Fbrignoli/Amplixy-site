@@ -3,7 +3,7 @@ export const projects = [
     name: "Vion Couverture",
     trade: "Artisan couvreur-zingueur · Seine-et-Marne",
     build:
-      "Un site rapide et un référencement local pour rendre le savoir-faire visible sur les bonnes communes.",
+      "Une fiche Google et un site web qui appartient à l’entreprise, adaptés à son activité pour être trouvée et contactée.",
     domain: "vioncouverture.fr",
     image: "/img/reussites/vioncouverture.webp",
     alt: "Page d’accueil du site de Vion Couverture, artisan couvreur",

@@ -281,15 +281,15 @@ export default function Home() {
                   <div>
                     <dt>Le problème</dt>
                     <dd>
-                      Trois activités devaient présenter leur savoir-faire et
-                      être trouvées par leurs futurs clients.
+                      Une entreprise voulait développer sa présence sur Internet
+                      avec un site web qui lui appartient.
                     </dd>
                   </div>
                   <div>
                     <dt>La réalisation</dt>
                     <dd>
-                      Trois sites adaptés à leur métier et à leur zone d’activité :
-                      Vion Couverture, Accord’Âme et Corsicabrignoli.
+                      On a créé sa fiche Google et un site adapté à son activité,
+                      pour que ses futurs clients puissent la trouver et la contacter.
                     </dd>
                   </div>
                 </dl>
@@ -304,7 +304,7 @@ export default function Home() {
                     Voir Vion Couverture
                   </a>
                   <Link className="case-link" href="/portfolio">
-                    Voir les réalisations
+                    Voir nos autres réalisations
                     <span aria-hidden="true">→</span>
                   </Link>
                 </div>

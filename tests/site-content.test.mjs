@@ -93,7 +93,8 @@ test("la démonstration présente trois cas d’usage dont deux confidentiels", 
   assert.match(cases, /IA en entreprise/);
   assert.match(cases, /100 projets/);
   assert.match(cases, /Jira adapté/);
-  assert.match(cases, /Après le prototype/);
+  assert.match(cases, /standards et patterns appliquer/);
+  assert.match(cases, /pose des questions sur le projet et son contexte/);
   assert.ok(cases.indexOf("Gestion de projet") < cases.indexOf("IA en entreprise"));
   assert.match(page, /businessCases\.map/);
   assert.match(portfolio, /businessCases\.map/);
@@ -104,7 +105,7 @@ test("la démonstration présente trois cas d’usage dont deux confidentiels", 
   assert.match(page, /href="https:\/\/vioncouverture\.fr"/);
   assert.match(page, /Voir Vion Couverture/);
   assert.match(page, /href="\/portfolio"/);
-  assert.match(page, /Voir les réalisations/);
+  assert.match(page, /Voir nos autres réalisations/);
   assert.match(portfolio, /projects\.map/);
 
   for (const project of ["Vion Couverture", "Accord’Âme", "Corsicabrignoli"]) {

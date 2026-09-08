@@ -9,8 +9,8 @@ export const businessCases = [
   {
     title: "IA en entreprise",
     problem:
-      "Les salariés devaient retrouver les standards internes et choisir la stratégie adaptée à leur situation.",
+      "Les utilisateurs devaient savoir quels standards et patterns appliquer à leur projet.",
     solution:
-      "On a d’abord recueilli les besoins et comparé les outils. Après le prototype, on a spécialisé le chatbot par cas d’usage. Chaque salarié décrit sa situation et reçoit des conseils fondés sur les standards de l’entreprise.",
+      "On a mis en place un chatbot qui pose des questions sur le projet et son contexte, puis propose une solution fondée sur les standards et les patterns de l’entreprise.",
   },
 ] as const;
