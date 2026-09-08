@@ -294,10 +294,38 @@ export default function PolitiqueConfidentialite() {
                 </p>
               </div>
             </section>
+
+            <section id="avis-google">
+              <h2>10. Avis publiés sur Google</h2>
+              <div>
+                <p>
+                  Lorsqu’il est activé, le module d’avis reprend les avis publics de
+                  la fiche Google d’Amplixy : nom affiché de l’auteur, note,
+                  commentaire et dates de publication et de modification. La source
+                  est Google Business Profile. L’objectif est de permettre aux
+                  visiteurs de consulter les retours sur les prestations d’Amplixy.
+                </p>
+                <p>
+                  Ce traitement repose sur l’intérêt légitime d’Amplixy à présenter
+                  les retours publics concernant son activité. Les avis sont accessibles
+                  aux visiteurs du site. Leur copie temporaire est conservée au maximum
+                  24 heures avant actualisation ou suppression. Aucun historique
+                  d’avis n’est archivé par le site.
+                </p>
+                <p>
+                  Le module ne charge aucun widget ni photo Google dans votre
+                  navigateur. La consultation du site ne transmet pas de données
+                  de navigation à Google par ce module. Si vous ouvrez le lien vers
+                  la fiche Google, la politique de confidentialité de Google s’applique.
+                  Pour demander le retrait d’un avis de notre site ou exercer vos
+                  droits, contactez {" "}<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+                </p>
+              </div>
+            </section>
           </div>
 
           <p className="legal-updated">
-            Version du 19 août 2026. Cette politique est réexaminée lors de
+            Version du 8 septembre 2026. Cette politique est réexaminée lors de
             l’ajout d’un formulaire, chatbot, média intégré ou nouvel outil de
             mesure.
           </p>

@@ -14,3 +14,6 @@ export const NAV_LINKS = [
   { href: "/#produits", label: "Produits" },
   { href: "/portfolio", label: "Réalisations" },
 ] as const;
+
+// Google listing identified from the review link supplied by Florian.
+export const GOOGLE_BUSINESS_PROFILE_URL = "https://www.google.com/maps?cid=7841248597574085168";

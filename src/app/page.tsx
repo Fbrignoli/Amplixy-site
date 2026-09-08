@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ThumbBar } from "@/components/ThumbBar";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { businessCases } from "@/lib/business-cases";
 import {
@@ -335,6 +336,7 @@ export default function Home() {
               </article>
 
             </div>
+            <GoogleReviews />
           </div>
         </section>
 

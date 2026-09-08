@@ -94,3 +94,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+
+## Google reviews
+
+The module after the case studies uses the Google Business Profile API through `/api/google-reviews`. Synchronization starts in Node instrumentation at every container startup, including deployments. OAuth credentials are runtime-only; never add them to NEXT_PUBLIC variables, Docker build arguments, files, or logs. The in-memory cache expires after 24 hours. If unconfigured or unavailable, show only the real Google listing link; do not invent or hard-code ratings. Use “Avis publiés sur Google”, never “Google verified”. See `docs/google-reviews.md` for connection prerequisites and the current activation status.

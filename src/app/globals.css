@@ -1997,3 +1997,88 @@ a {
     display: none;
   }
 }
+
+
+/* Google reviews share the editorial layout of the case studies. */
+.google-reviews {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.google-reviews-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.google-reviews-intro h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.google-reviews-intro p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+}
+
+.google-reviews-rating,
+.google-review-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.google-reviews-rating strong,
+.google-review-stars {
+  color: var(--accent-deep);
+}
+
+.google-reviews-rating {
+  flex-wrap: wrap;
+}
+
+.google-reviews-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.google-review {
+  min-width: 0;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.google-review figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.google-review-stars {
+  gap: 0.15rem;
+}
+
+.google-review blockquote {
+  max-width: 68ch;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.google-review-date,
+.google-reviews-note {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+@media (min-width: 900px) {
+  .google-reviews-list:has(> :nth-child(2)) {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
