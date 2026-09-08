@@ -749,6 +749,13 @@ a {
   color: var(--muted);
 }
 
+.method-note {
+  max-width: 75ch;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
 @media (min-width: 760px) {
   .method-intro {
     grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
@@ -757,7 +764,7 @@ a {
   }
 
   .steps {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .step {
@@ -1010,7 +1017,13 @@ a {
 }
 
 .portfolio-projects {
-  padding-block: 0 clamp(5rem, 10vw, 9rem);
+  padding-block: clamp(3rem, 6vw, 5rem) clamp(5rem, 10vw, 9rem);
+}
+
+@media (min-width: 600px) {
+  .portfolio-business-cases .case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .portfolio-grid {
@@ -1275,7 +1288,7 @@ a {
 
 .compliance-visual > div {
   display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
+  grid-template-columns: 6rem minmax(0, 1fr);
   gap: 1rem;
   align-items: baseline;
   padding-block: 1rem;

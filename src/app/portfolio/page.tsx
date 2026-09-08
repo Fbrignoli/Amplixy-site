@@ -5,11 +5,12 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ThumbBar } from "@/components/ThumbBar";
 import { projects } from "@/lib/projects";
+import { businessCases } from "@/lib/business-cases";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Amplixy",
+  title: "Réalisations — Amplixy",
   description:
-    "Trois sites conçus par Amplixy pour un artisan, une école de musique et un commerce de marché.",
+    "Gestion de projet, IA métier et sites web : des missions Amplixy présentées par leur problème de départ et la réponse mise en place.",
   alternates: {
     canonical: "https://amplixy.com/portfolio",
   },
@@ -29,17 +30,53 @@ export default function PortfolioPage() {
           <div className="site-shell">
             <Link className="portfolio-back" href="/#realisations">
               <span aria-hidden="true">←</span>
-              Retour aux cas d’usage
+              Retour aux réalisations
             </Link>
-            <h1>Trois sites conçus autour de trois métiers.</h1>
+            <h1>Le métier donne le cap. Les réalisations le montrent.</h1>
+            <p>
+              Du suivi de projets à l’accès aux connaissances internes, jusqu’à
+              la présentation d’une activité : chaque mission part d’un besoin
+              concret. Les cas confidentiels sont présentés sans nommer les clients.
+            </p>
+          </div>
+        </section>
+
+        <section className="proof portfolio-business-cases" aria-labelledby="business-cases-title">
+          <div className="site-shell">
+            <div className="section-intro">
+              <h2 className="section-title" id="business-cases-title">Organisation et IA métier.</h2>
+            </div>
+            <div className="case-grid">
+              {businessCases.map((caseStudy) => (
+                <article className="use-case" key={caseStudy.title}>
+                  <header className="case-heading">
+                    <span className="case-index">Client confidentiel</span>
+                    <h3>{caseStudy.title}</h3>
+                  </header>
+                  <dl className="case-facts">
+                    <div>
+                      <dt>Le problème</dt>
+                      <dd>{caseStudy.problem}</dd>
+                    </div>
+                    <div>
+                      <dt>La réalisation</dt>
+                      <dd>{caseStudy.solution}</dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="portfolio-projects" aria-labelledby="web-projects-title">
+          <div className="site-shell section-intro split-intro">
+            <h2 className="section-title" id="web-projects-title">Trois sites, trois métiers.</h2>
             <p>
               Le contenu, la structure et la visibilité locale répondent au
               quotidien de chaque activité.
             </p>
           </div>
-        </section>
-
-        <section className="portfolio-projects" aria-label="Sites réalisés">
           <div className="site-shell portfolio-grid">
             {projects.map((project, index) => (
               <a

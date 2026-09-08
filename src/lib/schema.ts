@@ -17,7 +17,7 @@ export function schemaOrganization() {
     },
     image: BRAND_MARK_URL,
     description:
-      "Amplixy conçoit des systèmes numériques utiles autour du travail réel : conseil IA, sites web et outils métier sur mesure.",
+      "Amplixy accompagne les PME dans leurs choix numériques, la réalisation de solutions utiles et leur évolution, en partant du travail réel.",
     email: "contact@amplixy.com",
     telephone: "+33651070231",
     foundingDate: "2026-01-01",
@@ -84,12 +84,13 @@ export function schemaPerson() {
       "@id": "https://amplixy.com/#organization",
     },
     description:
-      "Florian Brignoli dirige Amplixy et conçoit des systèmes numériques adaptés au travail réel des entreprises.",
+      "Florian Brignoli est le fondateur et dirigeant d’Amplixy. Il accompagne les entreprises dans leurs choix numériques et pilote la réalisation des solutions.",
     knowsAbout: [
-      "Conseil et assistants IA",
-      "Création et refonte de sites web",
-      "Conception d’outils métier sur mesure",
-      "Pilotage de projets IT",
+      "Cadrage des besoins métier",
+      "Pilotage de projets numériques",
+      "Outils métier et automatisation",
+      "Usages de l’IA en entreprise",
+      "Sites web",
     ],
     url: "https://amplixy.com/#florian-brignoli",
   };
@@ -103,7 +104,7 @@ export function schemaWebSite() {
     url: "https://amplixy.com",
     name: "Amplixy",
     description:
-      "Conseil IA, sites web et outils métier sur mesure conçus autour du travail réel.",
+      "Amplixy accompagne les PME dans leurs choix numériques, la réalisation de solutions utiles et leur évolution, en partant du travail réel.",
     publisher: {
       "@type": "Organization",
       "@id": "https://amplixy.com/#organization",

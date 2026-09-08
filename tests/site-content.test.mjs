@@ -27,12 +27,15 @@ const contrastRatio = (foreground, background) => {
   return (values[0] + 0.05) / (values[1] + 0.05);
 };
 
-test("la page vend une seule promesse centrée sur l’outil adapté au métier", async () => {
+test("la page présente le rôle de référent des PME et les moyens concrets de garder le contrôle", async () => {
   const page = await read("src/app/page.tsx");
 
-  assert.match(page, /On construit l’outil qui manque/);
-  assert.match(page, /On construit la réponse autour de ça/);
-  assert.match(page, /On part de ce qui coince dans votre activité/);
+  assert.match(page, /Référent numérique indépendant des PME/);
+  assert.match(page, /Les outils changent/);
+  assert.match(page, /Votre entreprise garde le contrôle/);
+  assert.match(page, /choisir, relier et faire évoluer/);
+  assert.match(page, /des décisions\s+expliquées/);
+  assert.doesNotMatch(page, /On construit l’outil qui manque|Atelier numérique indépendant/);
   assert.doesNotMatch(page, /\bJe\b|\bJ’ai\b|\bje\b/);
   assert.doesNotMatch(page, /Trois formes de travail/);
   assert.doesNotMatch(page, /id="offre"/);
@@ -46,49 +49,62 @@ test("le principe de conception est expliqué sans simuler un faux logiciel", as
   assert.doesNotMatch(page, /Le besoin choisit la forme|Jamais l’inverse/);
   assert.doesNotMatch(page, /avant la technique/);
   assert.match(page, /Votre réalité/);
-  assert.match(page, /La réponse utile/);
+  assert.match(page, /Des choix utiles/);
   assert.doesNotMatch(page, /Prêt à travailler/);
 });
 
-test("la méthode inclut la formation et l’autonomie", async () => {
+test("les trois moments de l’accompagnement incluent transmission et suivi convenu", async () => {
   const page = await read("src/app/page.tsx");
 
-  assert.match(page, /D’un problème à un outil vraiment utilisé/);
-  assert.match(page, /On forme les personnes qui l’utiliseront/);
+  for (const title of ["Diagnostic et socle", "Réalisation", "Pilotage continu"]) {
+    assert.match(page, new RegExp(`title: "${title}"`));
+  }
+  assert.match(page, /on forme et on documente/);
+  assert.match(page, /Le périmètre et la fréquence du suivi sont convenus ensemble/);
+  assert.match(page, /accord distinct ou d’un volet prévu au contrat/);
 });
 
 test("le récit explique l’approche avant de montrer les sites", async () => {
   const page = await read("src/app/page.tsx");
 
   const approach = page.indexOf('id="approche"');
+  const foundation = page.indexOf('id="conformite"');
   const method = page.indexOf('id="methode"');
   const proof = page.indexOf('id="realisations"');
   const contact = page.indexOf('id="contact"');
 
   assert.ok(approach > 0 && method > 0 && proof > 0 && contact > 0);
-  assert.ok(approach < method);
+  assert.ok(approach < foundation);
+  assert.ok(foundation < method);
   assert.ok(method < proof);
   assert.ok(proof < contact);
 });
 
 test("la démonstration présente trois cas d’usage dont deux confidentiels", async () => {
-  const [page, portfolio, projects] = await Promise.all([
+  const [page, portfolio, projects, cases] = await Promise.all([
     read("src/app/page.tsx"),
     read("src/app/portfolio/page.tsx"),
     read("src/lib/projects.ts"),
+    read("src/lib/business-cases.ts"),
   ]);
 
   assert.match(page, /Communication/);
-  assert.match(page, /Gestion de projet/);
-  assert.match(page, /IA en entreprise/);
-  assert.match(page, /100 projets/);
-  assert.match(page, /Jira adapté/);
-  assert.match(page, /Après le POC/);
+  assert.match(cases, /Gestion de projet/);
+  assert.match(cases, /IA en entreprise/);
+  assert.match(cases, /100 projets/);
+  assert.match(cases, /Jira adapté/);
+  assert.match(cases, /Après le prototype/);
+  assert.ok(cases.indexOf("Gestion de projet") < cases.indexOf("IA en entreprise"));
+  assert.match(page, /businessCases\.map/);
+  assert.match(portfolio, /businessCases\.map/);
+  assert.ok(page.indexOf("businessCases.map") < page.indexOf("<h3>Communication"));
+  assert.ok(portfolio.indexOf("businessCases.map") < portfolio.indexOf("projects.map"));
+  assert.match(portfolio, /Client confidentiel/);
   assert.doesNotMatch(page, /Client confidentiel|3 projets publics/);
   assert.match(page, /href="https:\/\/vioncouverture\.fr"/);
   assert.match(page, /Voir Vion Couverture/);
   assert.match(page, /href="\/portfolio"/);
-  assert.match(page, /D’autres réalisations/);
+  assert.match(page, /Voir les réalisations/);
   assert.match(portfolio, /projects\.map/);
 
   for (const project of ["Vion Couverture", "Accord’Âme", "Corsicabrignoli"]) {
@@ -103,12 +119,13 @@ test("les trois cas ont le même poids sur une seule rangée", async () => {
   ]);
 
   assert.match(page, /className="case-grid"/);
-  assert.equal((page.match(/className="use-case"/g) ?? []).length, 3);
+  assert.equal((page.match(/className="use-case"/g) ?? []).length, 2);
+  assert.match(page, /businessCases\.map/);
   assert.match(css, /\.case-grid\s*\{[\s\S]*display:\s*grid/);
   assert.match(css, /grid-template-columns:\s*repeat\(3,/);
 });
 
-test("chaque appel à l’action passe par l’information de réservation", async () => {
+test("la navbar ouvre directement le calendrier et les autres CTA conservent l’information de réservation", async () => {
   const [page, navbar, thumbBar, site, booking] = await Promise.all([
     read("src/app/page.tsx"),
     read("src/components/Navbar.tsx"),
@@ -122,10 +139,19 @@ test("chaque appel à l’action passe par l’information de réservation", asy
   assert.match(site, /https:\/\/www\.cal\.eu\/florianbrignoli\/quick-chat/);
   assert.match(site, /BOOKING_URL = "\/rendez-vous"/);
 
-  for (const source of [page, navbar, thumbBar]) {
+  for (const source of [page, thumbBar]) {
     assert.match(source, /href=\{BOOKING_URL\}/);
     assert.match(source, /Parler de votre besoin/);
   }
+
+  for (const className of ["nav-cta", "menu-sheet-cta"]) {
+    const link = navbar.match(new RegExp(`<a\\s+className="[^"]*${className}"([\\s\\S]*?)<\\/a>`));
+    assert.ok(link, `Le CTA ${className} doit rester un lien natif`);
+    assert.match(link[1], /href=\{CALENDAR_URL\}/);
+    assert.match(link[1], /Réserver 30 min/);
+    assert.doesNotMatch(link[1], /BOOKING_URL|target=|preventDefault/);
+  }
+  assert.doesNotMatch(navbar, /@calcom|<iframe|<Script|preconnect|prefetch/);
 
   assert.match(booking, /href=\{CALENDAR_URL\}/);
   assert.match(booking, /CALENDAR_PROVIDER_NAME/);
@@ -393,15 +419,20 @@ test("les liens évitent les flèches diagonales et Firaxy garde une flèche hor
   );
 });
 
-test("la souveraineté et la conformité sont cadrées sans garantie absolue", async () => {
+test("le socle est concret et la conformité reste cadrée sans garantie absolue", async () => {
   const [page, guide] = await Promise.all([
     read("src/app/page.tsx"),
     read("src/app/conformite-ia/page.tsx"),
   ]);
 
-  assert.match(page, /Vous gardez la main sur vos outils et vos données/);
-  assert.match(page, /RGPD/);
-  assert.match(page, /AI Act/);
+  assert.match(page, /Un dossier de référence qui reste dans votre entreprise/);
+  assert.match(page, /Il vous appartient/);
+  assert.match(page, /Aucun nouveau logiciel n’est imposé/);
+  assert.match(page, /Vos processus et règles essentiels/);
+  assert.match(page, /Les flux, les accès et leurs responsables/);
+  assert.match(page, /Les dépendances, les exports et les priorités/);
+  assert.match(page, /usages de l’IA et leurs limites/);
+  assert.match(page, /export et de reprise dépendent aussi des outils retenus/);
   assert.match(page, /className="compliance-visual"/);
   assert.match(page, /href="\/conformite-ia"/);
   assert.match(guide, /Le RGPD/);
@@ -418,10 +449,31 @@ test("la souveraineté et la conformité sont cadrées sans garantie absolue", a
 });
 
 test("aucun témoignage ni chiffre marketing inventé", async () => {
-  const page = await read("src/app/page.tsx");
+  const sources = await Promise.all([
+    read("src/app/page.tsx"),
+    read("src/lib/business-cases.ts"),
+  ]);
+  const page = sources.join("\n");
 
   assert.doesNotMatch(page, /nos experts|notre équipe/i);
   assert.doesNotMatch(page, /ils nous font confiance/i);
   assert.doesNotMatch(page, /\d+\s*(clients|ans d’expérience)/i);
   assert.match(page, /environ 100 projets/);
+});
+
+
+test("les métadonnées et le texte destiné aux assistants suivent le positionnement public", async () => {
+  const [layout, schema, llms] = await Promise.all([
+    read("src/app/layout.tsx"),
+    read("src/lib/schema.ts"),
+    read("public/llms.txt"),
+  ]);
+
+  assert.match(layout, /Référent numérique indépendant des PME/);
+  assert.match(layout, /choisir, relier et faire évoluer/);
+  assert.match(schema, /Amplixy accompagne les PME dans leurs choix numériques/);
+  assert.match(llms, /référent numérique indépendant des PME/);
+  assert.match(llms, /livrable documentaire, pas une plateforme logicielle/);
+  assert.match(llms, /périmètre et une fréquence convenus au contrat/);
+  assert.doesNotMatch(`${layout}\n${schema}\n${llms}`, /L’outil qui manque|Atelier numérique indépendant|## Expertises/);
 });

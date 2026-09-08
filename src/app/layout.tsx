@@ -18,9 +18,9 @@ const geist = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amplixy.com"),
-  title: "Amplixy — Solutions numériques sur mesure",
+  title: "Amplixy — Référent numérique indépendant des PME",
   description:
-    "Amplixy construit l’outil numérique adapté à votre activité : outil métier, automatisation ou site, conçu autour de votre façon de travailler.",
+    "Amplixy aide les PME à choisir, relier et faire évoluer leurs outils numériques. Diagnostic, réalisation et suivi, à partir du travail réel.",
   authors: [{ name: "Florian Brignoli", url: "https://amplixy.com" }],
   creator: "Florian Brignoli",
   publisher: "Amplixy",
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "L’outil qui manque à votre activité",
+    title: "Les outils changent. Votre entreprise garde le contrôle.",
     description:
-      "Outil métier, automatisation ou site : Amplixy construit la solution autour de votre façon de travailler.",
+      "Amplixy aide les PME à choisir, relier et faire évoluer leurs outils numériques. Diagnostic, réalisation et suivi, à partir du travail réel.",
     url: "https://amplixy.com",
     siteName: "Amplixy",
     locale: "fr_FR",
@@ -65,9 +65,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@florianbrignoli",
-    title: "Amplixy — L’outil adapté à votre activité",
+    title: "Les outils changent. Votre entreprise garde le contrôle.",
     description:
-      "Des solutions numériques sur mesure, conçues autour du travail réel.",
+      "Amplixy aide les PME à choisir, relier et faire évoluer leurs outils numériques. Diagnostic, réalisation et suivi, à partir du travail réel.",
   },
 };
 

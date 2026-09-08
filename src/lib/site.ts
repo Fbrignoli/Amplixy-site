@@ -13,5 +13,5 @@ export const NAV_LINKS = [
   { href: "/#approche", label: "L’approche" },
   { href: "/#methode", label: "La méthode" },
   { href: "/#produits", label: "Produits" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portfolio", label: "Réalisations" },
 ] as const;

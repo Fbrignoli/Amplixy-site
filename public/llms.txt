@@ -1,6 +1,6 @@
 # Amplixy
 
-> Amplixy conçoit des systèmes numériques utiles autour du travail réel : conseil IA, sites web et outils métier sur mesure.
+> Amplixy aide les PME à choisir, relier et faire évoluer leurs outils numériques. Le point de confiance entre votre métier et le numérique.
 
 ## Entreprise
 
@@ -13,28 +13,29 @@
 
 ## Positionnement
 
-Votre métier d’abord, la technique ensuite. Amplixy part des tâches, contraintes et résultats attendus avant de choisir ou de construire une solution.
+Amplixy est le référent numérique indépendant des PME. Elle aide les entreprises à choisir, relier et faire évoluer leurs outils à partir du travail réel.
 
-## Expertises
+Promesse : Les outils changent. Votre entreprise garde le contrôle.
 
-### Conseil IA
+Signature : Le point de confiance entre votre métier et le numérique.
 
-Choisir le bon usage, construire la solution et rendre les équipes autonomes. Florian Brignoli pilote les opérations au sein d’Amplixy.
+Doctrine : Votre métier d’abord, la technique ensuite.
 
-### Sites web
+## Accompagnement
 
-Concevoir des vitrines rapides, crédibles et structurées autour de la décision du client. Réalisations : Vion Couverture, Accord’Âme et Corsicabrignoli.
+1. Diagnostic et socle : comprendre l’activité, cartographier l’existant et formaliser les priorités dans un dossier de référence appartenant au client.
+2. Réalisation : configurer, intégrer ou construire la solution utile, la tester et la transmettre.
+3. Pilotage continu : accompagner les décisions et les évolutions selon un périmètre et une fréquence convenus au contrat.
 
-### Outils métier
+Le socle est un livrable documentaire, pas une plateforme logicielle. Il regroupe selon le périmètre convenu les processus, outils et flux de données, responsables et accès, usages de l’IA et leurs limites, dépendances, procédures de reprise, possibilités d’export et feuille de route. Les possibilités de reprise dépendent aussi des outils retenus.
 
-Construire un outil autour des opérations réelles de l’entreprise au lieu d’imposer un processus générique.
+Les solutions peuvent prendre la forme d’un outil métier, d’une automatisation, d’un usage IA ou d’un site. Le suivi est convenu au contrat ; il n’implique ni abonnement automatique ni prise en charge illimitée.
 
-## Méthode
+## Réalisations et produits
 
-1. Observer le travail réel et les contraintes.
-2. Simplifier les détours et doublons.
-3. Construire une solution utile et testable.
-4. Transmettre pour rendre le client autonome et propriétaire.
+Les cas présentés couvrent la gestion de projet sous Jira et l’IA fondée sur des standards internes (deux clients anonymes), ainsi que trois sites : Vion Couverture, Accord’Âme et Corsicabrignoli. Ils illustrent des missions réalisées, sans prétendre démontrer un pilotage continu déjà déployé chez tous ces clients.
+
+Firaxy est un produit Amplixy pour les commerçants de foires et marchés, avec sa propre marque. Il est distinct du socle numérique remis aux clients de l’accompagnement.
 
 ## Contact
 
@@ -44,7 +45,10 @@ Construire un outil autour des opérations réelles de l’entreprise au lieu d�
 
 ## Pages
 
-- [Accueil](https://amplixy.com) — Expertises, réalisations, méthode et prise de rendez-vous
+- [Accueil](https://amplixy.com) — Accompagnement, socle numérique, réalisations et prise de rendez-vous
+- [Réalisations](https://amplixy.com/portfolio) — Gestion de projet, IA métier et sites web
 - [Mentions légales](https://amplixy.com/mentions-legales) — Informations légales
 - [Politique de confidentialité](https://amplixy.com/politique-confidentialite) — Traitements de données et droits RGPD
 - [Prendre rendez-vous](https://amplixy.com/rendez-vous) — Information préalable et accès à l’agenda
+
+La navbar desktop et mobile ouvre directement l’agenda avec le bouton « Réserver 30 min ». Les autres appels à la réservation conservent la page d’information /rendez-vous.

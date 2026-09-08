@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  BOOKING_URL,
+  CALENDAR_URL,
   CONTACT_PHONE,
   CONTACT_PHONE_HREF,
   NAV_LINKS,
@@ -64,9 +64,9 @@ export const Navbar = () => {
           ))}
           <a
             className="button button-primary nav-cta"
-            href={BOOKING_URL}
+            href={CALENDAR_URL}
           >
-            Parler de votre besoin
+            Réserver 30 min
           </a>
         </div>
 
@@ -125,10 +125,10 @@ export const Navbar = () => {
 
           <a
             className="button button-primary menu-sheet-cta"
-            href={BOOKING_URL}
+            href={CALENDAR_URL}
             onClick={close}
           >
-            Parler de votre besoin
+            Réserver 30 min
           </a>
 
           <p className="menu-sheet-contact">

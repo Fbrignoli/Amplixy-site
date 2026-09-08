@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ThumbBar } from "@/components/ThumbBar";
 import { ToolMarquee } from "@/components/ToolMarquee";
+import { businessCases } from "@/lib/business-cases";
 import {
   BOOKING_URL,
   CONTACT_PHONE,
@@ -14,44 +15,38 @@ const painPoints = [
   {
     problem: "Les informations se dispersent",
     answer:
-      "On rassemble devis, planning, suivi et documents dans un outil pensé pour votre équipe.",
+      "On identifie les données de référence et les échanges utiles entre vos outils pour réduire les doubles saisies.",
   },
   {
-    problem: "Une tâche revient sans cesse",
+    problem: "Un nouvel outil promet de tout changer",
     answer:
-      "On automatise ce qui peut l’être, avec un contrôle humain là où il compte.",
+      "On vérifie ce qu’il apporte au travail réel, ce qu’il coûte et les dépendances qu’il crée avant de le retenir.",
   },
   {
-    problem: "Votre activité est mal présentée",
+    problem: "Tout repose sur une seule personne",
     answer:
-      "On construit le site ou l’interface qui rend votre valeur évidente et facile à trouver.",
+      "On documente les règles, les accès et les décisions pour faciliter la continuité et la transmission.",
   },
 ] as const;
 
 const steps = [
   {
     number: "01",
-    title: "Comprendre le travail",
+    title: "Diagnostic et socle",
     description:
-      "On regarde comment l’activité fonctionne aujourd’hui, avec ses raccourcis, ses doublons et ses vraies contraintes.",
+      "On observe le travail, on repère les outils et les données, puis on formalise les priorités dans votre dossier de référence.",
   },
   {
     number: "02",
-    title: "Dessiner la solution",
+    title: "Réalisation",
     description:
-      "On choisit le chemin le plus simple. La technologie vient après, quand le besoin est clair.",
+      "On configure, relie ou construit la solution utile : outil métier, automatisation, IA ou site. On la teste avec les utilisateurs, puis on forme et on documente.",
   },
   {
     number: "03",
-    title: "Construire avec vous",
+    title: "Pilotage continu",
     description:
-      "Une première version utilisable arrive vite. Vous la testez dans le quotidien, puis on l’ajuste.",
-  },
-  {
-    number: "04",
-    title: "Vous rendre autonome",
-    description:
-      "On forme les personnes qui l’utiliseront, on documente l’essentiel et la solution reste à vous.",
+      "Nouveaux outils, accès à revoir, besoins qui changent : Amplixy aide à arbitrer les évolutions et à tenir la documentation à jour. Le périmètre et la fréquence du suivi sont convenus ensemble.",
   },
 ] as const;
 
@@ -68,14 +63,15 @@ export default function Home() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="site-shell hero-layout">
             <div className="hero-copy">
-              <p className="hero-label">Atelier numérique indépendant · Melun</p>
+              <p className="hero-label">Référent numérique indépendant des PME</p>
               <h1 className="display" id="hero-title">
-                On construit l’outil qui manque à{" "}
-                <span>votre activité.</span>
+                Les outils changent.{" "}
+                <span>Votre entreprise garde le contrôle.</span>
               </h1>
               <p className="hero-lede">
-                Vous nous montrez votre quotidien, les détours et les tâches qui
-                prennent trop de temps. On construit la réponse autour de ça.
+                Amplixy aide les PME à choisir, relier et faire évoluer leurs outils
+                numériques. En partant du travail réel, avec des décisions
+                expliquées et une documentation que l’entreprise conserve.
               </p>
 
               <div className="hero-actions" id="hero-cta">
@@ -85,8 +81,8 @@ export default function Home() {
                 >
                   Parler de votre besoin
                 </a>
-                <a className="text-link" href="#approche">
-                  Voir comment on travaille
+                <a className="text-link" href="#methode">
+                  Découvrir l’accompagnement
                   <span aria-hidden="true">↓</span>
                 </a>
               </div>
@@ -101,16 +97,16 @@ export default function Home() {
                 />
                 <p>
                   <strong>Florian Brignoli</strong>
-                  Votre interlocuteur du premier échange à la livraison. Selon
-                  le besoin, d’autres spécialistes rejoignent le projet.
+                  Fondateur d’Amplixy et votre interlocuteur pour cadrer les priorités.
+                  Selon le besoin, il coordonne d’autres spécialistes.
                 </p>
               </div>
             </div>
 
             <figure className="principle-board">
               <figcaption>
-                <span>Avant de parler technologie</span>
-                Une règle simple
+                <span>Le point de confiance</span>
+                Entre votre métier et le numérique
               </figcaption>
 
               <blockquote>
@@ -123,15 +119,15 @@ export default function Home() {
                   <span>01</span>
                   <div>
                     <strong>Votre réalité</strong>
-                    <small>Le travail, les blocages, les contraintes.</small>
+                    <small>Le travail, les règles, les contraintes.</small>
                   </div>
                 </div>
                 <span className="principle-arrow" aria-hidden="true">→</span>
                 <div className="principle-step">
                   <span>02</span>
                   <div>
-                    <strong>La réponse utile</strong>
-                    <small>L’outil qui simplifie vraiment le quotidien.</small>
+                    <strong>Des choix utiles</strong>
+                    <small>Des outils reliés à vos priorités.</small>
                   </div>
                 </div>
               </div>
@@ -143,12 +139,12 @@ export default function Home() {
           <div className="site-shell">
             <div className="section-intro split-intro">
               <h2 className="section-title" id="approach-title">
-                On part de ce qui coince dans votre activité.
+                Vos outils s’accumulent. Les décisions aussi.
               </h2>
               <p>
-                La bonne solution peut être minuscule ou ambitieuse, visible de
-                vos clients ou réservée à votre équipe. Son rôle reste le même :
-                rendre le travail plus simple.
+                Quel logiciel garder ? Où sont les bonnes informations ? L’IA
+                est-elle utile ici ? Amplixy vous aide à décider à partir de
+                votre activité, de vos contraintes et de ce qui existe déjà.
               </p>
             </div>
 
@@ -164,15 +160,58 @@ export default function Home() {
           </div>
         </section>
 
+        <section
+          className="compliance"
+          id="conformite"
+          aria-labelledby="compliance-title"
+        >
+          <div className="site-shell compliance-layout">
+            <h2 id="compliance-title">
+              Un dossier de référence qui reste dans votre entreprise.
+            </h2>
+            <div>
+              <p>
+                C’est votre socle numérique : les informations utiles pour comprendre
+                vos outils, prendre les prochaines décisions et préparer leur reprise.
+                Il vous appartient. Aucun nouveau logiciel n’est imposé pour le consulter.
+              </p>
+              <div className="compliance-visual">
+                <div>
+                  <span>Métier</span>
+                  <strong>Vos processus et règles essentiels.</strong>
+                </div>
+                <div>
+                  <span>Outils et données</span>
+                  <strong>Les flux, les accès et leurs responsables.</strong>
+                </div>
+                <div>
+                  <span>Continuité</span>
+                  <strong>Les dépendances, les exports et les priorités.</strong>
+                </div>
+              </div>
+              <p className="compliance-note">
+                Son contenu est défini au cadrage : usages de l’IA et leurs limites,
+                procédures de reprise, coûts ou feuille de route selon le besoin.
+                Les possibilités d’export et de reprise dépendent aussi des outils retenus.
+              </p>
+              <Link className="compliance-link" href="/conformite-ia">
+                Comprendre les enjeux de données et d’IA
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="method" id="methode" aria-labelledby="method-title">
           <div className="site-shell">
             <div className="section-intro method-intro">
               <h2 className="section-title" id="method-title">
-                D’un problème à un outil vraiment utilisé.
+                Comprendre, réaliser, puis faire évoluer.
               </h2>
               <p>
-                Un chemin court, avec des décisions visibles et une version
-                concrète à tester le plus tôt possible.
+                On commence par vos priorités. On réalise ce qui est utile. Si vous
+                avez besoin d’un suivi, Amplixy vous accompagne ensuite dans les
+                décisions et les évolutions.
               </p>
             </div>
 
@@ -189,6 +228,10 @@ export default function Home() {
                 </li>
               ))}
             </ol>
+            <p className="method-note">
+              Chaque mission précise les livrables, les responsabilités et les coûts.
+              Le suivi fait l’objet d’un accord distinct ou d’un volet prévu au contrat.
+            </p>
           </div>
         </section>
 
@@ -200,18 +243,37 @@ export default function Home() {
           <div className="site-shell">
             <div className="section-intro split-intro proof-intro">
               <h2 className="section-title" id="proof-title">
-                Communication, gestion de projet et IA en entreprise.
+                Des décisions métier, des réalisations concrètes.
               </h2>
               <p>
-                Deux clients souhaitent rester anonymes. On présente leur
-                situation et la réponse mise en place, sans citer leur nom.
+                Organisation, IA ou communication : ces missions montrent comment
+                Amplixy part du besoin pour choisir et mettre en place la réponse.
+                Deux clients restent anonymes à leur demande.
               </p>
             </div>
 
             <div className="case-grid">
+              {businessCases.map((caseStudy, index) => (
+                <article className="use-case" key={caseStudy.title}>
+                  <header className="case-heading">
+                    <span className="case-index">Cas 0{index + 1}</span>
+                    <h3>{caseStudy.title}</h3>
+                  </header>
+                  <dl className="case-facts">
+                    <div>
+                      <dt>Le problème</dt>
+                      <dd>{caseStudy.problem}</dd>
+                    </div>
+                    <div>
+                      <dt>La réalisation</dt>
+                      <dd>{caseStudy.solution}</dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
               <article className="use-case">
                 <header className="case-heading">
-                  <span className="case-index">Cas 01</span>
+                  <span className="case-index">Cas 03</span>
                   <h3>Communication</h3>
                 </header>
 
@@ -224,10 +286,10 @@ export default function Home() {
                     </dd>
                   </div>
                   <div>
-                    <dt>La solution</dt>
+                    <dt>La réalisation</dt>
                     <dd>
-                      On a conçu trois sites adaptés à leur métier et à leur
-                      zone d’activité.
+                      Trois sites adaptés à leur métier et à leur zone d’activité :
+                      Vion Couverture, Accord’Âme et Corsicabrignoli.
                     </dd>
                   </div>
                 </dl>
@@ -242,106 +304,17 @@ export default function Home() {
                     Voir Vion Couverture
                   </a>
                   <Link className="case-link" href="/portfolio">
-                    D’autres réalisations
+                    Voir les réalisations
                     <span aria-hidden="true">→</span>
                   </Link>
                 </div>
               </article>
 
-              <article className="use-case">
-                  <header className="case-heading">
-                    <span className="case-index">Cas 02</span>
-                    <h3>Gestion de projet</h3>
-                  </header>
-                  <dl className="case-facts">
-                    <div>
-                      <dt>Le problème</dt>
-                      <dd>
-                        Dix chefs de projet pilotaient environ 100 projets par
-                        an dans un même fichier Excel.
-                      </dd>
-                    </div>
-                    <div>
-                      <dt>La solution</dt>
-                      <dd>
-                        On a configuré un Jira adapté à leur organisation et
-                        ajouté les automatisations nécessaires. On a ensuite
-                        formé l’équipe et accompagné la transition.
-                      </dd>
-                    </div>
-                  </dl>
-              </article>
-
-              <article className="use-case">
-                  <header className="case-heading">
-                    <span className="case-index">Cas 03</span>
-                    <h3>IA en entreprise</h3>
-                  </header>
-                  <dl className="case-facts">
-                    <div>
-                      <dt>Le problème</dt>
-                      <dd>
-                        Les salariés devaient retrouver les standards internes
-                        et choisir la stratégie adaptée à leur situation.
-                      </dd>
-                    </div>
-                    <div>
-                      <dt>La solution</dt>
-                      <dd>
-                        On a d’abord recueilli les besoins et comparé les outils.
-                        Après le POC, on a spécialisé le chatbot par cas d’usage.
-                        Chaque salarié décrit sa situation et reçoit des conseils
-                        fondés sur les standards de l’entreprise.
-                      </dd>
-                    </div>
-                  </dl>
-              </article>
             </div>
           </div>
         </section>
 
         <ToolMarquee />
-
-        <section
-          className="compliance"
-          id="conformite"
-          aria-labelledby="compliance-title"
-        >
-          <div className="site-shell compliance-layout">
-            <h2 id="compliance-title">
-              Vous gardez la main sur vos outils et vos données.
-            </h2>
-            <div>
-              <p>
-                Vos données, vos accès et vos outils restent maîtrisables par
-                votre entreprise. On cadre chaque usage selon le RGPD et les
-                obligations applicables de l’AI Act.
-              </p>
-              <div className="compliance-visual">
-                <div>
-                  <span>Données</span>
-                  <strong>Vous savez où elles vont.</strong>
-                </div>
-                <div>
-                  <span>Accès</span>
-                  <strong>Vous décidez qui peut agir.</strong>
-                </div>
-                <div>
-                  <span>Reprise</span>
-                  <strong>Vous pouvez faire évoluer l’outil.</strong>
-                </div>
-              </div>
-              <p className="compliance-note">
-                Chaque projet documente les données utilisées, les accès et les
-                limites du système.
-              </p>
-              <Link className="compliance-link" href="/conformite-ia">
-                Comprendre le RGPD, l’AI Act et le rôle du DPO
-                <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-        </section>
 
         <section
           className="products"
@@ -354,8 +327,9 @@ export default function Home() {
                 Les produits Amplixy.
               </h2>
               <p>
-                Des outils conçus pour un besoin précis, exploités sous leur
-                propre marque en complément des projets sur mesure.
+                Amplixy développe aussi des produits pour un public et un besoin
+                précis. Ils ont leur propre marque et complètent l’activité
+                d’accompagnement.
               </p>
             </div>
 
@@ -425,15 +399,16 @@ export default function Home() {
         <section className="closing" id="contact" aria-labelledby="contact-title">
           <div className="site-shell closing-layout">
             <div>
-              <p className="closing-label">Le premier échange dure 30 minutes</p>
+              <p className="closing-label">Un premier échange de 30 minutes</p>
               <h2 className="section-title" id="contact-title">
-                Qu’est-ce qui vous fait perdre du temps aujourd’hui&nbsp;?
+                Quelle décision numérique devez-vous prendre&nbsp;?
               </h2>
             </div>
             <div className="closing-copy">
               <p>
-                Vous nous expliquez la situation. On vous dit franchement ce
-                qu’on construirait, et si Amplixy est la bonne réponse.
+                Un outil à choisir, un fonctionnement à simplifier, une question
+                sur l’IA ? Vous expliquez la situation. On identifie les points
+                à clarifier et on vous dit si Amplixy peut vous aider.
               </p>
               <a
                 className="button button-inverse"

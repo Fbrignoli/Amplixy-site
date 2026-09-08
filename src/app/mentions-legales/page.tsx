@@ -6,7 +6,7 @@ import { Navbar } from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "Mentions légales — Amplixy",
   description:
-    "Mentions légales d’Amplixy EURL, atelier numérique indépendant basé à Melun.",
+    "Mentions légales d’Amplixy EURL, référent numérique indépendant des PME basé à Melun.",
   alternates: {
     canonical: "https://amplixy.com/mentions-legales",
   },

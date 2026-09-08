@@ -35,7 +35,7 @@ export function ToolMarquee() {
   return (
     <section className="tools-band" aria-label="Outils utilisés selon les projets">
       <div className="site-shell tools-band-intro">
-        <p>Les outils changent selon le besoin</p>
+        <p>Les outils sont choisis selon le besoin.</p>
       </div>
       <div className="tools-marquee">
         <div className="tools-track">
