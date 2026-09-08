@@ -621,6 +621,7 @@ a {
 }
 
 .principle-arrow {
+  justify-self: start;
   color: var(--on-dark-muted);
   font-size: 1.25rem;
   transform: rotate(90deg);
