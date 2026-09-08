@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -47,6 +48,29 @@ const steps = [
     title: "Pilotage continu",
     description:
       "Nouveaux outils, accès à revoir, besoins qui changent : Amplixy aide à arbitrer les évolutions et à tenir la documentation à jour. Le périmètre et la fréquence du suivi sont convenus ensemble.",
+  },
+] as const;
+
+const faqItems = [
+  {
+    question: "Comment démarre un accompagnement ?",
+    answer:
+      "Par un échange de 30 minutes pour comprendre votre activité, vos difficultés et vos priorités. Vous n’avez pas besoin d’un cahier des charges : on clarifie le besoin ensemble, puis on définit le périmètre, les livrables et le budget avant de commencer la mission.",
+  },
+  {
+    question: "Faut-il changer tous nos outils ?",
+    answer:
+      "Non. On commence par ce que vous utilisez déjà. Un outil peut être conservé, mieux configuré ou relié aux autres. On propose un remplacement ou du sur-mesure seulement si cela répond à un besoin identifié.",
+  },
+  {
+    question: "Que se passe-t-il après la livraison ?",
+    answer:
+      "Vous conservez le dossier de référence et la documentation prévus dans la mission. On prépare la prise en main et la transmission avec vous. Si vous souhaitez un suivi, son périmètre, sa fréquence et son coût sont convenus ensemble.",
+  },
+  {
+    question: "Amplixy est-elle à l’origine d’amplixy.ai ?",
+    answer:
+      "Non. Nous ne sommes pas à l’origine d’amplixy.ai et nous n’exploitons pas ce site. Le site officiel de notre entreprise est amplixy.com. Pour nous contacter, utilisez les coordonnées présentes sur ce site.",
   },
 ] as const;
 
@@ -420,6 +444,22 @@ export default function Home() {
                 Vous préférez appeler ?{" "}
                 <a href={CONTACT_PHONE_HREF}>{CONTACT_PHONE}</a>
               </span>
+            </div>
+          </div>
+        </section>
+        <section className="faq" id="faq" aria-labelledby="faq-title">
+          <div className="site-shell faq-layout">
+            <h2 className="section-title" id="faq-title">Questions fréquentes.</h2>
+            <div className="faq-list">
+              {faqItems.map((item) => (
+                <details className="faq-item" key={item.question}>
+                  <summary>
+                    <span>{item.question}</span>
+                    <ChevronDown className="faq-chevron" size={20} aria-hidden="true" />
+                  </summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>

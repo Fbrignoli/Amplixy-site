@@ -51,4 +51,8 @@ Firaxy est un produit Amplixy pour les commerçants de foires et marchés, avec 
 - [Politique de confidentialité](https://amplixy.com/politique-confidentialite) — Traitements de données et droits RGPD
 - [Prendre rendez-vous](https://amplixy.com/rendez-vous) — Information préalable et accès à l’agenda
 
-La navbar desktop et mobile ouvre directement l’agenda avec le bouton « Réserver 30 min ». Les autres appels à la réservation conservent la page d’information /rendez-vous.
+Tous les boutons « Réserver 30 min » et « Parler de votre besoin » ouvrent directement l’agenda. La page /rendez-vous reste accessible à son adresse comme information complémentaire.
+
+## Identité
+
+Amplixy, dont le site officiel est amplixy.com, n’est pas à l’origine d’amplixy.ai et n’exploite pas ce site.
