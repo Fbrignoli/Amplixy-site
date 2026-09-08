@@ -69,7 +69,7 @@ The homepage is mobile-first. Keep explicit checks around 390 px, 768 px, and 12
 
 1. **Homepage order**: hero and doctrine, approach, reference dossier, three moments of accompaniment, business cases, tools, separate Amplixy products, contact
 2. **Real portfolio**: confidential Jira and business AI cases first, followed by local optimized WebP assets for Vion Couverture, Accord'Âme, and Corsicabrignoli. Do not invent results or imply ongoing guidance was already delivered in all these cases.
-3. **Booking**: desktop and mobile navbar “Réserver 30 min” links open `CALENDAR_URL` directly in the same tab. Other “Parler de votre besoin” CTAs retain `/rendez-vous`. The external event displays its own Amplixy privacy notice before selection; do not embed or preload the calendar.
+3. **Booking**: desktop and mobile navbar “Réserver 30 min” links open `CALENDAR_URL` directly in the same tab. All “Parler de votre besoin” CTAs also open `CALENDAR_URL` directly. The `/rendez-vous` information page remains accessible at its existing URL. The external event displays its own Amplixy privacy notice before selection; do not embed or preload the calendar.
 4. **Analytics**: self-hosted Umami at `trafic.amplixy.cloud`, blocked until explicit consent
 5. **SEO**: canonical metadata, sitemap, robots, Open Graph image, and JSON-LD
 
@@ -81,7 +81,7 @@ The project uses a multi-stage Docker build and is deployed by Coolify on the Ho
 
 - **Language**: all public content is in French
 - **Homepage**: prefer a server component; keep client code limited to genuine interaction such as the mobile menu
-- **Booking**: use `CALENDAR_URL` for both navbar CTAs and the booking information page; other CTAs keep `BOOKING_URL`. Keep provider and URL configurable for migration.
+- **Booking**: use `CALENDAR_URL` for every booking CTA, including the navbar, home page, mobile thumb bar and booking information page. Keep provider and URL configurable for migration.
 - **Images**: use local optimized assets with `next/image`
 - **Quality gate**: run lint, typecheck, tests, and the production build before deployment
 

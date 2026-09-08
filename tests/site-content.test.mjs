@@ -125,7 +125,7 @@ test("les trois cas ont le même poids sur une seule rangée", async () => {
   assert.match(css, /grid-template-columns:\s*repeat\(3,/);
 });
 
-test("la navbar ouvre directement le calendrier et les autres CTA conservent l’information de réservation", async () => {
+test("tous les CTA de réservation ouvrent directement le calendrier", async () => {
   const [page, navbar, thumbBar, site, booking] = await Promise.all([
     read("src/app/page.tsx"),
     read("src/components/Navbar.tsx"),
@@ -137,10 +137,11 @@ test("la navbar ouvre directement le calendrier et les autres CTA conservent l�
   assert.match(site, /NEXT_PUBLIC_CALENDAR_PROVIDER_NAME/);
   assert.match(site, /NEXT_PUBLIC_CALENDAR_URL/);
   assert.match(site, /https:\/\/www\.cal\.eu\/florianbrignoli\/quick-chat/);
-  assert.match(site, /BOOKING_URL = "\/rendez-vous"/);
+  assert.doesNotMatch(site, /BOOKING_URL/);
 
   for (const source of [page, thumbBar]) {
-    assert.match(source, /href=\{BOOKING_URL\}/);
+    assert.match(source, /href=\{CALENDAR_URL\}/);
+    assert.doesNotMatch(source, /BOOKING_URL/);
     assert.match(source, /Parler de votre besoin/);
   }
 
