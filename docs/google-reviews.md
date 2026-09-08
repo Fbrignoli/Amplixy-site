@@ -4,6 +4,8 @@
 
 Le module et le connecteur sont implémentés. **L’import réel n’est pas activé : aucun accès API Business Profile n’est configuré dans Coolify.** La page affiche seulement le lien de consultation jusqu’à la première synchronisation réussie. Aucun chiffre ou témoignage n’est saisi en dur.
 
+La demande d’accès a été envoyée à Google le 2026-09-08 pour le projet Cloud `amplixy`. L’API Business Information est activée, mais son quota observé est de 0 requête par minute : l’approbation reste en attente. Google annonce environ 7 à 10 jours ouvrés de traitement. Le compte gestionnaire a été identifié et la référence du dossier est conservée dans la note interne Amplixy. Après approbation, reprendre les étapes OAuth, découverte de la fiche et configuration runtime ci-dessous. Aucun scraper n’est déployé.
+
 - Fiche fournie par Florian : https://g.page/r/CTDq7gUOttFsEAE/review
 - Consultation sans ouvrir le formulaire de rédaction : https://www.google.com/maps?cid=7841248597574085168
 - La fiche a été vérifiée dans Google Maps : nom Amplixy et site amplixy.com. La note observée ne sert pas de donnée de secours.
