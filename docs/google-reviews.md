@@ -8,6 +8,7 @@ Le module et le connecteur sont implémentés. **L’import réel n’est pas ac
 - Consultation sans ouvrir le formulaire de rédaction : https://www.google.com/maps?cid=7841248597574085168
 - La fiche a été vérifiée dans Google Maps : nom Amplixy et site amplixy.com. La note observée ne sert pas de donnée de secours.
 - Libellé : « Avis publiés sur Google ». Pas de badge « Google verified » : les avis ne sont pas vérifiés par Google.
+- Présentation : la séparation avec les cas concrets utilise leur bordure existante ; le module n’ajoute pas de deuxième ligne au-dessus.
 
 ## Source et cycle
 

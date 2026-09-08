@@ -2003,7 +2003,6 @@ a {
 .google-reviews {
   margin-top: clamp(3rem, 6vw, 5rem);
   padding-top: 2rem;
-  border-top: 1px solid var(--line-strong);
 }
 
 .google-reviews-intro {
