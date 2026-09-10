@@ -62,9 +62,14 @@ test("le fallback ponctuel contient exactement les trois avis capturés et reste
   assert.match(component, /onMouseEnter/);
   assert.match(component, /onKeyDown/);
   assert.match(component, /Afficher l’avis précédent/);
+  assert.match(component, /ResizeObserver/);
+  assert.match(component, /aria-expanded=\{expanded\}/);
+  assert.match(component, /expanded \? "Moins" : "Plus"/);
+  assert.match(component, /setPauseReason\("expanded"/);
   assert.doesNotMatch(component, /avis ne sont pas vérifiés|Google verified/i);
   assert.match(docs, /aucun scraper, widget, tâche planifiée ou job récurrent/i);
   assert.match(docs, /carrousel horizontal continu/i);
+  assert.match(docs, /limité visuellement à quatre lignes/i);
 });
 
 test("le principe de conception est expliqué sans simuler un faux logiciel", async () => {

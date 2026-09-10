@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import type { GoogleReviewsSnapshot } from "@/lib/google-reviews-types";
@@ -13,9 +13,78 @@ function dateLabel(value: string) {
   }).format(new Date(value));
 }
 
+function ReviewComment({
+  comment,
+  expanded,
+  contentId,
+  duplicate,
+  onToggle,
+}: {
+  comment: string;
+  expanded: boolean;
+  contentId: string;
+  duplicate: boolean;
+  onToggle: () => void;
+}) {
+  const textRef = useRef<HTMLQuoteElement>(null);
+  const [truncated, setTruncated] = useState(false);
+
+  useEffect(() => {
+    const text = textRef.current;
+    if (!text) return;
+
+    const measure = () => {
+      if (!expanded) setTruncated(text.scrollHeight > text.clientHeight + 1);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(text);
+    return () => observer.disconnect();
+  }, [expanded, comment]);
+
+  return (
+    <div className="google-review-comment">
+      <blockquote ref={textRef} id={contentId} className={expanded ? "is-expanded" : undefined}>
+        {comment}
+      </blockquote>
+      {truncated && (
+        <button
+          className="google-review-toggle"
+          type="button"
+          aria-controls={contentId}
+          aria-expanded={expanded}
+          tabIndex={duplicate ? -1 : 0}
+          onClick={onToggle}
+        >
+          {expanded ? "Moins" : "Plus"}
+        </button>
+      )}
+    </div>
+  );
+}
+
 export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapshot | null }) {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const pausedRef = useRef(false);
+  const pauseReasonsRef = useRef(new Set<string>());
+  const [expandedReviews, setExpandedReviews] = useState<Set<string>>(() => new Set());
+
+  const setPauseReason = useCallback((reason: string, active: boolean) => {
+    if (active) pauseReasonsRef.current.add(reason);
+    else pauseReasonsRef.current.delete(reason);
+  }, []);
+
+  const toggleReview = (reviewId: string) => {
+    setExpandedReviews((current) => {
+      const next = new Set(current);
+      if (next.has(reviewId)) next.delete(reviewId);
+      else next.add(reviewId);
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    setPauseReason("expanded", expandedReviews.size > 0);
+  }, [expandedReviews, setPauseReason]);
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -27,7 +96,7 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
     let previousTime = 0;
 
     const animate = (time: number) => {
-      if (!reducedMotion.matches && !pausedRef.current) {
+      if (!reducedMotion.matches && pauseReasonsRef.current.size === 0) {
         const elapsed = previousTime ? Math.min(time - previousTime, 50) : 0;
         if (Math.abs(carousel.scrollLeft - position) > 2) position = carousel.scrollLeft;
         position += elapsed * 0.025;
@@ -57,7 +126,7 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    pausedRef.current = true;
+    setPauseReason("keyboard", true);
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault();
     scrollOneCard(event.key === "ArrowLeft" ? -1 : 1);
@@ -90,20 +159,23 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
         <>
           <div
             className="google-reviews-carousel"
-            onMouseEnter={() => { pausedRef.current = true; }}
-            onMouseLeave={() => { pausedRef.current = false; }}
-            onFocusCapture={() => { pausedRef.current = true; }}
+            onMouseEnter={() => setPauseReason("hover", true)}
+            onMouseLeave={() => setPauseReason("hover", false)}
+            onFocusCapture={() => setPauseReason("focus", true)}
             onBlurCapture={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) pausedRef.current = false;
+              if (!event.currentTarget.contains(event.relatedTarget)) {
+                setPauseReason("focus", false);
+                setPauseReason("keyboard", false);
+              }
             }}
             onPointerDown={(event) => {
-              if (event.pointerType !== "mouse") pausedRef.current = true;
+              if (event.pointerType !== "mouse") setPauseReason("touch", true);
             }}
             onPointerUp={(event) => {
-              if (event.pointerType !== "mouse") pausedRef.current = false;
+              if (event.pointerType !== "mouse") setPauseReason("touch", false);
             }}
             onPointerCancel={(event) => {
-              if (event.pointerType !== "mouse") pausedRef.current = false;
+              if (event.pointerType !== "mouse") setPauseReason("touch", false);
             }}
           >
             <div
@@ -119,6 +191,7 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
                 className="google-review"
                 key={`${sequence}-${review.id}`}
                 aria-hidden={sequence === 1 || undefined}
+                data-expanded={expandedReviews.has(review.id) || undefined}
               >
                 <figcaption>
                   <strong>{review.author}</strong>
@@ -128,7 +201,15 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
                     ))}
                   </span>
                 </figcaption>
-                {review.comment ? <blockquote>{review.comment}</blockquote> : <p>Avis sans commentaire.</p>}
+                {review.comment ? (
+                  <ReviewComment
+                    comment={review.comment}
+                    expanded={expandedReviews.has(review.id)}
+                    contentId={`google-review-${sequence}-${review.id}`}
+                    duplicate={sequence === 1}
+                    onToggle={() => toggleReview(review.id)}
+                  />
+                ) : <p>Avis sans commentaire.</p>}
                 {review.visitLabel ? (
                   <p className="google-review-date">{review.visitLabel}</p>
                 ) : (
