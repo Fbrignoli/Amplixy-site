@@ -23,16 +23,19 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
+    let position = carousel.scrollLeft;
     let previousTime = 0;
 
     const animate = (time: number) => {
       if (!reducedMotion.matches && !pausedRef.current) {
         const elapsed = previousTime ? Math.min(time - previousTime, 50) : 0;
-        carousel.scrollLeft += elapsed * 0.025;
+        if (Math.abs(carousel.scrollLeft - position) > 2) position = carousel.scrollLeft;
+        position += elapsed * 0.025;
         const loopWidth = carousel.scrollWidth / 2;
-        if (loopWidth > 0 && carousel.scrollLeft >= loopWidth) {
-          carousel.scrollLeft -= loopWidth;
-        }
+        if (loopWidth > 0 && position >= loopWidth) position -= loopWidth;
+        carousel.scrollLeft = position;
+      } else {
+        position = carousel.scrollLeft;
       }
       previousTime = time;
       frame = window.requestAnimationFrame(animate);
