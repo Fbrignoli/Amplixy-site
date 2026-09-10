@@ -57,6 +57,7 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    pausedRef.current = true;
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault();
     scrollOneCard(event.key === "ArrowLeft" ? -1 : 1);
@@ -91,8 +92,8 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
             className="google-reviews-carousel"
             onMouseEnter={() => { pausedRef.current = true; }}
             onMouseLeave={() => { pausedRef.current = false; }}
-            onFocus={() => { pausedRef.current = true; }}
-            onBlur={(event) => {
+            onFocusCapture={() => { pausedRef.current = true; }}
+            onBlurCapture={(event) => {
               if (!event.currentTarget.contains(event.relatedTarget)) pausedRef.current = false;
             }}
             onPointerDown={(event) => {
