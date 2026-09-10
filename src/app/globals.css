@@ -2038,16 +2038,33 @@ a {
   flex-wrap: wrap;
 }
 
-.google-reviews-list {
-  display: grid;
-  gap: 1.5rem;
+.google-reviews-carousel {
+  position: relative;
   margin-top: 2rem;
 }
 
+.google-reviews-list {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.google-reviews-list::-webkit-scrollbar {
+  display: none;
+}
+
+.google-reviews-list:focus-visible {
+  outline: 2px solid var(--accent-deep);
+  outline-offset: 4px;
+}
+
 .google-review {
-  min-width: 0;
-  padding-block: 1.5rem;
+  flex: 0 0 min(38rem, calc(100vw - (2 * var(--gutter))));
+  padding: 1.5rem;
   border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 94%, var(--accent) 6%);
 }
 
 .google-review figcaption {
@@ -2075,9 +2092,43 @@ a {
   font-size: 0.875rem;
 }
 
-@media (min-width: 900px) {
-  .google-reviews-list:has(> :nth-child(2)) {
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    gap: 2rem;
+.google-reviews-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.google-reviews-controls button {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.google-reviews-controls button:hover,
+.google-reviews-controls button:focus-visible {
+  border-color: var(--accent-deep);
+  color: var(--accent-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .google-reviews-list {
+    display: grid;
+    overflow: visible;
+  }
+
+  .google-review {
+    width: auto;
+  }
+
+  .google-review[aria-hidden="true"],
+  .google-reviews-controls {
+    display: none;
   }
 }

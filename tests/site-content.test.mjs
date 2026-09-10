@@ -57,8 +57,14 @@ test("le fallback ponctuel contient exactement les trois avis capturés et reste
   assert.equal((fallback.match(/visitLabel: "Visité en août"/g) ?? []).length, 1);
   assert.match(component, /setSnapshot\(data\)/);
   assert.match(component, /GOOGLE_REVIEWS_FALLBACK/);
+  assert.match(component, /requestAnimationFrame/);
+  assert.match(component, /prefers-reduced-motion: reduce/);
+  assert.match(component, /onMouseEnter/);
+  assert.match(component, /onKeyDown/);
+  assert.match(component, /Afficher l’avis précédent/);
   assert.doesNotMatch(component, /avis ne sont pas vérifiés|Google verified/i);
   assert.match(docs, /aucun scraper, widget, tâche planifiée ou job récurrent/i);
+  assert.match(docs, /carrousel horizontal continu/i);
 });
 
 test("le principe de conception est expliqué sans simuler un faux logiciel", async () => {

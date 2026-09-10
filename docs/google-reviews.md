@@ -6,6 +6,8 @@ Le module et le connecteur sont implémentés. Dans l’attente d’une réponse
 
 Le fallback se trouve dans `src/lib/google-reviews-fallback.ts`. Il ne déclenche aucune collecte : aucun scraper, widget, tâche planifiée ou job récurrent n’est ajouté. Les libellés de visite sont ceux observés lors de la capture (« Visité en septembre » et « Visité en août »), sans conversion en dates relatives. Retrait prévu : supprimer le fichier et rétablir un état initial vide dans `GoogleReviews` lorsque l’API est durablement opérationnelle.
 
+Les avis sont présentés dans un carrousel horizontal continu, dans le même sens et avec le même rythme visuel que le bandeau d’outils qui le suit. Les cartes conservent leur contenu intégral et une hauteur stable. Le mouvement se met en pause au survol, au toucher et tant que le carrousel possède le focus. Les boutons précédent/suivant et les flèches du clavier permettent une navigation manuelle. Avec `prefers-reduced-motion: reduce`, les trois cartes sont affichées sans animation et sans duplication visible.
+
 La demande d’accès a été envoyée à Google le 2026-09-08 pour le projet Cloud `amplixy`. L’API Business Information est activée, mais son quota observé est de 0 requête par minute : l’approbation reste en attente. Google annonce environ 7 à 10 jours ouvrés de traitement. Le compte gestionnaire a été identifié et la référence du dossier est conservée dans la note interne Amplixy. Après approbation, reprendre les étapes OAuth, découverte de la fiche et configuration runtime ci-dessous. Aucun scraper n’est déployé.
 
 - Fiche fournie par Florian : https://g.page/r/CTDq7gUOttFsEAE/review

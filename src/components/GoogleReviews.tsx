@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ArrowRight, Star } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import type { KeyboardEvent } from "react";
+import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import type { GoogleReviewsSnapshot } from "@/lib/google-reviews-types";
 import { GOOGLE_REVIEWS_FALLBACK } from "@/lib/google-reviews-fallback";
 import { GOOGLE_BUSINESS_PROFILE_URL } from "@/lib/site";
@@ -13,6 +14,51 @@ function dateLabel(value: string) {
 }
 
 export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapshot | null }) {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel || !snapshot?.reviews.length) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    let previousTime = 0;
+
+    const animate = (time: number) => {
+      if (!reducedMotion.matches && !pausedRef.current) {
+        const elapsed = previousTime ? Math.min(time - previousTime, 50) : 0;
+        carousel.scrollLeft += elapsed * 0.025;
+        const loopWidth = carousel.scrollWidth / 2;
+        if (loopWidth > 0 && carousel.scrollLeft >= loopWidth) {
+          carousel.scrollLeft -= loopWidth;
+        }
+      }
+      previousTime = time;
+      frame = window.requestAnimationFrame(animate);
+    };
+
+    frame = window.requestAnimationFrame(animate);
+    return () => window.cancelAnimationFrame(frame);
+  }, [snapshot]);
+
+  const scrollOneCard = (direction: -1 | 1) => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+    const loopWidth = carousel.scrollWidth / 2;
+    if (direction < 0 && carousel.scrollLeft < 1) carousel.scrollLeft = loopWidth;
+    if (direction > 0 && carousel.scrollLeft >= loopWidth) carousel.scrollLeft -= loopWidth;
+    const card = carousel.querySelector<HTMLElement>(".google-review");
+    const gap = Number.parseFloat(getComputedStyle(carousel).columnGap) || 0;
+    carousel.scrollBy({ left: direction * ((card?.offsetWidth ?? carousel.clientWidth) + gap), behavior: "smooth" });
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    scrollOneCard(event.key === "ArrowLeft" ? -1 : 1);
+  };
+
   return (
     <section className="google-reviews" id="avis-google" aria-labelledby="google-reviews-title">
       <div className="google-reviews-intro">
@@ -38,9 +84,38 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
       </div>
       {snapshot && snapshot.reviews.length > 0 && (
         <>
-          <div className="google-reviews-list">
-            {snapshot.reviews.map((review) => (
-              <figure className="google-review" key={review.id}>
+          <div
+            className="google-reviews-carousel"
+            onMouseEnter={() => { pausedRef.current = true; }}
+            onMouseLeave={() => { pausedRef.current = false; }}
+            onFocus={() => { pausedRef.current = true; }}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) pausedRef.current = false;
+            }}
+            onPointerDown={(event) => {
+              if (event.pointerType !== "mouse") pausedRef.current = true;
+            }}
+            onPointerUp={(event) => {
+              if (event.pointerType !== "mouse") pausedRef.current = false;
+            }}
+            onPointerCancel={(event) => {
+              if (event.pointerType !== "mouse") pausedRef.current = false;
+            }}
+          >
+            <div
+              className="google-reviews-list"
+              ref={carouselRef}
+              role="region"
+              aria-label="Carrousel des avis Google"
+              tabIndex={0}
+              onKeyDown={handleKeyDown}
+            >
+            {[0, 1].flatMap((sequence) => snapshot.reviews.map((review) => (
+              <figure
+                className="google-review"
+                key={`${sequence}-${review.id}`}
+                aria-hidden={sequence === 1 || undefined}
+              >
                 <figcaption>
                   <strong>{review.author}</strong>
                   <span className="google-review-stars" aria-label={`${review.rating} sur 5 étoiles`}>
@@ -61,7 +136,16 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
                   </p>
                 )}
               </figure>
-            ))}
+            )))}
+            </div>
+            <div className="google-reviews-controls" aria-label="Commandes du carrousel">
+              <button type="button" onClick={() => scrollOneCard(-1)} aria-label="Afficher l’avis précédent">
+                <ArrowLeft size={18} aria-hidden="true" />
+              </button>
+              <button type="button" onClick={() => scrollOneCard(1)} aria-label="Afficher l’avis suivant">
+                <ArrowRight size={18} aria-hidden="true" />
+              </button>
+            </div>
           </div>
           <p className="google-reviews-note">
             Jusqu’à trois avis, classés par dernière mise à jour, sans filtre sur la note.
