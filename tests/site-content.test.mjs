@@ -41,6 +41,26 @@ test("la page présente le rôle de référent des PME et les moyens concrets de
   assert.doesNotMatch(page, /id="offre"/);
 });
 
+test("le fallback ponctuel contient exactement les trois avis capturés et reste secondaire à l’API", async () => {
+  const [fallback, component, docs] = await Promise.all([
+    read("src/lib/google-reviews-fallback.ts"),
+    read("src/components/GoogleReviews.tsx"),
+    read("docs/google-reviews.md"),
+  ]);
+
+  for (const author of ["Daniela De Vingo", "Aurélien Defix", "Matthieu Vion"]) {
+    assert.match(fallback, new RegExp(author));
+  }
+  assert.match(fallback, /averageRating: 5/);
+  assert.match(fallback, /totalReviewCount: 3/);
+  assert.equal((fallback.match(/visitLabel: "Visité en septembre"/g) ?? []).length, 2);
+  assert.equal((fallback.match(/visitLabel: "Visité en août"/g) ?? []).length, 1);
+  assert.match(component, /setSnapshot\(data\)/);
+  assert.match(component, /GOOGLE_REVIEWS_FALLBACK/);
+  assert.doesNotMatch(component, /avis ne sont pas vérifiés|Google verified/i);
+  assert.match(docs, /aucun scraper, widget, tâche planifiée ou job récurrent/i);
+});
+
 test("le principe de conception est expliqué sans simuler un faux logiciel", async () => {
   const page = await read("src/app/page.tsx");
 

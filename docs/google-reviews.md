@@ -1,15 +1,17 @@
 # Avis Google — connexion et exploitation
 
-## État au 2026-09-08
+## État au 2026-09-10
 
-Le module et le connecteur sont implémentés. **L’import réel n’est pas activé : aucun accès API Business Profile n’est configuré dans Coolify.** La page affiche seulement le lien de consultation jusqu’à la première synchronisation réussie. Aucun chiffre ou témoignage n’est saisi en dur.
+Le module et le connecteur sont implémentés. Dans l’attente d’une réponse exploitable de l’API Business Profile, un **fallback ponctuel et temporaire** reprend les trois avis publics capturés manuellement le 2026-09-10, avec la note `5,0` et le total `3 avis`. Cette exception a été explicitement validée par Florian. Dès que `/api/google-reviews` renvoie un snapshot valide et non expiré, celui-ci remplace le fallback ; en cas d’indisponibilité ou d’expiration, le fallback réapparaît.
+
+Le fallback se trouve dans `src/lib/google-reviews-fallback.ts`. Il ne déclenche aucune collecte : aucun scraper, widget, tâche planifiée ou job récurrent n’est ajouté. Les libellés de visite sont ceux observés lors de la capture (« Visité en septembre » et « Visité en août »), sans conversion en dates relatives. Retrait prévu : supprimer le fichier et rétablir un état initial vide dans `GoogleReviews` lorsque l’API est durablement opérationnelle.
 
 La demande d’accès a été envoyée à Google le 2026-09-08 pour le projet Cloud `amplixy`. L’API Business Information est activée, mais son quota observé est de 0 requête par minute : l’approbation reste en attente. Google annonce environ 7 à 10 jours ouvrés de traitement. Le compte gestionnaire a été identifié et la référence du dossier est conservée dans la note interne Amplixy. Après approbation, reprendre les étapes OAuth, découverte de la fiche et configuration runtime ci-dessous. Aucun scraper n’est déployé.
 
 - Fiche fournie par Florian : https://g.page/r/CTDq7gUOttFsEAE/review
 - Consultation sans ouvrir le formulaire de rédaction : https://www.google.com/maps?cid=7841248597574085168
-- La fiche a été vérifiée dans Google Maps : nom Amplixy et site amplixy.com. La note observée ne sert pas de donnée de secours.
-- Libellé : « Avis publiés sur Google ». Pas de badge « Google verified » : les avis ne sont pas vérifiés par Google.
+- La fiche a été vérifiée dans Google Maps : nom Amplixy et site amplixy.com.
+- Libellé : « Avis publiés sur Google ». Aucun badge de vérification n’est affiché.
 - Présentation : la séparation avec les cas concrets utilise leur bordure existante ; le module n’ajoute pas de deuxième ligne au-dessus.
 
 ## Source et cycle
@@ -41,7 +43,7 @@ Ne pas coller les secrets dans une conversation, le dépôt ou le vault. Un proj
 
 ## Échecs et reprise
 
-- Configuration absente/incomplète : aucun appel externe, simple lien vers Google, log explicite au démarrage.
+- Configuration absente/incomplète : aucun appel externe, fallback ponctuel et lien vers Google, log explicite au démarrage.
 - Chaque appel Google possède un délai limite de huit secondes. Les demandes simultanées partagent la même synchronisation.
 - Erreur réseau, refus Google ou réponse invalide : aucun avis périmé affiché, retour au lien Google ; nouvelle tentative au plus tôt cinq minutes après. Seul un code d’erreur nettoyé est journalisé.
 - Le nom de la fiche doit être Amplixy et son site amplixy.com/www.amplixy.com. Une autre fiche est refusée pour éviter la publication d’avis d’un tiers.

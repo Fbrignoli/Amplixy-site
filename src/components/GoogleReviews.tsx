@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Star } from "lucide-react";
 import type { GoogleReviewsSnapshot } from "@/lib/google-reviews-types";
+import { GOOGLE_REVIEWS_FALLBACK } from "@/lib/google-reviews-fallback";
 import { GOOGLE_BUSINESS_PROFILE_URL } from "@/lib/site";
 
 function dateLabel(value: string) {
@@ -21,11 +22,11 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
             <p className="google-reviews-rating">
               {snapshot.averageRating !== null && (
                 <><Star size={18} fill="currentColor" aria-hidden="true" />
-                  <strong>{snapshot.averageRating.toLocaleString("fr-FR", { maximumFractionDigits: 1 })}/5</strong>
+                  <strong>{snapshot.averageRating.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</strong>
                   <span aria-hidden="true">·</span>
                 </>
               )}
-              <span>{snapshot.totalReviewCount} avis sur la fiche Amplixy</span>
+              <span>{snapshot.totalReviewCount} avis</span>
             </p>
           ) : (
             <p>Retrouvez les retours de nos clients sur la fiche Amplixy.</p>
@@ -49,19 +50,22 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
                   </span>
                 </figcaption>
                 {review.comment ? <blockquote>{review.comment}</blockquote> : <p>Avis sans commentaire.</p>}
-                <p className="google-review-date">
-                  Publié le <time dateTime={review.publishedAt}>{dateLabel(review.publishedAt)}</time>
-                  {review.updatedAt !== review.publishedAt && (
-                    <> · Modifié le <time dateTime={review.updatedAt}>{dateLabel(review.updatedAt)}</time></>
-                  )}
-                </p>
+                {review.visitLabel ? (
+                  <p className="google-review-date">{review.visitLabel}</p>
+                ) : (
+                  <p className="google-review-date">
+                    Publié le <time dateTime={review.publishedAt}>{dateLabel(review.publishedAt)}</time>
+                    {review.updatedAt !== review.publishedAt && (
+                      <> · Modifié le <time dateTime={review.updatedAt}>{dateLabel(review.updatedAt)}</time></>
+                    )}
+                  </p>
+                )}
               </figure>
             ))}
           </div>
           <p className="google-reviews-note">
             Jusqu’à trois avis, classés par dernière mise à jour, sans filtre sur la note.
             {" "}Consultés le <time dateTime={snapshot.fetchedAt}>{dateLabel(snapshot.fetchedAt)}</time>.
-            {" "}Les avis ne sont pas vérifiés par Google.
           </p>
         </>
       )}
@@ -70,7 +74,7 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
 }
 
 export function GoogleReviews() {
-  const [snapshot, setSnapshot] = useState<GoogleReviewsSnapshot | null>(null);
+  const [snapshot, setSnapshot] = useState<GoogleReviewsSnapshot>(GOOGLE_REVIEWS_FALLBACK);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -82,9 +86,9 @@ export function GoogleReviews() {
         const remaining = Date.parse(data.expiresAt) - Date.now();
         if (!Number.isFinite(remaining) || remaining <= 0) return;
         setSnapshot(data);
-        expiryTimer = setTimeout(() => setSnapshot(null), remaining);
+        expiryTimer = setTimeout(() => setSnapshot(GOOGLE_REVIEWS_FALLBACK), remaining);
       })
-      .catch(() => { /* The verified Google profile link remains available. */ });
+      .catch(() => { /* The existing Google profile link remains available. */ });
     return () => { controller.abort(); clearTimeout(expiryTimer); };
   }, []);
 
