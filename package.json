@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev -p 9000",
     "build": "next build",
-    "start": "next start",
+    "start": "node server.mjs",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "test:http": "node --test tests/http/*.test.mjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",

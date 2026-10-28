@@ -10,6 +10,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: "https://amplixy.com/about",
+      lastModified: new Date("2026-10-28"),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: "https://amplixy.com/contact",
+      lastModified: new Date("2026-10-28"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: "https://amplixy.com/portfolio",
       lastModified: now,
       changeFrequency: "monthly",
