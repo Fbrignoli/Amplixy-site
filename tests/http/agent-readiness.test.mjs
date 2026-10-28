@@ -3,6 +3,7 @@ import { spawn } from 'node:child_process';
 import { readdir, readFile } from 'node:fs/promises';
 import { setTimeout as delay } from 'node:timers/promises';
 import { after, before, test } from 'node:test';
+import { normalizeCdnHtml } from '../helpers/cdn-html.mjs';
 
 const port = 20000 + Math.floor(Math.random() * 20000);
 const base = process.env.AMPLIXY_TEST_BASE_URL ?? `http://127.0.0.1:${port}`;
@@ -220,7 +221,7 @@ test('Le sitemap couvre toutes les pages canoniques et le registre Proxy reste �
 });
 
 test('Contact, navigation, identité, consentement et politique existante sont conservés', async () => {
-  const html = await (await get('/')).text();
+  const html = normalizeCdnHtml(await (await get('/')).text());
   assert.match(html, /<title>Amplixy — Référent numérique indépendant des PME<\/title>/);
   for (const id of ['approche', 'methode', 'produits', 'realisations', 'contact', 'faq']) assert.ok(html.includes(`id="${id}"`));
   const footer = html.match(/<footer\b[^>]*>([\s\S]*?)<\/footer>/)[1];
@@ -241,8 +242,8 @@ test('Contact, navigation, identité, consentement et politique existante sont c
     assert.ok(paragraphs.length >= 4);
     for (const paragraph of paragraphs) assert.ok(md.includes(paragraph), `${path} : ${paragraph}`);
   }
-  const policy = await (await get('/politique-confidentialite')).text();
-  const alias = await (await get('/privacy')).text();
+  const policy = normalizeCdnHtml(await (await get('/politique-confidentialite')).text());
+  const alias = normalizeCdnHtml(await (await get('/privacy')).text());
   assert.equal(alias.match(/<main\b[\s\S]*?<\/main>/)[0], policy.match(/<main\b[\s\S]*?<\/main>/)[0]);
   assert.doesNotMatch(html, /<script[^>]*src="https:\/\/trafic.amplixy.cloud/);
 });
