@@ -10,5 +10,6 @@ export type GoogleReviewsSnapshot = {
     comment: string;
     publishedAt: string;
     updatedAt: string;
+    visitLabel?: string;
   }[];
 };

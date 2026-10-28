@@ -11,6 +11,8 @@ export const Footer = () => {
         </p>
 
         <div className="footer-links">
+          <Link href="/about">À propos</Link>
+          <Link href="/contact">Contact</Link>
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           <a href={CONTACT_PHONE_HREF}>{CONTACT_PHONE}</a>
           <Link href="/conformite-ia">Conformité IA &amp; données</Link>

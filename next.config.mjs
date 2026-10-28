@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Conserver les marqueurs RSC dans Proxy pour exclure la navigation Next
+  // de la négociation HTML/Markdown.
+  skipProxyUrlNormalize: true,
   poweredByHeader: false,
   images: {
     formats: ['image/avif', 'image/webp'],
