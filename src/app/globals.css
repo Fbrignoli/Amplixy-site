@@ -122,15 +122,15 @@ a {
 }
 
 .display {
-  max-width: 13ch;
-  font-size: clamp(2.65rem, 5.2vw, 4.65rem);
-  line-height: 1.01;
+  font-size: clamp(1.75rem, 8vw, 3.25rem);
+  line-height: 1.06;
   letter-spacing: -0.035em;
   font-weight: 720;
   font-optical-sizing: auto;
 }
 
 .display span {
+  display: block;
   color: var(--accent-deep);
 }
 
@@ -514,6 +514,10 @@ a {
   .hero-layout {
     grid-template-columns: minmax(0, 1.08fr) minmax(25rem, 0.92fr);
     align-items: center;
+  }
+
+  .display {
+    font-size: clamp(2rem, 4vw, 3.25rem);
   }
 }
 
