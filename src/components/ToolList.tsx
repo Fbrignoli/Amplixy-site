@@ -31,31 +31,23 @@ const tools = [
   },
 ] as const;
 
-export function ToolMarquee() {
+export function ToolList() {
   return (
     <section className="tools-band" aria-label="Outils utilisés selon les projets">
       <div className="site-shell tools-band-intro">
         <p>Les outils sont choisis selon le besoin.</p>
       </div>
-      <div className="tools-marquee">
-        <div className="tools-track">
-          {[0, 1, 2, 3, 4].map((sequence) => (
-            <ul
-              className="tools-set"
-              aria-hidden={sequence > 0 || undefined}
-              key={sequence}
-            >
-              {tools.map((tool) => (
-                <li className="tool-item" data-tool={tool.id} key={tool.id}>
-                  <svg aria-hidden="true" viewBox="0 0 24 24">
-                    <path d={tool.path} />
-                  </svg>
-                  <span>{tool.name}</span>
-                </li>
-              ))}
-            </ul>
+      <div className="site-shell">
+        <ul className="tools-set">
+          {tools.map((tool) => (
+            <li className="tool-item" data-tool={tool.id} key={tool.id}>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d={tool.path} />
+              </svg>
+              <span>{tool.name}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

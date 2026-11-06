@@ -65,6 +65,8 @@ The site implements the canonical corporate Carmin palette with Papier, Encre an
 
 The homepage is mobile-first. Keep explicit checks around 390 px, 768 px, and 1280 px. Preserve safe areas, touch targets, keyboard focus, and `prefers-reduced-motion` behavior.
 
+The finishing pass approved on 2026-11-06 limits the hero's Carmin emphasis to “contrôle” and uses sentence case for its category label. Tools form a static, wrapping list; Google reviews scroll only on user input, without duplicate cards. The products section presents Firaxy alone, without a placeholder announcement.
+
 ### Key Features
 
 1. **Homepage order**: hero and doctrine, approach, reference dossier, three moments of accompaniment, business cases, tools, separate Amplixy products, contact
