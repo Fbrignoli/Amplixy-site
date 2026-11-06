@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ThumbBar } from "@/components/ThumbBar";
 import { GoogleReviews } from "@/components/GoogleReviews";
-import { ToolMarquee } from "@/components/ToolMarquee";
+import { ToolList } from "@/components/ToolList";
 import { businessCases } from "@/lib/business-cases";
 import {
   CALENDAR_URL,
@@ -91,7 +91,7 @@ export default function Home() {
               <p className="hero-label">Référent numérique indépendant des PME</p>
               <h1 className="display" id="hero-title">
                 Les outils changent.{" "}
-                <span>Votre entreprise garde le contrôle.</span>
+                <span>Votre entreprise garde le <em>contrôle</em>.</span>
               </h1>
               <p className="hero-lede">
                 Amplixy aide les PME à choisir, relier et faire évoluer leurs outils
@@ -334,13 +334,12 @@ export default function Home() {
                   </Link>
                 </div>
               </article>
-
             </div>
             <GoogleReviews />
           </div>
         </section>
 
-        <ToolMarquee />
+        <ToolList />
 
         <section
           className="products"
@@ -378,7 +377,7 @@ export default function Home() {
                 </a>
                 <div className="product-card-copy">
                   <div className="product-card-meta">
-                    <span>Produit 01</span>
+                    <span>Un produit Amplixy</span>
                     <span>En ligne</span>
                   </div>
                   <h3>Firaxy</h3>
@@ -401,23 +400,6 @@ export default function Home() {
                 </div>
               </article>
 
-              <article className="product-card product-card-coming">
-                <div className="product-coming-visual" aria-hidden="true">
-                  <span>02</span>
-                  <strong>En préparation.</strong>
-                </div>
-                <div className="product-card-copy">
-                  <div className="product-card-meta">
-                    <span>Produit 02</span>
-                    <span>Bientôt disponible</span>
-                  </div>
-                  <h3>Le prochain produit arrive.</h3>
-                  <p>
-                    Il sera présenté ici dès que son usage et sa première version
-                    pourront être testés.
-                  </p>
-                </div>
-              </article>
             </div>
           </div>
         </section>

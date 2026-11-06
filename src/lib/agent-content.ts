@@ -47,7 +47,7 @@ Ces missions ne démontrent pas un pilotage continu déjà déployé chez tous l
 
 ## Les produits Amplixy
 
-[Firaxy](https://firaxy.com) s’adresse aux commerçants de foires et marchés : leurs clients scannent un QR code et sont prévenus lorsqu’ils reviennent dans leur région, sans application à installer. Firaxy possède sa propre marque et reste distinct de l’accompagnement. Un prochain produit sera présenté lorsque son usage et sa première version pourront être testés.
+[Firaxy](https://firaxy.com) s’adresse aux commerçants de foires et marchés : leurs clients scannent un QR code et sont prévenus lorsqu’ils reviennent dans leur région, sans application à installer. Firaxy possède sa propre marque et reste distinct de l’accompagnement.
 
 ## Questions fréquentes
 

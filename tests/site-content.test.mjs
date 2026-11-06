@@ -32,7 +32,7 @@ test("la page présente le rôle de référent des PME et les moyens concrets de
 
   assert.match(page, /Référent numérique indépendant des PME/);
   assert.match(page, /Les outils changent/);
-  assert.match(page, /Votre entreprise garde le contrôle/);
+  assert.match(page, /Votre entreprise garde le <em>contrôle<\/em>/);
   assert.match(page, /choisir, relier et faire évoluer/);
   assert.match(page, /des décisions\s+expliquées/);
   assert.doesNotMatch(page, /On construit l’outil qui manque|Atelier numérique indépendant/);
@@ -57,18 +57,16 @@ test("le fallback ponctuel contient exactement les trois avis capturés et reste
   assert.equal((fallback.match(/visitLabel: "Visité en août"/g) ?? []).length, 1);
   assert.match(component, /setSnapshot\(data\)/);
   assert.match(component, /GOOGLE_REVIEWS_FALLBACK/);
-  assert.match(component, /requestAnimationFrame/);
+  assert.doesNotMatch(component, /requestAnimationFrame/);
   assert.match(component, /prefers-reduced-motion: reduce/);
-  assert.match(component, /onMouseEnter/);
   assert.match(component, /onKeyDown/);
   assert.match(component, /Afficher l’avis précédent/);
   assert.match(component, /ResizeObserver/);
   assert.match(component, /aria-expanded=\{expanded\}/);
   assert.match(component, /expanded \? "Moins" : "Plus"/);
-  assert.match(component, /setPauseReason\("expanded"/);
   assert.doesNotMatch(component, /avis ne sont pas vérifiés|Google verified/i);
   assert.match(docs, /aucun scraper, widget, tâche planifiée ou job récurrent/i);
-  assert.match(docs, /carrousel horizontal continu/i);
+  assert.match(docs, /carrousel horizontal manuel/i);
   assert.match(docs, /limité visuellement à quatre lignes/i);
 });
 
@@ -400,22 +398,21 @@ test("la capture Vion peut être préchargée si elle devient LCP", async () => 
   assert.match(portfolio, /src=\{project\.image\}[\s\S]*priority=\{index === 0\}/);
 });
 
-test("le bandeau d’outils défile et respecte la réduction du mouvement", async () => {
-  const [marquee, css] = await Promise.all([
-    read("src/components/ToolMarquee.tsx"),
+test("le bandeau d’outils reste fixe et chaque outil est présenté une seule fois", async () => {
+  const [tools, css] = await Promise.all([
+    read("src/components/ToolList.tsx"),
     read("src/app/globals.css"),
   ]);
 
   for (const tool of ["Jira", "Confluence", "Claude", "ChatGPT", "Mistral", "n8n"]) {
-    assert.match(marquee, new RegExp(tool));
+    assert.match(tools, new RegExp(tool));
   }
 
-  assert.match(css, /@keyframes tools-scroll/);
-  assert.match(css, /animation-play-state:\s*paused/);
-  assert.match(css, /\.tools-set\[aria-hidden="true"\]/);
+  assert.doesNotMatch(css, /tools-scroll/);
+  assert.doesNotMatch(tools, /sequence|tools-track|tools-marquee/);
 });
 
-test("la section produits distingue Firaxy du prochain produit", async () => {
+test("la section produits présente Firaxy sans annonce de produit non défini", async () => {
   const [page, site, css] = await Promise.all([
     read("src/app/page.tsx"),
     read("src/lib/site.ts"),
@@ -425,12 +422,11 @@ test("la section produits distingue Firaxy du prochain produit", async () => {
   assert.match(page, /id="produits"/);
   assert.match(page, /Les produits Amplixy/);
   assert.match(page, /href="https:\/\/firaxy\.com"/);
-  assert.match(page, /Produit 01/);
-  assert.match(page, /Bientôt disponible/);
-  assert.match(page, /Il sera présenté ici dès que son usage/);
+  assert.match(page, /Un produit Amplixy/);
+  assert.doesNotMatch(page, /Bientôt disponible|Le prochain produit arrive|product-card-coming/);
   assert.match(site, /href: "\/#produits"/);
   assert.match(css, /\.product-grid\s*\{[\s\S]*display:\s*grid/);
-  assert.match(css, /grid-template-columns:\s*minmax\(0, 1\.4fr\)/);
+  assert.match(css, /\.product-card\s*\{[\s\S]*grid-template-columns:\s*minmax\(0, 1\.4fr\)/);
   assert.doesNotMatch(page, /roadmap|en pause/i);
   assert.ok(page.indexOf('id="produits"') > page.indexOf('id="conformite"'));
 });

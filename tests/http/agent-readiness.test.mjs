@@ -256,5 +256,5 @@ test('Les trois avis publiés et les commandes du carrousel sont conservés', as
   assert.match(html, /aria-label="Afficher l’avis suivant"/);
   assert.match(html, /class="google-reviews-carousel"/);
   const cards = [...html.matchAll(/<figure class="google-review"(?: [^>]*)?>/g)];
-  assert.equal(cards.length, 6); // trois cartes et leur séquence de boucle masquée
+  assert.equal(cards.length, 3); // chaque avis est affiché une seule fois
 });

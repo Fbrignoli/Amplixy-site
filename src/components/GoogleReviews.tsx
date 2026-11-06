@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import type { GoogleReviewsSnapshot } from "@/lib/google-reviews-types";
@@ -17,13 +17,11 @@ function ReviewComment({
   comment,
   expanded,
   contentId,
-  duplicate,
   onToggle,
 }: {
   comment: string;
   expanded: boolean;
   contentId: string;
-  duplicate: boolean;
   onToggle: () => void;
 }) {
   const textRef = useRef<HTMLQuoteElement>(null);
@@ -53,7 +51,6 @@ function ReviewComment({
           type="button"
           aria-controls={contentId}
           aria-expanded={expanded}
-          tabIndex={duplicate ? -1 : 0}
           onClick={onToggle}
         >
           {expanded ? "Moins" : "Plus"}
@@ -65,13 +62,7 @@ function ReviewComment({
 
 export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapshot | null }) {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const pauseReasonsRef = useRef(new Set<string>());
   const [expandedReviews, setExpandedReviews] = useState<Set<string>>(() => new Set());
-
-  const setPauseReason = useCallback((reason: string, active: boolean) => {
-    if (active) pauseReasonsRef.current.add(reason);
-    else pauseReasonsRef.current.delete(reason);
-  }, []);
 
   const toggleReview = (reviewId: string) => {
     setExpandedReviews((current) => {
@@ -82,51 +73,23 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
     });
   };
 
-  useEffect(() => {
-    setPauseReason("expanded", expandedReviews.size > 0);
-  }, [expandedReviews, setPauseReason]);
-
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel || !snapshot?.reviews.length) return;
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let frame = 0;
-    let position = carousel.scrollLeft;
-    let previousTime = 0;
-
-    const animate = (time: number) => {
-      if (!reducedMotion.matches && pauseReasonsRef.current.size === 0) {
-        const elapsed = previousTime ? Math.min(time - previousTime, 50) : 0;
-        if (Math.abs(carousel.scrollLeft - position) > 2) position = carousel.scrollLeft;
-        position += elapsed * 0.025;
-        const loopWidth = carousel.scrollWidth / 2;
-        if (loopWidth > 0 && position >= loopWidth) position -= loopWidth;
-        carousel.scrollLeft = position;
-      } else {
-        position = carousel.scrollLeft;
-      }
-      previousTime = time;
-      frame = window.requestAnimationFrame(animate);
-    };
-
-    frame = window.requestAnimationFrame(animate);
-    return () => window.cancelAnimationFrame(frame);
-  }, [snapshot]);
-
   const scrollOneCard = (direction: -1 | 1) => {
     const carousel = carouselRef.current;
     if (!carousel) return;
-    const loopWidth = carousel.scrollWidth / 2;
-    if (direction < 0 && carousel.scrollLeft < 1) carousel.scrollLeft = loopWidth;
-    if (direction > 0 && carousel.scrollLeft >= loopWidth) carousel.scrollLeft -= loopWidth;
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
     const card = carousel.querySelector<HTMLElement>(".google-review");
     const gap = Number.parseFloat(getComputedStyle(carousel).columnGap) || 0;
-    carousel.scrollBy({ left: direction * ((card?.offsetWidth ?? carousel.clientWidth) + gap), behavior: "smooth" });
+    const step = (card?.offsetWidth ?? carousel.clientWidth) + gap;
+    const left = direction < 0 && carousel.scrollLeft <= 1
+      ? maxScroll
+      : direction > 0 && carousel.scrollLeft >= maxScroll - 1
+        ? 0
+        : carousel.scrollLeft + direction * step;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    carousel.scrollTo({ left, behavior: reducedMotion ? "instant" : "smooth" });
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    setPauseReason("keyboard", true);
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault();
     scrollOneCard(event.key === "ArrowLeft" ? -1 : 1);
@@ -157,27 +120,7 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
       </div>
       {snapshot && snapshot.reviews.length > 0 && (
         <>
-          <div
-            className="google-reviews-carousel"
-            onMouseEnter={() => setPauseReason("hover", true)}
-            onMouseLeave={() => setPauseReason("hover", false)}
-            onFocusCapture={() => setPauseReason("focus", true)}
-            onBlurCapture={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) {
-                setPauseReason("focus", false);
-                setPauseReason("keyboard", false);
-              }
-            }}
-            onPointerDown={(event) => {
-              if (event.pointerType !== "mouse") setPauseReason("touch", true);
-            }}
-            onPointerUp={(event) => {
-              if (event.pointerType !== "mouse") setPauseReason("touch", false);
-            }}
-            onPointerCancel={(event) => {
-              if (event.pointerType !== "mouse") setPauseReason("touch", false);
-            }}
-          >
+          <div className="google-reviews-carousel">
             <div
               className="google-reviews-list"
               ref={carouselRef}
@@ -186,11 +129,10 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
               tabIndex={0}
               onKeyDown={handleKeyDown}
             >
-            {[0, 1].flatMap((sequence) => snapshot.reviews.map((review) => (
+            {snapshot.reviews.map((review) => (
               <figure
                 className="google-review"
-                key={`${sequence}-${review.id}`}
-                aria-hidden={sequence === 1 || undefined}
+                key={review.id}
                 data-expanded={expandedReviews.has(review.id) || undefined}
               >
                 <figcaption>
@@ -205,8 +147,7 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
                   <ReviewComment
                     comment={review.comment}
                     expanded={expandedReviews.has(review.id)}
-                    contentId={`google-review-${sequence}-${review.id}`}
-                    duplicate={sequence === 1}
+                    contentId={`google-review-${review.id}`}
                     onToggle={() => toggleReview(review.id)}
                   />
                 ) : <p>Avis sans commentaire.</p>}
@@ -221,7 +162,7 @@ export function GoogleReviewsView({ snapshot }: { snapshot: GoogleReviewsSnapsho
                   </p>
                 )}
               </figure>
-            )))}
+            ))}
             </div>
             <div className="google-reviews-controls" aria-label="Commandes du carrousel">
               <button type="button" onClick={() => scrollOneCard(-1)} aria-label="Afficher l’avis précédent">
